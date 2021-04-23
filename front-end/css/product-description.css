@@ -32,6 +32,10 @@ header, footer {
     margin-bottom: 30px;
 }
 
+footer {
+    margin-top: 30px;
+}
+
 /* -------------------------- Left ---------------------- */
 .left img {
     width: 100%;
@@ -85,4 +89,8 @@ h2 {
 
 .right .product-description {
     margin-top: 56px;
+}
+
+.right button {
+    margin-top: 48px;
 }
