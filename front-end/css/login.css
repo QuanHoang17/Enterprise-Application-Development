@@ -35,6 +35,16 @@
     font-weight: bold;
 }
 
+.error {
+    display: none;
+    font-size: var(--font-small);
+    color: red;
+}
+
+.error.display {
+    display: block;
+}
+
 .log-in-btn {
     /* width: 22.22vw; */
     width: clamp(10rem, 22.22vw, 22.22vw);

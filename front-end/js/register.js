@@ -1,37 +1,59 @@
 // Input validation
 function displayError(errorDisplay, errorString) {
+    // Display error string at specific element
     errorDisplay.innerHTML += `<p>${errorString}</p>`;
     errorDisplay.classList.add("display");
 }
 
-async function validateName(name, errorName) {
-    // Check name empty
-    if (name === "") {
-        console.log("Name is empty");
+async function validateName(userName, errorName) {
+    // Validate empty name
+    if (userName === "") {
         displayError(errorName, "- The field is blank");
         return false;
     }
 
-    // Check if name available
+    // Check if name contain space
+    if (/\s/.test(userName)) {
+        displayError(errorName, "- Name must not contain space")
+        return false;
+    }
+
+    // Check if name is available
     return true;
 }
 
 async function validateEmail(email, errorEmail) {
-    // Check email empty
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+    // Validate empty email
     if (email === "") {
-        console.log("Email is empty");
         displayError(errorEmail, "- The field is blank");
         return false;
     }
 
-    // Check invalid email
+    // Validate email string
     if (re.test(String(email).toLowerCase()) === false) {
         displayError(errorEmail, "- Invalid email format");
         return false;
     }
 
     // Check if email is available
+    return true;
+}
+
+function validatePhone(phone, errorPhone) {
+    // Validate phone email
+    if (phone === "") {
+        displayError(errorPhone, "- The field is blank");
+        return false;
+    }
+
+    // Validate phone string
+    if (/[0-9]+/.test(phone) === false) {
+        displayError(errorPhone, "- Phone number must only contain number");
+        return false;
+    }
+
     return true;
 }
 
@@ -48,25 +70,36 @@ function validatePassword(password, errorPassword) {
     let uppercase = /[A-Z]/;
     let number = /\d/
 
+    // Validate empty password
+    if (password === "") {
+        displayError(errorPassword, "- The field is blank");
+        return false;
+    }
+
+    // Validate length
     if (password.length < 6) {
         displayError(errorPassword, "- Password need to have more than 5 characters")
     }
 
+    // Validate at least 1 special character
     if (specialChar.test(password) === false) {
         displayError(errorPassword, "- The password must have at least 1 special character");
         containSpecial = false;
     }
 
+    // Validate at least 1 lowercase character 
     if (lowercase.test(password) === false) {
         displayError(errorPassword, "- The password must have at least 1 lowercase character");
         containLowercase = false;
     }
 
+    // Validate at least 1 uppercase character 
     if (uppercase.test(password) === false) {
         displayError(errorPassword, "- The password must have at least 1 uppercase character");
         containUppercase = false;
     }
 
+    // Validate at least 1 number
     if (number.test(password) === false) {
         displayError(errorPassword, "- The password must have at least 1 number");
         containNumber = false;
@@ -87,44 +120,57 @@ function validateConfirmedPassword(password, confirmedPassword, errorConfirmedPa
     return true;
 }
 
-// Create Btn input
+// Create Btn click event
 var createBtn = document.querySelector("#create-btn");
 
 createBtn.addEventListener("click", async () => {
     // Input field
-    let name = document.querySelector("#input-name");
+    let userName = document.querySelector("#input-name");
     let email = document.querySelector("#input-email");
+    let phone = document.querySelector("#input-phone");
     let password = document.querySelector("#input-password");
     let confirmedPassword = document.querySelector("#input-confirmed-password");
 
     //Error field
     let errorName = document.querySelector("#error-name");
     let errorEmail = document.querySelector("#error-email");
+    let errorPhone = document.querySelector("#error-phone");
     let errorPassword = document.querySelector("#error-password");
     let errorConfirmedPassword = document.querySelector("#error-confirmed-password");
 
     //Reset error field
     errorName.classList.remove("display");
     errorEmail.classList.remove("display");
+    errorPhone.classList.remove("display");
     errorPassword.classList.remove("display");
     errorConfirmedPassword.classList.remove("display");
     errorName.innerHTML = "";
     errorEmail.innerHTML = "";
+    errorPhone.innerHTML = "";
     errorPassword.innerHTML = "";
     errorConfirmedPassword.innerHTML = "";
 
     let allValidated = true;
-    if (await validateName(name.value, errorName) === false) {
+    if (await validateName(userName.value, errorName) === false) {
+        confirmedPassword.value = "";
+        allValidated = false;
+    }
+    
+    if (await validateEmail(email.value, errorEmail) === false) {
+        confirmedPassword.value = "";
         allValidated = false;
     }
 
-    if (await validateEmail(email.value, errorEmail) === false) {
+    if (validatePhone(phone.value, errorPhone) === false) {
+        confirmedPassword.value = "";
         allValidated = false;
     }
 
     if (validatePassword(password.value, errorPassword) === false) {
-        allValidated = false
+        confirmedPassword.value = "";
+        allValidated = false;
     } else if (validateConfirmedPassword(password.value, confirmedPassword.value, errorConfirmedPassword) === false) {
+        confirmedPassword.value = "";
         allValidated = false;
     }
 })
