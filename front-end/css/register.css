@@ -40,7 +40,17 @@
     width: clamp(20rem, 22.22vw, 22.22vw);
 }
 
-.create-account {
+.login-account {
     margin-top: 1.5rem;
     font-size: var(--font-small);
+}
+
+.error {
+    display: none;
+    font-size: var(--font-small);
+    color: red;
+}
+
+.error.display {
+    display: block;
 }

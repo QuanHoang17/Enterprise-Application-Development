@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/ult.css">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/register.css">
     <title>GeaRMIT</title>
 </head>
 <body>
@@ -17,15 +17,24 @@
     <!-- Login Body -->
     <div class="log-in-container">
         <label class="label">Username:</label>
-        <input type="text" class="input">
+        <div class="error" id="error-name"></div>
+        <input type="text" class="input" id="input-name">
+
         <label class="label">Email:</label>
-        <input type="text" class="input">
+        <div class="error" id="error-email"></div>
+        <input type="text" class="input" id="input-email">
+
         <label class="label">Password:</label>
-        <input type="password" class="input">
+        <div class="error" id="error-password"></div>
+        <input type="password" class="input" id="input-password">
+
         <label class="label">Confirmed Password:</label>
-        <input type="password" class="input">
-        <button class="primary-cta--base register-btn">Create Account</button>
-        <label class="create-account">Already have an account? <a href="login.html">Login Now!</a></label>
+        <div class="error" id="error-confirmed-password"></div>
+        <input type="password" class="input" id="input-confirmed-password">
+
+        <button class="primary-cta--base register-btn" id="create-btn">Create Account</button>
+        <label class="login-account">Already have an account? <a href="login.html">Login Now!</a></label>
     </div>
+    <script src="../js/register.js"></script>
 </body>
 </html>
