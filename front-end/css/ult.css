@@ -40,6 +40,19 @@ body {
   color: var(--black-80); /*Default text color*/
   background-color: #fff;
 }
+a {
+  text-decoration: none;
+  color: var(--primary-light);
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
 
 .shadow-base {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06),
