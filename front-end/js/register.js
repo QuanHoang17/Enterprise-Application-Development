@@ -152,25 +152,24 @@ createBtn.addEventListener("click", async () => {
 
     let allValidated = true;
     if (await validateName(userName.value, errorName) === false) {
-        confirmedPassword.value = "";
         allValidated = false;
     }
     
     if (await validateEmail(email.value, errorEmail) === false) {
-        confirmedPassword.value = "";
         allValidated = false;
     }
 
     if (validatePhone(phone.value, errorPhone) === false) {
-        confirmedPassword.value = "";
         allValidated = false;
     }
 
     if (validatePassword(password.value, errorPassword) === false) {
-        confirmedPassword.value = "";
         allValidated = false;
     } else if (validateConfirmedPassword(password.value, confirmedPassword.value, errorConfirmedPassword) === false) {
-        confirmedPassword.value = "";
         allValidated = false;
+    }
+
+    if (!allValidated) {
+        confirmedPassword.value = "";
     }
 })

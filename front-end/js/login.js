@@ -11,6 +11,13 @@ function validateName(userName, errorName) {
         displayError(errorName, "- The field is blank");
         return false;
     }
+
+    // Check if name contain space
+    if (/\s/.test(userName)) {
+        displayError(errorName, "- Name must not contain space")
+        return false;
+    }
+
     return true;
 }
 
@@ -52,17 +59,18 @@ loginBtn.addEventListener("click", async () => {
 
     let allValidated = true;
     if (validateName(name.value, errorName) === false) {
-        password.value = "";
         allValidated = false;
     }
 
     if (validatePassword(password.value, errorPassword) === false) {
-        password.value = "";
         allValidated = false;
     }
 
     if (allValidated && await validateLogin(name.value, password.value, errorLogin) === false) {
-        password.value = "";
         allValidated = false;
+    }
+
+    if (!allValidated) {
+        password.value = "";
     }
 })
