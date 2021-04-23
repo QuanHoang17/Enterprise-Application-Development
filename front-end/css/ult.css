@@ -80,10 +80,13 @@ button {
 }
 .primary-cta--base {
   padding: 20px 2rem;
+  font-size: var(--font-400);
 }
 .primary-cta--medium {
   padding: 1rem 24px;
+  font-size: var(--font-200);
 }
 .padding-cta--small {
   padding: 0.5rem 1rem;
+  font-size: var(--font-small);
 }
