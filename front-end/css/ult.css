@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /*--------------TYPOGRAPHY ------------------*/
+  --font-small: 14px;
+  --font-base: 16px;
+  --font-200: 1.25rem;
+  --font-300: 1.563rem;
+  --font-400: 1.953rem;
+  --font-500: 2.441rem;
+  --heading: 3.052rem;
+
+  /*--------------COLORS ------------------*/
+  --primary-base: #c80808;
+  --primary-light: #f87060;
+  --primary-dark: #5a0001;
+  --primary-darkest: #140101;
+
+  --black-base: #22181c;
+  --black-80: rgba(34, 24, 28, 0.8);
+  --black-50: rgba(34, 24, 28, 0.5);
+  --black-20: rgba(34, 24, 28, 0.2);
+
+  --white-base: #fffaff;
+  --white-80: rgba(255, 250, 255, 0.8);
+  --white-50: rgba(255, 250, 255, 0.5);
+  --white-20: rgba(255, 250, 255, 0.2);
+}
+html,
+body {
+  width: 100vw;
+  font-size: var(--font-base);
+  font-family: "Lato", sans-serif;
+  color: var(--black-80); /*Default text color*/
+  background-color: #fff;
+}
+
+.shadow-base {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+.shadow-medium {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+.shadow-large {
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+button {
+  border: none;
+  outline: none;
+  border-radius: 8px;
+}
+.primary-cta--base,
+.primary-cta--small,
+.primary-cta--medium {
+  background-color: var(--primary-base);
+  color: var(--white-base);
+  font-weight: bold;
+}
+.primary-cta--base {
+  padding: 20px 2rem;
+}
+.primary-cta--medium {
+  padding: 1rem 24px;
+}
+.padding-cta--small {
+  padding: 0.5rem 1rem;
+}
