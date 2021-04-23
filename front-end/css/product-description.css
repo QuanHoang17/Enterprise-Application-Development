@@ -1,0 +1,88 @@
+/* ----------------------- Global --------------------- */
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    padding: 0 72px;
+
+}
+
+.left, .right {
+    width: 50%;
+}
+
+.left {
+    margin-right: 94px;
+}
+
+.flex {
+    display: flex;
+}
+
+.gray {
+    color: #A9A9A9;
+}
+
+header, footer {
+    background-color: orange;
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+/* -------------------------- Left ---------------------- */
+.left img {
+    width: 100%;
+    border-radius: 24px;
+}
+
+/* --------------------------- Right --------------------- */
+h2 {
+    font-size: var(--font-500);
+    margin-bottom: 27px;
+}
+
+.right .category, .status {
+    margin-bottom: 16px;
+}
+
+.right .gray {
+    margin-right: 24px;
+}
+
+.right .choice i {
+    margin-right: 10px;
+}
+
+.right .choice label {
+    margin-right: 22px;
+}
+
+.right .choice i, label {
+    color: rgba(34, 24, 28, 0.5);
+}
+
+.right .choice:hover label{
+    color: #F87060;
+}
+
+.right .choice:hover i{
+    color: #F87060;
+}
+
+.right .price{
+    color: #C80808;
+    font-size: var(--font-500);
+    font-weight: bold;
+    margin-top: 56px;
+}
+
+.right i {
+    margin-right: 14px;
+}
+
+.right .product-description {
+    margin-top: 56px;
+}
