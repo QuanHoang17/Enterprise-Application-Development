@@ -1,0 +1,46 @@
+/**Background header**/
+.background-header {
+    background: linear-gradient(0deg, rgba(90, 0, 1, 0.5), rgba(90, 0, 1, 0.5)), url("../assets/login-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    height: 50vh;
+    display: grid;
+    place-items: center;
+}
+
+.welcome-text {
+    font-size: var(--heading);
+    color: var(--white-base);
+}
+
+/**Log in body**/
+.log-in-container {
+    /* margin-top: 5rem; */
+    /* margin-left: 27.08vw;
+    margin-right: 27.08vw; */
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+    width: 45.83vw;
+}
+
+.input {
+    padding: 12px 16px;
+    margin-bottom: 43px;
+}
+
+.label {
+    font-size: var(--font-300);
+    font-weight: bold;
+}
+
+.log-in-btn {
+    /* width: 22.22vw; */
+    width: clamp(10rem, 22.22vw, 22.22vw);
+}
+
+.create-account {
+    margin-top: 1.5rem;
+    font-size: var(--font-small);
+}
