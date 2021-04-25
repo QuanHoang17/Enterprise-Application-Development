@@ -22,7 +22,7 @@ public class UserController {
         return isExistedRes;
     }
 
-    @GetMapping(value = "/api/users/email/check/{email}")
+    @GetMapping(value = "/api/users/email/check/{email}", produces = {MediaType.APPLICATION_JSON_VALUE})
     public String checkUserEmail(@PathVariable("email") String email) {
         String isExistedRes = "{\"isExisted\":" + userService.checkEmail(email) + "}";
         return isExistedRes;
@@ -34,4 +34,9 @@ public class UserController {
         return isSuccess;
     }
 
+    @PostMapping(value = "/api/login", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String loginUsers(@RequestBody Map<String, String> user) {
+        String message = "{\"message\":\"" + userService.loginUser(user) + "\"}";
+        return message;
+    }
 }

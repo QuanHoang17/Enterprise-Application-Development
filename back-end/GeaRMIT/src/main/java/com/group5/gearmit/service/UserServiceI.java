@@ -25,6 +25,18 @@ public class UserServiceI implements UserService {
     }
 
     @Override
+    public String loginUser(Map<String, String> user) {
+        String storedPassword = userDAO.getUsersPasswordByName(user.get("name"));
+        if (storedPassword == null) {
+            return "name";
+        }
+        if (!storedPassword.equals(user.get("password"))) {
+            return "password";
+        }
+        return "success";
+    }
+
+    @Override
     public String addUser(Map<String, String> userInfo) {
         Users user = new Users();
         user.setName(userInfo.get("name"));
@@ -32,9 +44,6 @@ public class UserServiceI implements UserService {
         user.setPassword(userInfo.get("password"));
         user.setPhone(userInfo.get("phone"));
         Object response = userDAO.saveAndFlush(user);
-        System.out.println(response);
         return "success";
     }
-
-
 }

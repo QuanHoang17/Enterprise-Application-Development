@@ -5,6 +5,12 @@ function displayError(errorDisplay, errorString) {
     errorDisplay.classList.add("display");
 }
 
+function displayLoginStatus(loginStatus, statusString) {
+    // Display error string at specific element
+    loginStatus.innerHTML = `<p>${statusString}</p>`;
+    loginStatus.classList.add("display");
+}
+
 function validateName(userName, errorName) {
     // Validate empty name
     if (userName === "") {
@@ -31,15 +37,38 @@ function validatePassword(password, errorPassword) {
     return true;
 }
 
-async function validateLogin(name, password, errorLogin) {
-    
-    return true
+async function validateLogin(userName, password) {
+    let userInfo = {
+        name: userName,
+        password: password
+    };
+    let res;
+    try {
+        res = await fetch("http://localhost:8080/api/login", {
+            method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        });
+        if (res.ok) {
+            let resData = await res.json();
+            console.log(resData);
+            return resData.message
+        }
+    } catch (error) {
+
+    }
+    return 400;
 }
 
 // Create Btn click event
 var loginBtn = document.querySelector("#log-in-btn");
 
 loginBtn.addEventListener("click", async () => {
+    loginBtn.disabled = true;
+
     // Input field
     let name = document.querySelector("#input-name");
     let password = document.querySelector("#input-password");
@@ -66,11 +95,21 @@ loginBtn.addEventListener("click", async () => {
         allValidated = false;
     }
 
-    if (allValidated && await validateLogin(name.value, password.value, errorLogin) === false) {
-        allValidated = false;
-    }
-
     if (!allValidated) {
         password.value = "";
     }
+
+    if (allValidated) {
+        let loginRes = await validateLogin(name.value, password.value);
+        if (loginRes == "password") {
+            displayLoginStatus(errorLogin, "- Incorrect password");
+        } else if (loginRes == "name") {
+            displayLoginStatus(errorLogin, "- Username not found, please register!");
+        } else if (loginRes == "success") {
+            displayLoginStatus(errorLogin, "- Login successful");
+        } else {
+            displayLoginStatus(errorLogin, "- Cannot connect to server");
+        }
+    }
+    loginBtn.disabled = false;
 })
