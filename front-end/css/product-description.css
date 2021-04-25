@@ -58,15 +58,11 @@ footer {
     border-radius: 8px;
     filter: grayscale(100%);
     opacity: 0.5;
+    cursor: pointer;
 }
 
 .left .small-pic-2, .small-pic-3, .small-pic-4, .small-pic-5 {
     margin-left: 16px;
-}
-
-.left .small-pics img:hover {
-    filter: grayscale(0%);
-    opacity: 1;
 }
 
 /* --------------------------- Right --------------------- */
@@ -85,6 +81,7 @@ h2 {
 
 .right .choice i {
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .right .choice label {
@@ -93,14 +90,6 @@ h2 {
 
 .right .choice i, label {
     color: rgba(34, 24, 28, 0.5);
-}
-
-.right .choice:hover label{
-    color: #F87060;
-}
-
-.right .choice:hover i{
-    color: #F87060;
 }
 
 .right .price{

@@ -1,4 +1,6 @@
 //----------------------------------------- Variables ------------------------------------//
+
+// For images
 var kerr1 = '../assets/kerr_1.jpeg';
 var kerr2 = '../assets/kerr_2.jpeg';
 var kerr3 = '../assets/kerr_3.png';
@@ -20,6 +22,31 @@ var smallPicArr = [
     [small_5, kerr5]
 ];
 
+// For choices
+var allIcon = document.querySelector(".all-icon");
+var redIcon = document.querySelector(".red-icon");
+var greenIcon = document.querySelector(".green-icon");
+var blueIcon = document.querySelector(".blue-icon");
+
+var allLabel = document.querySelector(".all-label");
+var redLabel = document.querySelector(".red-label");
+var greenLabel = document.querySelector(".green-label");
+var blueLabel = document.querySelector(".blue-label");
+
+var all = "all";
+var red = "red";
+var green = "green";
+var blue = "blue";
+
+var choiceArr = [
+    [allIcon, allLabel, all],
+    [redIcon, redLabel, red],
+    [greenIcon, greenLabel, green],
+    [blueIcon, blueLabel, blue]
+];
+
+var choice = "";
+
 //----------------------------------------- Functions ------------------------------------//
 
 //Reset grayscale and opacity of all small pics
@@ -29,19 +56,34 @@ function resetSmalls(params) {
     });
 }
 
-/*
-Default state of main pic and relevant small pic
-*/
+//Default state of main pic and relevant small pic    
 small_1.style.cssText = "opacity: 1; filter: grayscale(0%)";
 
-/* 
-Control the change of main pic
-*/
+
+//Control the change of main pic
 smallPicArr.forEach(element => {
     element[0].addEventListener("click", function changeMainPic(params) {
         resetSmalls();
         mainPic.src = element[1];
         element[0].style.cssText = "opacity: 1; filter: grayscale(0%)";
+    })
+})
+
+// Reset colors for choices
+function resetChoices(params) {
+    choiceArr.forEach(element => {
+        element[0].style.cssText = "color: rgba(34, 24, 28, 0.5)";
+        element[1].style.cssText = "color: rgba(34, 24, 28, 0.5)";
+    })
+}
+
+// Controller for color choices
+choiceArr.forEach(element =>{
+    element[0].addEventListener("click", function getChoice(params) {
+        resetChoices();
+        element[0].style.cssText = "color: #F87060";
+        element[1].style.cssText = "color: #F87060";
+        choice = element[2];
     })
 })
 
