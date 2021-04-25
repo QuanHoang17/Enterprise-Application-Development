@@ -37,9 +37,33 @@ footer {
 }
 
 /* -------------------------- Left ---------------------- */
+.left {
+    text-align: center;
+}
+
 .left img {
-    width: 100%;
+    width: 80%; /* để cho nhỏ lại chứ to quá khó nhìn */
     border-radius: 24px;
+}
+
+.left .small-pics {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.left .small-pics img {
+    width: 84px;
+    border-radius: 8px;
+    margin-left: 16px;
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+
+.left .small-pics img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
 }
 
 /* --------------------------- Right --------------------- */
@@ -93,4 +117,21 @@ h2 {
 
 .right button {
     margin-top: 48px;
+}
+
+.right .turn-back-container {
+    margin-top: 16px;
+}
+
+.right .turn-back {
+    font-size: 16px;
+    color: #F87060;
+}
+
+.right .turn-back i {
+    margin-right: 10px;
+}
+
+.right .turn-back:hover span {
+    text-decoration: underline;
 }
