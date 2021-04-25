@@ -5,7 +5,13 @@ function displayError(errorDisplay, errorString) {
     errorDisplay.classList.add("display");
 }
 
-async function validateName(userName, errorName) {
+function displayRegisterStatus(registerStatus, statusString) {
+    // Display error string at specific element
+    registerStatus.innerHTML = `<p>${statusString}</p>`;
+    registerStatus.classList.add("display");
+}
+
+async function validateName(userName, errorName, registerStatus) {
     // Validate empty name
     if (userName === "") {
         displayError(errorName, "- The field is blank");
@@ -19,10 +25,29 @@ async function validateName(userName, errorName) {
     }
 
     // Check if name is available
+    let nameExistedRes;
+    try {
+        nameExistedRes = await fetch(`http://localhost:8080/api/users/name/check/${userName}`);
+        if (!nameExistedRes.ok) {
+            displayError(errorName, "- Cannot connect to server to validate name");
+            displayRegisterStatus(registerStatus, "- Cannot connect to server. Please try again later.")
+            return false;
+        }
+        let nameExistedData = await nameExistedRes.json();
+        if (nameExistedData.isExisted) {
+            displayError(errorName, "- Name already exsisted")
+            return false;
+        }
+    } catch (error) {
+        displayError(errorName, "- Cannot connect to server to validate name");
+        displayRegisterStatus(registerStatus, "- Cannot connect to server. Please try again later.")
+        return false;
+    }
+
     return true;
 }
 
-async function validateEmail(email, errorEmail) {
+async function validateEmail(email, errorEmail, registerStatus) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     
     // Validate empty email
@@ -38,6 +63,23 @@ async function validateEmail(email, errorEmail) {
     }
 
     // Check if email is available
+    let emailExistedRes;
+    try {
+        emailExistedRes = await fetch(`http://localhost:8080/api/users/email/check/${email}`);
+        if (!emailExistedRes.ok) {
+            displayError(errorEmail, "- Cannot connect to server to validate email");
+            displayRegisterStatus(registerStatus, "- Cannot connect to server. Please try again later.")
+            return false;
+        }
+        let emailExistedData = await emailExistedRes.json();
+        if (emailExistedData.isExisted) {
+            displayError(errorEmail, "- Email already exsisted")
+            return false;
+        }
+    } catch (error) {
+        displayError(errorEmail, "- Cannot connect to server to validate email");
+        displayRegisterStatus(registerStatus, "- Cannot connect to server. Please try again later.")
+    }
     return true;
 }
 
@@ -120,10 +162,38 @@ function validateConfirmedPassword(password, confirmedPassword, errorConfirmedPa
     return true;
 }
 
+// Register User
+async function registerUsers(userName, email, phone, password) {
+    let userInfo = {
+        name: userName,
+        email: email,
+        phone: phone,
+        password: password
+    };
+    try {
+        let res = await fetch("http://localhost:8080/api/users", {
+            method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        });
+        return res.status;
+    } catch (error) {
+        
+    }
+    return 400;
+}
+
+
+
 // Create Btn click event
 var createBtn = document.querySelector("#create-btn");
 
 createBtn.addEventListener("click", async () => {
+    createBtn.disabled = true;
+
     // Input field
     let userName = document.querySelector("#input-name");
     let email = document.querySelector("#input-email");
@@ -137,25 +207,30 @@ createBtn.addEventListener("click", async () => {
     let errorPhone = document.querySelector("#error-phone");
     let errorPassword = document.querySelector("#error-password");
     let errorConfirmedPassword = document.querySelector("#error-confirmed-password");
+    let registerStatus = document.querySelector("#register-status");
 
-    //Reset error field
+    // Hide error field value
     errorName.classList.remove("display");
     errorEmail.classList.remove("display");
     errorPhone.classList.remove("display");
     errorPassword.classList.remove("display");
     errorConfirmedPassword.classList.remove("display");
+    registerStatus.classList.remove("display");
+
+    // Reset error field value
     errorName.innerHTML = "";
     errorEmail.innerHTML = "";
     errorPhone.innerHTML = "";
     errorPassword.innerHTML = "";
     errorConfirmedPassword.innerHTML = "";
+    registerStatus.innerHTML = "";
 
     let allValidated = true;
-    if (await validateName(userName.value, errorName) === false) {
+    if (await validateName(userName.value, errorName, registerStatus) === false) {
         allValidated = false;
     }
     
-    if (await validateEmail(email.value, errorEmail) === false) {
+    if (await validateEmail(email.value, errorEmail, registerStatus) === false) {
         allValidated = false;
     }
 
@@ -172,4 +247,29 @@ createBtn.addEventListener("click", async () => {
     if (!allValidated) {
         confirmedPassword.value = "";
     }
+
+    // Register user when everything is validated
+    if (allValidated) {
+        let redirectSecond = 5;
+        if (await registerUsers(userName.value, email.value, phone.value, password.value) == 200) {
+            displayRegisterStatus(registerStatus, `Account successfully created! Redirect to login page in ${redirectSecond} seconds`);
+            // registerStatus.classList.add("display");
+            // registerStatus.innerHTML = `<p>Account successfully created! Redirect to login page in ${redirectSecond} seconds</p>`;
+            userName.value = "";
+            email.value = "";
+            phone.value = "";
+            password.value = "";
+            confirmedPassword.value = "";
+            setInterval(() => {
+                redirectSecond = redirectSecond - 1;
+                displayRegisterStatus(registerStatus, `Account successfully created! Redirect to login page in ${redirectSecond} seconds`);
+            }, 1000)
+            await new Promise(() => setTimeout(() => {
+                window.location.replace("login.html");
+            }, 5000));
+        } else {
+            displayRegisterStatus(registerStatus, `Error creating account`);
+        };
+    }
+    createBtn.disabled = false;
 })
