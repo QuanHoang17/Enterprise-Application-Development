@@ -56,9 +56,12 @@ footer {
 .left .small-pics img {
     width: 84px;
     border-radius: 8px;
-    margin-left: 16px;
     filter: grayscale(100%);
     opacity: 0.5;
+}
+
+.left .small-pic-2, .small-pic-3, .small-pic-4, .small-pic-5 {
+    margin-left: 16px;
 }
 
 .left .small-pics img:hover {
