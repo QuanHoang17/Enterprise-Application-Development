@@ -29,9 +29,9 @@ public class UserController {
     }
 
     @PostMapping(value = "/api/users")
-    public String addUsers(@RequestBody Map<String, String> user) {
-        String isSuccess = "{\"Status\":" + userService.addUser(user) + "}";
-        return isSuccess;
+    public Map<String, String> addUsers(@RequestBody Map<String, String> user) {
+//        String isSuccess = "{\"Status\":" + userService.addUser(user) + "}";
+        return userService.addUser(user);
     }
 
     @PostMapping(value = "/api/login", produces = {MediaType.APPLICATION_JSON_VALUE})
