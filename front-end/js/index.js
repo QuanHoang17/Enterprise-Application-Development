@@ -1,10 +1,16 @@
-console.log("hi");
-import Header from './components/Header.vue'
+const mainCover = document.querySelector('#main-cover');
+const bestSellers = document.querySelector('#best-sellers');
+const newProducts = document.querySelector('#new-products');
+const categories = document.querySelector('#categories');
 
-const app = Vue.createApp({
-    components: {
-        Header
-    }
-})
+const fetchData = (source, target) => {
+    fetch(source)
+        .then(res => res.text())
+        .then(data => {
+            target.innerHTML = data;
+            console.log('haha');
+        })
+        // .catch(e => console.log(e))
+}
 
-app.mount('#app')
+fetchData('./components/Index/Cover/cover.html', mainCover)

@@ -1,7 +1,9 @@
-const header = document.querySelector('#header');
+// Reusable components
 
+const header = document.querySelector('#header');
 fetch('./components/Header/header.html')
     .then(res => res.text())
     .then(data => {
         header.innerHTML = data;
     })
+    .catch(e => console.log(e))
