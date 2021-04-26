@@ -24,26 +24,6 @@ async function validateName(userName, errorName, registerStatus) {
         return false;
     }
 
-    // Check if name is available
-    let nameExistedRes;
-    try {
-        nameExistedRes = await fetch(`http://localhost:8080/api/users/name/check/${userName}`);
-        if (!nameExistedRes.ok) {
-            displayError(errorName, "- Cannot connect to server to validate name");
-            displayRegisterStatus(registerStatus, "- Cannot connect to server. Please try again later.")
-            return false;
-        }
-        let nameExistedData = await nameExistedRes.json();
-        if (nameExistedData.isExisted) {
-            displayError(errorName, "- Name already exsisted")
-            return false;
-        }
-    } catch (error) {
-        displayError(errorName, "- Cannot connect to server to validate name");
-        displayRegisterStatus(registerStatus, "- Cannot connect to server. Please try again later.")
-        return false;
-    }
-
     return true;
 }
 
@@ -62,24 +42,6 @@ async function validateEmail(email, errorEmail, registerStatus) {
         return false;
     }
 
-    // Check if email is available
-    let emailExistedRes;
-    try {
-        emailExistedRes = await fetch(`http://localhost:8080/api/users/email/check/${email}`);
-        if (!emailExistedRes.ok) {
-            displayError(errorEmail, "- Cannot connect to server to validate email");
-            displayRegisterStatus(registerStatus, "- Cannot connect to server. Please try again later.")
-            return false;
-        }
-        let emailExistedData = await emailExistedRes.json();
-        if (emailExistedData.isExisted) {
-            displayError(errorEmail, "- Email already exsisted")
-            return false;
-        }
-    } catch (error) {
-        displayError(errorEmail, "- Cannot connect to server to validate email");
-        displayRegisterStatus(registerStatus, "- Cannot connect to server. Please try again later.")
-    }
     return true;
 }
 
@@ -179,11 +141,15 @@ async function registerUsers(userName, email, phone, password) {
             },
             body: JSON.stringify(userInfo)
         });
-        return res.status;
+        if (res.ok) {
+            let resData = await res.json();
+            console.log(resData);
+            return resData;
+        };
     } catch (error) {
         
     }
-    return 400;
+    return 404;
 }
 
 
@@ -251,25 +217,34 @@ createBtn.addEventListener("click", async () => {
     // Register user when everything is validated
     if (allValidated) {
         let redirectSecond = 5;
-        if (await registerUsers(userName.value, email.value, phone.value, password.value) == 200) {
-            displayRegisterStatus(registerStatus, `Account successfully created! Redirect to login page in ${redirectSecond} seconds`);
-            // registerStatus.classList.add("display");
-            // registerStatus.innerHTML = `<p>Account successfully created! Redirect to login page in ${redirectSecond} seconds</p>`;
-            userName.value = "";
-            email.value = "";
-            phone.value = "";
-            password.value = "";
-            confirmedPassword.value = "";
-            setInterval(() => {
-                redirectSecond = redirectSecond - 1;
-                displayRegisterStatus(registerStatus, `Account successfully created! Redirect to login page in ${redirectSecond} seconds`);
-            }, 1000)
-            await new Promise(() => setTimeout(() => {
-                window.location.replace("login.html");
-            }, 5000));
+        let registerRes = await registerUsers(userName.value, email.value, phone.value, password.value);
+        if (registerRes == 404) {
+            displayRegisterStatus(registerStatus, "- Cannot connect to server");
         } else {
-            displayRegisterStatus(registerStatus, `Error creating account`);
-        };
+            if (registerRes.email == "existed") {
+                displayError(errorEmail, "- Email already exsisted")
+            }
+            if (registerRes.name == "existed") {
+                displayError(errorName, "- Name already exsisted")
+            }
+            if (registerRes.status == "success") {
+                displayRegisterStatus(registerStatus, `Account successfully created! Redirect to login page in ${redirectSecond} seconds`);
+                // registerStatus.classList.add("display");
+                // registerStatus.innerHTML = `<p>Account successfully created! Redirect to login page in ${redirectSecond} seconds</p>`;
+                userName.value = "";
+                email.value = "";
+                phone.value = "";
+                password.value = "";
+                confirmedPassword.value = "";
+                setInterval(() => {
+                    redirectSecond = redirectSecond - 1;
+                    displayRegisterStatus(registerStatus, `Account successfully created! Redirect to login page in ${redirectSecond} seconds`);
+                }, 1000)
+                await new Promise(() => setTimeout(() => {
+                    window.location.replace("login.html");
+                }, 5000));
+            }
+        }
     }
     createBtn.disabled = false;
 })

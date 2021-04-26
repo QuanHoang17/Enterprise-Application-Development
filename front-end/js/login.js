@@ -55,12 +55,12 @@ async function validateLogin(userName, password) {
         if (res.ok) {
             let resData = await res.json();
             console.log(resData);
-            return resData.message
+            return resData.message;
         }
     } catch (error) {
 
     }
-    return 400;
+    return 404;
 }
 
 // Create Btn click event
