@@ -3,14 +3,23 @@ const bestSellers = document.querySelector('#best-sellers');
 const newProducts = document.querySelector('#new-products');
 const categories = document.querySelector('#categories');
 
+let sections = [mainCover, bestSellers, newProducts, categories];
+let secionLinks = [
+    './components/Index/Cover/cover.html',
+    './components/Index/BestSellers/best-sellers.html',
+    './components/Index/NewProducts/new-products.html',
+    './components/Index/Categories/categories.html'
+]
+
 const fetchData = (source, target) => {
     fetch(source)
         .then(res => res.text())
         .then(data => {
             target.innerHTML = data;
-            console.log('haha');
         })
-        // .catch(e => console.log(e))
+        .catch(e => console.log(e))
 }
 
-fetchData('./components/Index/Cover/cover.html', mainCover)
+for (let i = 0; i < sections.length; ++i) {
+    fetchData(secionLinks[i], sections[i]);
+}
