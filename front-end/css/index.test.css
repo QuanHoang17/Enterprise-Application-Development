@@ -1,0 +1,76 @@
+/* Place to store css for testing */
+
+body {
+    /* min-height: 100%; */
+    min-width: 100%;
+}
+
+.main-cover {
+    min-width: 100vw;
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(90, 0, 1, 0.5), rgba(90, 0, 1, 0.5)),url();
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    margin-left: 55%;
+    margin-top: 10%;
+}
+
+.main-content h1 {
+    color: var(--white-base);
+    text-transform: capitalize;
+    font-size: 3rem;
+    margin-top: 10%;
+    line-height: 120%;
+}
+
+.main-cover button {
+    margin-top: 40px;
+    font-size: 1.3rem;
+}
+
+
+
+.best-seller-container {
+    position: relative;
+    transform: translateY(-40%) ;
+    /* background-color: purple; */
+    margin: auto 90px;
+    /* height: 329px; */
+}
+
+
+.best-seller-container h2 {
+    color: var(--white-base);
+    opacity: 80%;
+    border-left: 5px solid #F87060;
+    padding-left: 10px;
+}
+
+.best-seller-product-list {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 50px 90px;
+    gap: 24px;
+    /* background-color: #F87060; */
+}
+
+.best-seller-product-card {
+    display: flex;
+    flex-direction: column;
+    width: 269px;
+    border-radius: 12px;
+    padding: 8px 8px 16px;
+    background-color: var(--white-base);
+    box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+    /* margin: 20px auto; */
+}
+
+#best-seller-product-image {
+    border-radius: 12px;
+}
