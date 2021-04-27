@@ -1,0 +1,31 @@
+.Footer {
+    position: relative;
+    width: 100%;
+    /* margin: 14px 0px; */
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    padding: 64px 72px;
+    background-color: #FFFAFF;
+    
+}
+
+.Footer .column a {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.Footer .column h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.Footer .column p {
+    position: absolute;
+    font-size: 12.8px;
+    left: 72px;
+    bottom: 64px;
+}
+

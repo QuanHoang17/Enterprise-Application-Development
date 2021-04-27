@@ -91,3 +91,15 @@ button {
   padding: 0.5rem 1rem;
   font-size: var(--font-small);
 }
+
+.section-title {
+  color: var(--white-base);
+  opacity: 80%;
+  border-left: 5px solid #F87060;
+  padding-left: 10px;
+  margin: 4%;
+}
+
+.dark {
+  color: var(--black-base);
+}

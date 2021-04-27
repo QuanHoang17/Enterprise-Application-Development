@@ -32,7 +32,7 @@
     height: 100px;
     position: absolute;
     bottom: 0;
-    transform: translateY(150%) ;
+    transform: translateY(180%) ;
     background-image: linear-gradient(to top, white, transparent);
     z-index: 1;
 }

@@ -1,0 +1,55 @@
+.new-products-container {
+    position: relative;
+    display: block;
+    padding-top: 50px;
+    /* border: 10px solid rgb(122, 52, 122); */
+}
+
+.new-product-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: 10px solid red;
+}
+
+.new-product-card {
+    width: 50vw;
+    height: 540px;
+    background: linear-gradient(0deg, rgba(90, 0, 1, 0.3), rgba(90, 0, 1, 0.3));
+    opacity: 0.9;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.new-product-card:nth-child(1) {
+    background: linear-gradient(0deg, rgba(90, 0, 1, 0.3), rgba(90, 0, 1, 0.3)) ,url('https://blog.logitech.com/wp-content/uploads/2019/08/Keyboard.jpeg');
+    /* opacity: 0.9; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.new-product-card:nth-child(2) {
+    background: linear-gradient(0deg, rgba(90, 0, 1, 0.3), rgba(90, 0, 1, 0.3)) ,url('https://assets2.razerzone.com/images/pnx.assets/c0034ad6db3fdb19746330967e408a71/razer-mamba-elite-usp02-mobile-gaming-mouse.jpg');
+    /* opacity: 0.5; */
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.new-product-card h1 {
+    color: var(--white-base);
+    text-shadow: 1px 1px gray;
+}
+
+.new-product-card button {
+    margin: 20px auto;
+}
