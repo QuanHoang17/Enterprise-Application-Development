@@ -4,6 +4,8 @@ const newProducts = document.querySelector('#new-products');
 const categories = document.querySelector('#categories');
 
 let sections = [mainCover, bestSellers, newProducts, categories];
+
+//Dynamic generate from the server.
 let secionLinks = [
     './components/Index/Cover/cover.html',
     './components/Index/BestSellers/best-sellers.html',
