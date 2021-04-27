@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -18,8 +17,9 @@ import java.util.Objects;
 public class Users {
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "customer_generator")
-    @GenericGenerator(name="customer_generator", strategy = "native")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.AUTO, generator = "customer_generator")
+//    @GenericGenerator(name="customer_generator", strategy = "native")
     private Integer id;
 
     @Column
