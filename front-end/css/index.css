@@ -71,6 +71,7 @@ button {
   border: none;
   outline: none;
   border-radius: 8px;
+  transition: 0.2s all ease-out;
 }
 .primary-cta--base,
 .primary-cta--small,
@@ -102,4 +103,13 @@ button {
 
 .dark {
   color: var(--black-base);
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(1);
 }
