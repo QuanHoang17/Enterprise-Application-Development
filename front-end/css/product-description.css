@@ -1,9 +1,4 @@
 /* ----------------------- Global --------------------- */
-body {
-  padding: 0;
-  margin: 0;
-}
-
 .container {
   display: flex;
   padding: 0 72px;
