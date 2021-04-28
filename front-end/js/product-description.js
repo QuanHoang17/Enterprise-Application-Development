@@ -60,7 +60,7 @@ function resetSmalls(params) {
 small_1.style.cssText = "opacity: 1; filter: grayscale(0%)";
 
 
-//Control the change of main pic
+//Control the change of main pic when small pic is selected
 smallPicArr.forEach(element => {
     element[0].addEventListener("click", function changeMainPic(params) {
         resetSmalls();
@@ -78,7 +78,7 @@ function resetChoices(params) {
 }
 
 // Controller for color choices
-choiceArr.forEach(element =>{
+choiceArr.forEach(element => {
     element[0].addEventListener("click", function getChoice(params) {
         resetChoices();
         element[0].style.cssText = "color: #F87060";
@@ -87,4 +87,8 @@ choiceArr.forEach(element =>{
     })
 })
 
+// Test button
+document.querySelector("button").addEventListener("click", function testButton(params) {
+    alert("Button is clicked");
+})
 
