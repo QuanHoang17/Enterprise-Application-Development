@@ -1,14 +1,19 @@
 package com.group5.gearmit.service;
 
 import com.group5.gearmit.dao.UserDAO;
+import com.group5.gearmit.dao.VerificationTokenDAO;
 import com.group5.gearmit.model.Users;
+import com.group5.gearmit.model.VerificationToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -18,6 +23,12 @@ public class UserServiceI implements UserService {
 
     @Autowired
     private UserDAO userDAO;
+
+    @Autowired
+    private VerificationTokenDAO tokenDAO;
+
+    @Autowired
+    private JavaMailSender mailSender;
 
     @Override
     @Transactional
@@ -31,6 +42,25 @@ public class UserServiceI implements UserService {
     public boolean checkEmail(String email) {
         Users user = userDAO.getUsersByEmail(email);
         return user != null;
+    }
+
+    private void verifyEmail(Users user) {
+        VerificationToken token = new VerificationToken();
+        String tokenGenerated = UUID.randomUUID().toString();
+        token.setToken(tokenGenerated);
+        token.setUser(user);
+        tokenDAO.saveAndFlush(token);
+
+        String recipientAddress = user.getEmail();
+        String subject = "Registration Confirmation";
+        String confirmationUrl = "/regitrationConfirmed/" + tokenGenerated;
+
+        SimpleMailMessage email = new SimpleMailMessage();
+        email.setFrom("no-reply@geaRMIT.com");
+        email.setTo(recipientAddress);
+        email.setSubject(subject);
+        email.setText("Go to the link to verify email. It will expire in 24 horus" + "\r\n" + "http://localhost:8080" + confirmationUrl);
+        mailSender.send(email);
     }
 
     @Override
@@ -72,6 +102,7 @@ public class UserServiceI implements UserService {
             user.setPhone(userInfo.get("phone"));
             userDAO.saveAndFlush(user);
             response.put("status", "success");
+            verifyEmail(user);
             return response;
         }
         response.put("status", "failed");
