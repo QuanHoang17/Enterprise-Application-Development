@@ -1,0 +1,116 @@
+/* SECTION CONTAINER */
+.category-container {
+    position: relative;
+    width: 100vw;
+    /* height: 100vh; */
+    height: 1257px;
+    display: flex;
+    flex-direction: row;
+    /* border: 5px solid red; */
+    /* align-items: center; */
+    align-items: flex-start;
+    /* justify-content: space-around; */
+    flex-wrap: wrap;
+}
+
+/* --- LEFT SECTION --- */
+.browse-category {
+    background-color: var(--primary-darkest);
+    color: #fffaff5b;
+    /* width: 20%; */
+    height: 100%;
+    /* padding-bottom: 60%; */
+    /* border: 5px solid purple; */
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    overflow: hidden;
+    flex: 2;
+}
+
+.browse-category li {
+    /* margin-left: -10%; */
+    margin: 32px 0 32px -40px;
+}
+
+.browse-category li:hover {
+    cursor: pointer;
+}
+
+.browse-category button {
+    color: #C80808;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: transparent;
+    border: 2px solid #C80808;
+    padding: 1em 1.5em;
+}
+
+.browse-category .selected {
+    font-size: 1.1em;
+    color: #eb1616;
+    font-weight: 700;
+}
+
+
+/* --- RIGHT SECTION --- */
+
+.product-detail {
+    /* width: 80%; */
+    position: relative;
+    height: 100%;
+    /* border: 5px solid purple; */
+    flex: 9;
+}
+
+.product-detail-background {
+    display: absolute;
+    /* border: 5px solid yellow; */
+    width: 100%;
+    height: 100%;
+    /* height: 100%; */
+    background: linear-gradient(0deg, rgba(34, 24, 28, 0.8), rgba(34, 24, 28, 0.8)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.product-detail-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    /* border: 5px solid blue; */
+    width: 100%;
+    height: 100%;
+}
+
+.product-detail-list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.product-detail-card {
+    width: 70%;
+    height: 20%;
+    /* max-height: 500px; */
+    background-color: var(--white-base);
+    border-radius: 10px;
+    box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: row;
+}
+
+.product-detail-card img {
+    width: 30%;
+    height: 100%;
+    border-radius: 8px;
+}
