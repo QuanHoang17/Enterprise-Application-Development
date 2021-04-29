@@ -1,129 +1,199 @@
 /* ----------------------- Global --------------------- */
-body {
-    padding: 0;
-    margin: 0;
-}
-
 .container {
-    display: flex;
-    padding: 0 72px;
-
+  display: flex;
+  padding: 0 72px;
 }
 
-.left, .right {
-    width: 50%;
+.left,
+.right {
+  width: 50%;
 }
 
 .left {
-    margin-right: 94px;
+  margin-right: 94px;
 }
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .gray {
-    color: #A9A9A9;
+  color: #a9a9a9;
 }
 
-header, footer {
-    background-color: orange;
-    height: 100px;
-    margin-bottom: 30px;
+header,
+footer {
+  background-color: orange;
+  height: 100px;
+  margin-bottom: 30px;
 }
 
 footer {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
-/* -------------------------- Left ---------------------- */
+/* -------------------------- Left ---- ------------------ */
 .left {
-    text-align: center;
+  text-align: center;
 }
 
 .left img {
-    width: 80%; /* để cho nhỏ lại chứ to quá khó nhìn */
-    border-radius: 24px;
+  width: 80%; /* để cho nhỏ lại chứ to quá khó nhìn */
+  border-radius: 24px;
 }
 
 .left .small-pics {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: 32px;
+  gap: 1rem;
 }
 
 .left .small-pics img {
-    width: 84px;
-    border-radius: 8px;
-    filter: grayscale(100%);
-    opacity: 0.5;
-    cursor: pointer;
+  width: 84px;
+  border-radius: 8px;
+  filter: grayscale(100%);
+  opacity: 0.5;
+  cursor: pointer;
 }
 
-.left .small-pic-2, .small-pic-3, .small-pic-4, .small-pic-5 {
-    margin-left: 16px;
-}
+/* .left .small-pic-2,
+.small-pic-3,
+.small-pic-4,
+.small-pic-5 {
+  margin-left: 16px;
+} */
 
 /* --------------------------- Right --------------------- */
 h2 {
-    font-size: var(--font-500);
-    margin-bottom: 27px;
+  font-size: var(--font-500);
+  margin-bottom: 27px;
 }
 
-.right .category, .status {
-    margin-bottom: 16px;
+.right .category,
+.status {
+  margin-bottom: 16px;
 }
 
 .right .gray {
-    margin-right: 24px;
+  margin-right: 24px;
 }
-
+.right .choice {
+  cursor: pointer;
+}
 .right .choice i {
-    margin-right: 10px;
-    cursor: pointer;
+  margin-right: 10px;
 }
 
-.right .choice label {
-    margin-right: 22px;
+.right .choice span {
+  margin-right: 22px;
 }
 
-.right .choice i, label {
-    color: rgba(34, 24, 28, 0.5);
+.right .choice i,
+span {
+  color: rgba(34, 24, 28, 0.5);
 }
 
-.right .price{
-    color: #C80808;
-    font-size: var(--font-500);
-    font-weight: bold;
-    margin-top: 56px;
+.choice.active i,
+.choice.active span {
+  transition: all 0.2s ease-in-out;
+  color: var(--primary-light);
+  font-weight: bold;
+}
+
+.right .price {
+  color: #c80808;
+  font-size: var(--font-500);
+  font-weight: bold;
+  margin-top: 3.5rem;
 }
 
 .right i {
-    margin-right: 14px;
+  margin-right: 14px;
 }
 
 .right .product-description {
-    margin-top: 56px;
+  margin-top: 56px;
 }
 
 .right button {
-    margin-top: 48px;
+  cursor: pointer;
+  margin-top: 3rem;
 }
 
 .right .turn-back-container {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
-.right .turn-back {
-    font-size: 16px;
-    color: #F87060;
+.right .turn-back span {
+  color: #f87060;
 }
 
 .right .turn-back i {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .right .turn-back:hover span {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+/* --------------------------- Media Query --------------------- */
+/* Table View */
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+  }
+  .right,
+  .left {
+    width: 100%;
+  }
+  .left {
+    margin: 0;
+  }
+  .right .price,
+  .right .product-description {
+    margin-top: 2.5rem;
+  }
+  .right .product-description h2 {
+    margin-bottom: 1.2rem;
+  }
+  .right button {
+    margin-top: 2rem;
+  }
+}
+
+/* Phone View */
+@media only screen and (max-width: 375px) {
+  .container {
+    gap: 4rem;
+    padding: 0 1rem;
+  }
+  .left .main-pic {
+    width: 100%;
+  }
+  .left .small-pics > * {
+    width: 50%;
+  }
+  .right .choice i {
+    margin-right: 0.2rem;
+  }
+
+  .right .choice span {
+    font-size: var(--font-small);
+    margin-right: 1rem;
+  }
+  .right .price,
+  .right .product-description {
+    margin-top: 2rem;
+  }
+  .right .product-description h2 {
+    margin-bottom: 1rem;
+  }
+  .right button {
+    margin-top: 1.7rem;
+  }
 }

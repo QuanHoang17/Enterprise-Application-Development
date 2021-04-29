@@ -60,7 +60,7 @@ function resetSmalls(params) {
 small_1.style.cssText = "opacity: 1; filter: grayscale(0%)";
 
 
-//Control the change of main pic
+//Control the change of main pic when small pic is selected
 smallPicArr.forEach(element => {
     element[0].addEventListener("click", function changeMainPic(params) {
         resetSmalls();
@@ -70,21 +70,36 @@ smallPicArr.forEach(element => {
 })
 
 // Reset colors for choices
-function resetChoices(params) {
-    choiceArr.forEach(element => {
-        element[0].style.cssText = "color: rgba(34, 24, 28, 0.5)";
-        element[1].style.cssText = "color: rgba(34, 24, 28, 0.5)";
-    })
-}
+// function resetChoices(params) {
+//     choiceArr.forEach(element => {
+//         element[0].style.cssText = "color: rgba(34, 24, 28, 0.5)";
+//         element[1].style.cssText = "color: rgba(34, 24, 28, 0.5)";
+//     })
+// }
 
-// Controller for color choices
-choiceArr.forEach(element =>{
-    element[0].addEventListener("click", function getChoice(params) {
-        resetChoices();
-        element[0].style.cssText = "color: #F87060";
-        element[1].style.cssText = "color: #F87060";
-        choice = element[2];
+// // Controller for color choices
+// choiceArr.forEach(element => {
+//     element[0].addEventListener("click", function getChoice(params) {
+//         resetChoices();
+//         element[0].style.cssText = "color: #F87060";
+//         element[1].style.cssText = "color: #F87060";
+//         choice = element[2];
+//     })
+// })
+
+const colorChoiceList = document.querySelectorAll('.choice');
+
+Array.from(colorChoiceList).forEach(colorChoice => {
+    colorChoice.addEventListener('click', (e) =>{
+        document.querySelector('.active').classList.remove('active');
+        
+        colorChoice.classList.add('active');
     })
 })
 
+
+// Test button
+document.querySelector("button").addEventListener("click", function testButton(params) {
+    alert("Button is clicked");
+})
 

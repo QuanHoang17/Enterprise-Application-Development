@@ -34,6 +34,9 @@ public class Users {
     @Column
     private String email;
 
+    @Column
+    private boolean enabled = false;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
