@@ -105,6 +105,8 @@ loginBtn.addEventListener("click", async () => {
             displayLoginStatus(errorLogin, "- Incorrect password");
         } else if (loginRes == "name") {
             displayLoginStatus(errorLogin, "- Username not found, please register!");
+        } else if (loginRes == "email") {
+            displayLoginStatus(errorLogin, "- Account not activated. Please verify email");
         } else if (loginRes == "success") {
             displayLoginStatus(errorLogin, "- Login successful");
         } else {

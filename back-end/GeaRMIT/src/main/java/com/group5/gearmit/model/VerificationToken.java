@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 
 @Data
 @NoArgsConstructor
@@ -17,7 +18,7 @@ import java.util.Date;
 @Entity
 @Table (name = "token")
 public class VerificationToken {
-    private static final int EXPIRATION = 1;
+    private static final int EXPIRATION_MINUTE = 60 * 24;
 
     @Id
     @Column
@@ -32,7 +33,7 @@ public class VerificationToken {
     private Users user;
 
     @Column
-    private Date expiryDate = calculateExpiryDate(VerificationToken.EXPIRATION);
+    private Date expiryDate = calculateExpiryDate(VerificationToken.EXPIRATION_MINUTE);
 
     private Date calculateExpiryDate(int expiryTimeInMinutes) {
         Calendar cal = Calendar.getInstance();
@@ -41,5 +42,19 @@ public class VerificationToken {
         return new Date(cal.getTime().getTime());
     }
 
-    // standard constructors, getters and setters
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VerificationToken token = (VerificationToken) o;
+        return id.equals(token.id) &&
+                token.equals(token.token) &&
+                user.equals(token.user) &&
+                expiryDate.equals(token.expiryDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, token, user, expiryDate);
+    }
 }

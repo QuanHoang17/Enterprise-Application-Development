@@ -228,7 +228,7 @@ createBtn.addEventListener("click", async () => {
                 displayError(errorName, "- Name already exsisted")
             }
             if (registerRes.status == "success") {
-                displayRegisterStatus(registerStatus, `Account successfully created! Redirect to login page in ${redirectSecond} seconds`);
+                displayRegisterStatus(registerStatus, `Account successfully created! Visit your email to verify account!Redirect to login page in ${redirectSecond} seconds`);
                 // registerStatus.classList.add("display");
                 // registerStatus.innerHTML = `<p>Account successfully created! Redirect to login page in ${redirectSecond} seconds</p>`;
                 userName.value = "";
@@ -238,7 +238,7 @@ createBtn.addEventListener("click", async () => {
                 confirmedPassword.value = "";
                 setInterval(() => {
                     redirectSecond = redirectSecond - 1;
-                    displayRegisterStatus(registerStatus, `Account successfully created! Redirect to login page in ${redirectSecond} seconds`);
+                    displayRegisterStatus(registerStatus, `Account successfully created! Visit your email to verify account!Redirect to login page in ${redirectSecond} seconds`);
                 }, 1000)
                 await new Promise(() => setTimeout(() => {
                     window.location.replace("login.html");
