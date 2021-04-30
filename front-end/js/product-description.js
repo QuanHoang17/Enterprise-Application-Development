@@ -22,31 +22,6 @@ var smallPicArr = [
     [small_5, kerr5]
 ];
 
-// For choices
-var allIcon = document.querySelector(".all-icon");
-var redIcon = document.querySelector(".red-icon");
-var greenIcon = document.querySelector(".green-icon");
-var blueIcon = document.querySelector(".blue-icon");
-
-var allLabel = document.querySelector(".all-label");
-var redLabel = document.querySelector(".red-label");
-var greenLabel = document.querySelector(".green-label");
-var blueLabel = document.querySelector(".blue-label");
-
-var all = "all";
-var red = "red";
-var green = "green";
-var blue = "blue";
-
-var choiceArr = [
-    [allIcon, allLabel, all],
-    [redIcon, redLabel, red],
-    [greenIcon, greenLabel, green],
-    [blueIcon, blueLabel, blue]
-];
-
-var choice = "";
-
 //----------------------------------------- Functions ------------------------------------//
 
 //Reset grayscale and opacity of all small pics
@@ -69,24 +44,7 @@ smallPicArr.forEach(element => {
     })
 })
 
-// Reset colors for choices
-// function resetChoices(params) {
-//     choiceArr.forEach(element => {
-//         element[0].style.cssText = "color: rgba(34, 24, 28, 0.5)";
-//         element[1].style.cssText = "color: rgba(34, 24, 28, 0.5)";
-//     })
-// }
-
-// // Controller for color choices
-// choiceArr.forEach(element => {
-//     element[0].addEventListener("click", function getChoice(params) {
-//         resetChoices();
-//         element[0].style.cssText = "color: #F87060";
-//         element[1].style.cssText = "color: #F87060";
-//         choice = element[2];
-//     })
-// })
-
+// Controller for choices
 const colorChoiceList = document.querySelectorAll('.choice');
 
 Array.from(colorChoiceList).forEach(colorChoice => {

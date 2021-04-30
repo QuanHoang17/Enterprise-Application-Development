@@ -14,15 +14,16 @@ header, footer {
 
 .left {
     width: 30%;
-    border: 5px solid red;
     margin-right: 79px;
 }
 
 .right {
     width: 70%;
-    border: 5px solid purple;
 }
 
+.flex {
+    display: flex;
+}
 /* --------------------------------------- Left ---------------------------------------- */
 
 /* Bread crumb */
@@ -30,6 +31,7 @@ header, footer {
     display: flex;
     font-size: var(--font-base);
     margin-bottom: 24px;
+    margin-top: 32px;
 }
 
 .left .bread-crumb span {
@@ -49,9 +51,10 @@ header, footer {
 
 .left .choice label {
     margin-right: 22px;
+    cursor: pointer;
 }
 
-.left .choice i, label {
+.left .choice i, .choice label {
     color: rgba(34, 24, 28, 0.5);
 }
 
@@ -119,8 +122,29 @@ header, footer {
     margin-top: 56px;
 }
 
+/* Active style for choices */
+.choice.brand-active i, .choice.brand-active label{
+    transition: all 0.2s ease-in-out;
+    color: var(--primary-light);
+    font-weight: bold;
+}
+
+.choice.price-active i, .choice.price-active label{
+    transition: all 0.2s ease-in-out;
+    color: var(--primary-light);
+    font-weight: bold;
+}
+
+.choice.type-active i, .choice.type-active label{
+    transition: all 0.2s ease-in-out;
+    color: var(--primary-light);
+    font-weight: bold;
+}
+
+
 /* --------------------------------------- Right ---------------------------------------- */
 .right .result-text-container {
+    display: flex;
     font-size: var(--font-500);
     font-weight: bold;
     color: black;
@@ -221,3 +245,75 @@ header, footer {
     padding: 10px;
     margin-left: 16px;
 }
+
+/* For dropdown */
+.right .sort-container {
+    margin-left: auto;
+    justify-self: flex-end;
+    cursor: pointer;
+}
+
+.right .sort-container .text-container {
+    background-color: rgba(34, 24, 28, 0.2);
+    padding: 8px 12px;
+    border-radius: 41px;
+}
+
+.right .dropdown p, .right .dropdown a, .right .dropdown span, .right .dropdown-trigger{
+    font-size: var(--font-small);
+    font-weight: bold;
+}
+
+.right .dropdown .dropdown-trigger, .right .dropdown span {
+    color: rgba(34, 24, 28, 0.8);
+}
+
+.right .dropdown-trigger {
+    align-items: center;
+}
+
+.right .dropdown span {
+    margin: 0 8px
+}
+
+.right .dropdown i {
+    margin-left: 12px;
+}
+
+.right .dropdown .sort-by {
+    color: rgba(34, 24, 28, 0.5);
+}
+
+.right .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.right .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 20%;
+    background-color: rgba(34, 24, 28);
+    width: max-content;
+    z-index: 2; /* to display in front of other elements */
+}
+
+.right .dropdown-content p {
+    display: block; 
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+.right .dropdown-content p:hover {
+    background-color: rgb(228, 27, 27);
+}
+
+.right .dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.right .dropdown:hover .dropdown-trigger i{
+    color: red;
+}
+/* End of dropdown */
