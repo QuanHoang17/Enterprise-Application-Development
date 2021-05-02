@@ -1,13 +1,17 @@
+:root {
+    --copyrightPaddingTop: 220px;
+}
+
 .Footer {
     position: relative;
     width: 100%;
     /* margin: 14px 0px; */
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     text-align: start;
-    padding: 64px 72px;
+    /* padding: 64px 72px; */
     background-color: #FFFAFF;  
-    
 }
 
 .Footer .column h4 {
@@ -25,10 +29,16 @@
 .Footer .column p {
     display: block;
     font-size: 12.8px;
-    padding-top: 160px;
+    padding-top: var(--copyrightPaddingTop);
 }
 
-
+.embedded-map {
+    /* width="500"; height="350"; style="border:0;" */
+    width: 500px;
+    height: 350px;
+    border: 0;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
+}
 
 /* Ipad Pro screen  */
 @media screen and (min-width: 801px) and (max-width: 1440px) {
@@ -48,33 +58,12 @@
     
     .Footer .column p {
         font-size: 12.8px;
-        padding-top: 160px;
+        padding-top: var(--copyrightPaddingTop);
     }
-
 }
 
 /* Ipad screen */
-@media screen and (min-width: 641px) and (max-width: 800px){
-    .Footer {
-        padding: 64px 72px;
-    }
-    
-    .Footer .column h4 {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 16px;
-    }
 
-    .Footer .column a {
-        font-size: 15px;
-    }
-    
-    .Footer .column p {
-        font-size: 11.8px;
-        padding-top: 160px;
-    }
-
-}
 
 /* Small Tablet screen */
 @media screen and (min-width: 471px) and (max-width: 640px){
@@ -94,11 +83,10 @@
     
     .Footer .column p {
         font-size: 10px;
-        padding-top: 160px;
+        padding-top: var(--copyrightPaddingTop);
     }
     
 }
-
 
 /* Iphone X screen */
 @media screen and (min-width: 376px) and (max-width: 470px){
@@ -118,7 +106,7 @@
     
     .Footer .column p {
         font-size: 10px;
-        padding-top: 160px;
+        padding-top: var(--copyrightPaddingTop);
     }
     
 }
@@ -141,6 +129,6 @@
     
     .Footer .column p {
         font-size: 6px;
-        padding-top: 130px;
+        padding-top: var(--copyrightPaddingTop);
     }
 }

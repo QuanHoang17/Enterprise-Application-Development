@@ -16,7 +16,7 @@ const head = document.querySelector('head');
 const loadFavicon = () => {
     const favicon = document.createElement('link');
     favicon.rel = 'shortcut icon';
-    favicon.href = '../assets/favicon.png';
+    favicon.href = '../assets/favicon.ico';
     favicon.type = 'image/x-icon';
     head.appendChild(favicon);
 }

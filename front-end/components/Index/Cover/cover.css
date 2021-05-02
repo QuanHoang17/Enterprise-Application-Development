@@ -1,7 +1,7 @@
 #main-cover {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(0deg, rgba(90, 0, 1, 0.5), rgba(90, 0, 1, 0.5)),url('https://images.unsplash.com/photo-1593108408993-58ee9c7825c2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background: linear-gradient(0deg, rgba(90, 0, 1, 0.5), rgba(90, 0, 1, 0.5)),url('../../../assets/login-background.jpg');
     background-size: cover;
     display: flex;
     flex-direction: column;
