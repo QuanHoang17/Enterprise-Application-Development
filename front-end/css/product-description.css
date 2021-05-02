@@ -1,4 +1,8 @@
 /* ----------------------- Global --------------------- */
+section {
+  margin-top: 45px;
+}
+
 .container {
   display: flex;
   padding: 0 72px;
@@ -20,13 +24,13 @@
 .gray {
   color: #a9a9a9;
 }
-
+/* 
 header,
 footer {
   background-color: orange;
   height: 100px;
   margin-bottom: 30px;
-}
+} */
 
 footer {
   margin-top: 30px;
