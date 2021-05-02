@@ -98,6 +98,8 @@
     justify-content: space-evenly;
 }
 
+ /* --- CARD --- */
+
 .product-detail-card {
     width: 70%;
     height: 20%;
@@ -110,7 +112,98 @@
 }
 
 .product-detail-card img {
-    width: 30%;
+    width: 33%;
     height: 100%;
     border-radius: 8px;
 }
+
+.product-info {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 50px;
+    /* border: 5px solid purple; */
+}
+
+.product-info h1 {
+    color: #22181C;
+    font-size: 25px;
+    padding-bottom: 8px;
+    font-size: 26px;
+
+}
+
+.product-info p {
+    margin-bottom: 30px;
+    color: #22181C, 80%;
+}
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 2;
+    grid-template-rows: 3;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12.8px;
+    color: #A9A9A9;
+}
+
+.product-grid span:nth-child(2n){
+    grid-column: 2;
+    margin-left: 54px;
+    margin-bottom: 12px;
+}
+
+.price-and-shipping {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding: 20px;
+    /* padding: 30px 10px; */
+    /* margin: 10px; */
+}
+
+.price-and-shipping h1 {
+    color: #22181C;
+    font-size: 25px;
+}
+
+.price-and-shipping p:first-of-type {
+    color: #A9A9A9;
+    font-weight: 300;
+    text-decoration: line-through;
+    font-size: 12.8px;
+}
+
+.price-and-shipping p:nth-child(3) {
+    font-weight: 400;
+    font-size: 20px;
+    color: #A9A9A9;
+    padding: 25px 0;
+}
+
+.price-and-shipping button:nth-of-type(1) {
+    color: #FFFAFF;
+    font-weight: 700;
+    font-size: 12.8px;
+    padding: 10px 16px;
+    background-color: #C80808;
+    margin-bottom: 16px;
+    width: fit-content;
+    box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+
+.price-and-shipping button:nth-of-type(2) {
+    /* width: 200px; */
+    color: #151515;
+    font-weight: 400;
+    font-size: 12.8px;
+    padding: 10px;
+    background-color: var(--black-20);
+}
+
