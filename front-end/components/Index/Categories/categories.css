@@ -75,6 +75,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
 }
 
 .product-detail-content {
@@ -95,7 +96,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    overflow: scroll;
 }
 
  /* --- CARD --- */
@@ -109,6 +111,7 @@
     box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: row;
+    margin: 50px;
 }
 
 .product-detail-card img {
