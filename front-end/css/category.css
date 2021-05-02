@@ -141,6 +141,24 @@ header, footer {
     font-weight: bold;
 }
 
+/* For the input slider */
+#slider-range {
+    margin-top: 16px;
+}
+
+.ui-slider {
+    background-color: rgba(34, 24, 28, 0.2);;
+}
+
+.ui-slider-range {
+    background-color: #F87060;
+}
+
+.ui-slider-handle {
+    border-radius: 20px;
+}
+
+/* End of input slider */
 
 /* --------------------------------------- Right ---------------------------------------- */
 .right .result-text-container {

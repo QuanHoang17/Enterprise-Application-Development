@@ -45,8 +45,24 @@ const sortValueList = document.querySelectorAll(".sort-value");
 
 Array.from(sortValueList).forEach(sortValue => {
     sortValue.addEventListener("click", (e) => {
-        temp = sortField.textContent;
+        // temp = sortField.textContent;
         sortField.innerHTML = sortValue.textContent;
-        sortValue.innerHTML = temp;
+        // sortValue.innerHTML = temp;
     }) 
 })
+
+// Controller for range slider using JQuery
+$(function () {
+    $("#slider-range").slider({
+        range: true, // To make the middle range highlighted
+        min: 0,
+        max: 200,
+        values: [40, 120],
+        slide: function (event, ui) {
+            $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            document.querySelector(".min-value").value = ui.values[0];
+            document.querySelector(".max-value").value = ui.values[1];
+        }
+    });
+    $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+});

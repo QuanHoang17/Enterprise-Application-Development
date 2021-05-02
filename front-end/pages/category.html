@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeaRMIT</title>
 
+    <!-- CSS files for JQuery -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <!-- Project CSS files -->
     <link rel="stylesheet" href="../css/ult.css">
     <link rel="stylesheet" href="../css/all.min.css">
     <link rel="stylesheet" href="../css/category.css">
@@ -66,41 +71,41 @@
                     <!-- Options -->
                     <div class="options">
                         <div class="choice first-op price-choice">
-                            <i class="fas fa-check-circle first-op-icon"></i>
+                            <i class="fas fa-check-circle"></i>
                             <label for="" class="first-op-label">Less than 100 USD</label>
                         </div>
                     
                         <div class="choice second-op price-choice">
-                            <i class="fas fa-check-circle second-op-icon"></i>
+                            <i class="fas fa-check-circle"></i>
                             <label for="" class="second-op-label">100 - 200 USD</label>
                         </div>
                     
                         <div class="choice third-op price-choice">
-                            <i class="fas fa-check-circle second-op-icon"></i>
+                            <i class="fas fa-check-circle"></i>
                             <label for="" class="second-op-label">More than 200 USD</label>
                         </div>
                     
                         <div class="choice fourth-op price-choice">
-                            <i class="fas fa-check-circle fourth-op-icon"></i>
+                            <i class="fas fa-check-circle"></i>
                             <label for="" class="fourth-op-label">All</label>
                         </div>
                     </div>
 
-                    <!-- Slider -->
-                    <div class="slider-container">
-                        <input type="range" min="1" max="200" value="100" class="slider" id="">
-                    </div>
+                    <!-- Slider using JQuery-->
+                    <!-- <label for="amount">Price range:</label>
+                    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"> -->
+                    <div id="slider-range"></div>
 
                     <!-- Range input -->
                     <div class="input-container">
                         <div class="min">
                             <p>Min</p>
-                            <input type="number" placeholder="0">
+                            <input type="number" placeholder="0" class="min-value">
                         </div>
 
                         <div class="max">
                             <p>Max</p>
-                            <input type="number" placeholder="100">
+                            <input type="number" placeholder="100" class="max-value">
                         </div>
                     </div>
 
@@ -154,6 +159,7 @@
                             </div>
                             
                             <div class="dropdown-content">
+                                <p class="sort-value">Name a - z</p>
                                 <p class="sort-value">Price ascending</p>
                                 <p class="sort-value">Price descending</p>
                                 <p class="sort-value">Size?</p>
@@ -398,6 +404,8 @@
     </footer>
     <!-- End of footer -->
 
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="../js/category.js"></script>
 </body>
 </html>
