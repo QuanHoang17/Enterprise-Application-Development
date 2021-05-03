@@ -1,0 +1,138 @@
+/* ---------------------------------- Global -------------------------------- */
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.left {
+    width: 10%;
+    height: 100vh;
+    background-color: #FFFAFF;
+}
+
+.right {
+    width: 90%;   
+}
+
+/* ------------------------------------ Left -------------------------------- */
+.left .avatar-container {
+    text-align: center;
+    margin-top: 32px;
+}
+
+.left .avatar-container img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.left .avatar-container .name {
+    margin-top: 8px;
+    margin-bottom: 72px;
+    font-size: var(--font-base);
+    font-weight: bold;    
+    color: #C80808;
+}
+
+.left .choice-container p {
+    font-size: var(--font-small);
+    font-weight: bold;
+}
+
+.left .choice-container i {
+    margin: 0 10px;
+}
+
+.left .choice {
+    display: flex;
+    padding: 16px 0;
+    cursor: pointer;
+}
+
+.left .customer-container {
+    background-color: rgba(248, 112, 96, 0.1);
+    border-left: 4px solid #F87060;
+
+}
+
+.left .choice:hover {
+    background-color: rgba(248, 112, 96, 0.1);
+    border-left: 4px solid #F87060;
+}
+/* ------------------------------------ Right -------------------------------- */
+.right .main-content {
+    width: inherit;
+    height: 80vh;
+    margin: 72px 48px;
+    padding: 40px;
+    background-color: #FFFAFF;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+    border-radius: 12px;
+}
+
+.right .main-content h2 {
+    font-size: var(--heading);
+    font-weight: bold;
+    color: #5A0001;
+}
+
+.right .top-container {
+    align-items: center;
+}
+
+.right .searchbar-container {
+    margin-left: auto;
+    justify-self: flex-end;
+}
+
+.right .searchbar-container i {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    right: 30px;
+}
+
+.right .searchbar-container input {
+    width: 40vw;
+    padding: 10px 0;
+    text-indent: 20px;
+    border-radius: 20px;
+}
+
+.right .searchbar-container input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px palevioletred;
+    transition: 200ms all ease-in-out;
+}
+
+.right table {
+    margin-top: 86px;
+    border-collapse: collapse;
+}
+
+.right tr th {
+    font-size: var(--font-200);
+    font-weight: bold;
+    color: #22181C;
+}
+
+td {
+    padding-top: 12px;
+    font-size: var(--font-base);
+    color: black;
+}
+
+td:nth-child(1) {
+    font-size: var(--font-base);
+    font-weight: bold;
+    color: black;
+}
+
+.first-column, .second-column, .third-column {
+    padding-right: 120px;
+    padding-bottom: 8px;
+}
+
+.table-header {
+    border-bottom: 1px solid rgba(34, 24, 28, 0.2);
+}
