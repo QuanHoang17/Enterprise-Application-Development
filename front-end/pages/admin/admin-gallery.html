@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | Customer </title>
+    <title>Admin | Gallery </title>
 
     <link rel="stylesheet" href="../../css/ult.css">
     <link rel="stylesheet" href="../../css/all.min.css">
-    <link rel="stylesheet" href="../../css/admin/admin-customer.css">
+    <link rel="stylesheet" href="../../css/admin/admin-gallery.css">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
             </div>
 
             <div class="choice-container">
-                <div class="choice current-page">
+                <div class="choice">
                     <i class="fas fa-users"></i>
                     <p>Customer</p>
                 </div>
@@ -35,7 +35,12 @@
 
                 <div class="choice">
                     <i class="fas fa-tag"></i>
-                    <p>Orders</p>
+                    <p>Category</p>
+                </div>
+
+                <div class="choice current-page">
+                    <i class="fas fa-image"></i>
+                    <p>Gallery</p>
                 </div>
             </div>
         </div>
@@ -45,7 +50,7 @@
         <div class="right">
             <div class="main-content">
                 <div class="top-container flex">
-                    <h2>Customer List</h2>
+                    <h2>Gallery</h2>
 
                     <div class="searchbar-container">
                         <input type="text" placeholder="Search customer name ...">
@@ -55,28 +60,27 @@
 
                 <table>
                     <tr class="table-header">
-                        <th class="first-column">User Id</th>
-                        <th class="second-column">Email</th>
-                        <th class="third-column">Username</th>
-                        <th class="fourth-column">Phone number</th>
+                        <th class="padding-right">Image Id</th>
+                        <th class="padding-right">Image Url</th>
+                        <th>Image Alt Tag</th>
                     </tr>
                     <tr>
-                        <td>User Id</td>
-                        <td>Email</td>
-                        <td>Username</td>
-                        <td>Phone number</td>
+                        <td>01</td>
+                        <td>
+                            <div class="url-container">
+                                https://images.unsplash.com/photo-1619958405137-8dc6281021bb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
+                            </div>
+                        </td>
+                        <td>logi-img</td>
                     </tr>
                     <tr>
-                        <td>User Id</td>
-                        <td>Email</td>
-                        <td>Username</td>
-                        <td>Phone number</td>
-                    </tr>
-                    <tr>
-                        <td>User Id</td>
-                        <td>Email</td>
-                        <td>Username</td>
-                        <td>Phone number</td>
+                        <td>02</td>
+                        <td>
+                            <div class="url-container">
+                                https://images.unsplash.com/photo-1619958405137-8dc6281021bb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
+                            </div>
+                        </td>
+                        <td>logi-img</td>
                     </tr>
                 </table>
             </div>

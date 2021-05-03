@@ -15,7 +15,7 @@
 }
 
 .padding-right {
-    padding-right: 115.8px;
+    padding-right: 120px;
 }
 /* ------------------------------------ Left -------------------------------- */
 .left .avatar-container {
@@ -109,8 +109,10 @@
 }
 
 .right table {
+    width: 60%;
     margin-top: 86px;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .right tr th {
@@ -118,26 +120,21 @@
     font-weight: bold;
     color: #22181C;
     padding-bottom: 8px;
+    white-space: nowrap;
+    text-align: justify;
 }
 
 td {
     padding-top: 12px;
     font-size: var(--font-base);
     color: black;
-}
-
-td > div {
-    padding: 2px 0;
+    text-align: justify;
 }
 
 td:nth-child(1) {
     font-size: var(--font-base);
     font-weight: bold;
     color: black;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 .table-header {
