@@ -14,6 +14,9 @@
     width: 90%;   
 }
 
+.padding-right {
+    padding-right: 115.8px;
+}
 /* ------------------------------------ Left -------------------------------- */
 .left .avatar-container {
     text-align: center;
@@ -122,15 +125,18 @@ td {
     color: black;
 }
 
+td > div {
+    padding: 2px 0;
+}
+
 td:nth-child(1) {
     font-size: var(--font-base);
     font-weight: bold;
     color: black;
 }
 
-.first-column, .second-column, .third-column {
-    padding-right: 120px;
-    padding-bottom: 8px;
+a:hover {
+    text-decoration: underline;
 }
 
 .table-header {
