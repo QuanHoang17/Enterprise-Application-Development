@@ -41,7 +41,7 @@
 }
 
 /* Ipad Pro screen  */
-@media screen and (min-width: 801px) and (max-width: 1440px) {
+@media screen and (min-width: 801px) {
     .Footer {
         padding: 64px 72px;
     }
