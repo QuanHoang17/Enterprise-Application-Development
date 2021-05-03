@@ -96,7 +96,7 @@ button:active {
   padding: 1rem 24px;
   font-size: var(--font-200);
 }
-.padding-cta--small {
+.primary-cta--small {
   padding: 0.5rem 1rem;
   font-size: var(--font-small);
 }
