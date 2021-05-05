@@ -28,7 +28,7 @@ public class VerificationToken {
     @Column
     private String token;
 
-    @OneToOne(targetEntity = Users.class, fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = Users.class, fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @JoinColumn(nullable = false, name = "user_id", referencedColumnName = "id" )
     private Users user;
 
@@ -48,7 +48,7 @@ public class VerificationToken {
         if (o == null || getClass() != o.getClass()) return false;
         VerificationToken token = (VerificationToken) o;
         return id.equals(token.id) &&
-                token.equals(token.token) &&
+                this.token.equals(token.token) &&
                 user.equals(token.user) &&
                 expiryDate.equals(token.expiryDate);
     }
