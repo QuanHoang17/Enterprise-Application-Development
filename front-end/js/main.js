@@ -1,7 +1,7 @@
 // Reusable components
 
 const header = document.querySelector('#header');
-// <<<<<<< HEAD
+
 const footer = document.querySelector('#footer');
 const indexHeader = document.querySelector('#index-header');
 const indexFooter = document.querySelector('#index-footer');
@@ -24,7 +24,7 @@ const loadFavicon = () => {
 // fetch('./components/Header/header.html')
 // =======
 fetch('../components/Header/header.html') // Dynamic generate from server later.
-    // >>>>>>> 62d4eb7ab62ca18aa143dcb98ff93b558a716193
+
     .then(res => res.text())
     .then(data => {
         header.innerHTML = data;
