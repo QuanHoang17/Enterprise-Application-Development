@@ -51,9 +51,18 @@ $(function() {
     
 }) 
 
-$(function() {
-    $('li').click(function() {
-        console.log("CLICKKKKKED HAHAHAH");
-    })
-})
+// const liLis = document.querySelectorAll('li');
+
+// Array.from(liLis).forEach(li => {
+//     li.addEventListener('click', ()=> {
+        
+//     })
+// })
+
+
+// $(function() {
+//     $('li').click(function() {
+//         console.log("CLICKKKKKED HAHAHAH");
+//     })
+// })
 
