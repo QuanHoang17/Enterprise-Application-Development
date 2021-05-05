@@ -1,0 +1,9 @@
+2021-05-05 12:41:15.522 +07 [6520] LOG:  starting PostgreSQL 13.2, compiled by Visual C++ build 1914, 64-bit
+2021-05-05 12:41:15.528 +07 [6520] LOG:  listening on IPv6 address "::", port 5432
+2021-05-05 12:41:15.531 +07 [6520] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2021-05-05 12:41:15.673 +07 [7108] LOG:  database system was interrupted; last known up at 2021-05-04 18:08:20 +07
+2021-05-05 12:41:16.892 +07 [7108] LOG:  database system was not properly shut down; automatic recovery in progress
+2021-05-05 12:41:16.901 +07 [7108] LOG:  redo starts at 0/185C1B8
+2021-05-05 12:41:16.904 +07 [7108] LOG:  invalid record length at 0/185C2A0: wanted 24, got 0
+2021-05-05 12:41:16.906 +07 [7108] LOG:  redo done at 0/185C268
+2021-05-05 12:41:17.064 +07 [6520] LOG:  database system is ready to accept connections

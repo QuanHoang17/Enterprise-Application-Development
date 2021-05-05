@@ -1,0 +1,29 @@
+2021-04-29 13:58:45.957 +07 [7116] LOG:  starting PostgreSQL 13.2, compiled by Visual C++ build 1914, 64-bit
+2021-04-29 13:58:45.962 +07 [7116] LOG:  listening on IPv6 address "::", port 5432
+2021-04-29 13:58:45.967 +07 [7116] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2021-04-29 13:58:46.067 +07 [7488] LOG:  database system was interrupted; last known up at 2021-04-29 00:42:08 +07
+2021-04-29 13:58:47.544 +07 [7488] LOG:  database system was not properly shut down; automatic recovery in progress
+2021-04-29 13:58:47.552 +07 [7488] LOG:  redo starts at 0/17EE690
+2021-04-29 13:58:47.554 +07 [7488] LOG:  invalid record length at 0/17EE778: wanted 24, got 0
+2021-04-29 13:58:47.556 +07 [7488] LOG:  redo done at 0/17EE740
+2021-04-29 13:58:47.632 +07 [7116] LOG:  database system is ready to accept connections
+2021-04-29 23:28:00.324 +07 [7328] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-04-29 23:28:00.338 +07 [3784] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-04-29 23:28:00.339 +07 [14268] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-04-29 23:28:00.341 +07 [15932] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-04-29 23:28:00.341 +07 [2784] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-04-29 23:28:00.342 +07 [7048] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-04-29 23:28:00.342 +07 [2016] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-04-29 23:28:00.347 +07 [3852] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-04-29 23:28:00.351 +07 [12480] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-04-29 23:28:00.352 +07 [14300] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
