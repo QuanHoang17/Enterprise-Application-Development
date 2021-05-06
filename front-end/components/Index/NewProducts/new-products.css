@@ -53,3 +53,13 @@
 .new-product-card button {
     margin: 20px auto;
 }
+
+@media screen and (max-width: 600px) {
+    .new-product-section {
+        flex-direction: column;
+    }
+
+    .new-product-card {
+        width: 100vw;
+    }
+}

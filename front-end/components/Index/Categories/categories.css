@@ -26,13 +26,23 @@
     flex-direction: column;
     align-items: center;
     /* justify-content: center; */
-    overflow: hidden;
+    /* overflow: hidden; */
     flex: 2;
+}
+
+.browse-category ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* border: 1px solid red; */
+    width: 130px;
+    height: 25%;
+    justify-content: space-evenly;
 }
 
 .browse-category li {
     /* margin-left: -10%; */
-    margin: 32px 0 32px -40px;
+    /* margin: 32px 0 32px -40px; */
 }
 
 .browse-category li:hover {
@@ -49,7 +59,7 @@
 }
 
 .browse-category .selected {
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: #eb1616;
     font-weight: 700;
 }

@@ -52,7 +52,33 @@ fetch('./components/Footer/footer.html')
     })
     .catch(e => console.log(e))
 
-
 loadFavicon();
+
+
+// function loadSiteLogo() {
+//     const logo = document.querySelector("#site-logo");
+//     let imgPath = '';
+//     if (window.location.pathname === '/front-end/') {
+//         console.log(window.location.pathname);
+//         console.log(logo);
+//         imgPath = './assets/logo.png';
+        
+//     } else {
+//         imgPath = '../assets/logo.png';
+//     }
+//     let logoElement = `<img src="${imgPath}" widt="100px"></img>`
+//     logo.innerHTML = logoElement;
+
+// }
+
+
+// window.onload = () => {
+//     // loadSiteLogo();
+    
+// }
+
+
+
+
 
 

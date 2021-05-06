@@ -22,3 +22,7 @@ RESPONSIVE PROBLEMS:
 [] New products section -> @media flex direction: column
 [] Categories section -> fix cards
 [] Fix footer's map. -> @media on mobile, flex direction column
+
+
+WORKING ON:
+[] Header
