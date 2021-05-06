@@ -1,4 +1,4 @@
-package com.group5.gearmit.model;
+package com.group5.gearmit.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,9 +28,9 @@ public class VerificationToken {
     @Column
     private String token;
 
-    @OneToOne(targetEntity = Users.class, fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @OneToOne(targetEntity = Customer.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "user_id", referencedColumnName = "id" )
-    private Users user;
+    private Customer customer;
 
     @Column
     private Date expiryDate = calculateExpiryDate(VerificationToken.EXPIRATION_MINUTE);
@@ -46,15 +46,15 @@ public class VerificationToken {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        VerificationToken token = (VerificationToken) o;
-        return id.equals(token.id) &&
-                this.token.equals(token.token) &&
-                user.equals(token.user) &&
-                expiryDate.equals(token.expiryDate);
+        VerificationToken that = (VerificationToken) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(token, that.token) &&
+                Objects.equals(customer, that.customer) &&
+                Objects.equals(expiryDate, that.expiryDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, token, user, expiryDate);
+        return Objects.hash(id, token, customer, expiryDate);
     }
 }

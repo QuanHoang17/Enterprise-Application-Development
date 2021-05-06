@@ -1,11 +1,12 @@
 package com.group5.gearmit.service;
 
-import com.group5.gearmit.dao.UserDAO;
+import com.group5.gearmit.dao.CustomerDAO;
 import com.group5.gearmit.dao.VerificationTokenDAO;
-import com.group5.gearmit.model.Users;
-import com.group5.gearmit.model.VerificationToken;
+import com.group5.gearmit.entity.Customer;
+import com.group5.gearmit.entity.VerificationToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +19,7 @@ import java.util.UUID;
 @Transactional
 public class AuthenticationServiceI implements AuthenticationService {
     @Autowired
-    private UserDAO userDAO;
+    private CustomerDAO customerDAO;
 
     @Autowired
     private VerificationTokenDAO tokenDAO;
@@ -32,7 +33,7 @@ public class AuthenticationServiceI implements AuthenticationService {
     @Override
     public Map<String, String> verifyEmailToken(String token) {
         Map<String, String> response = new HashMap<>();
-        VerificationToken user = tokenDAO.getTokenByToken(token);
+        VerificationToken user = tokenDAO.getVerificationTokenByToken(token);
         if (user == null) {
             response.put("status", "Token have expired or not existed");
             return response;
@@ -42,7 +43,7 @@ public class AuthenticationServiceI implements AuthenticationService {
             response.put("status", "Token have expired");
             return response;
         }
-        userDAO.setUserInfoById(true, user.getUser().getId());
+        customerDAO.setUserInfoById(true, user.getCustomer().getId());
         response.put("status", "Successfully activate account");
         return response;
     }
@@ -59,13 +60,13 @@ public class AuthenticationServiceI implements AuthenticationService {
 
     @Override
     @Transactional
-    public void sendVerifyEmail(Users user) {
+    public void sendVerifyEmail(Customer user) {
         // Create new token and add the token to the database
         VerificationToken token = new VerificationToken();
         String tokenGenerated = UUID.randomUUID().toString();
         token.setToken(tokenGenerated);
-        token.setUser(user);
-        tokenDAO.saveAndFlush(token);
+        token.setCustomer(user);
+        tokenDAO.save(token);
 
         // Create email content
         String confirmationUrl = "http://localhost:8080/api/regitrationConfirmed/" + tokenGenerated;
@@ -75,5 +76,11 @@ public class AuthenticationServiceI implements AuthenticationService {
         String emailText = "Visit the link below to activate your account \r\n" + confirmationUrl;
 
         emailSerivce.sendEmail(senderAddress, recipientAddress, subject, emailText);
+    }
+
+    @Override
+    @Transactional
+    public void deleteVerificationToken(String name) {
+        tokenDAO.deleteVerificationTokenByCustomerName(name);
     }
 }

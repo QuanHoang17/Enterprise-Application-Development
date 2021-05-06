@@ -25,15 +25,15 @@ public class FileController {
     ImageService imageService;
 
     // Test controller for file upload
-    @PostMapping(value = "/api/upload/images")
-    public Map<String, String> uploadFiles(@RequestParam("files") MultipartFile[] files,
-                                           @RequestParam("name") String name,
-                                           @RequestParam("id") String id) {
-        Map<String, String> response = new HashMap<>();
-        imageService.storeItemImages(files, id, name);
-        response.put("status", "success");
-        return response;
-    }
+//    @PostMapping(value = "/api/upload/images")
+//    public Map<String, String> uploadFiles(@RequestParam("files") MultipartFile[] files,
+//                                           @RequestParam("name") String name,
+//                                           @RequestParam("id") String id) {
+//        Map<String, String> response = new HashMap<>();
+//        imageService.storeItemImages(files, id, name);
+//        response.put("status", "success");
+//        return response;
+//    }
 
     @GetMapping(value = "/api/images/{filename}", produces = "image/*")
     public FileSystemResource getImage(@PathVariable("filename") String filename) {
