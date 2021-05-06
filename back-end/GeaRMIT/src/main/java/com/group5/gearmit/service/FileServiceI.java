@@ -15,7 +15,7 @@ import java.util.List;
 public class FileServiceI implements FileService {
     @Override
     public List<String> storeImageFile(MultipartFile[] files, String savedName) {
-        List<String> requestPath = new ArrayList<>();
+        List<String> fileNameList = new ArrayList<>();
         try {
             Path imagePath = Paths.get("./images");
             if (!Files.exists(imagePath)) {
@@ -26,17 +26,19 @@ public class FileServiceI implements FileService {
             for (int i = 0; i < files.length; i++) {
                 MultipartFile file = files[i];
                 String fileExtension = file.getContentType().split("/")[1];
+
+                //
                 if (!fileExtension.equals("jpeg") && !fileExtension.equals("png")) {
                     fileExtension = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);
                 }
-                String requestURL = "/images/" + savedName + "_" + Integer.toString(i) + "." + fileExtension;
-                Path filePath = Paths.get("./images/" + savedName + "_" + Integer.toString(i) + "." + fileExtension);
+                String fileName = savedName + "_" + Integer.toString(i) + "." + fileExtension;
+                Path filePath = Paths.get("./images/" + fileName);
                 Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
-                requestPath.add(requestURL);
+                fileNameList.add(fileName);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return requestPath;
+        return fileNameList;
     }
 }

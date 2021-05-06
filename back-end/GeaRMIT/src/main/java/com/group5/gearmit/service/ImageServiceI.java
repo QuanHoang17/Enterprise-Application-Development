@@ -1,7 +1,8 @@
 package com.group5.gearmit.service;
 
 import com.group5.gearmit.dao.ImageDAO;
-import com.group5.gearmit.model.Image;
+import com.group5.gearmit.entity.Image;
+import com.group5.gearmit.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,15 +21,14 @@ public class ImageServiceI implements ImageService {
 
     @Override
     @Transactional
-    // ID and name will be replaced with item object
-    public void storeItemImages(MultipartFile[] uploadFiles, String itemID, String itemName) {
-        String basedFileName = itemID + "_" + itemName;
+    public void storeItemImages(MultipartFile[] uploadFiles, Product product) {
+        String basedFileName = product.getId() + "_" + product.getName();
         List<String> imageURLList = fileService.storeImageFile(uploadFiles, basedFileName);
         for(String imageURL:imageURLList) {
             Image image = new Image();
-            image.setItemID(itemID);
-            image.setImageURL(imageURL);
-            imageDAO.saveAndFlush(image);
+            image.setProduct(product);
+            image.setImageName(imageURL);
+            imageDAO.save(image);
         }
     }
 
