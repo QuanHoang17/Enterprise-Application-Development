@@ -40,6 +40,7 @@
 .left .choice-container p {
     font-size: var(--font-small);
     font-weight: bold;
+    color: #22181C;
 }
 
 .left .choice-container i {
@@ -65,7 +66,7 @@
 /* ------------------------------------ Right -------------------------------- */
 .right .main-content {
     width: inherit;
-    height: 80vh;
+    min-height: 80vh;
     margin: 72px 48px;
     padding: 40px;
     background-color: #FFFAFF;
@@ -136,7 +137,7 @@ td:nth-child(1) {
     color: black;
 }
 
-a:hover {
+.right a:hover {
     text-decoration: underline;
 }
 

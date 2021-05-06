@@ -37,6 +37,7 @@
 .left .choice-container p {
     font-size: var(--font-small);
     font-weight: bold;
+    color: #22181C;
 }
 
 .left .choice-container i {
@@ -62,7 +63,7 @@
 /* ------------------------------------ Right -------------------------------- */
 .right .main-content {
     width: inherit;
-    height: 80vh;
+    min-height: 80vh;
     margin: 72px 48px;
     padding: 40px;
     background-color: #FFFAFF;
@@ -105,6 +106,12 @@
     transition: 200ms all ease-in-out;
 }
 
+.right .searchbar-container button {
+    float: right;
+    margin-right: 20px;
+    margin-top: 51px;
+}
+
 .right table {
     margin-top: 86px;
     border-collapse: collapse;
@@ -128,11 +135,90 @@ td:nth-child(1) {
     color: black;
 }
 
-.first-column, .second-column, .third-column {
+th:nth-child(1), th:nth-child(2), th:nth-child(3), th:nth-child(4){
     padding-right: 120px;
     padding-bottom: 8px;
 }
 
 .table-header {
     border-bottom: 1px solid rgba(34, 24, 28, 0.2);
+}
+
+/* ------------------------------------------ For modal box ------------------------------------- */
+.modal-container {
+    /* Hide at default */
+    display: none;
+
+    /* Styling */
+    width: 100vw;
+    height: 100vh;
+    padding: 162px 300px;
+    background-color: var(--black-80);
+
+    /* Positioning */
+    position: absolute;
+    z-index: 2;
+}
+
+.modal-content-container {
+    /* border: 3px solid red; */
+    border-radius: 8px;
+    background-color: var(--white-base);
+    height: 70vh;
+}
+
+.modal-content-container .top {
+    font-size: var(--font-500);
+    font-weight: bold;
+    color: var(--black-80);
+    padding-top: 80px;
+    margin-left: 40px;
+}
+
+.modal-content-container .exit {
+    float: right;
+    color: black;
+    margin-top: 28px;
+    margin-right: 28px;
+    cursor: pointer;
+}
+
+/* For the search bar */
+.modal-content-container .searchbar-container {
+    text-align: center;
+    margin-top: 66px;
+}
+
+.modal-content-container .searchbar-container i {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    right: 30px;
+}
+
+.modal-content-container .searchbar-container input {
+    width: 500px;
+    padding: 10px 0;
+    text-indent: 20px;
+    border-radius: 20px;
+}
+
+.modal-content-container .searchbar-container input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px red;
+    transition: 200ms all ease-in-out;
+}
+
+.modal-content-container .result-container {
+    text-align: center;
+    margin-top: 48px;
+}
+
+.modal-content-container .result-container a:hover {
+    text-decoration: underline;
+}
+
+.modal-content-container .button-container {
+    text-align: center;
+    margin-top: 24px;
 }

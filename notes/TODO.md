@@ -8,3 +8,5 @@ TODOs:
 [] Index page change categories
 [] Footer map responsive
 [] jQuery currently has problems, doesn't work
+[] yeah yeah yeah - Duy
+[] yeah yeah yeah x2 - Duy
