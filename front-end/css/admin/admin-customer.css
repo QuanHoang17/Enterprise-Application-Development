@@ -138,6 +138,11 @@ td:nth-child(1) {
 th:nth-child(1), th:nth-child(2), th:nth-child(3), th:nth-child(4){
     padding-right: 120px;
     padding-bottom: 8px;
+    white-space: nowrap;
+}
+
+th:nth-child(2) {
+    word-wrap: break-word;
 }
 
 .table-header {
