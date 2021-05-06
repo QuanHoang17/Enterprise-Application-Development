@@ -1,5 +1,6 @@
 package com.group5.gearmit.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,12 +27,12 @@ public class Image {
         strategy = "com.group5.gearmit.generator.PrefixIDGenerator")
     private String id;
 
-    @ManyToOne(targetEntity = Product.class, fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false, name = "product_id", referencedColumnName = "id" )
+    @ManyToOne(targetEntity = Product.class)
+    @JoinColumn(nullable = false, name = "product_id", referencedColumnName = "id")
     private Product product;
 
-    @Column(name = "image_name")
-    private String imageName;
+    @Column(name = "name")
+    private String name;
 
     @Override
     public boolean equals(Object o) {
@@ -40,11 +41,11 @@ public class Image {
         Image image = (Image) o;
         return Objects.equals(id, image.id) &&
                 Objects.equals(product, image.product) &&
-                Objects.equals(imageName, image.imageName);
+                Objects.equals(name, image.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, product, imageName);
+        return Objects.hash(id, product, name);
     }
 }

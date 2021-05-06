@@ -10,7 +10,7 @@ import java.util.Map;
 
 @Service
 @Transactional
-public class CatagoryServiceI implements CategoryService {
+public class CategoryServiceI implements CategoryService {
     @Autowired
     CatagoryDAO catagoryDAO;
 
