@@ -6,5 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface FileService {
-    List<String> storeImageFile(MultipartFile[] file, String savedName);
+    List<String> storeFile(MultipartFile[] file, String savedName);
+    boolean checkFile(MultipartFile[] files, String fileType);
 }

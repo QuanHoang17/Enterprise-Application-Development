@@ -1,5 +1,6 @@
 package com.group5.gearmit.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,7 @@ import java.util.Objects;
 @Table(name = "product_color")
 public class ProductColor {
     @EmbeddedId
-    ProductColorPK productColorPK;
+    private ProductColorPK productColorPK;
 
     @Override
     public boolean equals(Object o) {
@@ -38,11 +39,11 @@ public class ProductColor {
     @AllArgsConstructor
     @ToString
     private static class ProductColorPK implements Serializable {
-        @ManyToOne(targetEntity = Product.class, fetch = FetchType.LAZY)
+        @ManyToOne(targetEntity = Product.class, fetch = FetchType.EAGER)
         @JoinColumn(nullable = false, name = "product_id", referencedColumnName = "id")
         private Product product;
 
-        @ManyToOne(targetEntity = Color.class, fetch = FetchType.LAZY)
+        @ManyToOne(targetEntity = Color.class, fetch = FetchType.EAGER)
         @JoinColumn(nullable = false, name = "color_name", referencedColumnName = "name" )
         private Color color;
 

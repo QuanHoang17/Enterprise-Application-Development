@@ -9,6 +9,7 @@ import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -36,11 +37,11 @@ public class Product {
     @Column
     private Date issueDate;
 
-    @ManyToOne(targetEntity = Category.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Category.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "category_id", referencedColumnName = "id" )
     private Category category;
 
-    @ManyToOne(targetEntity = Brand.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Brand.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "brand_id", referencedColumnName = "id" )
     private Brand brand;
 
@@ -49,6 +50,12 @@ public class Product {
 
     @Column
     private String description;
+
+//    @OneToMany(mappedBy = "product")
+//    private List<Image> images;
+//
+//    @OneToMany(mappedBy = "productColorPK.product")
+//    private List<ProductColor> colors;
 
     @Override
     public boolean equals(Object o) {
