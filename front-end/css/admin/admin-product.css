@@ -239,7 +239,7 @@ td:nth-child(1) {
 /* Add modal */
 .add-modal-container {
     /* Hide at default */
-    display: block;
+    display: none;
 
     /* Styling */
     min-width: 100vw;

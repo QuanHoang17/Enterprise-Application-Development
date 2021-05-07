@@ -3,7 +3,7 @@
 // Variables
 var deleteModalContainer = document.querySelector(".delete-modal-container");
 var deleteTrigger = document.querySelector(".show-delete-modal");
-var exitBtn = document.querySelector(".exit");
+var deleteExitBtn = document.querySelector(".delete-exit");
 var deleteBtn = document.querySelector(".delete-button");
 var modalSearchBtn = document.querySelector(".modal-search");
 
@@ -13,7 +13,7 @@ deleteTrigger.addEventListener("click", (e) => {
 })
 
 //Hide delete modal
-exitBtn.addEventListener("click", (e) => {
+deleteExitBtn.addEventListener("click", (e) => {
     // Clear search text
     document.querySelector(".modal-input").value = "";
 
@@ -31,8 +31,37 @@ deleteBtn.addEventListener("click", (e) => {
 })
 
 // ------------------------------- For add modal -------------------------------//
+
+// Variables
+var addModalContainer = document.querySelector(".add-modal-container");
+var addTrigger = document.querySelector(".show-add-modal");
+var addExitBtn = document.querySelector(".add-exit");
 var addBtn = document.querySelector(".add-button");
 
+// To show add modal 
+addTrigger.addEventListener("click", (e) => {
+    addModalContainer.style.cssText = 'display: block';
+})
+
+// To hide add modal
+addExitBtn.addEventListener("click", (e) => {
+    addModalContainer.style.cssText = 'display: none';
+})
+
+// To get all the fields
 addBtn.addEventListener("click", (e) => {
-    alert(document.querySelector("textarea").value);
+    let productName = document.querySelector(".product-name").value;
+    let productQuantity = document.querySelector(".product-quantity").value;
+    let colorList = document.querySelector(".product-color").value;
+    let date = document.querySelector(".product-date").value;
+    let price = document.querySelector(".product-price").value;
+    let message = document.querySelector(".product-message").value;
+
+    let formData = [productName, productQuantity, colorList, date, price, message];
+
+    alert("Check console for result");
+
+    formData.forEach(data => {
+        console.log(data);
+    })
 })
