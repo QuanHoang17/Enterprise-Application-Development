@@ -22,6 +22,7 @@ RESPONSIVE PROBLEMS:
 [] New products section -> @media flex direction: column
 [] Categories section -> fix cards
 [] Fix footer's map. -> @media on mobile, flex direction column
+[] window.onload DOES NOT ALWAYS WORK
 
 
 WORKING ON:

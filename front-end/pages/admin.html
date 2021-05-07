@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Customer </title>
+
+    <link rel="stylesheet" href="../css/ult.css">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+    <section class="flex">
+        <!-- This is the left nav -->
+        <div class="left">
+            <div class="avatar-container">
+                <img src="../assets/alex.jpeg" alt="user avatar">
+                <p class="name">Alex</p>
+            </div>
+
+            <div class="choice-container">
+                <ul>
+                    <li class="choice active-nav">
+                        <i class="fas fa-users"></i>
+                        <span>Customer</span>
+                    </li>
+
+                    <li class="choice">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Products</span>
+                    </li>
+
+                    <li class="choice">
+                        <i class="fas fa-tag"></i>
+                        <span>Categories</span>
+                    </li>
+
+                    <li class="choice">
+                        <i class="fas fa-image"></i>
+                        <span>Gallery</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- End of left nav -->
+
+        <!-- This is the right sections -->
+        <div class="right">
+
+            <!-- START OF SECTION 1: CUSTOMER -->
+            <section class="main-content" id="active-section">
+                <div class="top-container flex">
+                    <h2>Customer List</h2>
+
+                    <div class="searchbar-container">
+                        <input type="text" placeholder="Search customer name ...">
+                        <i class="fas fa-search"></i>
+                        <br>
+                        <button class="primary-cta--small show-modal">Delete</button>
+                    </div>
+                </div>
+
+                <table>
+                    <tr class="table-header">
+                        <th class="first-column">User Id</th>
+                        <th class="second-column">Email</th>
+                        <th class="third-column">Username</th>
+                        <th class="fourth-column">Phone number</th>
+                        <th class="fifth-column">Is Activated?</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>user@gmail.com</td>
+                        <td>userNumber1</td>
+                        <td>113</td>
+                        <td>Hell yeah</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>user@gmail.com</td>
+                        <td>userNumber1</td>
+                        <td>113</td>
+                        <td>Hell yeah</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>user@gmail.com</td>
+                        <td>userNumber1</td>
+                        <td>113</td>
+                        <td>Hell yeah</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>user@gmail.com</td>
+                        <td>userNumber1</td>
+                        <td>113</td>
+                        <td>Hell yeah</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>user@gmail.com</td>
+                        <td>userNumber1</td>
+                        <td>113</td>
+                        <td>Hell yeah</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>user@gmail.com</td>
+                        <td>userNumber1</td>
+                        <td>113</td>
+                        <td>Hell yeah</td>
+                    </tr>
+                </table>
+            </section>
+            <!-- END OF SECTION 1: CUSTOMER -->
+
+
+            <!-- START OF SECTION 2: PRODUCTS -->
+            <section class="main-content">
+                <div class="top-container flex">
+                    <h2>Product List</h2>
+
+                    <div class="searchbar-container">
+                        <input type="text" placeholder="Search customer name ...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <table>
+                    <tr class="table-header">
+                        <th class="padding-right">Product Id</th>
+                        <th class="padding-right">Product Name</th>
+                        <th class="padding-right">Quantity</th>
+                        <th class="padding-right">Issue Date</th>
+                        <th class="padding-right">Images</th>
+                        <th>Category</th>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Logitech Mouse</td>
+                        <td>12</td>
+                        <td>12/12/2021</td>
+                        <td>
+                            <div><a href="">Image 1 <i class="fas fa-external-link-alt"></i></a></div>
+                            <div><a href="">Image 2 <i class="fas fa-external-link-alt"></i></a></div>
+                            <div><a href="">Image 3 <i class="fas fa-external-link-alt"></i></a></div>
+                        </td>
+                        <td>
+                            <div><a href="">Mouse <i class="fas fa-external-link-alt"></i></a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td>Logitech Mouse</td>
+                        <td>12</td>
+                        <td>12/12/2021</td>
+                        <td>
+                            <div><a href="">Image 1 <i class="fas fa-external-link-alt"></i></a></div>
+                            <div><a href="">Image 2 <i class="fas fa-external-link-alt"></i></a></div>
+                            <div><a href="">Image 3 <i class="fas fa-external-link-alt"></i></a></div>
+                        </td>
+                        <td>
+                            <div><a href="">Mouse <i class="fas fa-external-link-alt"></i></a></div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- END OF SECTION 2: PRODUCTS -->
+
+            <!-- START OF SECTION 3: CATEGORIES -->
+            <section class="main-content">
+                <div class="top-container flex">
+                    <h2>Category</h2>
+
+                    <div class="searchbar-container">
+                        <input type="text" placeholder="Search customer name ...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <table>
+                    <tr class="table-header">
+                        <th class="padding-right">Category Id</th>
+                        <th class="padding-right">Category Name</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Mouse</td>
+                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, necessitatibus, ab
+                            ducimus, voluptatibus sunt enim reprehenderit mollitia quos nam sed sit suscipit minus nulla
+                            harum nostrum eius deserunt reiciendis alias!</td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td>Mouse</td>
+                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, necessitatibus, ab
+                            ducimus, voluptatibus sunt
+                            enim reprehenderit mollitia quos nam sed sit suscipit minus nulla harum nostrum eius
+                            deserunt reiciendis alias!
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- END OF SECTION 3: CATEGORIES -->
+
+            <!-- START OF SECTION 4: GALLERY -->
+            <section class="main-content">
+                <div class="top-container flex">
+                    <h2>Gallery</h2>
+
+                    <div class="searchbar-container">
+                        <input type="text" placeholder="Search customer name ...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <table>
+                    <tr class="table-header">
+                        <th class="padding-right">Image Id</th>
+                        <th>Image Url</th>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>
+                            <div class="url-container">
+                                https://images.unsplash.com/photo-1619958405137-8dc6281021bb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td>
+                            <div class="url-container">
+                                https://images.unsplash.com/photo-1619958405137-8dc6281021bb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- END OF SECTION 4: GALLERY -->
+
+
+
+
+        </div>
+        <!-- End of right -->
+
+        <!-- Start of modal -->
+        <div class="modal-container">
+            <div class="modal-content-container">
+                <div class="exit"><i class="fas fa-times"></i></div>
+                <p class="top">Delete customer</p>
+                <div class="searchbar-container">
+                    <input type="text" placeholder="Search customer name to delete" class="modal-input">
+                    <i class="fas fa-search modal-search"></i>
+                </div>
+                <div class="result-container">
+                    <p>Customer found: <a href="">Quân Xì Ke - Customer Id 01</a></p>
+
+                </div>
+                <div class="button-container">
+                    <button class="primary-cta--medium delete-button">Delete this customer</button>
+                </div>
+            </div>
+        </div>
+        <!-- End of modal -->
+    </section>
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/admin/admin-customer.js"></script>
+    <script src="../js/admin/admin.js"></script>
+</body>
+
+</html>
