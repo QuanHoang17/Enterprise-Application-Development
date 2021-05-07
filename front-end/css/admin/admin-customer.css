@@ -155,8 +155,8 @@ th:nth-child(2) {
     display: none;
 
     /* Styling */
-    width: 100vw;
-    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
     padding: 162px 300px;
     background-color: var(--black-80);
 
@@ -169,7 +169,7 @@ th:nth-child(2) {
     /* border: 3px solid red; */
     border-radius: 8px;
     background-color: var(--white-base);
-    height: 70vh;
+    min-height: 70vh;
 }
 
 .modal-content-container .top {

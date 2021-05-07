@@ -14,9 +14,6 @@
     width: 90%;   
 }
 
-.padding-right {
-    padding-right: 115.8px;
-}
 /* ------------------------------------ Left -------------------------------- */
 .left .avatar-container {
     text-align: center;
@@ -109,6 +106,16 @@
     transition: 200ms all ease-in-out;
 }
 
+.right .searchbar-container .button-container {
+    float: right;
+    margin-right: 20px;
+    margin-top: 52px;
+}
+
+.right .searchbar-container .button-container .show-add-modal {
+    margin-right: 40px;
+}
+
 .right table {
     margin-top: 86px;
     border-collapse: collapse;
@@ -119,6 +126,10 @@
     font-weight: bold;
     color: #22181C;
     padding-bottom: 8px;
+}
+
+th:nth-child(1), th:nth-child(2), th:nth-child(3), th:nth-child(4), th:nth-child(5), th:nth-child(6) {
+    padding-right: 80px;
 }
 
 td {
@@ -143,4 +154,156 @@ td:nth-child(1) {
 
 .table-header {
     border-bottom: 1px solid rgba(34, 24, 28, 0.2);
+}
+
+/* ------------------------------------------ For modal box ------------------------------------- */
+/* Delete modal */
+.delete-modal-container {
+    /* Hide at default */
+    display: none;
+
+    /* Styling */
+    width: 100vw;
+    height: 100vh;
+    padding: 162px 270px;
+    background-color: var(--black-80);
+
+    /* Positioning */
+    position: absolute;
+    z-index: 2;
+}
+
+.delete-modal-content-container, .add-modal-content-container {
+    /* border: 3px solid red; */
+    border-radius: 8px;
+    background-color: var(--white-base);
+    min-height: 70vh;
+}
+
+.delete-modal-content-container .top {
+    font-size: var(--font-500);
+    font-weight: bold;
+    color: var(--black-80);
+    padding-top: 80px;
+    margin-left: 40px;
+}
+
+.delete-modal-content-container .exit, .add-modal-content-container .exit {
+    float: right;
+    color: black;
+    margin-top: 28px;
+    margin-right: 28px;
+    cursor: pointer;
+}
+
+/* For the search bar */
+.delete-modal-content-container .searchbar-container {
+    text-align: center;
+    margin-top: 66px;
+}
+
+.delete-modal-content-container .searchbar-container i {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    right: 30px;
+}
+
+.delete-modal-content-container .searchbar-container input {
+    width: 500px;
+    padding: 10px 0;
+    text-indent: 20px;
+    border-radius: 20px;
+}
+
+.delete-modal-content-container .searchbar-container input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px red;
+    transition: 200ms all ease-in-out;
+}
+
+.delete-modal-content-container .result-container {
+    text-align: center;
+    margin-top: 48px;
+}
+
+.delete-modal-content-container .result-container a:hover {
+    text-decoration: underline;
+}
+
+.delete-modal-content-container .button-container {
+    text-align: center;
+    margin-top: 24px;
+}
+
+/* Add modal */
+.add-modal-container {
+    /* Hide at default */
+    display: block;
+
+    /* Styling */
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 50px 275px 0 275px;
+    background-color: var(--black-80);
+
+    /* Positioning */
+    position: absolute;
+    z-index: 2;
+}
+
+.add-modal-content-container .top {
+    font-size: var(--font-500);
+    font-weight: bold;
+    color: var(--black-80);
+    padding-top: 62px;
+    margin-left: 35px;
+    margin-bottom: 35px;
+}
+
+.add-modal-content-container .fields-container {
+    justify-content: space-between;
+    margin: 0 35px;
+    flex-wrap: wrap;
+}
+
+.add-modal-content-container .fields-container > div {
+    width: 30%;
+    min-height: 30vw;
+}
+
+.add-modal-content-container .fields-container .single-field {
+    margin-bottom: 32px;
+}
+
+.add-modal-content-container .fields-container .single-field > p {
+    font-size: var(--font-200);
+    font-weight: bold;
+    color: var(--black-base);
+    margin-bottom: 8px;
+}
+
+.add-modal-content-container .fields-container .single-field > input {
+    text-indent: 16px;
+    padding: 19px 0;
+    border-radius: 8px;
+    border: 2px solid #D1D1D1;
+    width: 100%;
+}
+
+textarea {
+    border-radius: 8px;
+    border: 2px solid #D1D1D1;
+    width: 100%;
+}
+
+.add-modal-content-container .single-field .product-message {
+    height: 290px;
+    word-wrap: break-word;
+}
+
+.add-modal-content-container .fields-container .button-container {
+    margin-bottom: 23px;
+    display: block;
+    float: right;
 }
