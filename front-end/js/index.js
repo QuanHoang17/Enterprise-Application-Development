@@ -38,7 +38,11 @@
 //     })
 // })
 
-
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryList = document.getElementsByClassName('category-item');
+ const categoryArr = [...categoryList];
+  console.log(categoryArr);
+});
 
 // VERSION 2 -- USING JQUERY AJAX
 $(function() {
@@ -51,13 +55,14 @@ $(function() {
     
 }) 
 
-// const liLis = document.querySelectorAll('li');
 
-// Array.from(liLis).forEach(li => {
-//     li.addEventListener('click', ()=> {
-        
-//     })
-// })
+
+
+
+
+
+
+
 
 
 // $(function() {
