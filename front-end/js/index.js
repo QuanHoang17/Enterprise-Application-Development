@@ -45,16 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // VERSION 2 -- USING JQUERY AJAX
-$(function() {
+$(function () {
     $('#main-cover').load("./components/Index/Cover/cover.html");
     $('#best-sellers').load("./components/Index/BestSellers/best-sellers.html");
     $('#new-products').load("./components/Index/NewProducts/new-products.html");
     $('#categories').load("./components/Index/Categories/categories.html");
 
-    console.log('loaded successfully');
-    
-}) 
-
+    console.log('loaded successfully');}
+)
 
 
 
@@ -71,3 +69,11 @@ $(function() {
 //     })
 // })
 
+window.onload = () => {
+    $(function () {
+        $('.browse-category li').click(function () {
+            // console.log('ahihi');
+            $(this).addClass("selected").siblings('li').removeClass('selected');
+        })
+    })
+}

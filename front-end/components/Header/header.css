@@ -1,21 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
 
 /* Header top */
 header .container {
-    padding: 0 5%;
+    width: 98%;
+    margin: 0 auto;
+    padding: 10px 0;
 }
 
 .header-top {
     display: flex;
     width: 100%;
-    padding: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-header-top {
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.left-header-top a {
+    margin: 0 15px;
+    color: var(--black-base);
+    text-decoration: none;
+}
+
+.left-header-top > a:hover, .header-top .icon *:hover {
+    color: var(--primary-base);
 }
 
 .header-top .email {
     text-decoration: none;
     color: black;
-    margin-left: 33px;
 }
 
 .header-top .phone-number, h2 {
@@ -23,23 +40,31 @@ header .container {
     margin: 0;
 }
 
-.header-top h2 {
-    margin-left: 22%;
+.header-top h1 {
+    font-family: 'Lato', serif;
+    font-weight: 700;
+    font-size: 2em;
+    color: var(--black-base);
+    text-align: center;
 }
 
 .header-top .icon {
     display: flex;
-    margin-left: auto;
-    order: 2;
+    flex: 1;
+    justify-content: flex-end;
 }
 
-.header-top .cart-icon {
-    margin-left: 20px;
+.header-top .icon * {
+    margin: 0 10%;
 }
 
 .header-top i {
     color: black;
 }
+
+/* End of header top */
+
+
 
 /* Header mid */
 .header-mid {
@@ -110,4 +135,24 @@ header .container {
     color: red;
     margin-left: auto;
     order: 2;
+}
+
+
+/* MEDIA QUERIES */
+/* FOR MOBILE'S L SCREENSIZE */
+
+@media screen and (max-width: 425px) {
+    .left-header-top {
+        font-size: 0.7em;
+        /* color: red; */
+    }
+
+    .header-top h1, .icon {
+        /* font-size: 1.5em; */
+        transform: scale(0.8);
+    }
+
+    /* .header-top .icon > * {
+        margin: 0 10px;
+    } */
 }

@@ -25,17 +25,17 @@
             <div class="choice-container">
                 <div class="choice current-page">
                     <i class="fas fa-users"></i>
-                    <p>Customer</p>
+                    <a href="admin-customer.html"><p>Customer</p></a>
                 </div>
 
                 <div class="choice">
                     <i class="fas fa-shopping-cart"></i>
-                    <p>Products</p>
+                    <a href="admin-product.html"><p>Products</p></a>
                 </div>
 
                 <div class="choice">
                     <i class="fas fa-tag"></i>
-                    <p>Orders</p>
+                    <a href=""><p>Orders</p></a>
                 </div>
             </div>
         </div>
@@ -50,6 +50,8 @@
                     <div class="searchbar-container">
                         <input type="text" placeholder="Search customer name ...">
                         <i class="fas fa-search"></i>
+                        <br>
+                        <button class="primary-cta--small show-modal">Delete</button>
                     </div>
                 </div>
 
@@ -59,31 +61,77 @@
                         <th class="second-column">Email</th>
                         <th class="third-column">Username</th>
                         <th class="fourth-column">Phone number</th>
+                        <th class="fifth-column">Is Activated?</th>
                     </tr>
                     <tr>
-                        <td>User Id</td>
-                        <td>Email</td>
-                        <td>Username</td>
-                        <td>Phone number</td>
+                        <td>1</td>
+                        <td>user@gmail.com</td>
+                        <td>userNumber1</td>
+                        <td>113</td>
+                        <td>Hell yeah</td>
                     </tr>
                     <tr>
-                        <td>User Id</td>
-                        <td>Email</td>
-                        <td>Username</td>
-                        <td>Phone number</td>
+                        <td>1</td>
+                        <td>user@gmail.com</td>
+                        <td>userNumber1</td>
+                        <td>113</td>
+                        <td>Hell yeah</td>
                     </tr>
                     <tr>
-                        <td>User Id</td>
-                        <td>Email</td>
-                        <td>Username</td>
-                        <td>Phone number</td>
+                        <td>1</td>
+                        <td>user@gmail.com</td>
+                        <td>userNumber1</td>
+                        <td>113</td>
+                        <td>Hell yeah</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>user@gmail.com</td>
+                        <td>userNumber1</td>
+                        <td>113</td>
+                        <td>Hell yeah</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>user@gmail.com</td>
+                        <td>userNumber1</td>
+                        <td>113</td>
+                        <td>Hell yeah</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>user@gmail.com</td>
+                        <td>userNumber1</td>
+                        <td>113</td>
+                        <td>Hell yeah</td>
                     </tr>
                 </table>
             </div>
         </div>
         <!-- End of right -->
+
+        <!-- Start of modal -->
+        <div class="modal-container">
+            <div class="modal-content-container">
+                <div class="exit"><i class="fas fa-times"></i></div>
+                <p class="top">Delete customer</p>   
+                <div class="searchbar-container">
+                    <input type="text" placeholder="Search customer name to delete" class="modal-input">
+                    <i class="fas fa-search modal-search"></i>
+                </div>
+                <div class="result-container">
+                    <p>Customer found: <a href="">Quân Xì Ke - Customer Id 01</a></p>
+                    
+                </div>
+                <div class="button-container">
+                    <button class="primary-cta--medium delete-button">Delete this customer</button>
+                </div>
+            </div>
+        </div>
+        <!-- End of modal -->
     </section>
 
+    <script src="../../js/admin/admin-customer.js"></script>
 </body>
 
 </html>

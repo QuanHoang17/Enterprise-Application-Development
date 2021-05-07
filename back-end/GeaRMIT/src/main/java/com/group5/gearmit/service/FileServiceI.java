@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class FileServiceI implements FileService {
     @Override
-    public List<String> storeImageFile(MultipartFile[] files, String savedName) {
+    public List<String> storeFile(MultipartFile[] files, String savedName) {
         List<String> fileNameList = new ArrayList<>();
         try {
             Path imagePath = Paths.get("./images");
@@ -25,12 +25,7 @@ public class FileServiceI implements FileService {
             // Create new file with format id_name_index.extension
             for (int i = 0; i < files.length; i++) {
                 MultipartFile file = files[i];
-                String fileExtension = file.getContentType().split("/")[1];
-
-                //
-                if (!fileExtension.equals("jpeg") && !fileExtension.equals("png")) {
-                    fileExtension = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);
-                }
+                String fileExtension = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);
                 String fileName = savedName + "_" + Integer.toString(i) + "." + fileExtension;
                 Path filePath = Paths.get("./images/" + fileName);
                 Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
@@ -40,5 +35,16 @@ public class FileServiceI implements FileService {
             e.printStackTrace();
         }
         return fileNameList;
+    }
+
+    @Override
+    public boolean checkFile(MultipartFile[] files, String fileType) {
+        for (int i = 0; i < files.length; i++) {
+            String contentType = files[i].getContentType().split("/")[0];
+            if (!contentType.equals(fileType)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
