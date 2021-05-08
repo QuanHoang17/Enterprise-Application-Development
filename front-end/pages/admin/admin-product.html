@@ -55,17 +55,23 @@
                     <div class="searchbar-container">
                         <input type="text" placeholder="Search customer name ...">
                         <i class="fas fa-search"></i>
+                        <br>
+                        <div class="button-container">
+                            <button class="primary-cta--small show-add-modal">Add</button>
+                            <button class="primary-cta--small show-delete-modal">Delete</button>
+                        </div>
                     </div>
                 </div>
 
                 <table>
                     <tr class="table-header">
-                        <th class="padding-right">Product Id</th>
-                        <th class="padding-right">Product Name</th>
-                        <th class="padding-right">Quantity</th>
-                        <th class="padding-right">Issue Date</th>
-                        <th class="padding-right">Images</th>
+                        <th>Product Id</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Issue Date</th>
+                        <th>Images</th>
                         <th>Category</th>
+                        <th>List Colours</th>
                     </tr>
                     <tr>
                         <td>01</td>
@@ -99,8 +105,74 @@
             </div>
         </div>
         <!-- End of right -->
+
+        <!-- Start of modal -->
+        <!-- Delete modal -->
+        <div class="delete-modal-container">
+            <div class="delete-modal-content-container">
+                <div class="exit delete-exit"><i class="fas fa-times"></i></div>
+                <p class="top">Delete product</p>
+                <div class="searchbar-container">
+                    <input type="text" placeholder="Search product id to delete" class="modal-input">
+                    <i class="fas fa-search modal-search"></i>
+                </div>
+                <div class="result-container">
+                    <p>Product found: <a href="">Quân Xì Ke - Product Id 01</a></p>
+        
+                </div>
+                <div class="button-container">
+                    <button class="primary-cta--medium delete-button">Delete this product</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add modal -->
+        <div class="add-modal-container">
+            <div class="add-modal-content-container">
+                <div class="exit add-exit"><i class="fas fa-times"></i></div>
+                <p class="top">Add product</p>
+                <div class="fields-container flex">
+                    <div class="first-column">
+                        <div class="single-field">
+                            <p>Product Name*</p>
+                            <input type="text" placeholder="Some sort of product" class="product-name" required>
+                        </div>
+                        <div class="single-field">
+                            <p>Product Quantity*</p>
+                            <input type="number" placeholder="10" class="product-quantity" required>
+                        </div>
+                        <div class="single-field">
+                            <p>List color available*</p>
+                            <input type="text" placeholder="Red, Blue, Orange..." class="product-color" required>
+                        </div>
+                    </div>
+                    <div class="second-column">
+                        <div class="single-field">
+                            <p>Issue Date:</p>
+                            <input type="date" placeholder="Red, Blue, Orange..." class="product-date" required>
+                        </div>
+                        <div class="single-field">
+                            <p>Price*</p>
+                            <input type="text" placeholder="In USD" class="product-price" required>
+                        </div>
+                    </div>
+                    <div class="third-column">
+                        <div class="single-field" style="margin-bottom: 16px;">
+                            <p>Your message*</p>
+                            <!-- <input type="text" placeholder="Something" class="product-message" required> -->
+                            <textarea class="product-message" cols="" rows="10"></textarea>
+                        </div>
+                        <div class="button-container">
+                            <button class="primary-cta--medium add-button">Add product</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of modal -->
     </section>
 
+    <script src="../../js/admin/admin-product.js"></script>
 </body>
 
 </html>
