@@ -49,6 +49,11 @@
                         <i class="fas fa-image"></i>
                         <span>Gallery</span>
                     </li>
+
+                    <li class="choice">
+                        <i class="fas fa-fire-alt"></i>
+                        <span>Brands</span>
+                    </li>
                 </ul>
             </div>
 
@@ -333,6 +338,8 @@
             </section>
             <!-- END OF SECTION 1: CUSTOMER -->
 
+
+
             <!-- START OF SECTION 2: PRODUCTS -->
             <section class="main-content">
                 <div class="top-container flex">
@@ -394,8 +401,9 @@
                     </tr>
                 </table>
             </section>
-
             <!-- END OF SECTION 2: PRODUCTS -->
+
+
 
             <!-- START OF SECTION 3: CATEGORIES -->
             <section class="main-content">
@@ -442,8 +450,9 @@
                     </tr>
                 </table>
             </section>
-
             <!-- END OF SECTION 3: CATEGORIES -->
+
+
 
             <!-- START OF SECTION 4: GALLERY -->
             <section class="main-content">
@@ -490,10 +499,63 @@
                     </tr>
                 </table>
             </section>
-
             <!-- END OF SECTION 4: GALLERY -->
 
 
+
+            <!-- START OF SECTION 5: BRAND -->
+            <section class="main-content">
+                <div class="top-container flex">
+                    <h2>Brand</h2>
+            
+                    <div class="searchbar-container">
+                        <input type="text" placeholder="Search a brand...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            
+                <div class="functions-container">
+                    <div class="function">
+                        <button class="primary-cta--small brand-add-modal-trigger">Add</button>
+                        <button class="primary-cta--small brand-delete-modal-trigger">Delete</button>
+                    </div>
+                    <div class="statistics">
+                        <p>Total brand: <span>5</span></p>
+                    </div>
+                </div>
+            
+                <table>
+                    <tr class="table-header">
+                        <th class="padding-right">Brand Id</th>
+                        <th class="padding-right">Brand Name</th>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Logitech</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Logitech</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Logitech</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Logitech</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Logitech</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Logitech</td>
+                    </tr>
+                </table>
+            </section>
+            <!-- START OF SECTION 5: BRAND -->
         </div>
         <!-- End of right -->
 
@@ -586,12 +648,35 @@
             </div>
         </div>
         <!-- END OF PRODUCT ADD MODAL -->
+
+
+
+        <!-- START OF BRAND DELETE MODAL -->
+        <div class="brand-delete-modal-container">
+            <div class="modal-content-container">
+                <div class="exit brand-delete-exit"><i class="fas fa-times"></i></div>
+                <p class="top">Delete brand</p>
+                <div class="searchbar-container">
+                    <input type="text" placeholder="Search brand id to delete" class="brand-delete-modal-input">
+                    <i class="fas fa-search brand-delete-modal-search"></i>
+                </div>
+                <div class="result-container">
+                    <p>Brnad found: <a href="">Quân Xì Ke - Brand Id 01</a></p>
+        
+                </div>
+                <div class="button-container">
+                    <button class="primary-cta--medium brand-delete-button">Delete this brand</button>
+                </div>
+            </div>
+        </div>
+        <!-- END OF BRAND DELETE MODAL -->
         <!-- End of modal -->
     </section>
 
     <script src="../js/jquery-3.6.0.min.js"></script>
     <script src="../js/admin/admin-customer.js"></script>
     <script src="../js/admin/admin-product.js"></script>
+    <script src="../js/admin/admin-brand.js"></script>
     <script src="../js/admin/admin.js"></script>
 </body>
 
