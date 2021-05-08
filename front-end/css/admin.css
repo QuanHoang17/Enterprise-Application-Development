@@ -85,6 +85,10 @@
     color: #f24e3c;
 }
 
+.left .active-nav span {
+    color: #f24e3c;
+}
+
 .left .choice:hover {
     background-color: rgba(248, 112, 96, 0.1);
     border-left: 4px solid #F87060;
