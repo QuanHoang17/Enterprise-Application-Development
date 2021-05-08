@@ -29,3 +29,96 @@
     bottom: 64px;
 }
 
+
+/* Ipad Pro screen  */
+@media screen and (min-width: 801px) {
+    .Footer {
+        padding: 64px 72px;
+    }
+    
+    .Footer .column h4 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+
+    .Footer .column a {
+        font-size: 16px;
+    }
+    
+    .Footer .column p {
+        font-size: 12.8px;
+        padding-top: var(--copyrightPaddingTop);
+    }
+}
+
+/* Ipad screen */
+
+
+/* Small Tablet screen */
+@media screen and (min-width: 471px) and (max-width: 640px){
+    .Footer {
+        padding: 44px 32px;
+    }
+    
+    .Footer .column h4 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+    
+    .Footer .column a {
+        font-size: 13px;
+    }
+    
+    .Footer .column p {
+        font-size: 10px;
+        padding-top: var(--copyrightPaddingTop);
+    }
+    
+}
+
+/* Iphone X screen */
+@media screen and (min-width: 376px) and (max-width: 470px){
+    .Footer {
+        padding: 44px 20px;
+    }
+    
+    .Footer .column h4 {
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+
+    .Footer .column a {
+        font-size: 12px;
+    }
+    
+    .Footer .column p {
+        font-size: 10px;
+        padding-top: var(--copyrightPaddingTop);
+    }
+    
+}
+
+/* Iphone 6/7/8 screen */
+@media screen and (max-width: 375px){
+    .Footer {
+        padding: 44px 16px;
+    }
+
+    .Footer .column h4 {
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+
+    .Footer .column a {
+        font-size: 8px;
+    }
+    
+    .Footer .column p {
+        font-size: 6px;
+        padding-top: var(--copyrightPaddingTop);
+    }
+}
