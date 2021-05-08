@@ -26,7 +26,7 @@ public class Brand {
         strategy = "com.group5.gearmit.generator.PrefixIDGenerator")
     private String id;
 
-    @Column
+    @Column(unique = true)
     private String name;
 
     @Override

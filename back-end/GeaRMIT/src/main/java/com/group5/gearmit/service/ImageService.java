@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Map;
 
 public interface ImageService {
-    void storeItemImages(MultipartFile[] uploadFiles, Product product);
+    void deleteImageByProductID(String productID);
+    Map<String, String> storeItemImage(MultipartFile uploadFile, Map<Object, Object> productInfo);
     List<ImageDTO> getImageByProductName(String productName);
     List<ImageDTO> getImageByProductCategoryName(String productCategoryName);
     List<ImageDTO> getImageByProductBrandName(String productBrandName);
-    List<String> getImageURLByItemID(String itemID);
     List<ImageDTO> getAllImage();
 }

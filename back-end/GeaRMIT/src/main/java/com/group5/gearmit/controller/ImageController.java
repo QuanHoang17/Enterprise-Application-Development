@@ -4,6 +4,8 @@ import com.group5.gearmit.service.FileService;
 import com.group5.gearmit.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.expression.spel.ast.OperatorBetween;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,23 +19,18 @@ import java.util.Map;
 
 @RestController
 @CrossOrigin
-public class FileController {
+public class ImageController {
     @Autowired
     FileService fileService;
 
     @Autowired
     ImageService imageService;
-
-    // Test controller for file upload
-//    @PostMapping(value = "/api/upload/images")
-//    public Map<String, String> uploadFiles(@RequestParam("files") MultipartFile[] files,
-//                                           @RequestParam("name") String name,
-//                                           @RequestParam("id") String id) {
-//        Map<String, String> response = new HashMap<>();
-//        imageService.storeItemImages(files, id, name);
-//        response.put("status", "success");
-//        return response;
-//    }
+//    consumes = {MediaType.MULTIPART_FORM_DATA_VALUE, MediaType.APPLICATION_JSON_VALUE}
+    @PostMapping(value = "/api/image")
+    public Map<String, String> uploadFiles(@RequestPart("file") MultipartFile imageFile,
+                                           @RequestPart("info") Map<Object, Object> productInfo) {
+        return imageService.storeItemImage(imageFile, productInfo);
+    }
 
     @GetMapping(value = "/api/images/{filename}", produces = "image/*")
     public FileSystemResource getImage(@PathVariable("filename") String filename) {
@@ -47,11 +44,4 @@ public class FileController {
         }
         return fileSystemResource;
     }
-
-    @GetMapping(value = "/api/images/id/{id}", produces = "image/*")
-    public List<String> getImages(@PathVariable("id") String id) {
-        System.out.println(imageService.getImageURLByItemID(id).toString());
-        return null;
-    }
-
 }

@@ -38,7 +38,7 @@ public class ProductColor {
     @NoArgsConstructor
     @AllArgsConstructor
     @ToString
-    private static class ProductColorPK implements Serializable {
+    public static class ProductColorPK implements Serializable {
         @ManyToOne(targetEntity = Product.class, fetch = FetchType.EAGER)
         @JoinColumn(nullable = false, name = "product_id", referencedColumnName = "id")
         private Product product;

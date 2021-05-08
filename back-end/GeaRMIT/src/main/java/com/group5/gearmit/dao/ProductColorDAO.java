@@ -3,6 +3,7 @@ package com.group5.gearmit.dao;
 import com.group5.gearmit.dto.ProductColorDTO;
 import com.group5.gearmit.entity.ProductColor;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -29,4 +30,8 @@ public interface ProductColorDAO extends JpaRepository<ProductColor, Integer> {
             "FROM ProductColor cp " +
             "WHERE cp.productColorPK.product.brand.name = :name")
     List<ProductColorDTO> getColorByProductBrandName(@Param("name") String name);
+
+    @Modifying
+    @Query(value = "DELETE FROM ProductColor cp WHERE cp.productColorPK.product.id = :id")
+    void deleteProductColorByProductID(@Param("id") String id);
 }

@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -18,25 +20,59 @@ public class ImageServiceI implements ImageService {
     private FileService fileService;
 
     @Autowired
+    private ProductService productService;
+
+    @Autowired
     private ImageDAO imageDAO;
 
     @Override
     @Transactional
-    public void storeItemImages(MultipartFile[] uploadFiles, Product product) {
-        String basedFileName = product.getId() + "_" + product.getName();
-        List<String> imageURLList = fileService.storeFile(uploadFiles, basedFileName);
-        for(String imageURL:imageURLList) {
-            Image image = new Image();
-            image.setProduct(product);
-            image.setName(imageURL);
-            imageDAO.save(image);
+    public Map<String, String> storeItemImage(MultipartFile uploadFiles, Map<Object, Object> productInfo) {
+        Map<String, String> response = new HashMap<>();
+        Product product = productService.getProductObjectByID((String)productInfo.get("productID"));
+        // Check File Type
+        if (!fileService.checkFileType(uploadFiles, "image")) {
+            response.put("file", "InvalidType");
+            return response;
         }
+
+        // Check if product exist
+        if (product == null) {
+            response.put("product", "not found");
+        } else {
+            response.put("product", "exsited");
+        }
+
+        // Check if file already exist
+        boolean fileExisted = fileService.checkFileExist(uploadFiles, (String) productInfo.get("name"));
+        if (fileExisted) {
+            response.put("file", "existed");
+        } else {
+            response.put("file", "available");
+        }
+
+        if (product == null || fileExisted) {
+            response.put("status", "failed");
+            return response;
+        }
+
+        String fileName = fileService.storeFile(uploadFiles, (String) productInfo.get("name"));
+        Image image = new Image();
+        image.setProduct(product);
+        image.setName(fileName);
+        imageDAO.save(image);
+        response.put("status", "success");
+        return response;
     }
 
     @Override
     @Transactional
-    public List<String> getImageURLByItemID(String itemID) {
-        return imageDAO.getImageURLByItemID(itemID);
+    public void deleteImageByProductID(String productID) {
+        List<ImageDTO> imageList = imageDAO.getImageByProductId(productID);
+        for (ImageDTO image:imageList) {
+            fileService.deleteFile(image.getName());
+            imageDAO.deleteImageByID(image.getId());
+        }
     }
 
     @Override

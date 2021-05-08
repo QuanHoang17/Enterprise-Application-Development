@@ -1,6 +1,6 @@
 package com.group5.gearmit.service;
 
-import com.group5.gearmit.dao.CatagoryDAO;
+import com.group5.gearmit.dao.CategoryDAO;
 import com.group5.gearmit.entity.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import java.util.Map;
 @Transactional
 public class CategoryServiceI implements CategoryService {
     @Autowired
-    CatagoryDAO catagoryDAO;
+    CategoryDAO categoryDAO;
 
     @Override
     @Transactional
@@ -20,6 +20,12 @@ public class CategoryServiceI implements CategoryService {
         Category category = new Category();
         category.setName(receivedCategory.get("name"));
         category.setDescription(receivedCategory.get("description"));
-        catagoryDAO.save(category);
+        categoryDAO.save(category);
+    }
+
+    @Override
+    @Transactional
+    public Category getCategoryById(String categoryID) {
+        return categoryDAO.getCategoryByID(categoryID);
     }
 }

@@ -51,6 +51,8 @@ public class CustomerServiceI implements CustomerService {
             return response;
         }
         response.put("message", "success");
+        response.put("name", storedUser.getName());
+        response.put("privilege", storedUser.getPrivilege());
         return response;
     }
 

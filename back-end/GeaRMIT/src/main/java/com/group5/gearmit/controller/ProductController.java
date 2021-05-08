@@ -38,14 +38,13 @@ public class ProductController {
         return productService.getProductByBrandName(brandName);
     }
 
-    @PostMapping(value = "/api/product", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public Map<String, String> addProduct(@RequestPart("images") MultipartFile[] images,
-                                          @RequestPart("product") Map<Object, Object> product) {
-        return productService.addProduct(images, product);
+    @PostMapping(value = "/api/product")
+    public Map<String, String> addProduct(@RequestBody Map<Object, Object> productJson) {
+        return productService.addProduct(productJson);
     }
 
-    @DeleteMapping(value = "/api/product/{productID}")
+    @DeleteMapping(value = "/api/product/id/{productID}")
     public Map<String, String> deleteProductByID(@PathVariable("productID") String productID) {
-        return new HashMap<>();
+        return productService.deleteProduct(productID);
     }
 }

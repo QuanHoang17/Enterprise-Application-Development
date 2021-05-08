@@ -7,5 +7,9 @@ import java.util.Map;
 
 public interface FileService {
     List<String> storeFile(MultipartFile[] file, String savedName);
-    boolean checkFile(MultipartFile[] files, String fileType);
+    boolean checkFilesType(MultipartFile[] files, String fileType);
+    boolean checkFileType(MultipartFile file, String fileType);
+    String storeFile(MultipartFile file, String savedName);
+    boolean checkFileExist(MultipartFile file, String savedName);
+    void deleteFile(String fileName);
 }
