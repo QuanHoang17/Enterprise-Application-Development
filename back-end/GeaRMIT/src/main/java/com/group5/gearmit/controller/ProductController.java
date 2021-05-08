@@ -1,14 +1,9 @@
 package com.group5.gearmit.controller;
 
-import com.group5.gearmit.entity.Product;
 import com.group5.gearmit.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

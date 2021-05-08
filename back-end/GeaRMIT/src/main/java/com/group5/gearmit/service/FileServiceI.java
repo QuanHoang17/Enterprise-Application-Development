@@ -18,7 +18,7 @@ public class FileServiceI implements FileService {
     }
 
     @Override
-    public List<String> storeFile(MultipartFile[] files, String savedName) {
+    public List<String> storeFiles(MultipartFile[] files, String savedName) {
         List<String> fileNameList = new ArrayList<>();
         try {
             Path imagePath = Paths.get("./images");

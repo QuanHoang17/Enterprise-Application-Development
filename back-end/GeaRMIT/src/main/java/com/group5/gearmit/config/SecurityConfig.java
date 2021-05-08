@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**")
                 .permitAll()
                 .anyRequest()
-                .authenticated(); // To secure backend whenever using cookie
+                .authenticated();
     }
 
     @Bean

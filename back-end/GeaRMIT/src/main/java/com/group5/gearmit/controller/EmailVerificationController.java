@@ -12,7 +12,7 @@ public class EmailVerificationController {
     @Autowired
     AuthenticationService emailService;
 
-    @PutMapping("/api/regitrationConfirmed/{token}")
+    @GetMapping("/api/regitrationConfirmed/{token}")
     public Map<String, String> verifyEmail(@PathVariable("token") String token) {
         return emailService.verifyEmailToken(token);
     }
