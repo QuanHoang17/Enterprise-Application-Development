@@ -101,6 +101,7 @@ public class CustomerServiceI implements CustomerService {
     }
 
     @Override
+    @Transactional
     public List<Customer> getAllCustomer() {
         return customerDAO.findAll();
     }

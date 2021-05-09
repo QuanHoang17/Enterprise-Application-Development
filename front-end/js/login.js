@@ -1,3 +1,13 @@
+window.onload = () => {
+    let userName = window.sessionStorage.getItem("name");
+    let userPrivilage = window.sessionStorage.getItem("privilage");
+    if (userName != null && userPrivilage == "admin") {
+        window.location.replace("admin.html");
+    } else if (userName != null && userPrivilage == "user") {
+        window.location.replace("../index.html");
+    }
+};
+
 // Input validation
 function displayError(errorDisplay, errorString) {
     // Display error string at specific element
@@ -55,7 +65,7 @@ async function validateLogin(userName, password) {
         if (res.ok) {
             let resData = await res.json();
             console.log(resData);
-            return resData.message;
+            return resData;
         }
     } catch (error) {
 
@@ -101,14 +111,20 @@ loginBtn.addEventListener("click", async () => {
 
     if (allValidated) {
         let loginRes = await validateLogin(name.value, password.value);
-        if (loginRes == "password") {
+        if (loginRes.message == "password") {
             displayLoginStatus(errorLogin, "- Incorrect password");
-        } else if (loginRes == "name") {
+        } else if (loginRes.message == "name") {
             displayLoginStatus(errorLogin, "- Username not found, please register!");
-        } else if (loginRes == "email") {
+        } else if (loginRes.message == "email") {
             displayLoginStatus(errorLogin, "- Account not activated. Please verify email");
-        } else if (loginRes == "success") {
-            displayLoginStatus(errorLogin, "- Login successful");
+        } else if (loginRes.message == "success") {
+            window.sessionStorage.setItem("privilage", loginRes.privilege);
+            window.sessionStorage.setItem("name", loginRes.name);
+            if (loginRes.privilege == "admin") {
+                window.location.replace("admin.html");
+            } else {
+                window.location.replace("../index.html");
+            }
         } else {
             displayLoginStatus(errorLogin, "- Cannot connect to server");
         }

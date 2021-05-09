@@ -133,11 +133,11 @@ async function registerUsers(userName, email, phone, password) {
         password: password
     };
     try {
-        let res = await fetch("http://localhost:8080/api/users", {
+        let res = await fetch("http://localhost:8080/api/customer", {
             method: 'POST',
             headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(userInfo)
         });
