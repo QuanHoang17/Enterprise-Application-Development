@@ -34,16 +34,16 @@ public class AuthenticationServiceI implements AuthenticationService {
         Map<String, String> response = new HashMap<>();
         VerificationToken user = tokenDAO.getVerificationTokenByToken(token);
         if (user == null) {
-            response.put("status", "Token have expired or not existed");
+            response.put("status", "Token_have_expired_or_not_existed");
             return response;
         }
         Calendar cal = Calendar.getInstance();
         if ((user.getExpiryDate().getTime() - cal.getTime().getTime()) <= 0) {
-            response.put("status", "Token have expired");
+            response.put("status", "Token_have_expired");
             return response;
         }
         customerDAO.setUserInfoById(true, user.getCustomer().getId());
-        response.put("status", "Successfully activate account");
+        response.put("status", "Successfully_activate_account");
         return response;
     }
 

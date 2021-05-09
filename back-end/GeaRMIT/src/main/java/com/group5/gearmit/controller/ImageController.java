@@ -28,7 +28,7 @@ public class ImageController {
         return imageService.storeItemImage(imageFile, productInfo);
     }
 
-    @GetMapping(value = "/api/images/{filename}", produces = "image/*")
+    @GetMapping(value = "/api/image/{filename}", produces = "image/*")
     public FileSystemResource getImage(@PathVariable("filename") String filename) {
         FileSystemResource fileSystemResource = null;
         try {

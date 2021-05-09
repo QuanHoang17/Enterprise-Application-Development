@@ -118,7 +118,7 @@ public class ProductServiceI implements ProductService {
         // Check category
         Category category = categoryService.getCategoryById((String) productJSON.get("categoryId"));
         if (category == null) {
-            response.put("category", "not found");
+            response.put("category", "not_found");
         } else {
             response.put("category", "existed");
         }
@@ -126,7 +126,7 @@ public class ProductServiceI implements ProductService {
         // Check brand
         Brand brand = brandService.getBrandByID((String) productJSON.get("brandId"));
         if (brand == null) {
-            response.put("brand", "not found");
+            response.put("brand", "not_found");
         } else {
             response.put("brand", "existed");
         }
@@ -145,7 +145,7 @@ public class ProductServiceI implements ProductService {
         for (String colorName:colorNameList) {
             Color color = colorService.getColorByName(colorName);
             if (color == null) {
-                response.put("color", "Not found");
+                response.put("color", "not_found");
                 colorNotFound = true;
                 break;
             } else {
@@ -193,10 +193,11 @@ public class ProductServiceI implements ProductService {
     public Map<String, String> deleteProduct(String productID) {
         Map<String, String> response = new HashMap<>();
         if (productDAO.getOneProductByID(productID) == null) {
-            response.put("product", "not existed");
+            response.put("product", "not_found");
             response.put("status", "failed");
             return response;
         }
+        response.put("product", "existed");
         imageService.deleteImageByProductID(productID);
         productColorDAO.deleteProductColorByProductID(productID);
         productDAO.deleteProductById(productID);

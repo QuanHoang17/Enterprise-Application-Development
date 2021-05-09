@@ -31,14 +31,17 @@ public class ImageServiceI implements ImageService {
         Map<String, String> response = new HashMap<>();
         Product product = productService.getProductObjectByID((String)productInfo.get("productID"));
         // Check File Type
+        boolean correctFileType = true;
         if (!fileService.checkFileType(uploadFiles, "image")) {
-            response.put("file", "InvalidType");
-            return response;
+            response.put("fileType", "invalid");
+            correctFileType = false;
+        } else {
+            response.put("fileType", "valid");
         }
-
+        
         // Check if product exist
         if (product == null) {
-            response.put("product", "not found");
+            response.put("product", "not_found");
         } else {
             response.put("product", "exsited");
         }
@@ -51,7 +54,7 @@ public class ImageServiceI implements ImageService {
             response.put("file", "available");
         }
 
-        if (product == null || fileExisted) {
+        if (product == null || fileExisted || !correctFileType) {
             response.put("status", "failed");
             return response;
         }
