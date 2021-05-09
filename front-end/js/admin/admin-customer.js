@@ -5,15 +5,18 @@ var deleteBtn = document.querySelector(".customer-delete-button");
 var modalSearchBtn = document.querySelector(".customer-delete-modal-search");
 
 deleteTrigger.addEventListener("click", (e) => {
-    modalContainer.style.cssText = "display: block";
+    // modalContainer.style.cssText = "display: block";
+    // ^ some how this doesn't work
+    
+    document.querySelector(".customer-delete-modal-container").style.cssText = "display: block";
 })
 
 deleteBtn.addEventListener("click", (e) => {
-    alert('Hello World!');
+    alert('Delete customer button clicked');
 })
 
 exitBtn.addEventListener("click", (e) => {
-    modalContainer.style.cssText = "display: none";
+    document.querySelector(".customer-delete-modal-container").style.cssText = "display: none";
     
     // Clear input value when exiting the modal
     document.querySelector(".customer-delete-modal-input").value = "";
@@ -21,5 +24,5 @@ exitBtn.addEventListener("click", (e) => {
 
 modalSearchBtn.addEventListener("click", (e) => {
     let customerName = document.querySelector(".customer-delete-modal-input").value;
-    alert(customerName);
+    alert("Customer name: " + customerName);
 })
