@@ -6,7 +6,6 @@ import com.group5.gearmit.entity.Customer;
 import com.group5.gearmit.entity.VerificationToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,16 +34,16 @@ public class AuthenticationServiceI implements AuthenticationService {
         Map<String, String> response = new HashMap<>();
         VerificationToken user = tokenDAO.getVerificationTokenByToken(token);
         if (user == null) {
-            response.put("status", "Token have expired or not existed");
+            response.put("status", "Token_have_expired_or_not_existed");
             return response;
         }
         Calendar cal = Calendar.getInstance();
         if ((user.getExpiryDate().getTime() - cal.getTime().getTime()) <= 0) {
-            response.put("status", "Token have expired");
+            response.put("status", "Token_have_expired");
             return response;
         }
         customerDAO.setUserInfoById(true, user.getCustomer().getId());
-        response.put("status", "Successfully activate account");
+        response.put("status", "Successfully_activate_account");
         return response;
     }
 

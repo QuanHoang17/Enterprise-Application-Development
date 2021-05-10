@@ -41,6 +41,9 @@ public class Customer {
     @Column
     private boolean enabled = false;
 
+    @Column
+    private String privilege = "user";
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

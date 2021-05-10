@@ -5,15 +5,15 @@ import com.group5.gearmit.dao.ProductDAO;
 import com.group5.gearmit.dto.ProductColorDTO;
 import com.group5.gearmit.dto.ImageDTO;
 import com.group5.gearmit.dto.ProductDTO;
+import com.group5.gearmit.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @Service
 @Transactional
@@ -28,7 +28,13 @@ public class ProductServiceI implements ProductService {
     private ImageService imageService;
 
     @Autowired
-    private FileService fileService;
+    private CategoryService categoryService;
+
+    @Autowired
+    private BrandService brandService;
+
+    @Autowired
+    private ColorService colorService;
 
     private List<Map<String, Object>> generateProductList(List<ProductDTO> productDTOList,
                                                           List<ImageDTO> imageDTOList,
@@ -104,23 +110,104 @@ public class ProductServiceI implements ProductService {
 
     @Override
     @Transactional
-    public Map<String, String> addProduct(MultipartFile[] images, Map<Object, Object> product) {
+    public Map<String, String> addProduct(Map<Object, Object> productJSON) {
         Map<String, String> response = new HashMap<>();
-        // Check File Type
-        if (!fileService.checkFile(images, "image")) {
-            response.put("Error", "file");
-            response.put("Error Description", "Not an image file");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        List<String> colorNameList = (ArrayList<String>) productJSON.get("color");
+
+        // Check category
+        Category category = categoryService.getCategoryById((String) productJSON.get("categoryId"));
+        if (category == null) {
+            response.put("category", "not_found");
+        } else {
+            response.put("category", "existed");
+        }
+
+        // Check brand
+        Brand brand = brandService.getBrandByID((String) productJSON.get("brandId"));
+        if (brand == null) {
+            response.put("brand", "not_found");
+        } else {
+            response.put("brand", "existed");
+        }
+
+        // Check product existed
+        Product product = productDAO.getOneProductByName((String) productJSON.get("name"));
+        if (product != null) {
+            response.put("product", "existed");
+        } else {
+            response.put("product", "available");
+        }
+
+        // Check color existed
+        List<Color> colorList = new ArrayList<>();
+        boolean colorNotFound = false;
+        for (String colorName:colorNameList) {
+            Color color = colorService.getColorByName(colorName);
+            if (color == null) {
+                response.put("color", "not_found");
+                colorNotFound = true;
+                break;
+            } else {
+                response.put("color", "existed");
+                colorList.add(color);
+            }
+        }
+
+        if (brand == null || category == null || product != null || colorNotFound) {
+            response.put("status", "failed");
             return response;
         }
 
         // Add product
+        product = new Product();
+        product.setName((String) productJSON.get("name"));
+        try {
+            product.setIssueDate((new SimpleDateFormat("dd-MM-yyyy")).parse((String) productJSON.get("issueDate")));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        product.setPrice(Long.valueOf((Integer) productJSON.get("price")));
+        product.setQuantity(Long.valueOf((Integer) productJSON.get("quantity")));
+        product.setDescription((String) productJSON.get("description"));
+        product.setBrand(brand);
+        product.setCategory(category);
+        product = productDAO.save(product);
 
         // Map color and Product
-
-        // Map image and Product
-
+        for (Color color:colorList) {
+            ProductColor productColor = new ProductColor();
+            ProductColor.ProductColorPK productColorPK = new ProductColor.ProductColorPK();
+            productColorPK.setProduct(product);
+            productColorPK.setColor(color);
+            productColor.setProductColorPK(productColorPK);
+            productColorDAO.save(productColor);
+        }
 
         response.put("status", "success");
         return response;
     }
+
+    @Override
+    @Transactional
+    public Map<String, String> deleteProduct(String productID) {
+        Map<String, String> response = new HashMap<>();
+        if (productDAO.getOneProductByID(productID) == null) {
+            response.put("product", "not_found");
+            response.put("status", "failed");
+            return response;
+        }
+        response.put("product", "existed");
+        imageService.deleteImageByProductID(productID);
+        productColorDAO.deleteProductColorByProductID(productID);
+        productDAO.deleteProductById(productID);
+        response.put("status", "success");
+        return response;
+    }
+
+    @Override
+    @Transactional
+    public Product getProductObjectByID(String productID) {
+        return productDAO.getOneProductByID(productID);
+    };
 }

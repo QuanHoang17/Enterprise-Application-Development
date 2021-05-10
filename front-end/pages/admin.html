@@ -49,6 +49,11 @@
                         <i class="fas fa-image"></i>
                         <span>Gallery</span>
                     </li>
+
+                    <li class="choice">
+                        <i class="fas fa-fire-alt"></i>
+                        <span>Brands</span>
+                    </li>
                 </ul>
             </div>
 
@@ -72,8 +77,7 @@
 
                 <div class="functions-container">
                     <div class="function">
-                        <button class="primary-cta--small show-modal">Add</button>
-                        <button class="primary-cta--small show-modal">Delete</button>
+                        <button class="primary-cta--small customer-delete-modal-trigger">Delete</button>
                     </div>
                     <div class="statistics">
                         <p>Total users: 100</p>
@@ -335,6 +339,7 @@
             <!-- END OF SECTION 1: CUSTOMER -->
 
 
+
             <!-- START OF SECTION 2: PRODUCTS -->
             <section class="main-content">
                 <div class="top-container flex">
@@ -348,8 +353,8 @@
 
                 <div class="functions-container">
                     <div class="function">
-                        <button class="primary-cta--small show-modal">Add</button>
-                        <button class="primary-cta--small show-modal">Delete</button>
+                        <button class="primary-cta--small product-add-modal-trigger">Add</button>
+                        <button class="primary-cta--small product-delete-modal-trigger">Delete</button>
                     </div>
                     <div class="statistics">
                         <p>Total products: 200</p>
@@ -396,8 +401,9 @@
                     </tr>
                 </table>
             </section>
-
             <!-- END OF SECTION 2: PRODUCTS -->
+
+
 
             <!-- START OF SECTION 3: CATEGORIES -->
             <section class="main-content">
@@ -444,8 +450,9 @@
                     </tr>
                 </table>
             </section>
-
             <!-- END OF SECTION 3: CATEGORIES -->
+
+
 
             <!-- START OF SECTION 4: GALLERY -->
             <section class="main-content">
@@ -492,36 +499,179 @@
                     </tr>
                 </table>
             </section>
-
             <!-- END OF SECTION 4: GALLERY -->
 
 
+
+            <!-- START OF SECTION 5: BRAND -->
+            <section class="main-content">
+                <div class="top-container flex">
+                    <h2>Brand</h2>
+            
+                    <div class="searchbar-container">
+                        <input type="text" placeholder="Search a brand...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            
+                <div class="functions-container">
+                    <div class="function">
+                        <button class="primary-cta--small brand-add-modal-trigger">Add</button>
+                        <button class="primary-cta--small brand-add-modal-trigger">Delete</button>
+                    </div>
+                    <div class="statistics">
+                        <p>Total brand: <span>5</span></p>
+                    </div>
+                </div>
+            
+                <table>
+                    <tr class="table-header">
+                        <th class="padding-right">Brand Id</th>
+                        <th class="padding-right">Brand Name</th>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Logitech</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Logitech</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Logitech</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Logitech</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Logitech</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Logitech</td>
+                    </tr>
+                </table>
+            </section>
+            <!-- START OF SECTION 5: BRAND -->
         </div>
         <!-- End of right -->
 
         <!-- Start of modal -->
-        <div class="modal-container">
+
+        <!-- START OF CUSTOMER DELETE MODAL -->
+        <div class="customer-delete-modal-container">
             <div class="modal-content-container">
-                <div class="exit"><i class="fas fa-times"></i></div>
+                <div class="customer-delete-exit"><i class="fas fa-times"></i></div>
                 <p class="top">Delete customer</p>
                 <div class="searchbar-container">
-                    <input type="text" placeholder="Search customer name to delete" class="modal-input">
-                    <i class="fas fa-search modal-search"></i>
+                    <input type="text" placeholder="Search customer name to delete" class="customer-delete-modal-input">
+                    <i class="fas fa-search customer-delete-modal-search"></i>
                 </div>
                 <div class="result-container">
                     <p>Customer found: <a href="">Quân Xì Ke - Customer Id 01</a></p>
-
                 </div>
                 <div class="button-container">
-                    <button class="primary-cta--medium delete-button">Delete this customer</button>
+                    <button class="primary-cta--medium customer-delete-button">Delete this customer</button>
                 </div>
             </div>
         </div>
+        <!-- END OF CUSTOMER DELETE MODAL -->
+
+
+
+        <!-- START OF PRODUCT DELETE MODAL -->
+        <div class="product-delete-modal-container">
+            <div class="delete-modal-content-container">
+                <div class="exit product-delete-exit"><i class="fas fa-times"></i></div>
+                <p class="top">Delete product</p>
+                <div class="searchbar-container">
+                    <input type="text" placeholder="Search product id to delete" class="product-delete-modal-input">
+                    <i class="fas fa-search product-delete-modal-search"></i>
+                </div>
+                <div class="result-container">
+                    <p>Product found: <a href="">Quân Xì Ke - Product Id 01</a></p>
+        
+                </div>
+                <div class="button-container">
+                    <button class="primary-cta--medium product-delete-button">Delete this product</button>
+                </div>
+            </div>
+        </div>
+        <!-- END OF PRODUCT ADD MODAL -->
+
+
+
+        <!-- START OF PRODUCT ADD MODAL -->
+        <div class="product-add-modal-container">
+            <div class="add-modal-content-container">
+                <div class="exit product-add-exit"><i class="fas fa-times"></i></div>
+                <p class="top">Add product</p>
+                <div class="fields-container flex">
+                    <div class="first-column">
+                        <div class="single-field">
+                            <p>Product Name*</p>
+                            <input type="text" placeholder="Some sort of product" class="product-name" required>
+                        </div>
+                        <div class="single-field">
+                            <p>Product Quantity*</p>
+                            <input type="number" placeholder="10" class="product-quantity" required>
+                        </div>
+                        <div class="single-field">
+                            <p>List color available*</p>
+                            <input type="text" placeholder="Red, Blue, Orange..." class="product-color" required>
+                        </div>
+                    </div>
+                    <div class="second-column">
+                        <div class="single-field">
+                            <p>Issue Date:</p>
+                            <input type="date" placeholder="Red, Blue, Orange..." class="product-date" required>
+                        </div>
+                        <div class="single-field">
+                            <p>Price*</p>
+                            <input type="text" placeholder="In USD" class="product-price" required>
+                        </div>
+                    </div>
+                    <div class="third-column">
+                        <div class="single-field" style="margin-bottom: 16px;">
+                            <p>Your message*</p>
+                            <!-- <input type="text" placeholder="Something" class="product-message" required> -->
+                            <textarea class="product-message" cols="" rows="10"></textarea>
+                        </div>
+                        <div class="button-container">
+                            <button class="primary-cta--medium product-add-button">Add product</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END OF PRODUCT ADD MODAL -->
+
+
+
+        <!-- START OF BRAND ADD MODAL -->
+        <div class="brand-add-modal-container">
+            <div class="modal-content-container">
+                <div class="exit brand-add-exit"><i class="fas fa-times"></i></div>
+                <p class="top">Add a brand</p>
+                <div class="searchbar-container">
+                    <input type="text" placeholder="Enter brand name" class="brand-add-modal-input">
+                </div>
+                <div class="button-container">
+                    <button class="primary-cta--medium brand-add-button">Add this brand</button>
+                </div>
+            </div>
+        </div>
+        <!-- END OF BRAND ADD MODAL -->
         <!-- End of modal -->
     </section>
 
     <script src="../js/jquery-3.6.0.min.js"></script>
     <script src="../js/admin/admin-customer.js"></script>
+    <script src="../js/admin/admin-product.js"></script>
+    <script src="../js/admin/admin-brand.js"></script>
     <script src="../js/admin/admin.js"></script>
 </body>
 
