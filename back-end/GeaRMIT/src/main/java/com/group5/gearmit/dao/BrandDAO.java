@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BrandDAO extends JpaRepository<Brand, Integer> {
+public interface BrandDAO extends JpaRepository<Brand, String> {
     @Query(value = "SELECT b FROM Brand b WHERE b.id = :id")
     Brand getBrandByID(@Param("id") String id);
 }

@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface VerificationTokenDAO extends JpaRepository<VerificationToken, Integer> {
+public interface VerificationTokenDAO extends JpaRepository<VerificationToken, Long> {
     @Query(value = "SELECT t FROM VerificationToken t WHERE t.token = :token")
     VerificationToken getVerificationTokenByToken(@Param("token") String token);
 
