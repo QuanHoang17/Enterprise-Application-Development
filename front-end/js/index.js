@@ -52,10 +52,27 @@ $(function () {
 })
 
 
-window.onload = () => {
+// Scroll to top button
+var btn = $('#btnScrollTop');
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+
+
+// Select category section
+body.onload = () => {
     $(function () {
         $('.browse-category li').click(function () {
-            // console.log('ahihi');
             $(this).addClass("selected").siblings('li').removeClass('selected');
         })
     })
