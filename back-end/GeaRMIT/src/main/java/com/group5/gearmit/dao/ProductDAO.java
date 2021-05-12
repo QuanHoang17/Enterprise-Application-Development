@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProductDAO extends JpaRepository<Product, Integer> {
+public interface ProductDAO extends JpaRepository<Product, String> {
     @Query(value = "SELECT new com.group5.gearmit.dto.ProductDTO(p.id, p.name, p.quantity, p.issueDate, p.category.name, p.brand.name, p.price, p.description) " +
             "FROM Product p")
     List<ProductDTO> getAllProduct();

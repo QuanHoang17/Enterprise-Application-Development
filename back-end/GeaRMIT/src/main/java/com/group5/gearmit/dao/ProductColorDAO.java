@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProductColorDAO extends JpaRepository<ProductColor, Integer> {
+public interface ProductColorDAO extends JpaRepository<ProductColor, ProductColor.ProductColorPK> {
     @Query(value = "SELECT new com.group5.gearmit.dto.ProductColorDTO(cp.productColorPK.color.name, cp.productColorPK.product.id) " +
             "FROM ProductColor cp")
     List<ProductColorDTO> getAllColor();

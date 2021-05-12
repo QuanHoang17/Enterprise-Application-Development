@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ImageDAO extends JpaRepository<Image, Integer> {
+public interface ImageDAO extends JpaRepository<Image, String> {
     @Query(value = "SELECT i.name FROM Image i WHERE i.name = :itemID")
     List<String> getImageURLByItemID(@Param("itemID") String itemID);
 
