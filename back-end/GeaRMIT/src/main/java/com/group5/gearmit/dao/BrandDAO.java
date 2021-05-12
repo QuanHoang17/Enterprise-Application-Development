@@ -10,4 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface BrandDAO extends JpaRepository<Brand, String> {
     @Query(value = "SELECT b FROM Brand b WHERE b.id = :id")
     Brand getBrandByID(@Param("id") String id);
+
+    @Query(value = "SELECT b FROM Brand b WHERE b.name = :name")
+    Brand getBrandByName(@Param("name") String name);
 }

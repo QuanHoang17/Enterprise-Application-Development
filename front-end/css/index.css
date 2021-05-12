@@ -98,7 +98,7 @@ button {
   opacity: 80%;
   border-left: 5px solid #F87060;
   padding-left: 10px;
-  margin: 4%;
+  margin: 3%;
 }
 
 .dark {
@@ -112,4 +112,57 @@ button:hover {
 
 button:active {
   transform: scale(1);
+}
+
+/* Scroll top button */
+
+#btnScrollTop {
+  display: inline-block;
+  background-color: #FF9800;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 12px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 100;
+}
+#btnScrollTop::after {
+  content: "⬆";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#btnScrollTop:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#btnScrollTop:active {
+  background-color: #555;
+}
+#btnScrollTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media screen and (max-width: 600px) {
+  #btnScrollTop {
+    width: 30px;
+    height: 30px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  #btnScrollTop::after {
+    font-size: 1em;
+    line-height: 30px;
+
+  }
 }

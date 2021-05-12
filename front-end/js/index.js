@@ -46,34 +46,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // VERSION 2 -- USING JQUERY AJAX
 $(function () {
-    $('#main-cover').load("./components/Index/Cover/cover.html");
-    $('#best-sellers').load("./components/Index/BestSellers/best-sellers.html");
-    $('#new-products').load("./components/Index/NewProducts/new-products.html");
-    $('#categories').load("./components/Index/Categories/categories.html");
+  $('#main-cover').load("./components/Index/Cover/cover.html");
+  $('#best-sellers').load("./components/Index/BestSellers/best-sellers.html");
+  $('#new-products').load("./components/Index/NewProducts/new-products.html");
+  $('#categories').load("./components/Index/Categories/categories.html");
 
-    console.log('loaded successfully');}
-)
-
+  console.log('loaded successfully');
 
 
 
+// Scroll to top button
+var btn = $('#btnScrollTop');
+
+$(window).scroll(function () {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function (e) {
+  e.preventDefault();
+  $('html, body').animate({ scrollTop: 0 }, '300');
+});
 
 
-
-
-
-
-// $(function() {
-//     $('li').click(function() {
-//         console.log("CLICKKKKKED HAHAHAH");
-//     })
-// })
-
-window.onload = () => {
-    $(function () {
-        $('.browse-category li').click(function () {
-            // console.log('ahihi');
-            $(this).addClass("selected").siblings('li').removeClass('selected');
-        })
+// Select category section
+body.onload = () => {
+  $(function () {
+    $('.browse-category li').click(function () {
+      $(this).addClass("selected").siblings('li').removeClass('selected');
     })
+  });
+
+
+  // Toggle burger button
+  let menuOpen = false;
+  $('#nav-icon3').click(function () {
+    $(this).toggleClass('open');
+    if (menuOpen === false) {
+      menuOpen = true;
+      $('.browse-category').show();
+    } else {
+      menuOpen = false;
+
+      $('.browse-category').hide();
+
+    }
+  });
 }
+
+
+
