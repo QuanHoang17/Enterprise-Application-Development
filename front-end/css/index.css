@@ -98,7 +98,7 @@ button {
   opacity: 80%;
   border-left: 5px solid #F87060;
   padding-left: 10px;
-  margin: 4%;
+  margin: 3%;
 }
 
 .dark {
@@ -122,7 +122,7 @@ button:active {
   width: 50px;
   height: 50px;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 12px;
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -130,7 +130,7 @@ button:active {
     opacity .5s, visibility .5s;
   opacity: 0;
   visibility: hidden;
-  z-index: 1000;
+  z-index: 100;
 }
 #btnScrollTop::after {
   content: "⬆";
