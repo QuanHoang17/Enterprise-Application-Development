@@ -24,15 +24,6 @@ const loadFavicon = () => {
 
 loadFavicon();
 
-
-const scrollToTop = () => {
-    const btnScrollTop = document.createElement('a');
-    btnScrollTop.id = "btnScrollTop";
-    body.appendChild(btnScrollTop);
-}
-
-scrollToTop();
-
 // fetch('./components/Header/header.html')
 // =======
 fetch('../components/Header/header.html') // Dynamic generate from server later.

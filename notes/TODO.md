@@ -1,8 +1,8 @@
 TODOs:
 [] Index's page product cards are not responsive
 [] Index page's catergories background parallax
-[] Put search button inside box, revert color
-[] Fix header dimension and alignment
+[x] Put search button inside box, revert color
+[x] Fix header dimension and alignment
 [] @Hoang Nguyen có gì lúc làm responsive cho hompepage thì làm cho cái footer luôn nha a
 [x] Login page + Register page + Contact page need fontawsome
 [] Index page change categories
@@ -22,9 +22,9 @@ RESPONSIVE PROBLEMS:
 [] New products section -> @media flex direction: column
 [] Categories section -> fix cards
 [x] Fix footer's map. -> @media on mobile, flex direction column
-[] window.onload DOES NOT ALWAYS WORK
+[x] window.onload DOES NOT ALWAYS WORK
 
 
 WORKING ON:
-[] Header
+[x] Header
 [x] Admin page
