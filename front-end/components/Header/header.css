@@ -4,8 +4,7 @@
 /* Header top */
 header .header-top-container {
     width: 97%;
-    /* margin: 0 auto; */
-    /* padding: 10px 0; */
+    margin: 0 auto;
 
 }
 
@@ -18,6 +17,7 @@ header .header-top-container {
     padding: 10px 3%;
 
 }
+
 
 .left-header-top {
     flex: 1;
@@ -58,8 +58,8 @@ header .header-top-container {
     justify-content: flex-end;
 }
 
-.header-top .icon a:first-of-type {
-    margin: 0 10%;
+.header-top .icon a {
+    margin: 0 5%;
 }
 
 .header-top i {
@@ -199,8 +199,22 @@ header .header-top-container {
         transform: scale(0.8);
     }
 
-    .header-mid .search-bar i {
-        visibility: hidden;
+
+    .header-mid .drop-button {
+        display: none;
+        /* visibility: hidden; */
     }
+
+
+    .header-mid .drop-button::after {
+        content: "a";
+        visibility: visible;
+    }
+
+
+    .header-mid .contact-us {
+        display: none;
+    }
+
 
 }
