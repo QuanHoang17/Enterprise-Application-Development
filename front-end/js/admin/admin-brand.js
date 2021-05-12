@@ -9,7 +9,18 @@ deleteTrigger.addEventListener("click", (e) => {
 
 addBtn.addEventListener("click", (e) => {
     let brandName = document.querySelector(".brand-add-modal-input").value;
-    alert(brandName);
+    let brand = {
+        'name': brandName
+    }
+    
+    fetch(`http://localhost:8080/api/brand`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(brand)
+    })
 })
 
 exitBtn.addEventListener("click", (e) => {
