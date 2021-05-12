@@ -3,16 +3,14 @@
 <link rel="stylesheet" href="css/all.min.css">
 
 <header>
-    <div class="container">
+    <div class="header-top-container">
         <!-- Start of header top -->
         <div class="header-top">
             <div class="left-header-top">
                 <a href="tel:+84 123 456 789">+84 123 456 789</a>
                 <a href="mailto:info@geaRMIT.com">info@geaRMIT.com</a>
             </div>
-            <a href="../index.html"><h1>GeaRMIT</h1></a>
-            <!-- Sometimes logo doesn't load -->
-            <!-- <a href="#" id="site-logo"></a> -->
+            <a href="../index.html" id="site-logo"><img src="https://i.imgur.com/oQX0fKE.png" alt="GeaRMIT logo"></a>
             <div class="icon">
                 <a href="" class="user-icon"><i class="far fa-user"></i></a>
                 <a href="" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
@@ -21,32 +19,28 @@
         <!-- End of header top -->
     </div>
 
-    <script>
-        console.log('FROM HEADER');
-    </script>
-
-    
 
     <!-- Start of header mid -->
     <div class="header-mid">
-        <div class="container">
-            <!-- Dropdown menu -->
-            <div class="dropdown">
-                <button class="drop-button">Category <i class="fas fa-chevron-down"></i></button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
 
-            <!-- Search bar -->
+        <!-- Dropdown menu -->
+        <div class="dropdown">
+            <button class="drop-button">Category <i class="fas fa-chevron-down"></i></button>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+
+        <!-- Search bar -->
+        <div class="search-bar">
             <input type="text" name="search" id="" placeholder="Search Products, Category..."><i
                 class="fas fa-search"></i>
-
-            <!-- Contact us -->
-            <a href="" class="contact-us">Contact Us</a>
         </div>
+
+        <!-- Contact us -->
+        <a href="" class="contact-us">Contact Us</a>
     </div>
     <!-- End of header mid -->
 </header>

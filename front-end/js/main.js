@@ -1,6 +1,7 @@
 // Reusable components
 
 const header = document.querySelector('#header');
+const body = document.querySelector('body');
 
 const footer = document.querySelector('#footer');
 const indexHeader = document.querySelector('#index-header');
@@ -20,6 +21,8 @@ const loadFavicon = () => {
     favicon.type = 'image/x-icon';
     head.appendChild(favicon);
 }
+
+loadFavicon();
 
 // fetch('./components/Header/header.html')
 // =======
@@ -52,7 +55,6 @@ fetch('./components/Footer/footer.html')
     })
     .catch(e => console.log(e))
 
-loadFavicon();
 
 
 // function loadSiteLogo() {
