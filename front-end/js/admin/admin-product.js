@@ -1,3 +1,11 @@
+const url = 'http://localhost:8080/api/product';
+
+fetch(url)
+.then(response => response.json())
+.then(data => {
+    console.log(data);
+})
+
 // ------------------------------- For delete modal -------------------------------//
 
 // Variables
