@@ -151,3 +151,18 @@ button:active {
   opacity: 1;
   visibility: visible;
 }
+
+@media screen and (max-width: 600px) {
+  #btnScrollTop {
+    width: 30px;
+    height: 30px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  #btnScrollTop::after {
+    font-size: 1em;
+    line-height: 30px;
+
+  }
+}
