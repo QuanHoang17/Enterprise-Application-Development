@@ -1,8 +1,8 @@
 
 // ------------------------------- Fetch Data into Table -------------------------------//
 
-const url = 'http://localhost:8080/api/product';
-fetch(url)
+const productUrl = 'http://localhost:8080/api/product';
+fetch(productUrl)
 .then(response => response.json())
 .then(data => {
     data.forEach(({id, name, quantity, issueDate, categoryName}) => {
@@ -27,12 +27,10 @@ fetch(url)
     document.querySelector("#product-table").appendChild(productRow);
     
 })
-
+    document.getElementById('product-stats').innerText= `Total products: ${data.length}`;
 
 })
-const externalLinkIcon = document.querySelector('.fas.fa-external-link-alt')
-// console.log(categoryRow.cloneNode());
-console.log(externalLinkIcon.cloneNode());
+
 
 
 

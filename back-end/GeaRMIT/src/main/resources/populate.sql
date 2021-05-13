@@ -20,6 +20,8 @@ VALUES
 ('category05', 'Best gaming microphones in the world','Microphones')
 ;
 
+SELECT * from customer;
+
 
 SELECT * from product;
 INSERT INTO product
