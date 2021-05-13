@@ -1,10 +1,43 @@
-const url = 'http://localhost:8080/api/product';
 
+// ------------------------------- Fetch Data into Table -------------------------------//
+
+const url = 'http://localhost:8080/api/product';
 fetch(url)
 .then(response => response.json())
 .then(data => {
-    console.log(data);
+    data.forEach(({id, name, quantity, issueDate, categoryName}) => {
+    let productRow = document.querySelector('#product-row').cloneNode();
+    
+    productRow.style.display= 'table-row';
+    productRow.innerHTML=`
+        <td>${id}</td>
+        <td>${name}</td> 
+        <td>${quantity}</td>
+        <td>${new Date(issueDate).toLocaleDateString()}</td>
+        <td>
+            <div><a href="">Image 1 <i class="fas fa-external-link-alt"></i></a></div>
+            <div><a href="">Image 2 <i class="fas fa-external-link-alt"></i></a></div>
+            <div><a href="">Image 3 <i class="fas fa-external-link-alt"></i></a></div>
+        </td>
+        <td>
+            <div><a href="">${categoryName}<i class="fas fa-external-link-alt"></i></a></div>
+        </td>
+    
+    `
+    document.querySelector("#product-table").appendChild(productRow);
+    
 })
+
+
+})
+const externalLinkIcon = document.querySelector('.fas.fa-external-link-alt')
+// console.log(categoryRow.cloneNode());
+console.log(externalLinkIcon.cloneNode());
+
+
+
+
+
 
 // ------------------------------- For delete modal -------------------------------//
 
