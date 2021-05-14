@@ -74,12 +74,6 @@ btn.on('click', function (e) {
 
 // Select category section
 body.onload = () => {
-  $(function () {
-    $('.browse-category li').click(function () {
-      $(this).addClass("selected").siblings('li').removeClass('selected');
-    })
-  });
-
 
   // Toggle burger button
   let menuOpen = false;
