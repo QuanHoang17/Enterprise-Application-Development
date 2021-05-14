@@ -22,7 +22,7 @@
 .best-seller-product-card {
     background-color: var(--white-base);
     /* width: 22%; */
-    height: 350px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     border-radius: 12px;
@@ -60,6 +60,7 @@
     font-weight: 700;
     line-height: 150%;
     font-weight: bold;
+    /* height: 100px; */
     margin: 20px 0 5px 0;
     font-size: 1.2em;
 }
@@ -68,6 +69,7 @@
     /* color: pink; */
     font-weight: 400;
     line-height: 150%;
+    height: 90px;
     margin-bottom: 20px;
     font-size: 0.9em;
 }

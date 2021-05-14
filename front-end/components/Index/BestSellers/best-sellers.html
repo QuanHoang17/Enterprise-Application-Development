@@ -10,12 +10,12 @@
             <span class="discount">-69%</span>
             <img src="http://news.gearvn.com/wp-content/uploads/2019/06/razer-deathadder-essential-gaming-mouse-usp02-mobile.jpg"
                 alt="" id="best-seller-product-image">
-            <p class="product-title">Product Title</p>
-            <p class="product-description">Product Description</p>
+            <p class="product-title">Razer Deathadder Essential</p>
+            <p class="product-description">The Razer DeathAdder Essential retains the classic ergonomic form...</p>
             <div class="small-container">
                 <div class="smaller-container">
-                    <p class="product-price">69.96 USD</p>
-                    <p class="product-old-price">96 USD</p>
+                    <p class="product-price">169.96 USD</p>
+                    <p class="product-old-price">296 USD</p>
                 </div>
                 <button class="">Add to cart</button>
             </div>
@@ -23,11 +23,12 @@
         <div class="best-seller-product-card item">
             <span class="discount">-69%</span>
             <img src="../front-end/assets/prototypes/kb2.JPG" alt="" id="best-seller-product-image">
-            <p class="product-title">Product Title</p>
-            <p class="product-description">Product Description</p>
+            <p class="product-title">Keychron K2 Wireless Mechanical Keyboard</p>
+            <p class="product-description">Keychron K2 is a 75% layout tactile wireless mechanical keyboard with all
+                necessary key...</p>
             <div class="small-container">
                 <div class="smaller-container">
-                    <p class="product-price">69.96 USD</p>
+                    <p class="product-price">79.96 USD</p>
                     <p class="product-old-price">96 USD</p>
                 </div>
                 <button class="">Add to cart</button>
@@ -35,14 +36,14 @@
         </div>
         <div class="best-seller-product-card item">
             <span class="discount">-69%</span>
-            <img src="https://static.toiimg.com/thumb/msid-77506151,width-1070,height-580,imgsize-1237392,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg"
-                alt="" id="best-seller-product-image">
-            <p class="product-title">Product Title</p>
-            <p class="product-description">Product Description</p>
+            <img src="https://anphat.com.vn/media/product/27290_logitech_g502_hero__1_.jpeg" alt=""
+                id="best-seller-product-image">
+            <p class="product-title">Logitech G502 HERO</p>
+            <p class="product-description">G502 HERO High Performance Gaming Mouse</p>
             <div class="small-container">
                 <div class="smaller-container">
-                    <p class="product-price">69.96 USD</p>
-                    <p class="product-old-price">96 USD</p>
+                    <p class="product-price">49.99 USD</p>
+                    <p class="product-old-price">76 USD</p>
                 </div>
                 <button class="">Add to cart</button>
             </div>
@@ -110,6 +111,7 @@
                             .owlCarousel('add', newCard)
                             .owlCarousel('update')
 
+                        console.log(newCard);
                     })
                 })
         }
@@ -144,8 +146,10 @@
 
 
         // Function calls
-        fetchProductsFromDatabase();
-        loadCarousel();
+        $(function () {
+            fetchProductsFromDatabase();
+            loadCarousel();
+        })
 
     </script>
 
