@@ -52,6 +52,7 @@ $(function () {
   $('#categories').load("./components/Index/Categories/categories.html");
 
   console.log('loaded successfully');
+});
 
 
 
