@@ -1,4 +1,3 @@
-
 SELECT * FROM brand;
 DELETE from brand;
 INSERT INTO  brand
