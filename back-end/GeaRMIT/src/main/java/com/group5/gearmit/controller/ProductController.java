@@ -1,5 +1,6 @@
 package com.group5.gearmit.controller;
 
+import com.group5.gearmit.entity.Product;
 import com.group5.gearmit.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +37,11 @@ public class ProductController {
     @PostMapping(value = "/api/product")
     public Map<String, String> addProduct(@RequestBody Map<Object, Object> productJson) {
         return productService.addProduct(productJson);
+    }
+
+    @GetMapping(value = "/api/product/id/{id}")
+    public Product getProductObjectByID(@PathVariable("id") String id) {
+        return productService.getProductObjectByID(id);
     }
 
     @DeleteMapping(value = "/api/product/id/{productID}")

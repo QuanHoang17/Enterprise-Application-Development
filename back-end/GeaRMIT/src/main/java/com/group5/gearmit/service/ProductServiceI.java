@@ -18,23 +18,27 @@ import java.util.*;
 @Service
 @Transactional
 public class ProductServiceI implements ProductService {
-    @Autowired
     private ProductDAO productDAO;
 
-    @Autowired
     private ProductColorDAO productColorDAO;
 
-    @Autowired
     private ImageService imageService;
 
-    @Autowired
     private CategoryService categoryService;
 
-    @Autowired
     private BrandService brandService;
 
-    @Autowired
     private ColorService colorService;
+
+    @Autowired
+    public ProductServiceI(ProductDAO productDAO, ProductColorDAO productColorDAO, ImageService imageService, CategoryService categoryService, BrandService brandService, ColorService colorService) {
+        this.productDAO = productDAO;
+        this.productColorDAO = productColorDAO;
+        this.imageService = imageService;
+        this.categoryService = categoryService;
+        this.brandService = brandService;
+        this.colorService = colorService;
+    }
 
     private List<Map<String, Object>> generateProductList(List<ProductDTO> productDTOList,
                                                           List<ImageDTO> imageDTOList,
