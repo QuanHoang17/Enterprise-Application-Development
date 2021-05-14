@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="./components/Index/BestSellers/best-sellers.css">
 <link rel="stylesheet" href="./components/Index/BestSellers/owl.carousel.min.css">
 <link rel="stylesheet" href="./components/Index/BestSellers/owl.theme.default.min.css">
-<!-- <link rel="stylesheet" href="./components/Index/BestSellers/owl.theme.green.min.css"> -->
+<link rel="stylesheet" href="./components/Index/BestSellers/owl.theme.green.min.css">
 
 <div class="best-seller-container">
     <h2 class="section-title">Best-sellers in May</h2>
@@ -62,41 +62,92 @@
         </div>
     </div>
 
-    <script defer>
-        const fetchProductsFromDatabase = () => {
-            let url = ''
+
+    <!-- Script -->
+
+    <script>
+        const buildCard = (name, description, price) => {
+            let card = `<div class="best-seller-product-card item">
+            <span class="discount">-69%</span>
+            <img src="https://static.toiimg.com/thumb/msid-77506151,width-1070,height-580,imgsize-1237392,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg"
+                alt="" id="best-seller-product-image">
+            <p class="product-title">${name}</p>
+            <p class="product-description">${description}</p>
+            <div class="small-container">
+                <div class="smaller-container">
+                    <p class="product-price">${price} USD</p>
+                    <p class="product-old-price">96 USD</p>
+                </div>
+                <button class="">Add to cart</button>
+            </div>
+        </div>`;
+
+            return card;
         }
 
-        const loadCarousel = () => {
-            $('.best-seller-product-list').owlCarousel({
-                items: 3,
-                dots: true,
-                loop: true,
-                margin: 20,
-                navigation: true,
-                nav: true,
-                autoplay: true,
-                autoplayTimeout: 3000,
-                autoplayHoverPause: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 3
-                    },
-                    1000: {
-                        items: 5,
+        function fetchProductsFromDatabase() {
+            let url = 'http://localhost:8080/api/product';
+
+            fetch(url)
+                .then(res => {
+                    if (res.ok) {
+                        return res.json()
                     }
-                }
-            })
+                })
+                .then(products => {
+                    products.forEach(product => {
+                        let name = product['name'];
+                        let description = product['description'];
+                        let price = product['price'];
+
+                        if (description.length > 60) {
+                            description = description.slice(0, 60) + "...";
+                        }
+
+                        let newCard = buildCard(name, description, price);
+
+                        $('.best-seller-product-list')
+                            .owlCarousel('add', newCard)
+                            .owlCarousel('update')
+
+                    })
+                })
         }
 
 
-        $(document).ready(function () {
-            loadCarousel()
-        });
+        function loadCarousel() {
+
+            $('.best-seller-product-list')
+                .owlCarousel({
+                    items: 4,
+                    dots: true,
+                    loop: true,
+                    margin: 20,
+                    navigation: true,
+                    nav: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    autoplayHoverPause: true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        600: {
+                            items: 3
+                        },
+                        1000: {
+                            items: 4,
+                        }
+                    }
+                })
+        }
+
+
+        // Function calls
+        fetchProductsFromDatabase();
+        loadCarousel();
+
     </script>
 
-    <script src="./best-sellers.js"></script>
+    <!-- <script src="./best-sellers.js"></script> -->
 </div>

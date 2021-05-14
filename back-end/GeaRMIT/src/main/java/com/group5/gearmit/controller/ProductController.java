@@ -11,8 +11,13 @@ import java.util.Map;
 @RestController
 @CrossOrigin
 public class ProductController {
-    @Autowired
+
     private ProductService productService;
+
+    @Autowired
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @GetMapping(value = "/api/product")
     public List<Map<String, Object>> getAllProduct() {
