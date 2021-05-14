@@ -38,7 +38,11 @@
 //     })
 // })
 
-
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryList = document.getElementsByClassName('category-item');
+ const categoryArr = [...categoryList];
+  console.log(categoryArr);
+});
 
 // VERSION 2 -- USING JQUERY AJAX
 $(function () {
@@ -49,7 +53,6 @@ $(function () {
 
   console.log('loaded successfully');
 
-})
 
 
 // Scroll to top button

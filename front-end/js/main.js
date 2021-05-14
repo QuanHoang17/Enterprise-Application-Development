@@ -74,10 +74,10 @@ fetch('./components/Footer/footer.html')
 // }
 
 
-// window.onload = () => {
-//     // loadSiteLogo();
-    
-// }
+
+
+
+
 
 
 

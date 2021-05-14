@@ -15,12 +15,8 @@ public class CategoryServiceI implements CategoryService {
     CategoryDAO categoryDAO;
 
     @Override
-    @Transactional
     public void insertCategory(Map<String, String> receivedCategory) {
-        Category category = new Category();
-        category.setName(receivedCategory.get("name"));
-        category.setDescription(receivedCategory.get("description"));
-        categoryDAO.save(category);
+
     }
 
     @Override

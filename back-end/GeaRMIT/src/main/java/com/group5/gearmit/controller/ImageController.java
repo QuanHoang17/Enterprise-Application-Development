@@ -1,5 +1,6 @@
 package com.group5.gearmit.controller;
 
+import com.group5.gearmit.dto.ImageDTO;
 import com.group5.gearmit.service.FileService;
 import com.group5.gearmit.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -26,6 +28,11 @@ public class ImageController {
     public Map<String, String> uploadFiles(@RequestPart("file") MultipartFile imageFile,
                                            @RequestPart("info") Map<Object, Object> productInfo) {
         return imageService.storeItemImage(imageFile, productInfo);
+    }
+
+    @GetMapping(value = "/api/image/info")
+    public List<ImageDTO> getAllImage() {
+        return imageService.getAllImage();
     }
 
     @GetMapping(value = "/api/image/{filename}", produces = "image/*")

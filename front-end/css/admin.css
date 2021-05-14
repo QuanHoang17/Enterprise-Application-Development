@@ -1,547 +1,673 @@
 /* ---------------------------------- Global -------------------------------- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
 }
 
 .flex {
-    display: flex;
-    flex-wrap: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .left {
-    /* width: 10%; */
-    width: auto;
-    height: 100vh;
-    background-color: #FFFAFF;
+  /* width: 10%; */
+  width: auto;
+  height: 100vh;
+  background-color: #fffaff;
 }
 
 .right {
-    width: 90%;   
+  width: 90%;
 }
-
 
 /* ------------------------------------ Left -------------------------------- */
 .left .home {
-    width: 100%;
-    color: white;
-    margin: 0 auto;
-    background-color: #F87060;
-    text-align: center;
-    padding: 5px 0;
+  width: 100%;
+  color: white;
+  margin: 0 auto;
+  background-color: #f87060;
+  text-align: center;
+  padding: 5px 0;
 }
 
-
 .left .avatar-container {
-    text-align: center;
-    margin: 50px 0;
+  text-align: center;
+  margin: 50px 0;
 }
 
 .left .avatar-container img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 }
 
 .left .avatar-container .name {
-    margin-top: 15px;
-    font-size: var(--font-base);
-    font-weight: bold;    
-    color: #C80808;
+  margin-top: 15px;
+  font-size: var(--font-base);
+  font-weight: bold;
+  color: #c80808;
 }
 
 .left .choice-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .left .choice-container span {
-    font-size: var(--font-small);
-    /* font-size: 0.5em; */
-    font-weight: bold;
-    margin-right: 20px;
-    color: #22181C;
+  font-size: var(--font-small);
+  /* font-size: 0.5em; */
+  font-weight: bold;
+  margin-right: 20px;
+  color: #22181c;
 }
 
-
 .left .choice-container i {
-    margin-left: 20px;
-    margin-right: 10px;
+  margin-left: 20px;
+  margin-right: 10px;
 }
 
 .left .choice {
-    display: flex;
-    padding: 16px 0;
-    cursor: pointer;
-    border-left: 4px solid transparent;;
+  display: flex;
+  padding: 16px 0;
+  cursor: pointer;
+  border-left: 4px solid transparent;
 }
 
 .left .active-nav {
-    background-color: rgba(248, 112, 96, 0.1);
-    border-left: 4px solid #F87060;
-    color: #f24e3c;
+  background-color: rgba(248, 112, 96, 0.1);
+  border-left: 4px solid #f87060;
+  color: #f24e3c;
 }
 
 .left .active-nav span {
-    color: #f24e3c;
+  color: #f24e3c;
 }
 
 .left .choice:hover {
-    background-color: rgba(248, 112, 96, 0.1);
-    border-left: 4px solid #F87060;
+  background-color: rgba(248, 112, 96, 0.1);
+  border-left: 4px solid #f87060;
 }
 
 .left button {
-    width: 100%;
-    padding: 0 auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 50px;
-    border-radius: 0;
-    color: white;
-    background-color: #aa9f9f;
-    overflow: hidden;
+  width: 100%;
+  padding: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 50px;
+  border-radius: 0;
+  color: white;
+  background-color: #aa9f9f;
+  overflow: hidden;
 }
-
+.left button:hover {
+  background-color: var(--primary-light);
+}
 
 /* ------------------------------------ Right -------------------------------- */
 .right .main-content {
-    display: none;
-    max-width: 90%;
-    max-height: 90vh;
-    margin: 10px auto;
-    padding: 40px;
-    background-color: #FFFAFF;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
-    border-radius: 12px;
-    overflow-x: scroll;
-    overflow-y: scroll
-
+  display: none;
+  max-width: 90%;
+  max-height: 90vh;
+  margin: 10px auto;
+  padding: 40px;
+  background-color: #fffaff;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
-
-
 .right .main-content h2 {
-    font-size: var(--heading);
-    font-weight: bold;
-    color: #5A0001;
+  font-size: clamp(var(--font-400), 5vw, var(--heading));
+  font-weight: bold;
+  color: #5a0001;
 }
 
 .right .top-container {
-    align-items: center;
+  align-items: center;
 }
 
 .right .searchbar-container {
-    margin-left: auto;
-    justify-self: flex-end;
+  margin-left: auto;
+  justify-self: flex-end;
 }
 
 .right .searchbar-container i {
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    right: 40px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  right: 40px;
 }
 
 .right .searchbar-container input {
-    width: 30vw;
-    padding: 10px 0;
-    text-indent: 20px;
-    border-radius: 20px;
+  width: 30vw;
+  padding: 10px 0;
+  text-indent: 20px;
+  border-radius: 20px;
 }
 
 .right .searchbar-container input:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px palevioletred;
-    transition: 200ms all ease-in-out;
+  outline: none;
+  box-shadow: 0 0 0 3px palevioletred;
+  transition: 200ms all ease-in-out;
 }
 
 .right .functions-container {
-    display: flex;
-    flex-direction: row;
-    width: 95%;
-    justify-content: space-between;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .right .functions-container * {
-    margin-top: 10px;
+  margin-top: 10px;
 }
-
 
 .right .functions-container button {
-    margin-right: 10px;
+  margin-right: 10px;
 }
-
 
 /* Table section */
 
 .right table {
-    width: 100%;
-    /* height: 100px; */
-    margin-top: 40px;
-    border-collapse: collapse;
+  width: 100%;
+  /* height: 100px; */
+  margin-top: 40px;
+  border-collapse: collapse;
 }
- 
+
 .right tr th {
-    font-size: var(--font-200);
-    font-weight: bold;
-    color: #22181C;
-    text-align: left;
-    padding-bottom: 10px;
+  font-size: var(--font-200);
+  font-weight: bold;
+  color: #22181c;
+  text-align: left;
+  padding-bottom: 10px;
 }
 
 table td {
-    padding-top: 15px;
-    font-size: var(--font-base);
-    color: black;
-    min-width: 100px;
+  padding-top: 15px;
+  font-size: var(--font-base);
+  color: black;
+  min-width: 100px;
 }
 
-
 td:nth-child(1) {
-    font-size: var(--font-base);
-    font-weight: bold;
-    color: black;
+  font-size: var(--font-base);
+  font-weight: bold;
+  color: black;
 }
 
 th:nth-child(2) {
-    word-wrap: break-word;
-} 
+  word-wrap: break-word;
+}
 
 .table-header {
-    border-bottom: 1px solid rgba(34, 24, 28, 0.2);
+  border-bottom: 1px solid rgba(34, 24, 28, 0.2);
 }
 
 #active-section {
-    display: block;
+  display: block;
 }
 
 /* ------------------------------------------ For modal box ------------------------------------- */
 
 /* Start of CUSTOMER - DELETE - MODAL */
 .customer-delete-modal-container {
-    /* Hide at default */
-    display: none;
+  /* Hide at default */
+  display: none;
 
-    /* Styling */
-    min-width: 100vw;
-    min-height: 100vh;
-    padding: 50px 320px;
-    background-color: var(--black-80);
+  /* Styling */
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 50px 320px;
+  background-color: var(--black-80);
 
-    /* Positioning */
-    position: absolute;
-    z-index: 2;
+  /* Positioning */
+  position: absolute;
+  z-index: 2;
 }
 
 .customer-delete-modal-container .modal-content-container {
-    /* border: 3px solid red; */
-    border-radius: 8px;
-    background-color: var(--white-base);
-    min-height: 70vh;
-    width: 60%;
+  /* border: 3px solid red; */
+  border-radius: 8px;
+  background-color: var(--white-base);
+  min-height: 70vh;
+  width: 60%;
 }
 
 .customer-delete-modal-container .modal-content-container .top {
-    font-size: var(--font-500);
-    font-weight: bold;
-    color: var(--black-80);
-    padding-top: 80px;
-    margin-left: 40px;
+  font-size: var(--font-500);
+  font-weight: bold;
+  color: var(--black-80);
+  padding-top: 80px;
+  margin-left: 40px;
 }
 
-.customer-delete-modal-container .modal-content-container .customer-delete-exit {
-    float: right;
-    color: black;
-    margin-top: 28px;
-    margin-right: 28px;
-    cursor: pointer;
+.customer-delete-modal-container
+  .modal-content-container
+  .customer-delete-exit {
+  float: right;
+  color: black;
+  margin-top: 28px;
+  margin-right: 28px;
+  cursor: pointer;
 }
 
 /* For the search bar */
 .customer-delete-modal-container .modal-content-container .searchbar-container {
-    text-align: center;
-    margin-top: 66px;
+  text-align: center;
+  margin-top: 66px;
 }
 
-.customer-delete-modal-container .modal-content-container .searchbar-container i {
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    right: 30px;
+.customer-delete-modal-container
+  .modal-content-container
+  .searchbar-container
+  i {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  right: 30px;
 }
 
-.customer-delete-modal-container .modal-content-container .searchbar-container input {
-    width: 500px;
-    padding: 10px 0;
-    text-indent: 20px;
-    border-radius: 20px;
+.customer-delete-modal-container
+  .modal-content-container
+  .searchbar-container
+  input {
+  width: 500px;
+  padding: 10px 0;
+  text-indent: 20px;
+  border-radius: 20px;
 }
 
-.customer-delete-modal-container .modal-content-container .searchbar-container input:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px red;
-    transition: 200ms all ease-in-out;
+.customer-delete-modal-container
+  .modal-content-container
+  .searchbar-container
+  input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px red;
+  transition: 200ms all ease-in-out;
 }
 
 .customer-delete-modal-container .modal-content-container .result-container {
-    text-align: center;
-    margin-top: 48px;
+  text-align: center;
+  margin-top: 48px;
 }
 
-.customer-delete-modal-container .modal-content-container .result-container a:hover {
-    text-decoration: underline;
+.customer-delete-modal-container
+  .modal-content-container
+  .result-container
+  a:hover {
+  text-decoration: underline;
 }
 
 .customer-delete-modal-container .modal-content-container .button-container {
-    text-align: center;
-    margin-top: 24px;
+  text-align: center;
+  margin-top: 24px;
 }
 /* End of CUSTOMER - DELETE - MODAL */
 
-
-
 /* Start of PRODUCT - DELETE - MODAL */
 .product-delete-modal-container {
-    /* Hide at default */
-    display: none;
+  /* Hide at default */
+  display: none;
 
-    /* Styling */
-    min-width: 100vw;
-    min-height: 100vh;
-    padding: 50px 250px;
-    background-color: var(--black-80);
+  /* Styling */
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 50px 250px;
+  background-color: var(--black-80);
 
-    /* Positioning */
-    position: absolute;
-    z-index: 2;
+  /* Positioning */
+  position: absolute;
+  z-index: 2;
 }
 
-.product-delete-modal-container .delete-modal-content-container, 
+.product-delete-modal-container .delete-modal-content-container,
 .product-add-modal-container .add-modal-content-container {
-    /* border: 3px solid red; */
-    border-radius: 8px;
-    background-color: var(--white-base);
-    min-height: 70vh;
-    width: 70%;
+  /* border: 3px solid red; */
+  border-radius: 8px;
+  background-color: var(--white-base);
+  min-height: 70vh;
+  width: 70%;
 }
 
 .product-delete-modal-container .delete-modal-content-container .top {
-    font-size: var(--font-500);
-    font-weight: bold;
-    color: var(--black-80);
-    padding-top: 80px;
-    margin-left: 40px;
+  font-size: var(--font-500);
+  font-weight: bold;
+  color: var(--black-80);
+  padding-top: 80px;
+  margin-left: 40px;
 }
 
-.product-delete-modal-container .delete-modal-content-container .exit, 
+.product-delete-modal-container .delete-modal-content-container .exit,
 .product-add-modal-container .add-modal-content-container .exit {
-    float: right;
-    color: black;
-    margin-top: 28px;
-    margin-right: 28px;
-    cursor: pointer;
+  float: right;
+  color: black;
+  margin-top: 28px;
+  margin-right: 28px;
+  cursor: pointer;
 }
 
 /* For the search bar */
-.product-delete-modal-container .delete-modal-content-container .searchbar-container {
-    text-align: center;
-    margin-top: 66px;
+.product-delete-modal-container
+  .delete-modal-content-container
+  .searchbar-container {
+  text-align: center;
+  margin-top: 66px;
 }
 
-.product-delete-modal-container .delete-modal-content-container .searchbar-container i {
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    right: 30px;
+.product-delete-modal-container
+  .delete-modal-content-container
+  .searchbar-container
+  i {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  right: 30px;
 }
 
-.product-delete-modal-container .delete-modal-content-container .searchbar-container input {
-    width: 500px;
-    padding: 10px 0;
-    text-indent: 20px;
-    border-radius: 20px;
+.product-delete-modal-container
+  .delete-modal-content-container
+  .searchbar-container
+  input {
+  width: 500px;
+  padding: 10px 0;
+  text-indent: 20px;
+  border-radius: 20px;
 }
 
-.product-delete-modal-container .delete-modal-content-container .searchbar-container input:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px red;
-    transition: 200ms all ease-in-out;
+.product-delete-modal-container
+  .delete-modal-content-container
+  .searchbar-container
+  input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px red;
+  transition: 200ms all ease-in-out;
 }
 
-.product-delete-modal-container .delete-modal-content-container .result-container {
-    text-align: center;
-    margin-top: 48px;
+.product-delete-modal-container
+  .delete-modal-content-container
+  .result-container {
+  text-align: center;
+  margin-top: 48px;
 }
 
-.product-delete-modal-container .delete-modal-content-container .result-container a:hover {
-    text-decoration: underline;
+.product-delete-modal-container
+  .delete-modal-content-container
+  .result-container
+  a:hover {
+  text-decoration: underline;
 }
 
-.product-delete-modal-container .delete-modal-content-container .button-container {
-    text-align: center;
-    margin-top: 24px;
+.product-delete-modal-container
+  .delete-modal-content-container
+  .button-container {
+  text-align: center;
+  margin-top: 24px;
 }
 /* End of PRODUCT - DELETE - MODAL */
 
-
-
 /* Start of PRODUCT - ADD - MODAL */
 .product-add-modal-container {
-    /* Hide at default */
-    display: none;
+  /* Hide at default */
+  display: none;
 
-    /* Styling */
-    min-width: 100vw;
-    min-height: 100vh;
-    padding: 50px 275px 0 275px;
-    background-color: var(--black-80);
+  /* Styling */
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 50px 275px 0 275px;
+  background-color: var(--black-80);
 
-    /* Positioning */
-    position: absolute;
-    z-index: 2;
+  /* Positioning */
+  position: absolute;
+  z-index: 2;
 }
 
 .product-add-modal-container .add-modal-content-container .top {
-    font-size: var(--font-500);
-    font-weight: bold;
-    color: var(--black-80);
-    padding-top: 62px;
-    margin-left: 35px;
-    margin-bottom: 35px;
+  font-size: var(--font-500);
+  font-weight: bold;
+  color: var(--black-80);
+  padding-top: 62px;
+  margin-left: 35px;
+  margin-bottom: 35px;
 }
 
 .product-add-modal-container .add-modal-content-container .fields-container {
-    justify-content: space-between;
-    margin: 0 35px;
-    flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 35px;
+  flex-wrap: wrap;
 }
 
-.product-add-modal-container .add-modal-content-container .fields-container > div {
-    width: 30%;
-    min-height: 30vw;
+.product-add-modal-container
+  .add-modal-content-container
+  .fields-container
+  > div {
+  width: 30%;
+  min-height: 30vw;
 }
 
-.product-add-modal-container .add-modal-content-container .fields-container .single-field {
-    margin-bottom: 32px;
+.product-add-modal-container
+  .add-modal-content-container
+  .fields-container
+  .single-field {
+  margin-bottom: 32px;
 }
 
-.product-add-modal-container .add-modal-content-container .fields-container .single-field > p {
-    font-size: var(--font-200);
-    font-weight: bold;
-    color: var(--black-base);
-    margin-bottom: 8px;
+.product-add-modal-container
+  .add-modal-content-container
+  .fields-container
+  .single-field
+  > p {
+  font-size: var(--font-200);
+  font-weight: bold;
+  color: var(--black-base);
+  margin-bottom: 8px;
 }
 
-.product-add-modal-container .add-modal-content-container .fields-container .single-field > input {
-    text-indent: 16px;
-    padding: 19px 0;
-    border-radius: 8px;
-    border: 2px solid #D1D1D1;
-    width: 100%;
+.product-add-modal-container
+  .add-modal-content-container
+  .fields-container
+  .single-field
+  > input {
+  text-indent: 16px;
+  padding: 19px 0;
+  border-radius: 8px;
+  border: 2px solid #d1d1d1;
+  width: 100%;
 }
 
 .product-add-modal-container textarea {
-    border-radius: 8px;
-    border: 2px solid #D1D1D1;
-    width: 100%;
+  border-radius: 8px;
+  border: 2px solid #d1d1d1;
+  width: 100%;
 }
 
-.product-add-modal-container .add-modal-content-container .single-field .product-message {
-    height: 290px;
-    word-wrap: break-word;
+.product-add-modal-container
+  .add-modal-content-container
+  .single-field
+  .product-message {
+  height: 290px;
+  word-wrap: break-word;
 }
 
-.product-add-modal-container .add-modal-content-container .fields-container .button-container {
-    margin-bottom: 23px;
-    display: block;
-    float: right;
+.product-add-modal-container
+  .add-modal-content-container
+  .fields-container
+  .button-container {
+  margin-bottom: 23px;
+  display: block;
+  float: right;
 }
 /* End of PRODUCT - ADD - MODAL */
 
-
-
 /* Start of BRAND - DELETE - MODAL */
 .brand-add-modal-container {
-    /* Hide at default */
-    display: none;
+  /* Hide at default */
+  display: none;
 
-    /* Styling */
-    min-width: 100vw;
-    min-height: 100vh;
-    padding: 50px 320px;
-    background-color: var(--black-80);
+  /* Styling */
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 50px 320px;
+  background-color: var(--black-80);
 
-    /* Positioning */
-    position: absolute;
-    z-index: 2;
+  /* Positioning */
+  position: absolute;
+  z-index: 2;
 }
 
 .brand-add-modal-container .modal-content-container {
-    /* border: 3px solid red; */
-    border-radius: 8px;
-    background-color: var(--white-base);
-    min-height: 70vh;
-    width: 60%;
+  /* border: 3px solid red; */
+  border-radius: 8px;
+  background-color: var(--white-base);
+  min-height: 70vh;
+  width: 60%;
 }
 
 .brand-add-modal-container .modal-content-container .top {
-    font-size: var(--font-500);
-    font-weight: bold;
-    color: var(--black-80);
-    padding-top: 80px;
-    margin-left: 40px;
+  font-size: var(--font-500);
+  font-weight: bold;
+  color: var(--black-80);
+  padding-top: 80px;
+  margin-left: 40px;
 }
 
 .brand-add-modal-container .modal-content-container .brand-add-exit {
-    float: right;
-    color: black;
-    margin-top: 28px;
-    margin-right: 28px;
-    cursor: pointer;
+  float: right;
+  color: black;
+  margin-top: 28px;
+  margin-right: 28px;
+  cursor: pointer;
 }
 
 /* For the search bar */
 .brand-add-modal-container .modal-content-container .searchbar-container {
-    text-align: center;
-    margin-top: 66px;
+  text-align: center;
+  margin-top: 66px;
 }
 
 .brand-add-modal-container .modal-content-container .searchbar-container i {
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    right: 30px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  right: 30px;
 }
 
 .brand-add-modal-container .modal-content-container .searchbar-container input {
-    width: 500px;
-    padding: 10px 0;
-    text-indent: 20px;
-    border-radius: 20px;
+  width: 500px;
+  padding: 10px 0;
+  text-indent: 20px;
+  border-radius: 20px;
 }
 
-.brand-add-modal-container .modal-content-container .searchbar-container input:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px red;
-    transition: 200ms all ease-in-out;
+.brand-add-modal-container
+  .modal-content-container
+  .searchbar-container
+  input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px red;
+  transition: 200ms all ease-in-out;
 }
 
 .brand-add-modal-container .modal-content-container .result-container {
-    text-align: center;
-    margin-top: 48px;
+  text-align: center;
+  margin-top: 48px;
 }
 
 .brand-add-modal-container .modal-content-container .result-container a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .brand-add-modal-container .modal-content-container .button-container {
-    text-align: center;
-    margin-top: 24px;
+  text-align: center;
+  margin-top: 24px;
 }
 /* End of BRAND - DELETE - MODAL */
+
+/* ------------------------------------------ Responsive ------------------------------------- */
+@media only screen and (max-width: 1024px) {
+  .right .searchbar-container input {
+    width: 150px;
+  }
+  .right .searchbar-container input::placeholder {
+    font-size: 8px;
+  }
+  .right .searchbar-container i {
+    font-size: 10px;
+  }
+  .statistics p {
+    font-size: var(--font-small);
+  }
+  .right tr th {
+    font-size: var(--font-100);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .flex {
+    flex-direction: column;
+  }
+  .choice-container ul {
+    width: 60%;
+  }
+  .left .avatar-container {
+    margin: 1rem 0;
+  }
+  .left .avatar-container .name {
+    font-size: var(--font-400);
+  }
+  .left button {
+    margin-top: 2rem;
+  }
+  .left {
+    height: 40%;
+    flex-grow: 1;
+  }
+  .right {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .choice-container ul {
+    width: 100%;
+  }
+  .right .searchbar-container {
+    width: 100%;
+    position: relative;
+  }
+  .right .searchbar-container input {
+    width: 100%;
+    margin-top: 0.7rem;
+  }
+  .right .searchbar-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    display: inline-block;
+  }
+  .right table tbody {
+    display: flex;
+    gap: 1rem;
+  }
+  .right tr th {
+    font-size: var(--font-small);
+    padding: 0;
+  }
+  .table-header,
+  .right table tr {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  table td {
+    padding: 0;
+    width: 20ch;
+  }
+}
