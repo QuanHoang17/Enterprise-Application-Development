@@ -8,7 +8,8 @@
     <div class="best-seller-product-list owl-carousel owl-theme">
         <div class="best-seller-product-card item">
             <span class="discount">-69%</span>
-            <img src="http://news.gearvn.com/wp-content/uploads/2019/06/razer-deathadder-essential-gaming-mouse-usp02-mobile.jpg" alt="" id="best-seller-product-image">
+            <img src="http://news.gearvn.com/wp-content/uploads/2019/06/razer-deathadder-essential-gaming-mouse-usp02-mobile.jpg"
+                alt="" id="best-seller-product-image">
             <p class="product-title">Product Title</p>
             <p class="product-description">Product Description</p>
             <div class="small-container">
@@ -34,7 +35,8 @@
         </div>
         <div class="best-seller-product-card item">
             <span class="discount">-69%</span>
-            <img src="https://static.toiimg.com/thumb/msid-77506151,width-1070,height-580,imgsize-1237392,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg" alt="" id="best-seller-product-image">
+            <img src="https://static.toiimg.com/thumb/msid-77506151,width-1070,height-580,imgsize-1237392,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg"
+                alt="" id="best-seller-product-image">
             <p class="product-title">Product Title</p>
             <p class="product-description">Product Description</p>
             <div class="small-container">
@@ -60,37 +62,41 @@
         </div>
     </div>
 
-    <div id="test" class="owl-carousel owl-theme">
-        <div class="item"><span>1</span></div>
-        <div class="item"><span>2</span></div>
-        <div class="item"><span>3</span></div>
-        <div class="item"><span>4</span></div>
-        <div class="item"><span>5</span></div>
-    </div>
+    <script defer>
+        const fetchProductsFromDatabase = () => {
+            let url = ''
+        }
 
-    <!-- Experimenting!! -->
-    <script>
-        $('.best-seller-product-list').owlCarousel({
-            items: 3,
-            dots: true,
-            loop: true,
-            margin: 20,
-            navigation: true,
-            nav: true,
-            autoplay: true,
-            autoplayTimeout: 3000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 5,
+        const loadCarousel = () => {
+            $('.best-seller-product-list').owlCarousel({
+                items: 3,
+                dots: true,
+                loop: true,
+                margin: 20,
+                navigation: true,
+                nav: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5,
+                    }
                 }
-            }
-        })
+            })
+        }
+
+
+        $(document).ready(function () {
+            loadCarousel()
+        });
     </script>
+
+    <script src="./best-sellers.js"></script>
 </div>

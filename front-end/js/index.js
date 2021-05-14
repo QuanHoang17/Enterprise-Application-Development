@@ -51,13 +51,12 @@ $(function () {
   $('#new-products').load("./components/Index/NewProducts/new-products.html");
   $('#categories').load("./components/Index/Categories/categories.html");
 
-  console.log('loaded successfully');
+  // console.log('loaded successfully');
 });
 
 
-
 // Scroll to top button
-var btn = $('#btnScrollTop');
+const btn = $('#btnScrollTop');
 
 $(window).scroll(function () {
   if ($(window).scrollTop() > 300) {
@@ -91,9 +90,7 @@ body.onload = () => {
       $('.browse-category').show();
     } else {
       menuOpen = false;
-
       $('.browse-category').hide();
-
     }
   });
 }

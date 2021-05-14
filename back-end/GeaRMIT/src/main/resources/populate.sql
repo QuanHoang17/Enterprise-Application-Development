@@ -10,7 +10,7 @@ VALUES
 
 SELECT * from category;
 DELETE from category;
-INSERT INTO  category
+INSERT INTO category
 VALUES
 ('category01','Best gaming mouses in the world', 'Mouse'),
 ('category02', 'Best gaming keyboard in the world','Keyboard'),
@@ -23,6 +23,8 @@ SELECT * from customer;
 
 
 SELECT * from product;
+
+
 INSERT INTO product
 VALUES
        ('item01','MX ERGO is crafted for the shape of your hand and built for fast and precise tracking.', '2021-05-20', 'MX ERGO', 120, 20, 'brand03', 'category01'),
