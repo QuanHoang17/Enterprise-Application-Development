@@ -12,12 +12,8 @@ import java.util.Map;
 @CrossOrigin
 public class CustomerController {
 
-    private CustomerService customerService;
-
     @Autowired
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
-    }
+    private CustomerService customerService;
 
     @PostMapping(value = "/api/customer")
     public Map<String, String> addCustomer(@RequestBody Map<String, String> customer) {

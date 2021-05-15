@@ -18,27 +18,24 @@ import java.util.*;
 @Service
 @Transactional
 public class ProductServiceI implements ProductService {
-    private ProductDAO productDAO;
-
-    private ProductColorDAO productColorDAO;
-
-    private ImageService imageService;
-
-    private CategoryService categoryService;
-
-    private BrandService brandService;
-
-    private ColorService colorService;
 
     @Autowired
-    public ProductServiceI(ProductDAO productDAO, ProductColorDAO productColorDAO, ImageService imageService, CategoryService categoryService, BrandService brandService, ColorService colorService) {
-        this.productDAO = productDAO;
-        this.productColorDAO = productColorDAO;
-        this.imageService = imageService;
-        this.categoryService = categoryService;
-        this.brandService = brandService;
-        this.colorService = colorService;
-    }
+    private ProductDAO productDAO;
+
+    @Autowired
+    private ProductColorDAO productColorDAO;
+
+    @Autowired
+    private ImageService imageService;
+
+    @Autowired
+    private CategoryService categoryService;
+
+    @Autowired
+    private BrandService brandService;
+
+    @Autowired
+    private ColorService colorService;
 
     private List<Map<String, Object>> generateProductList(List<ProductDTO> productDTOList,
                                                           List<ImageDTO> imageDTOList,
@@ -82,6 +79,15 @@ public class ProductServiceI implements ProductService {
         List<ProductDTO> productDTOList = productDAO.getAllProduct();
         List<ImageDTO> imageDTOList = imageService.getAllImage();
         List<ProductColorDTO> productColorDTOList = productColorDAO.getAllColor();
+        return generateProductList(productDTOList, imageDTOList, productColorDTOList);
+    }
+
+    @Override
+    @Transactional
+    public List<Map<String, Object>> getProductByID(String productID) {
+        List<ProductDTO> productDTOList = productDAO.getProductByID(productID);
+        List<ImageDTO> imageDTOList = imageService.getImageByProductID(productID);
+        List<ProductColorDTO> productColorDTOList = productColorDAO.getColorByProductID(productID);
         return generateProductList(productDTOList, imageDTOList, productColorDTOList);
     }
 

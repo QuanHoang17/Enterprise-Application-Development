@@ -13,6 +13,7 @@ import java.util.List;
 
 @Service
 public class FileServiceI implements FileService {
+
     private String getFileExtension(MultipartFile file) {
         return file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);
     }

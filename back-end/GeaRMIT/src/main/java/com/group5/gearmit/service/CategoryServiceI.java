@@ -11,8 +11,9 @@ import java.util.Map;
 @Service
 @Transactional
 public class CategoryServiceI implements CategoryService {
+
     @Autowired
-    CategoryDAO categoryDAO;
+    private CategoryDAO categoryDAO;
 
     @Override
     public void insertCategory(Map<String, String> receivedCategory) {

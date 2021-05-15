@@ -42,8 +42,4 @@ public class Brand {
     public int hashCode() {
         return Objects.hash(id, name);
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

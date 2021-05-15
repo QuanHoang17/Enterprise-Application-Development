@@ -11,6 +11,7 @@ import java.util.Map;
 @CrossOrigin
 @RequestMapping("/")
 public class CategoryController {
+
     @Autowired
     private CategoryService categoryService;
 

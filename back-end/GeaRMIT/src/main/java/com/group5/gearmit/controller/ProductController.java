@@ -2,6 +2,7 @@ package com.group5.gearmit.controller;
 
 import com.group5.gearmit.entity.Product;
 import com.group5.gearmit.service.ProductService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,16 +13,17 @@ import java.util.Map;
 @CrossOrigin
 public class ProductController {
 
-    private ProductService productService;
-
     @Autowired
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
+    private ProductService productService;
 
     @GetMapping(value = "/api/product")
     public List<Map<String, Object>> getAllProduct() {
         return productService.getAllProduct();
+    }
+
+    @GetMapping(value = "/api/product/id/{id}")
+    public List<Map<String, Object>> getProductByID(@PathVariable("id") String productID) {
+        return productService.getProductByID(productID);
     }
 
     @GetMapping(value = "/api/product/name/{name}")
@@ -42,11 +44,6 @@ public class ProductController {
     @PostMapping(value = "/api/product")
     public Map<String, String> addProduct(@RequestBody Map<Object, Object> productJson) {
         return productService.addProduct(productJson);
-    }
-
-    @GetMapping(value = "/api/product/id/{id}")
-    public Product getProductObjectByID(@PathVariable("id") String id) {
-        return productService.getProductObjectByID(id);
     }
 
     @DeleteMapping(value = "/api/product/id/{productID}")

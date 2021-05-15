@@ -1,6 +1,5 @@
 package com.group5.gearmit.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,11 +32,6 @@ public class ProductColor {
         return Objects.hash(productColorPK);
     }
 
-    public void setProductColorPK(ProductColorPK productColorPK) {
-        this.productColorPK = productColorPK;
-    }
-
-
     @Embeddable
     @Data
     @NoArgsConstructor
@@ -58,22 +52,6 @@ public class ProductColor {
             if (o == null || getClass() != o.getClass()) return false;
             ProductColorPK that = (ProductColorPK) o;
             return Objects.equals(product, that.product) && Objects.equals(color, that.color);
-        }
-
-        public Product getProduct() {
-            return product;
-        }
-
-        public void setProduct(Product product) {
-            this.product = product;
-        }
-
-        public Color getColor() {
-            return color;
-        }
-
-        public void setColor(Color color) {
-            this.color = color;
         }
 
         @Override

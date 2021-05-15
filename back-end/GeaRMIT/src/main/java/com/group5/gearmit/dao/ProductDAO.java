@@ -18,6 +18,11 @@ public interface ProductDAO extends JpaRepository<Product, String> {
 
     @Query(value = "SELECT new com.group5.gearmit.dto.ProductDTO(p.id, p.name, p.quantity, p.issueDate, p.category.name, p.brand.name, p.price, p.description) " +
             "FROM Product p " +
+            "WHERE p.id = :id")
+    List<ProductDTO> getProductByID(@Param("id") String id);
+
+    @Query(value = "SELECT new com.group5.gearmit.dto.ProductDTO(p.id, p.name, p.quantity, p.issueDate, p.category.name, p.brand.name, p.price, p.description) " +
+            "FROM Product p " +
             "WHERE p.name = :name")
     List<ProductDTO> getProductByName(@Param("name") String name);
 

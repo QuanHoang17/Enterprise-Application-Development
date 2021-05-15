@@ -18,6 +18,11 @@ public interface ProductColorDAO extends JpaRepository<ProductColor, ProductColo
 
     @Query(value = "SELECT new com.group5.gearmit.dto.ProductColorDTO(cp.productColorPK.color.name, cp.productColorPK.product.id) " +
             "FROM ProductColor cp " +
+            "WHERE cp.productColorPK.product.id = :id")
+    List<ProductColorDTO> getColorByProductID(@Param("id") String id);
+
+    @Query(value = "SELECT new com.group5.gearmit.dto.ProductColorDTO(cp.productColorPK.color.name, cp.productColorPK.product.id) " +
+            "FROM ProductColor cp " +
             "WHERE cp.productColorPK.product.name = :name")
     List<ProductColorDTO> getColorByProductName(@Param("name") String name);
 

@@ -12,6 +12,8 @@ public interface ImageService {
 
     Map<String, String> storeItemImage(MultipartFile uploadFile, Map<Object, Object> productInfo);
 
+    List<ImageDTO> getImageByProductID(String productID);
+
     List<ImageDTO> getImageByProductName(String productName);
 
     List<ImageDTO> getImageByProductCategoryName(String productCategoryName);

@@ -9,8 +9,9 @@ import java.util.Map;
 @RestController
 @CrossOrigin
 public class EmailVerificationController {
+
     @Autowired
-    AuthenticationService authenticationService;
+    private AuthenticationService authenticationService;
 
     @GetMapping("/api/regitrationConfirmed/{token}")
     public Map<String, String> verifyEmail(@PathVariable("token") String token) {

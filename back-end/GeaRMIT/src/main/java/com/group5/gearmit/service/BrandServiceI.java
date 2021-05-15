@@ -15,12 +15,8 @@ import java.util.Map;
 @Transactional
 public class BrandServiceI implements BrandService{
 
-    private BrandDAO brandDAO;
-
     @Autowired
-    public BrandServiceI(BrandDAO brandDAO) {
-        this.brandDAO = brandDAO;
-    }
+    private BrandDAO brandDAO;
 
     @Override
     @Transactional

@@ -17,6 +17,7 @@ import java.util.UUID;
 @Service
 @Transactional
 public class AuthenticationServiceI implements AuthenticationService {
+
     @Autowired
     private CustomerDAO customerDAO;
 

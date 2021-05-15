@@ -13,8 +13,9 @@ import java.util.Map;
 @RestController
 @CrossOrigin
 public class MessageController {
+
     @Autowired
-    EmailSerivce emailSerivce;
+    private EmailSerivce emailSerivce;
 
     @PostMapping(value = "/api/message")
     public Map<String, String> receiveMessage(@RequestBody Map<String, String> messageInfo) {

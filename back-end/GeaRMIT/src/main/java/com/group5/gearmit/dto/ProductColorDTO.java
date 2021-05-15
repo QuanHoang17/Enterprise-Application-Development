@@ -12,20 +12,4 @@ import lombok.ToString;
 public class ProductColorDTO {
     private String colorName;
     private String itemID;
-
-    public String getColorName() {
-        return colorName;
-    }
-
-    public void setColorName(String colorName) {
-        this.colorName = colorName;
-    }
-
-    public String getItemID() {
-        return itemID;
-    }
-
-    public void setItemID(String itemID) {
-        this.itemID = itemID;
-    }
 }

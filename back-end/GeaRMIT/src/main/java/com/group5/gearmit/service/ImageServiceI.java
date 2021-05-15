@@ -16,6 +16,7 @@ import java.util.Map;
 @Service
 @Transactional
 public class ImageServiceI implements ImageService {
+
     @Autowired
     private FileService fileService;
 
@@ -82,6 +83,12 @@ public class ImageServiceI implements ImageService {
     @Transactional
     public List<ImageDTO> getAllImage() {
         return imageDAO.getAllImage();
+    }
+
+    @Override
+    @Transactional
+    public List<ImageDTO> getImageByProductID(String productID) {
+        return imageDAO.getImageByProductId(productID);
     }
 
     @Override

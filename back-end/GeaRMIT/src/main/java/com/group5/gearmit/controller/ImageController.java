@@ -18,12 +18,11 @@ import java.util.Map;
 @RestController
 @CrossOrigin
 public class ImageController {
-    @Autowired
-    FileService fileService;
 
     @Autowired
-    ImageService imageService;
-//    consumes = {MediaType.MULTIPART_FORM_DATA_VALUE, MediaType.APPLICATION_JSON_VALUE}
+    private ImageService imageService;
+
+    //    consumes = {MediaType.MULTIPART_FORM_DATA_VALUE, MediaType.APPLICATION_JSON_VALUE}
     @PostMapping(value = "/api/image")
     public Map<String, String> uploadFiles(@RequestPart("file") MultipartFile imageFile,
                                            @RequestPart("info") Map<Object, Object> productInfo) {
@@ -31,7 +30,7 @@ public class ImageController {
     }
 
     @GetMapping(value = "/api/image/info")
-    public List<ImageDTO> getAllImage() {
+    public List<ImageDTO> getAllImageInfo() {
         return imageService.getAllImage();
     }
 
