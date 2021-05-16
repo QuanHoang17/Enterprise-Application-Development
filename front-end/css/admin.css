@@ -505,7 +505,9 @@ th:nth-child(2) {
 }
 /* End of PRODUCT - ADD - MODAL */
 
-/* Start of BRAND - DELETE - MODAL */
+
+
+/* Start of BRAND - ADD - MODAL */
 .brand-add-modal-container {
   /* Hide at default */
   display: none;
@@ -584,6 +586,92 @@ th:nth-child(2) {
 }
 
 .brand-add-modal-container .modal-content-container .button-container {
+  text-align: center;
+  margin-top: 24px;
+}
+/* End of BRAND - ADD - MODAL */
+
+
+
+/* Start of BRAND - DELETE - MODAL */
+.brand-delete-modal-container {
+  /* Hide at default */
+  display: none;
+
+  /* Styling */
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 50px 320px;
+  background-color: var(--black-80);
+
+  /* Positioning */
+  position: absolute;
+  z-index: 2;
+}
+
+.brand-delete-modal-container .modal-content-container {
+  /* border: 3px solid red; */
+  border-radius: 8px;
+  background-color: var(--white-base);
+  min-height: 70vh;
+  width: 60%;
+}
+
+.brand-delete-modal-container .modal-content-container .top {
+  font-size: var(--font-500);
+  font-weight: bold;
+  color: var(--black-80);
+  padding-top: 80px;
+  margin-left: 40px;
+}
+
+.brand-delete-modal-container .modal-content-container .exit {
+  float: right;
+  color: black;
+  margin-top: 28px;
+  margin-right: 28px;
+  cursor: pointer;
+}
+
+/* For the search bar */
+.brand-delete-modal-container .modal-content-container .searchbar-container {
+  text-align: center;
+  margin-top: 66px;
+}
+
+.brand-delete-modal-container .modal-content-container .searchbar-container i {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  right: 30px;
+}
+
+.brand-delete-modal-container .modal-content-container .searchbar-container input {
+  width: 500px;
+  padding: 10px 0;
+  text-indent: 20px;
+  border-radius: 20px;
+}
+
+.brand-delete-modal-container
+  .modal-content-container
+  .searchbar-container
+  input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px red;
+  transition: 200ms all ease-in-out;
+}
+
+.brand-delete-modal-container .modal-content-container .result-container {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.brand-delete-modal-container .modal-content-container .result-container a:hover {
+  text-decoration: underline;
+}
+
+.brand-delete-modal-container .modal-content-container .button-container {
   text-align: center;
   margin-top: 24px;
 }

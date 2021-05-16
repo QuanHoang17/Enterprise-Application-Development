@@ -1,11 +1,11 @@
-var modalContainer = document.querySelector(".brand-add-modal-container");
-var deleteTrigger = document.querySelector(".brand-add-modal-trigger");
-var exitBtn = document.querySelector(".brand-add-exit");
+var addModalContainer = document.querySelector(".brand-add-modal-container");
+var addTrigger = document.querySelector(".brand-add-modal-trigger");
+var addExitBtn = document.querySelector(".brand-add-exit");
 var addBtn = document.querySelector(".brand-add-button");
 
 // Function to display add brand modal
-deleteTrigger.addEventListener("click", (e) => {
-    modalContainer.style.cssText = "display: block";
+addTrigger.addEventListener("click", (e) => {
+    addModalContainer.style.cssText = "display: block";
 })
 
 
@@ -30,8 +30,8 @@ addBtn.addEventListener("click", (e) => {
 
 
 // Button to exit the modal
-exitBtn.addEventListener("click", (e) => {
-    modalContainer.style.cssText = "display: none";
+addExitBtn.addEventListener("click", (e) => {
+    addModalContainer.style.cssText = "display: none";
 
     // Clear input value when exiting the modal
     document.querySelector(".brand-add-modal-input").value = "";
@@ -75,3 +75,36 @@ window.onload = loadData();
 function updateTable() { 
     $(".brand-table").load(location.href + " .brand-table"); 
 }
+
+
+// ------------------ FOR BRAND DELETE ------------------------------- //
+var deleteModalContainer = document.querySelector(".brand-delete-modal-container");
+var deleteTrigger = document.querySelector(".brand-delete-modal-trigger");
+var deleteExitBtn = document.querySelector(".brand-delete-exit");
+var deleteBtn = document.querySelector(".brand-delete-button");
+
+// Function to display delete brand modal
+deleteTrigger.addEventListener("click", (e) => {
+    deleteModalContainer.style.cssText = "display: block";
+})
+
+
+
+// Button to exit the delete modal
+deleteExitBtn.addEventListener("click", (e) => {
+    deleteModalContainer.style.cssText = "display: none";
+
+    // Clear input value when exiting the modal
+    document.querySelector(".brand-delete-modal-input").value = "";
+
+    updateTable();
+})
+
+
+
+// Button to delete a brand
+deleteBtn.addEventListener("click", (e) => {
+    let brandId = document.querySelector(".brand-delete-modal-input").value;
+    
+    alert(brandId);
+})

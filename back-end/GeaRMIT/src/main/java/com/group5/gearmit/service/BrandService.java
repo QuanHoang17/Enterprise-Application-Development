@@ -15,7 +15,8 @@ public interface BrandService {
     @Transactional
     Map<String, String> addBrand(Map<String, String> brand);
 
-    Map<String, String> deleteBrand(String brandName);
+    @Transactional
+    Map<String, String> deleteBrandById(String brandId);
 
     List<Brand> getAllBrand();
 }

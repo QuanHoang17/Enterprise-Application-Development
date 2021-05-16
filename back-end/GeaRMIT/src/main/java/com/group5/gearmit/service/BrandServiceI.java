@@ -57,8 +57,12 @@ public class BrandServiceI implements BrandService{
     }
 
     @Override
-    public Map<String, String> deleteBrand(String brandName) {
-        return null;
+    @Transactional
+    public Map<String, String> deleteBrandById(String brandId) {
+        Map<String, String> response = new HashMap<>();
+        brandDAO.deleteBrandById(brandId);
+
+        return response;
     }
 
     @Override
