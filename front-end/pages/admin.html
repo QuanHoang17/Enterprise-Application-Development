@@ -141,6 +141,7 @@
                         <th class="padding-right">Quantity</th>
                         <th class="padding-right">Issue Date</th>
                         <th class="padding-right">Images</th>
+                        <th class="padding-right">Brand</th>
                         <th>Category</th>
                     </tr>
 
@@ -155,6 +156,7 @@
                         <div><a href="">Image 2 <i class="fas fa-external-link-alt"></i></a></div>
                         <div><a href="">Image 3 <i class="fas fa-external-link-alt"></i></a></div>
                     </td>
+                    <td>Razor</td>
                     <td>
                         <div><a href="">Mouse <i class="fas fa-external-link-alt"></i></a></div>
                     </td>
@@ -350,6 +352,7 @@
             <div class="add-modal-content-container">
                 <div class="exit product-add-exit"><i class="fas fa-times"></i></div>
                 <p class="top">Add product</p>
+                <form class="product-form">
                 <div class="fields-container flex">
                     <div class="first-column">
                         <div class="single-field">
@@ -374,10 +377,18 @@
                             <p>Price*</p>
                             <input type="text" placeholder="In USD" class="product-price" required>
                         </div>
+                        <div class="single-field">
+                            <p>BrandId*</p>
+                            <input type="text" placeholder="brand01" class="product-brand" required>
+                        </div>
                     </div>
                     <div class="third-column">
+                        <div class="single-field">
+                            <p>CategoryId*</p>
+                            <input type="text" placeholder="category01" class="product-category" required>
+                        </div>
                         <div class="single-field" style="margin-bottom: 16px;">
-                            <p>Your message*</p>
+                            <p>Description*</p>
                             <!-- <input type="text" placeholder="Something" class="product-message" required> -->
                             <textarea class="product-message" cols="" rows="10"></textarea>
                         </div>
@@ -386,6 +397,8 @@
                         </div>
                     </div>
                 </div>
+                </form>
+                
             </div>
         </div>
         <!-- END OF PRODUCT ADD MODAL -->

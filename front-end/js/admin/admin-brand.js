@@ -1,4 +1,7 @@
-var addModalContainer = document.querySelector(".brand-add-modal-container");
+
+//Use Immediate Invoke Function To Avoid Naming Space Conflict.
+(() => {
+    var addModalContainer = document.querySelector(".brand-add-modal-container");
 var addTrigger = document.querySelector(".brand-add-modal-trigger");
 var addExitBtn = document.querySelector(".brand-add-exit");
 var addBtn = document.querySelector(".brand-add-button");
@@ -7,8 +10,6 @@ var addBtn = document.querySelector(".brand-add-button");
 addTrigger.addEventListener("click", (e) => {
     addModalContainer.style.cssText = "display: block";
 })
-
-
 
 // Button to add a new brand
 addBtn.addEventListener("click", (e) => {
@@ -27,8 +28,6 @@ addBtn.addEventListener("click", (e) => {
     })
 })
 
-
-
 // Button to exit the modal
 addExitBtn.addEventListener("click", (e) => {
     addModalContainer.style.cssText = "display: none";
@@ -38,7 +37,6 @@ addExitBtn.addEventListener("click", (e) => {
 
     updateTable();
 })
-
 
 
 // Function to load the data and show on front end
@@ -69,13 +67,10 @@ function loadData(){
 }
 window.onload = loadData();
 
-
-
 // Function to reload table
 function updateTable() { 
     $(".brand-table").load(location.href + " .brand-table"); 
 }
-
 
 // ------------------ FOR BRAND DELETE ------------------------------- //
 var deleteModalContainer = document.querySelector(".brand-delete-modal-container");
@@ -108,3 +103,4 @@ deleteBtn.addEventListener("click", (e) => {
     
     alert(brandId);
 })
+})()

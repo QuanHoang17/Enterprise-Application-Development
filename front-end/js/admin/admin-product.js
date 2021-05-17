@@ -1,11 +1,12 @@
-
+(() => {
+    
 // ------------------------------- Fetch Data into Table -------------------------------//
 
 const productUrl = 'http://localhost:8080/api/product';
 fetch(productUrl)
 .then(response => response.json())
 .then(data => {
-    data.forEach(({id, name, quantity, issueDate, categoryName}) => {
+    data.forEach(({id, name, quantity, issueDate, brandName,categoryName}) => {
     let productRow = document.querySelector('#product-row').cloneNode();
     
     productRow.style.display= 'table-row';
@@ -14,10 +15,13 @@ fetch(productUrl)
         <td>${name}</td> 
         <td>${quantity}</td>
         <td>${new Date(issueDate).toLocaleDateString()}</td>
+
         <td>
             <div><a href="">Image 1 <i class="fas fa-external-link-alt"></i></a></div>
             <div><a href="">Image 2 <i class="fas fa-external-link-alt"></i></a></div>
             <div><a href="">Image 3 <i class="fas fa-external-link-alt"></i></a></div>
+        </td>
+        <td><div><a href="">${brandName}<i class="fas fa-external-link-alt"></i></a></div>
         </td>
         <td>
             <div><a href="">${categoryName}<i class="fas fa-external-link-alt"></i></a></div>
@@ -66,7 +70,10 @@ modalSearchBtn.addEventListener("click", (e) => {
 
 // Handle delete button 
 deleteBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     alert("Some thing will happen.....");
+    
+    
 })
 
 // ------------------------------- For add modal -------------------------------//
@@ -104,18 +111,61 @@ addExitBtn.addEventListener("click", (e) => {
 
 // To get all the fields
 addBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     let productName = document.querySelector(".product-name").value;
     let productQuantity = document.querySelector(".product-quantity").value;
     let colorList = document.querySelector(".product-color").value;
     let date = document.querySelector(".product-date").value;
     let price = document.querySelector(".product-price").value;
-    let message = document.querySelector(".product-message").value;
+    let description = document.querySelector(".product-message").value;
+    let brandId = document.querySelector(".product-brand").value;
+    let categoryId = document.querySelector(".product-category").value;
 
-    let formData = [productName, productQuantity, colorList, date, price, message];
+    let formData = {
+        "name": productName,
+        "issueDate" : date,
+        "price": price,
+        "quantity": productQuantity,
+        "brandId": brandId,
+        "category": categoryId,
+        "description": description,
+        "color": [colorList]
 
-    alert("Check console for result");
 
-    formData.forEach(data => {
-        console.log(data);
-    })
-})
+    };
+
+    console.log(formData);
+
+
+    sendDataToServer(formData);
+
+    
+}); 
+
+const sendDataToServer = async (data) => {
+    const response = await fetch(productUrl, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }
+        );
+
+    response.json().then(result => 
+        {if (result.status !== 'failed'){
+           alert("Successfully Added Item");
+           document.querySelector("") 
+           document.querySelector(".product-form").reset();
+        }else {
+            alert("Sorry!!!! Failed To Add");
+        }}
+    
+        );
+}
+
+
+})() 
+
+
