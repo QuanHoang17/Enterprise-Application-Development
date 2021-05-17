@@ -696,19 +696,35 @@ th:nth-child(2) {
   .right tr th {
     font-size: var(--font-100);
   }
+  .customer-delete-modal-container,
   .product-add-modal-container,
   .product-delete-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .product-add-modal-container,
+  .product-delete-modal-container,
+  .customer-delete-modal-container {
     padding: 0;
   }
   .product-delete-modal-container .delete-modal-content-container,
-  .product-add-modal-container .add-modal-content-container {
+  .product-add-modal-container .add-modal-content-container,
+  .customer-delete-modal-container .modal-content-container {
     margin: 3rem auto;
   }
-  .product-add-modal-container .add-modal-content-container {
+  .product-add-modal-container .add-modal-content-container,
+  .customer-delete-modal-container .modal-content-container {
     width: 80%;
   }
   .product-delete-modal-container
     .delete-modal-content-container
+    .searchbar-container
+    input,
+  .customer-delete-modal-container
+    .modal-content-container
     .searchbar-container
     input {
     width: 400px;
@@ -753,11 +769,16 @@ th:nth-child(2) {
   .product-delete-modal-container
     .delete-modal-content-container
     .searchbar-container
+    input,
+  .customer-delete-modal-container
+    .modal-content-container
+    .searchbar-container
     input {
     width: 250px;
   }
   .product-delete-modal-container .delete-modal-content-container,
-  .product-add-modal-container .add-modal-content-container {
+  .product-add-modal-container .add-modal-content-container,
+  .customer-delete-modal-container .modal-content-container {
     width: 90%;
   }
 }
@@ -798,7 +819,8 @@ th:nth-child(2) {
     padding: 0;
     width: 20ch;
   }
-  .product-delete-modal-container .delete-modal-content-container .top {
+  .product-delete-modal-container .delete-modal-content-container .top,
+  .customer-delete-modal-container .modal-content-container .top {
     font-size: var(--font-300);
   }
 }

@@ -36,20 +36,33 @@ fetch(productUrl)
 
 })
 
+// ---------------------- Search Item on the Main Dashboard -----------------------------//
 
+const mainSearchBar = document.querySelector(".right .searchbar-container input");
 
+mainSearchBar.addEventListener('keyup', ({key}) =>{
+    if (key ==='Enter'){
+        let itemSearch = document.querySelector(".product-delete-modal-input").value;
+    
+        if (!itemSearch){
+            alert("Please Enter a Product Id !!!!!!!!!");
+        }
 
+        //TODO: search product by id or by name
+        // searchResult = dataFetched.find(data => data.id === itemSearch.toUpperCase() );
+    }
+})
 
 
 
 // ------------------------------- For delete modal -------------------------------//
 
 // Variables
-var deleteModalContainer = document.querySelector(".product-delete-modal-container");
-var deleteTrigger = document.querySelector(".product-delete-modal-trigger");
-var deleteExitBtn = document.querySelector(".product-delete-exit");
-var deleteBtn = document.querySelector(".product-delete-button");
-var modalSearchBtn = document.querySelector(".product-delete-modal-input");
+const deleteModalContainer = document.querySelector(".product-delete-modal-container");
+const deleteTrigger = document.querySelector(".product-delete-modal-trigger");
+const deleteExitBtn = document.querySelector(".product-delete-exit");
+const deleteBtn = document.querySelector(".product-delete-button");
+const modalSearchBtn = document.querySelector(".product-delete-modal-input");
 let itemToDelete;
 // Show delete modal
 deleteTrigger.addEventListener("click", (e) => {

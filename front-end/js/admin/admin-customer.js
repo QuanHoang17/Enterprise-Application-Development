@@ -1,11 +1,13 @@
-// ------------------------------- Fetch Data into Table -------------------------------//
-
+(() =>{
+    // ------------------------------- Fetch Data into Table -------------------------------//
+let dataFetched = [];
 const customerUrl = 'http://localhost:8080/api/customer';
 fetch(customerUrl)
 .then(response => response.json())
 .then(data => {
-    let activeCount = 0
-    
+    let activeCount = 0;
+    dataFetched = data;
+
     data.forEach(({id, name, email, phone, enabled}) => {
         let customerRow = document.querySelector('#customer-row').cloneNode();
 
@@ -40,8 +42,8 @@ var modalContainer = document.querySelector(".customer-delete-modal-container");
 var deleteTrigger = document.querySelector(".customer-delete-modal-trigger");
 var exitBtn = document.querySelector(".customer-delete-exit");
 var deleteBtn = document.querySelector(".customer-delete-button");
-var modalSearchBtn = document.querySelector(".customer-delete-modal-search");
-
+var modalSearchBtn = document.querySelector(".customer-delete-modal-input");
+let customerToDelete;
 deleteTrigger.addEventListener("click", (e) => {
     // modalContainer.style.cssText = "display: block";
     // ^ some how this doesn't work
@@ -50,7 +52,31 @@ deleteTrigger.addEventListener("click", (e) => {
 })
 
 deleteBtn.addEventListener("click", (e) => {
-    alert('Delete customer button clicked');
+     if (customerToDelete){
+        fetch("http://localhost:8080/api/customer/" + customerToDelete.name, {
+            method: 'DELETE',
+        })
+        .then(response => response.json())
+        .then(({status}) => {
+            console.log(status);
+
+            if (status === "success"){
+                document.querySelector(".customer-result p").innerHTML=`
+        
+           Successfully Deleted Customer!
+        
+        `
+            }else{
+                document.querySelector(".customer-result p").innerHTML=`
+        
+           Failed To Delete! Please try again.
+        
+        `
+            }
+        })
+    }else{
+         alert("Please Enter a Customer Id !!!!!!!!!");
+    }
 })
 
 exitBtn.addEventListener("click", (e) => {
@@ -60,7 +86,34 @@ exitBtn.addEventListener("click", (e) => {
     document.querySelector(".customer-delete-modal-input").value = "";
 })
 
-modalSearchBtn.addEventListener("click", (e) => {
-    let customerName = document.querySelector(".customer-delete-modal-input").value;
-    alert("Customer name: " + customerName);
+modalSearchBtn.addEventListener("keyup", ({key}) => {
+   if (key ==='Enter'){
+         let itemSearch = document.querySelector(".customer-delete-modal-input").value;
+    
+    if (!itemSearch){
+        alert("Please Enter a Customer Id !!!!!!!!!");
+    }
+
+
+    customerToDelete = dataFetched.find(data => data.id === itemSearch);
+    
+    if (customerToDelete){
+        
+        document.querySelector(".customer-result p").innerHTML=`
+        
+          Result Found: <a href="">${customerToDelete.name} - ${customerToDelete.id}</a>
+        
+        `
+    }else{
+        document.querySelector(".customer-result p").innerHTML=`
+        
+           Result Found: No result Found!!!
+        
+        `
+    }
+   }
 })
+})()
+
+
+
