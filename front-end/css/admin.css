@@ -505,8 +505,6 @@ th:nth-child(2) {
 }
 /* End of PRODUCT - ADD - MODAL */
 
-
-
 /* Start of BRAND - ADD - MODAL */
 .brand-add-modal-container {
   /* Hide at default */
@@ -591,8 +589,6 @@ th:nth-child(2) {
 }
 /* End of BRAND - ADD - MODAL */
 
-
-
 /* Start of BRAND - DELETE - MODAL */
 .brand-delete-modal-container {
   /* Hide at default */
@@ -646,7 +642,10 @@ th:nth-child(2) {
   right: 30px;
 }
 
-.brand-delete-modal-container .modal-content-container .searchbar-container input {
+.brand-delete-modal-container
+  .modal-content-container
+  .searchbar-container
+  input {
   width: 500px;
   padding: 10px 0;
   text-indent: 20px;
@@ -667,7 +666,10 @@ th:nth-child(2) {
   margin-top: 48px;
 }
 
-.brand-delete-modal-container .modal-content-container .result-container a:hover {
+.brand-delete-modal-container
+  .modal-content-container
+  .result-container
+  a:hover {
   text-decoration: underline;
 }
 
@@ -694,6 +696,23 @@ th:nth-child(2) {
   .right tr th {
     font-size: var(--font-100);
   }
+  .product-add-modal-container,
+  .product-delete-modal-container {
+    padding: 0;
+  }
+  .product-delete-modal-container .delete-modal-content-container,
+  .product-add-modal-container .add-modal-content-container {
+    margin: 3rem auto;
+  }
+  .product-add-modal-container .add-modal-content-container {
+    width: 80%;
+  }
+  .product-delete-modal-container
+    .delete-modal-content-container
+    .searchbar-container
+    input {
+    width: 400px;
+  }
 }
 
 @media screen and (max-width: 720px) {
@@ -719,6 +738,27 @@ th:nth-child(2) {
   .right {
     width: 100%;
     height: 100%;
+  }
+  .product-add-modal-container
+    .add-modal-content-container
+    .fields-container
+    > div {
+    width: 100%;
+  }
+  .product-delete-modal-container .delete-modal-content-container .exit,
+  .product-add-modal-container .add-modal-content-container .exit {
+    font-size: 2rem;
+  }
+
+  .product-delete-modal-container
+    .delete-modal-content-container
+    .searchbar-container
+    input {
+    width: 250px;
+  }
+  .product-delete-modal-container .delete-modal-content-container,
+  .product-add-modal-container .add-modal-content-container {
+    width: 90%;
   }
 }
 
@@ -757,5 +797,8 @@ th:nth-child(2) {
   table td {
     padding: 0;
     width: 20ch;
+  }
+  .product-delete-modal-container .delete-modal-content-container .top {
+    font-size: var(--font-300);
   }
 }

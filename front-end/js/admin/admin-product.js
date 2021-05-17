@@ -1,11 +1,12 @@
 (() => {
     
 // ------------------------------- Fetch Data into Table -------------------------------//
-
+let dataFetched = [];
 const productUrl = 'http://localhost:8080/api/product';
 fetch(productUrl)
 .then(response => response.json())
 .then(data => {
+    dataFetched = data;
     data.forEach(({id, name, quantity, issueDate, brandName,categoryName}) => {
     let productRow = document.querySelector('#product-row').cloneNode();
     
@@ -48,8 +49,8 @@ var deleteModalContainer = document.querySelector(".product-delete-modal-contain
 var deleteTrigger = document.querySelector(".product-delete-modal-trigger");
 var deleteExitBtn = document.querySelector(".product-delete-exit");
 var deleteBtn = document.querySelector(".product-delete-button");
-var modalSearchBtn = document.querySelector(".product-delete-modal-search");
-
+var modalSearchBtn = document.querySelector(".product-delete-modal-input");
+let itemToDelete;
 // Show delete modal
 deleteTrigger.addEventListener("click", (e) => {
     deleteModalContainer.style.cssText = "display: block";
@@ -64,14 +65,66 @@ deleteExitBtn.addEventListener("click", (e) => {
 })
 
 // Get search text
-modalSearchBtn.addEventListener("click", (e) => {
-    alert(document.querySelector(".product-delete-modal-input").value);
+modalSearchBtn.addEventListener("keyup", ({key}) => {
+    
+   if (key ==='Enter'){
+         let itemSearch = document.querySelector(".product-delete-modal-input").value;
+    
+    if (!itemSearch){
+        alert("Please Enter a Product Id !!!!!!!!!");
+    }
+
+
+    itemToDelete = dataFetched.find(data => data.id === itemSearch);
+    
+    if (itemToDelete){
+        
+        document.querySelector(".product-result p").innerHTML=`
+        
+          Result Found: <a href="">${itemToDelete.name} - ${itemToDelete.id}</a>
+        
+        `
+    }else{
+        document.querySelector(".product-result p").innerHTML=`
+        
+           Result Found: No result Found!!!
+        
+        `
+    }
+   }
+
+
 })
 
 // Handle delete button 
 deleteBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    alert("Some thing will happen.....");
+    
+    if (itemToDelete){
+        fetch("http://localhost:8080/api/product/id/" + itemToDelete.id, {
+            method: 'DELETE',
+        })
+        .then(response => response.json())
+        .then(({status}) => {
+            console.log(status);
+
+            if (status === "success"){
+                document.querySelector(".product-result p").innerHTML=`
+        
+           Successfully Deleted Item!
+        
+        `
+            }else{
+                document.querySelector(".product-result p").innerHTML=`
+        
+           Failed To Delete! Please try again.
+        
+        `
+            }
+        })
+    }else{
+         alert("Please Enter a Product Id !!!!!!!!!");
+    }
+   
     
     
 })
@@ -153,8 +206,8 @@ const sendDataToServer = async (data) => {
     }
         );
 
-    response.json().then(result => 
-        {if (result.status !== 'failed'){
+    response.json().then(({status}) => 
+        {if (status !== 'failed'){
            alert("Successfully Added Item");
            document.querySelector("") 
            document.querySelector(".product-form").reset();
