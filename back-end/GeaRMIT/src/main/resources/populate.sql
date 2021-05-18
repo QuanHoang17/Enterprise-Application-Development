@@ -1,5 +1,3 @@
-
-
 SELECT * FROM brand;
 DELETE from brand;
 INSERT INTO  brand
@@ -7,7 +5,7 @@ VALUES
        ('brand01','MSI'),
        ('brand02','Razer'),
        ('brand03','Logitech')
-       ;
+;
 
 
 SELECT * from category;
