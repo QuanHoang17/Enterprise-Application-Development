@@ -44,5 +44,9 @@ public interface ProductDAO extends JpaRepository<Product, String> {
 
     @Modifying
     @Query(value = "DELETE FROM Product p WHERE p.id = :id")
-    void deleteProductById(@Param("id") String id);
+    void deleteProductByID(@Param("id") String id);
+
+//    @Modifying
+//    @Query(value = "DELETE FROM Product p WHERE p.category.id = :id")
+//    void deleteProductByCategoryID(@Param("id") String id);
 }

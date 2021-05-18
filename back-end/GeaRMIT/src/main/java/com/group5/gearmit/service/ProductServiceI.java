@@ -210,7 +210,7 @@ public class ProductServiceI implements ProductService {
         response.put("product", "existed");
         imageService.deleteImageByProductID(productID);
         productColorDAO.deleteProductColorByProductID(productID);
-        productDAO.deleteProductById(productID);
+        productDAO.deleteProductByID(productID);
         response.put("status", "success");
         return response;
     }

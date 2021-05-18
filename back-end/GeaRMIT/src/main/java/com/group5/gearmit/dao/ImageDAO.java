@@ -41,4 +41,12 @@ public interface ImageDAO extends JpaRepository<Image, String> {
     @Modifying
     @Query("DELETE FROM Image i WHERE i.id = :id")
     void deleteImageByID(@Param("id") String id);
+
+    @Modifying
+    @Query("DELETE FROM Image i WHERE i.product.brand.id = :id")
+    void deleteImageByProductBrandID(@Param("id") String id);
+
+    @Modifying
+    @Query("DELETE FROM Image i WHERE i.product.category.id = :id")
+    void deleteImageByProductCategoryID(@Param("id") String id);
 }
