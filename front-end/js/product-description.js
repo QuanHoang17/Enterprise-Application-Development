@@ -61,3 +61,8 @@ document.querySelector("button").addEventListener("click", function testButton(p
     alert("Button is clicked");
 })
 
+
+// Fetch product ID from url
+const itemId = new URLSearchParams(window.location.search).get('id');
+console.log(itemId);
+

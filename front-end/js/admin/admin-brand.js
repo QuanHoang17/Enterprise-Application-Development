@@ -2,9 +2,9 @@
 //Use Immediate Invoke Function To Avoid Naming Space Conflict.
 (() => {
     var addModalContainer = document.querySelector(".brand-add-modal-container");
-var addTrigger = document.querySelector(".brand-add-modal-trigger");
-var addExitBtn = document.querySelector(".brand-add-exit");
-var addBtn = document.querySelector(".brand-add-button");
+    var addTrigger = document.querySelector(".brand-add-modal-trigger");
+    var addExitBtn = document.querySelector(".brand-add-exit");
+    var addBtn = document.querySelector(".brand-add-button");
 
 // Function to display add brand modal
 addTrigger.addEventListener("click", (e) => {
@@ -26,6 +26,10 @@ addBtn.addEventListener("click", (e) => {
         },
         body: JSON.stringify(brand)
     })
+        .then(response => response.json())
+        .then(response => {
+            console.log(response.brand);
+        })
 })
 
 // Button to exit the modal
