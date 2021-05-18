@@ -181,8 +181,8 @@
 
                 <div class="functions-container">
                     <div class="function">
-                        <button class="primary-cta--small show-modal">Add</button>
-                        <button class="primary-cta--small show-modal">Delete</button>
+                        <button class="primary-cta--small show-modal" id="addBtn">Add</button>
+                        <button class="primary-cta--small show-modal" id="deleteBtn">Delete</button>
                     </div>
                     <div class="statistics">
                         <p>Total categories: 5</p>
@@ -230,7 +230,7 @@
 
                 <div class="functions-container">
                     <div class="function">
-                        <button class="primary-cta--small show-modal">Add</button>
+                        <button class="primary-cta--small show-modal" id="addImageBtn">Add</button>
                         <button class="primary-cta--small show-modal">Delete</button>
                     </div>
                     <div class="statistics">
@@ -437,6 +437,84 @@
         </div>
         <!-- END OF BRAND DELETE MODAL -->
         <!-- End of modal -->
+
+        <!-- ADD CATEGORY MODAL -->
+        <div id="add-category-modal" class="add-modal">
+                
+            <div class="add-category-modal-content">
+                <div class="add-category-modal-header">
+                    <span class="add-category-close">&times;</span>
+                    <h2>Add Category</h2>
+                </div>
+                <form class="add-category-modal-body">
+                    <table>
+                        <tr>    
+                            <th>Category Name*:</th>
+                            <th>Category Description*:</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="Nguyen Van A" id="add-category-name" required onkeypress="return /[a-zA-Z\s]/i.test(event.key)" ></td>
+                            <td><textarea type="text" placeholder="Something..." id="add-category-description" required></textarea></td>
+                        </tr>
+                    </table>
+                    <button type="submit" class="primary-cta--medium" id="add-category-button">Add Category</button>
+                </form>
+            </div>
+        </div>
+
+
+
+        <!-- DELETE CATEGORY MODAL -->
+        <div id="modal-delete-category" class="deleteModal">
+
+            <div class="content-delete-category">
+                <div class="header-delete-category">
+                    <span class="close-delete-category-modal">&times;</span>
+                    <h2>Delete Category</h2>
+                </div>
+
+                <form class="body-delete-category">
+                    <input type="text" id="search-bar" placeholder="Search category Product ID to delete" required>
+                    <p>Product Found: <a href="">Mouse - Category Id 01</a></p>
+
+                    <button type="submit" class="primary-cta--medium" id="delete-category-button">Delete This Category</button>
+                </form>
+            </div>
+        </div>
+
+
+
+        <!-- ADD IMAGE MODAL in Gallery -->
+        <div id="addImage" class="add-image-modal">
+
+            <div class="add-image-modal-content">
+                <div class="add-image-modal-header">
+                    <span class="add-image-close">&times;</span>
+                    <h2>Add Image</h2>
+                </div>
+
+                <form class="add-image-modal-body">
+                    <label for="image-name"><b>Image Name*:</b></label>
+                    <input type="text" placeholder="Logi Something" id="image-name" required onkeypress="return /[a-zA-Z\s]/i.test(event.key)"  required>
+                
+                    <label for="upload-file"><b>Upload File*:</b></label>
+                    <input type="file" placeholder="Select From Machine...."id="upload-file" required>
+                
+                    <label for="product-id"><b>Product ID*:</b></label>
+                    <input type="text" placeholder="item01" id="product-id" required>
+
+                    <button type="submit" class="primary-cta--medium" id="add-image-button">Add  Image</button>
+                </form>
+            </div>
+        </div>
+
+
+
+</div>
+
+
+
+
     </section>
 
     <script src="../js/jquery-3.6.0.min.js"></script>
@@ -444,7 +522,11 @@
     <script src="../js/admin/admin-customer.js"></script>
     <script src="../js/admin/admin-product.js"></script>
     <script src="../js/admin/admin-brand.js"></script>
+    <script src="../js/admin/admin-category.js"></script>
+    <script src="../js/admin/admin-gallery.js"></script>
+
     <script src="../js/admin/admin.js"></script>
+    
 </body>
 
 </html>
