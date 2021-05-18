@@ -36,23 +36,24 @@ public class BrandServiceI implements BrandService{
     @Transactional
     public Map<String, String> addBrand(Map<String, String> brand){
         Map<String, String> response = new HashMap<>();
+
+        // Check Brand exist
         boolean brandExisted = checkBrand(brand.get("name"));
 
         if (brandExisted) {
             response.put("brand", "existed");
+            response.put("status", "failed");
+            return response;
         } else {
             response.put("brand", "available");
         }
 
-        if (!brandExisted) {
-            Brand newBrand = new Brand();
-            newBrand.setName(brand.get("name"));
-            brandDAO.save(newBrand);
-            response.put("status", "success");
+        // Add Brand
+        Brand newBrand = new Brand();
+        newBrand.setName(brand.get("name"));
+        brandDAO.save(newBrand);
 
-            return response;
-        }
-        response.put("status", "failed");
+        response.put("status", "success");
         return response;
     }
 
@@ -65,6 +66,7 @@ public class BrandServiceI implements BrandService{
     }
 
     @Override
+    @Transactional
     public List<Brand> getAllBrand() {
         return brandDAO.findAll();
     }

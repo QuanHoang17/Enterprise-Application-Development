@@ -12,6 +12,9 @@ public interface CategoryDAO extends JpaRepository<Category, String> {
     @Query(value = "SELECT c FROM Category c WHERE c.id = :id")
     Category getCategoryByID(@Param("id") String id);
 
+    @Query(value = "SELECT c FROM Category c WHERE c.name = :name")
+    Category getCategoryByName(@Param("name") String name);
+
     @Modifying
     @Query(value = "DELETE FROM Category c WHERE c.id = :id")
     void deleteCategoryById(@Param("id") String id);

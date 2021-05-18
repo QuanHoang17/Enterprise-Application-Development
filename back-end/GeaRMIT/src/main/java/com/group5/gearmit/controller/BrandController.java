@@ -15,14 +15,14 @@ public class BrandController {
     @Autowired
     private BrandService brandService;
 
+    @GetMapping(value = "/api/brand")
+    public List<Brand> getAllBrands() {
+        return brandService.getAllBrand();
+    }
+
     @PostMapping (value = "/api/brand")
     public Map<String, String> addBrand(@RequestBody Map<String, String> brand) {
         return brandService.addBrand(brand);
-    }
-
-    @GetMapping(value = "/api/brand")
-    public List<Brand> getAllBrands(){
-        return brandService.getAllBrand();
     }
 
     @DeleteMapping(value = "/api/brand/{brandId}")
