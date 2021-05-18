@@ -61,7 +61,6 @@ public class BrandServiceI implements BrandService{
     public Map<String, String> deleteBrandById(String brandId) {
         Map<String, String> response = new HashMap<>();
         brandDAO.deleteBrandById(brandId);
-
         return response;
     }
 
