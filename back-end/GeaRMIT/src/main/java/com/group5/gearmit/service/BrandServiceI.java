@@ -27,7 +27,7 @@ public class BrandServiceI implements BrandService{
     @Override
     @Transactional
     // Check if brand has existed or not
-    public boolean checkBrand(String name) {
+    public boolean checkBrandName(String name) {
         Brand brand = brandDAO.getBrandByName(name);
         return brand != null;
     }
@@ -38,7 +38,7 @@ public class BrandServiceI implements BrandService{
         Map<String, String> response = new HashMap<>();
 
         // Check Brand exist
-        boolean brandExisted = checkBrand(brand.get("name"));
+        boolean brandExisted = checkBrandName(brand.get("name"));
 
         if (brandExisted) {
             response.put("brand", "existed");
@@ -62,6 +62,7 @@ public class BrandServiceI implements BrandService{
     public Map<String, String> deleteBrandById(String brandId) {
         Map<String, String> response = new HashMap<>();
         brandDAO.deleteBrandById(brandId);
+        response.put("status", "success");
         return response;
     }
 
