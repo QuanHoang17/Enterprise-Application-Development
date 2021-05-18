@@ -7,7 +7,6 @@ VALUES
        ('brand03','Logitech')
 ;
 
-
 SELECT * from category;
 DELETE from category;
 INSERT INTO category
@@ -59,16 +58,22 @@ VALUES
 
 
 SELECT * FROM color;
+DELETE FROM color;
 INSERT INTO color
 VALUES
     ('red'),('blue'), ('yellow');
 
-
 SELECT * FROM product_color;
+DELETE FROM product_color;
 INSERT INTO product_color
 VALUES
-       ('item01', 'red'), ('item02', 'red'),  ('item03', 'red'), ('item04', 'blue'), ('item05', 'yellow'),
-       ('item06', 'blue'), ('item01', 'blue'), ('item02', 'blue'), ('item03', 'blue'), ('item04', 'yellow'),
-       ('item03', 'yellow'), ('item02', 'yellow'), ('item01', 'yellow'), ('item06', 'red'), ('item05', 'red')
+    ('item01', 'red'), ('item02', 'red'),  ('item03', 'red'), ('item04', 'blue'), ('item05', 'yellow'),
+    ('item06', 'blue'), ('item01', 'blue'), ('item02', 'blue'), ('item03', 'blue'), ('item04', 'yellow'),
+    ('item03', 'yellow'), ('item02', 'yellow'), ('item01', 'yellow'), ('item06', 'red'), ('item05', 'red');
 
-
+-- name: admin, password: admin
+SELECT * FROM customer;
+DELETE FROM customer;
+INSERT INTO customer
+VALUES
+    ('c01', 'admin', 'admin@gearmit.com', true, '$2a$10$eigyxoT6gc5sklBBVv2txOigV5vtcoaAtBdagoJYEk3HvIdXAm24G', '0901094', 'admin');

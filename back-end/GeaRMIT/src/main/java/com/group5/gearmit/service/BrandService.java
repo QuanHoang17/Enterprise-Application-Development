@@ -9,7 +9,7 @@ public interface BrandService {
 
     Brand getBrandByID(String brandID);
 
-    boolean checkBrand(String name);
+    boolean checkBrandName(String name);
 
     Map<String, String> addBrand(Map<String, String> brand);
 

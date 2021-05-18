@@ -25,7 +25,7 @@ public class BrandController {
         return brandService.addBrand(brand);
     }
 
-    @DeleteMapping(value = "/api/brand/{brandId}")
+    @DeleteMapping(value = "/api/brand/id/{brandId}")
     public Map<String, String> deleteBrandById(@PathVariable("brandId") String brandId) {
         return brandService.deleteBrandById(brandId);
     }
