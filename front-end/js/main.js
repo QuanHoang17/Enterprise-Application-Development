@@ -8,33 +8,33 @@ const indexFooter = document.querySelector('#index-footer');
 const head = document.querySelector('head');
 
 // Function declarations
-const loadFavicon = () => {
-    const favicon = document.createElement('link');
-    favicon.rel = 'shortcut icon';
-    favicon.href = '../assets/favicon.ico';
-    favicon.type = 'image/x-icon';
-    head.appendChild(favicon);
-}
+// const loadFavicon = () => {
+//     const favicon = document.createElement('link');
+//     favicon.rel = 'shortcut icon';
+//     favicon.href = '../assets/favicon.ico';
+//     favicon.type = 'image/x-icon';
+//     head.appendChild(favicon);
+// }
 
 const loadHeaderFooter = () => {
-    if (header != null) {
-        fetch('../components/Header/header.html')
+    // if (header != null) {
+    //     fetch('../components/Header/header.html')
 
-            .then(res => res.text())
-            .then(data => {
-                header.innerHTML = data;
-            })
-            .catch(e => console.log(e))
-    }
+    //         .then(res => res.text())
+    //         .then(data => {
+    //             header.innerHTML = data;
+    //         })
+    //         .catch(e => console.log(e))
+    // }
 
-    if (indexHeader != null) {
-        fetch('./components/Header/header.html')
-            .then(res => res.text())
-            .then(data => {
-                indexHeader.innerHTML = data;
-            })
-            .catch(e => console.log(e))
-    }
+    // if (indexHeader != null) {
+    //     fetch('./components/Header/header.html')
+    //         .then(res => res.text())
+    //         .then(data => {
+    //             indexHeader.innerHTML = data;
+    //         })
+    //         .catch(e => console.log(e))
+    // }
 
     if (footer != null) {
         fetch('../components/Footer/footer.html')
@@ -58,7 +58,7 @@ const loadHeaderFooter = () => {
 
 
 // Function calls
-loadFavicon();
+// loadFavicon();
 loadHeaderFooter();
 
 
