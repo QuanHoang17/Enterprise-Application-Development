@@ -7,20 +7,9 @@ const fetchProductsFromDatabase = async () => {
    
     response.json().then((productList) => {
       productFetched = productList;
-      
-      // let cardList = productList.filter(({categoryName}) => categoryName === 'Headsets').map(({name, quantity, categoryName, price, description, imageName, color}) => {
-      //     let available = 'Outstock';
-      //     let imgSrc = 'http://localhost:8080/api/image/' + imageName[0]; 
-      //     quantity > 0 ? available = 'Available' : available = 'Outstock'; 
-          
-      //     return createProductCardElement(name, description, price.toString(), categoryName, available, color.join(', '), imgSrc);
-      //   });
-      
-      // cardList.forEach(card => {
-      //   document.querySelector('.product-detail-list.section').appendChild(card);
-      // })
         
       displayProductByCategory('Headsets');
+      displayNewProduct();
     })
 }
 
@@ -38,6 +27,30 @@ const displayProductByCategory = (categoryToFilter) => {
       
 }
 
+const displayNewProduct = () => {
+  // Sort the products by issueDate in descending order
+  productFetched.sort((a, b) => {if (a.issueDate < b.issueDate) {return 1;} return -1;})
+  //productFetched.forEach(item => {console.log(item.issueDate)})
+  const newProductContainer = document.querySelector('.new-product-section');
+  newProductContainer.innerHTML='';
+  for (let i = 0; i < 2; i++){
+      newProductContainer.innerHTML+=`
+        <div class="new-product-card">
+                    <h1>${productFetched[i].name}</h1>
+                    
+                    <a target='_blank'  class="primary-cta--medium" href="./pages/product-description.html?&name=${productFetched[i].name}">
+                      View Detail
+                    </a>
+                    
+                    
+                </div>
+  
+      `
+    
+  }
+  
+}
+
 const createProductCardElement = (name, description, price, category, available, colorList, imgSrc) => {
   let cardContainer =document.createElement('DIV');
   cardContainer.classList.add('product-detail-card');
@@ -47,7 +60,7 @@ const createProductCardElement = (name, description, price, category, available,
   
     <img src= "${imgSrc}" alt=${name}/>
                             <div class="product-info">
-                                <h1>${name}</h1>
+                                <h5>${name}</h5>
                                 <p>${description}</p>
                                 <div class="product-grid">
                                     <span>Category</span>
@@ -74,17 +87,31 @@ const createProductCardElement = (name, description, price, category, available,
 
 fetchProductsFromDatabase();
 
+/*------ Handle Search Bar------- */
+const searchBar = document.querySelector('.search-bar input');
+
+searchBar.addEventListener('keyup', ({key}) =>{
+    if (key ==='Enter'){
+        let itemSearch = searchBar.value;
+    
+        if (!itemSearch){
+            alert("Please Enter a Something !!!!!!!!!");
+        }
+
+        //search by product name or category name.
+        searchResult = productFetched.find(item => (item.name.toLowerCase() === itemSearch.toLowerCase()));
+
+       
+
+        if (searchResult){
+          alert(searchResult)
+          window.location.replace("./pages/product-description.html?&name="+ searchResult.name);
+        }
+    }
+})
 
 
-// VERSION 2 -- USING JQUERY AJAX
-$(function () {
-  // $('#main-cover').load("./components/Index/Cover/cover.html");
-  // $('#best-sellers').load("./components/Index/BestSellers/best-sellers.html");
-  // $('#new-products').load("./components/Index/NewProducts/new-products.html");
-  // $('#categories').load("./components/Index/Categories/categories.html");
 
-  // console.log('loaded successfully');
-});
 
 function loadCarousel() {
 
@@ -141,16 +168,24 @@ btn.on('click', function (e) {
 $(function() {
         $('ul li').click(function() {
             $(this).addClass('selected').siblings('li').removeClass('selected');
-
+            let categoryName = $(this).text();
             let sectionIndex = parseInt($(this).index() + 1);
             let currentSection = `.section:nth-of-type(${sectionIndex})`;
         
             $(currentSection).stop().fadeIn(200, 'linear').siblings().stop().hide();
-            displayProductByCategory($(this).text());
+            displayProductByCategory(categoryName);
+
+            document.querySelector('#browse-category-cta').setAttribute('href', `../front-end/pages/category.html?&category=${categoryName}`);
+            
         })
     })
 
 
+
+
+
+
+//TODO: Consider delete this
 // Select category section
 body.onload = () => {
 

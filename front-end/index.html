@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="shortcut icon" href="./assets/gaming-icon.jpeg" type="image/x-icon">  
     <title>Home | GeaRMIT</title>
+    
+    <link rel="stylesheet" href="./css/ult.css">
    
     <link rel="stylesheet" href="./components/Header/header.css">
     <link rel="stylesheet" href="./components/Index/Cover/cover.css">
@@ -29,7 +31,7 @@
                     <a href="#">+84 123 456 789</a>
                     <a href="mailto:info@geaRMIT.com">info@geaRMIT.com</a>
                 </div>
-                <a href="../index.html" id="site-logo"><img src="./assets/gaming-icon.jpeg" alt="GeaRMIT logo"></a>
+                <a href="./index.html" id="site-logo"><img src="./assets/gaming-icon.jpeg" alt="GeaRMIT logo"></a>
                 <div class="icon">
                     <a href="" class="user-icon"><i class="far fa-user"></i></a>
                     <a href="" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
@@ -46,9 +48,12 @@
             <div class="dropdown">
                 <button class="drop-button">Category <i class="fas fa-chevron-down"></i></button>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Mouse">Mouse</a>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Headsets">Headsets</a>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Mouse%20Pads">Mouse Pads</a>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Keyboard">Keyboard</a>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Microphones">Microphones</a>
+
                 </div>
             </div>
         
@@ -59,7 +64,7 @@
             </div>
         
             <!-- Contact us -->
-            <a href="#" class="contact-us">Contact Us</a>
+            <a target="_blank" href="../front-end/pages/contact.html" class="contact-us">Contact Us</a>
         </div>
     </div>
 
@@ -137,13 +142,15 @@
         <div class="new-products-container">
             <h2 class="section-title dark">New Products</h2>
             <div class="new-product-section">
+
+                <!-- This is fall back items when server items can't be reached and fetched -->
                 <div class="new-product-card">
                     <h1>Logitech G915</h1>
-                    <button class="primary-cta--medium">Add to cart</button>
+                    <button class="primary-cta--medium">View Detail</button>
                 </div>
                 <div class="new-product-card">
                     <h1>Razer Mamba Elite</h1>
-                    <button class="primary-cta--medium">Add to cart</button>
+                    <button class="primary-cta--medium">View Detail</button>
                 </div>
             </div>
         </div>
@@ -160,7 +167,7 @@
                     <li class="category-item">Mouse Pads</li>
                     <li class="category-item">Microphones</li>
                 </ul>
-                <a href="../front-end/pages/category.html" target=" _blank" rel="noopener noreferrer"><button>Browse
+                <a id="browse-category-cta" target="_blank" href="../front-end/pages/category.html" rel="noopener noreferrer"><button>Browse
                         more</button></a>
         
             </div>
@@ -188,7 +195,7 @@
                             <img src="https://images.unsplash.com/photo-1496957961599-e35b69ef5d7c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGhlYWRwaG9uZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
                                 alt="">
                             <div class="product-info">
-                                <h1>Product title</h1>
+                                <h5>Product title</h5>
                                 <p>Space for a small product description</p>
                                 <div class="product-grid">
                                     <span>Category</span>
@@ -210,137 +217,7 @@
                         </div>
         
         
-                        <!-- Card 2 -->
-                        <!-- <div class="product-detail-card">
-                            <img src="https://images.unsplash.com/photo-1560718217-69193acc0713?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1532&q=80"
-                                alt="">
-                            <div class="product-info">
-                                <h1>Product title</h1>
-                                <p>Space for a small product description</p>
-                                <div class="product-grid">
-                                    <span>Category</span>
-                                    <span id="product-info-category">Headsets</span>
-                                    <span>Status</span>
-                                    <span id="product-info-status">Available</span>
-                                    <span>Color</span>
-                                    <span id="product-info-color">Black, Red, Blue</span>
-                                </div>
-                            </div>
-                            <div class="price-and-shipping">
-                                <h1>69.99 USD</h1>
-                                <p>99.69 USD</p>
-                                <p>Free Shipping</p>
-                                <button>Add to Cart</button>
-                                <button><i class="fas fa-info-circle"></i>
-                                    More detail</button>
-                            </div>
-                        </div> -->
-        
-        
-                        <!-- Card 3 -->
-                        <!-- <div class="product-detail-card">
-                            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1946&q=80"
-                                alt="">
-                            <div class="product-info">
-                                <h1>Product title</h1>
-                                <p>Space for a small product description</p>
-                                <div class="product-grid">
-                                    <span>Category</span>
-                                    <span id="product-info-category">Headsets</span>
-                                    <span>Status</span>
-                                    <span id="product-info-status">Available</span>
-                                    <span>Color</span>
-                                    <span id="product-info-color">Black, Red, Blue</span>
-                                </div>
-                            </div>
-                            <div class="price-and-shipping">
-                                <h1>69.99 USD</h1>
-                                <p>99.69 USD</p>
-                                <p>Free Shipping</p>
-                                <button>Add to Cart</button>
-                                <button><i class="fas fa-info-circle"></i>
-                                    More detail</button>
-                            </div>
-                        </div> -->
-        
-                        <!-- Card 4 -->
-                        <!-- <div class="product-detail-card">
-                            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1946&q=80"
-                                alt="">
-                            <div class="product-info">
-                                <h1>Product title</h1>
-                                <p>Space for a small product description</p>
-                                <div class="product-grid">
-                                    <span>Category</span>
-                                    <span id="product-info-category">Headsets</span>
-                                    <span>Status</span>
-                                    <span id="product-info-status">Available</span>
-                                    <span>Color</span>
-                                    <span id="product-info-color">Black, Red, Blue</span>
-                                </div>
-                            </div>
-                            <div class="price-and-shipping">
-                                <h1>69.99 USD</h1>
-                                <p>99.69 USD</p>
-                                <p>Free Shipping</p>
-                                <button>Add to Cart</button>
-                                <button><i class="fas fa-info-circle"></i>
-                                    More detail</button>
-                            </div>
-                        </div> -->
-        
-                        <!-- Card 5 -->
-                        <!-- <div class="product-detail-card">
-                            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1946&q=80"
-                                alt="">
-                            <div class="product-info">
-                                <h1>Product title</h1>
-                                <p>Space for a small product description</p>
-                                <div class="product-grid">
-                                    <span>Category</span>
-                                    <span id="product-info-category">Headsets</span>
-                                    <span>Status</span>
-                                    <span id="product-info-status">Available</span>
-                                    <span>Color</span>
-                                    <span id="product-info-color">Black, Red, Blue</span>
-                                </div>
-                            </div>
-                            <div class="price-and-shipping">
-                                <h1>69.99 USD</h1>
-                                <p>99.69 USD</p>
-                                <p>Free Shipping</p>
-                                <button>Add to Cart</button>
-                                <button><i class="fas fa-info-circle"></i>
-                                    More detail</button>
-                            </div>
-                        </div> -->
-        
-        
-                        <!-- Card 6 -->
-                        <!-- <div class="product-detail-card">
-                            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1946&q=80"
-                                alt="">
-                            <div class="product-info">
-                                <h1>Product title</h1>
-                                <p>Space for a small product description</p>
-                                <div class="product-grid">
-                                    <span>Category</span>
-                                    <span id="product-info-category">Headsets</span>
-                                    <span>Status</span>
-                                    <span id="product-info-status">Available</span>
-                                    <span>Color</span>
-                                    <span id="product-info-color">Black, Red, Blue</span>
-                                </div>
-                            </div>
-                            <div class="price-and-shipping">
-                                <h1>69.99 USD</h1>
-                                <p>99.69 USD</p>
-                                <p>Free Shipping</p>
-                                <button>Add to Cart</button>
-                                <button><i class="fas fa-info-circle"></i>
-                                    More detail</button>
-                            </div>
-                        </div> -->
+                        
         
                     </div>
         
