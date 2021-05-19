@@ -61,12 +61,13 @@
 
 .left .second-op,
 .third-op,
-.fourth-op {
+.fourth-op,
+.op {
   margin-top: 17px;
 }
 
 .left .price-range,
-.type {
+.color {
   margin-top: 56px;
 }
 
@@ -118,7 +119,7 @@
   color: #c80808;
 }
 
-.left .type .second-choice {
+.left .color .second-choice {
   margin: 17px 0;
 }
 
@@ -141,8 +142,8 @@
   font-weight: bold;
 }
 
-.choice.type-active i,
-.choice.type-active label {
+.choice.color-active i,
+.choice.color-active label {
   transition: all 0.2s ease-in-out;
   color: var(--primary-light);
   font-weight: bold;
