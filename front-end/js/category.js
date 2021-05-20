@@ -63,7 +63,7 @@ function renderProductList() {
                         <div class="price-container">
                             <p class="price">${product.price} USD</p>
                         </div>
-                        <a href="product-description.html?&=${product.name}"><button class="primary-cta--small">View detail</button></a>
+                        <a href="product-description.html?&name=${product.name}"><button class="primary-cta--small">View detail</button></a>
                     </div>
                 </div>`
             rowContainer.appendChild(productContainer);
