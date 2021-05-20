@@ -218,6 +218,8 @@
 
 .right .product-container .img-container {
   width: 100%;
+
+  /* To fix the aspect ratio to 3:4 */
   position: relative;
   padding-top: 75%;
 }
