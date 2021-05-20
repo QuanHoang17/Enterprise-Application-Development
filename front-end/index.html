@@ -8,18 +8,15 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="shortcut icon" href="./assets/gaming-icon.jpeg" type="image/x-icon">  
     <title>Home | GeaRMIT</title>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   
     <link rel="stylesheet" href="./css/ult.css">
    
-    <link rel="stylesheet" href="./components/Header/header.css">
-    <link rel="stylesheet" href="./components/Index/Cover/cover.css">
-    <link rel="stylesheet" href="./components/Index/BestSellers/best-sellers.css">
+    
     <link rel="stylesheet" href="./components/Index/BestSellers/owl.carousel.min.css">
     <link rel="stylesheet" href="./components/Index/BestSellers/owl.theme.default.min.css">
     <link rel="stylesheet" href="./components/Index/BestSellers/owl.theme.green.min.css">
-    <link rel="stylesheet" href="./components/Index/NewProducts/new-products.css">
-
-    <link rel="stylesheet" href="./components/Index/Categories/categories.css">
+   
 </head>
 
 <body>
@@ -33,7 +30,7 @@
                 </div>
                 <a href="./index.html" id="site-logo"><img src="./assets/gaming-icon.jpeg" alt="GeaRMIT logo"></a>
                 <div class="icon">
-                    <a href="" class="user-icon"><i class="far fa-user"></i></a>
+                    <a target="_blank" href="./pages/login.html" class="user-icon"><i class="far fa-user"></i></a>
                     <a href="" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
                 </div>
             </div>
@@ -59,7 +56,7 @@
         
             <!-- Search bar -->
             <div class="search-bar">
-                <input type="text" name="search" id="index-search-bar" placeholder="Search Products, Category..." /><i
+                <input type="text" name="search" id="index-search-bar" placeholder="Search a product name..." /><i
                     class="fas fa-search"></i>
             </div>
         
@@ -78,10 +75,12 @@
         <div class="best-seller-container">
             <h2 class="section-title">Best-sellers in May</h2>
             <div class="best-seller-product-list owl-carousel owl-theme">
+
+                <!-- Fall Backs Products To Dispaly When Server Can't Be Reached -->
                 <div class="best-seller-product-card item">
                     <span class="discount">-69%</span>
                     <img src="http://news.gearvn.com/wp-content/uploads/2019/06/razer-deathadder-essential-gaming-mouse-usp02-mobile.jpg"
-                        alt="" id="best-seller-product-image">
+                        alt="" class="best-seller-product-image">
                     <p class="product-title">Razer Deathadder Essential</p>
                     <p class="product-description">The Razer DeathAdder Essential retains the classic ergonomic form...</p>
                     <div class="small-container">
@@ -94,7 +93,7 @@
                 </div>
                 <div class="best-seller-product-card item">
                     <span class="discount">-69%</span>
-                    <img src="../front-end/assets/prototypes/kb2.JPG" alt="" id="best-seller-product-image">
+                    <img src="../front-end/assets/prototypes/kb2.JPG" alt="" class="best-seller-product-image">
                     <p class="product-title">Keychron K2 Wireless Mechanical Keyboard</p>
                     <p class="product-description">Keychron K2 is a 75% layout tactile wireless mechanical keyboard with all
                         necessary key...</p>
@@ -109,7 +108,7 @@
                 <div class="best-seller-product-card item">
                     <span class="discount">-69%</span>
                     <img src="https://anphat.com.vn/media/product/27290_logitech_g502_hero__1_.jpeg" alt=""
-                        id="best-seller-product-image">
+                        class="best-seller-product-image">
                     <p class="product-title">Logitech G502 HERO</p>
                     <p class="product-description">G502 HERO High Performance Gaming Mouse</p>
                     <div class="small-container">
@@ -122,7 +121,7 @@
                 </div>
                 <div class="best-seller-product-card item">
                     <span class="discount">-69%</span>
-                    <img src="../front-end/assets/prototypes/kb1.JPG" alt="" id="best-seller-product-image">
+                    <img src="../front-end/assets/prototypes/kb1.JPG" alt="" class="best-seller-product-image">
                     <p class="product-title">My keyboard</p>
                     <p class="product-description">Ahihi =))</p>
                     <div class="small-container">
@@ -227,7 +226,41 @@
         </div>
     </div>
 
-    <div id="index-footer"></div>
+
+
+    <!-- This is FOOTER -->
+    <div id="index-footer">
+        <div class="footer-container">
+            <div class="Footer">
+               
+                <div class="column">
+                    <h4>Connections</h4>
+                    <a href="">Facebook</a>
+                    <a href="">Twitter</a>
+                    <a href="">Instagram</a>
+                    <a href="">Youtube</a>
+                    <a href="">Linkedln</a>
+                </div>
+                <div class="column">
+                    <h4>Menu</h4>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Mouse">Mouse</a>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Headsets">Headsets</a>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Mouse%20Pads">Mouse Pads</a>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Keyboard">Keyboard</a>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Microphones">Microphones</a>
+                </div>
+                
+                <div class="map">
+                    <iframe class="embedded-map"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15680.254977096798!2d106.6930756!3d10.729567!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfae94aca5709003f!2sRMIT%20University%20Vietnam%2C%20Saigon%20South%20campus!5e0!3m2!1sen!2s!4v1619965996182!5m2!1sen!2s"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+        
+            </div>
+            <p id="copyright">Copyright © 2021 GeaRMIT.com</p>
+        </div>
+
+    </div>
 
     <!-- Scroll to top button -->
     <a id="btnScrollTop"></a>

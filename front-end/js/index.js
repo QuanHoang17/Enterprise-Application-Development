@@ -10,6 +10,7 @@ const fetchProductsFromDatabase = async () => {
         
       displayProductByCategory('Headsets');
       displayNewProduct();
+      loadCarouselProduct();
     })
 }
 
@@ -30,7 +31,7 @@ const displayProductByCategory = (categoryToFilter) => {
 const displayNewProduct = () => {
   // Sort the products by issueDate in descending order
   productFetched.sort((a, b) => {if (a.issueDate < b.issueDate) {return 1;} return -1;})
-  //productFetched.forEach(item => {console.log(item.issueDate)})
+ 
   const newProductContainer = document.querySelector('.new-product-section');
   newProductContainer.innerHTML='';
   for (let i = 0; i < 2; i++){
@@ -43,9 +44,7 @@ const displayNewProduct = () => {
                     </a>
                     
                     
-                </div>
-  
-      `
+                </div> `
     
   }
   
@@ -87,29 +86,67 @@ const createProductCardElement = (name, description, price, category, available,
 
 fetchProductsFromDatabase();
 
-/*------ Handle Search Bar------- */
-const searchBar = document.querySelector('.search-bar input');
 
-searchBar.addEventListener('keyup', ({key}) =>{
-    if (key ==='Enter'){
-        let itemSearch = searchBar.value;
+
+
+
+
+
+
+
+
+
+
+/*------ Best Seller Carousel Product Fetching------- */
+const carouselList  = document.querySelector('.best-seller-product-list');
+const NUMBER_OF_ITEMS = 4;
+
+
+const buildCard = (name, description, price, imageName) => {
+            let card = `<div class="best-seller-product-card item">
+            <span class="discount">-69%</span>
+            <img src="http://localhost:8080/api/image/${imageName[0]}"
+                alt="" class="best-seller-product-image">
+            <p class="product-title">${name}</p>
+            <p class="product-description">${description}</p>
+            <div class="small-container">
+                <div class="smaller-container">
+                    <p class="product-price">${price} USD</p>
+                    <p class="product-old-price">96 USD</p>
+                </div>
+
+               
+                <a target="_blank" href="./pages/product-description.html?&name=${name}" class="primary-cta--small">View Detail</a>
+            </div>
+        </div>`;
+
+            return card;
+        }
+
+
+
+const loadCarouselProduct = () => {
+  
+
+  // Reset Carousel If There Are Any Products.
+  for (let i = 0; i < NUMBER_OF_ITEMS; i++) {
+     $(".best-seller-product-list").trigger('remove.owl.carousel', [i]).trigger('refresh.owl.carousel');
+  };
+
+
+  for (let i = 0; i < NUMBER_OF_ITEMS; i++){
+    let {name, description, price, imageName} = productFetched[i];
+    let productCard = buildCard(name, description, price, imageName);
+
     
-        if (!itemSearch){
-            alert("Please Enter a Something !!!!!!!!!");
-        }
+     $('.best-seller-product-list').owlCarousel('add', productCard).owlCarousel('update');
+    
+     
+  }
 
-        //search by product name or category name.
-        searchResult = productFetched.find(item => (item.name.toLowerCase() === itemSearch.toLowerCase()));
-
-       
-
-        if (searchResult){
-          alert(searchResult)
-          window.location.replace("./pages/product-description.html?&name="+ searchResult.name);
-        }
-    }
-})
-
+  loadCarousel();
+  
+}
 
 
 
@@ -124,7 +161,7 @@ function loadCarousel() {
                     navigation: true,
                     nav: true,
                     autoplay: true,
-                    autoplayTimeout: 3000,
+                    autoplayTimeout: 2000,
                     autoplayHoverPause: true,
                     responsive: {
                         0: {
@@ -141,11 +178,11 @@ function loadCarousel() {
         }
 
 
-        // Function calls
-        $(function () {
-            //fetchProductsFromDatabase();
-            loadCarousel();
-        })
+// Function calls
+$(function () {
+    //fetchProductsFromDatabase();
+    loadCarousel();
+})
 
 
 // Scroll to top button
@@ -183,11 +220,8 @@ $(function() {
 
 
 
-
-
-//TODO: Consider delete this
 // Select category section
-body.onload = () => {
+window.onload = () => {
 
   // Toggle burger button
   let menuOpen = false;

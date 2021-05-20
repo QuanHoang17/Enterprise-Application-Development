@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/gaming-icon.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="../components/Header/header.css">
+   
     <link rel="stylesheet" href="../css/ult.css">
     <link rel="stylesheet" href="../css/register.css">
     <link rel="stylesheet" href="../css/all.min.css">
@@ -13,47 +13,50 @@
 </head>
 <body>
     <!-- Header -->
-    <div id="header">
-        <div class="header-top-container">
-            <!-- Start of header top -->
-            <div class="header-top">
-                <div class="left-header-top">
-                    <a href="#">+84 123 456 789</a>
-                    <a href="mailto:info@geaRMIT.com">info@geaRMIT.com</a>
-                </div>
-                <a href="../index.html" id="site-logo"><img src="../assets/gaming-icon.jpeg" alt="GeaRMIT logo"></a>
-                <div class="icon">
-                    <a href="" class="user-icon"><i class="far fa-user"></i></a>
-                    <a href="" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
-                </div>
+   <div id="header">
+    <div class="header-top-container">
+        <!-- Start of header top -->
+        <div class="header-top">
+            <div class="left-header-top">
+                <a href="#">+84 123 456 789</a>
+                <a href="mailto:info@geaRMIT.com">info@geaRMIT.com</a>
             </div>
-            <!-- End of header top -->
+            <a href="../index.html" id="site-logo"><img src="../assets/gaming-icon.jpeg" alt="GeaRMIT logo"></a>
+            <div class="icon">
+                <a target="_blank" href="./login.html"  class="user-icon"><i class="far fa-user"></i></a>
+                <a href="" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+            </div>
         </div>
-        
-        
-        <!-- Start of header mid -->
-        <div class="header-mid">
-        
-            <!-- Dropdown menu -->
-            <div class="dropdown">
-                <button class="drop-button">Category <i class="fas fa-chevron-down"></i></button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
-        
-            <!-- Search bar -->
-            <div class="search-bar">
-                <input type="text" name="search" id="index-search-bar" placeholder="Search Products, Category..." /><i
-                    class="fas fa-search"></i>
-            </div>
-        
-            <!-- Contact us -->
-            <a href="#" class="contact-us">Contact Us</a>
-        </div>
+        <!-- End of header top -->
     </div>
+    
+    
+    <!-- Start of header mid -->
+    <div class="header-mid">
+    
+        <!-- Dropdown menu -->
+        <div class="dropdown">
+            <button class="drop-button">Category <i class="fas fa-chevron-down"></i></button>
+            <div class="dropdown-content">
+                <a target="_blank" href="../../front-end/pages/category.html?&category=Mouse">Mouse</a>
+                <a target="_blank" href="../../front-end/pages/category.html?&category=Headsets">Headsets</a>
+                <a target="_blank" href="../../front-end/pages/category.html?&category=Mouse%20Pads">Mouse Pads</a>
+                <a target="_blank" href="../../front-end/pages/category.html?&category=Keyboard">Keyboard</a>
+                <a target="_blank" href="../../front-end/pages/category.html?&category=Microphones">Microphones</a>
+    
+            </div>
+        </div>
+    
+        <!-- Search bar -->
+        <div class="search-bar">
+            <input type="text" name="search" id="index-search-bar" placeholder="Search a product name..." /><i
+                class="fas fa-search"></i>
+        </div>
+    
+        <!-- Contact us -->
+        <a target="_blank" href="../front-end/pages/contact.html" class="contact-us">Contact Us</a>
+    </div>
+   </div>
 
 
     <!-- Cover -->
@@ -89,11 +92,43 @@
     </div>
 
     <!-- Footer -->
-    <div id="footer"></div>
+    <div id="index-footer">
+        <div class="footer-container">
+            <div class="Footer">
+    
+                <div class="column">
+                    <h4>Connections</h4>
+                    <a href="">Facebook</a>
+                    <a href="">Twitter</a>
+                    <a href="">Instagram</a>
+                    <a href="">Youtube</a>
+                    <a href="">Linkedln</a>
+                </div>
+                <div class="column">
+                    <h4>Menu</h4>
+                    <a target="_blank" href="./category.html?&category=Mouse">Mouse</a>
+                    <a target="_blank" href="./category.html?&category=Headsets">Headsets</a>
+                    <a target="_blank" href="./category.html?&category=Mouse%20Pads">Mouse Pads</a>
+                    <a target="_blank" href="./category.html?&category=Keyboard">Keyboard</a>
+                    <a target="_blank" href="./category.html?&category=Microphones">Microphones</a>
+                </div>
+    
+                <div class="map">
+                    <iframe class="embedded-map"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15680.254977096798!2d106.6930756!3d10.729567!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfae94aca5709003f!2sRMIT%20University%20Vietnam%2C%20Saigon%20South%20campus!5e0!3m2!1sen!2s!4v1619965996182!5m2!1sen!2s"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+    
+            </div>
+            <p id="copyright">Copyright © 2021 GeaRMIT.com</p>
+        </div>
+    
+    </div>
 
     <!-- Scripts -->
-    <script src="../js/register.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/register.js"></script>
+    
 
 </body>
 </html>
