@@ -4,8 +4,9 @@ INSERT INTO  brand
 VALUES
        ('brand01','MSI'),
        ('brand02','Razer'),
-       ('brand03','Logitech')
-;
+       ('brand03','Logitech'),
+       ('brand04', 'Elgato'),
+       ('brand05', 'HyperX');
 
 
 SELECT * from category;
@@ -34,7 +35,13 @@ VALUES
        ('item06','Gaming Keyboard with Razer™ Analog Optical Switches', '2021-05-20', 'Razer Huntsman V2 Analog', 450, 10, 'brand03', 'category02'),
        ('item07', 'The Logitech G Pro X wired gaming headset has a sturdy, comfortable design', '2021-05-06', 'Logitech G Pro X Gaming Headset', 130, 20, 'brand03', 'category03'),
        ('item08', 'The Razer Nari Essential is a budget-friendly wireless gaming headset with a powerful audio performance.', '2021-05-06', 'Razer Nari Essential', 100, 20, 'brand02', 'category03'),
-       ('item09', 'The wired Razer Blackshark V2 gaming headset offers excellent audio quality and a light, comfortable fit.', '2021-05-06', 'Razer Blackshark V2', 100, 20, 'brand02', 'category03');
+       ('item09', 'The wired Razer Blackshark V2 gaming headset offers excellent audio quality and a light, comfortable fit.', '2021-05-06', 'Razer Blackshark V2', 100, 20, 'brand02', 'category03'),
+       ('item10', 'The Razer Gigantus V2 has everything you need in a cloth mouse pad at around $10: a textured surface, padded comfort, and a non-slip underside.', '2021-05-06', 'Razer Gigantus V2', 10, 20, 'brand02', 'category04'),
+       ('item11', 'The best selling Razer Goliathus mouse mat is now powered by Razer Chroma, with customizable full spectrum of 16.8 million color options.', '2021-05-06', 'Razer Goliathus Chroma', 40, 20, 'brand02', 'category04'),
+       ('item12', 'G440 features ultra low surface friction, offering high DPI gamers an ideal surface for subtle hand movements and quick mouse gestures.', '2021-05-06', 'Logitech G440', 30, 20, 'brand03', 'category04'),
+       ('item13','If you are looking for a microphone to help simplify a complicated setup, the Elgato Wave:3 might be just the ticket.', '2021-05-20', 'Elgato Wave: 3', 159, 10, 'brand04', 'category05'),
+       ('item14','The HyperX Quadcast is an ultra-credible USB mic that takes aim at other units in the sub-$200 price range.', '2021-05-20', 'HyperX QuadCast', 140, 10, 'brand05', 'category05'),
+       ('item15','Professional Grade Single dynamic capsule ensures minimal electronic interference for a richer, warmer and true to life broadcasting experience', '2021-05-20', 'Micro Razer Seiren Elite', 200, 10, 'brand02', 'category05');
 
 
 SELECT * from image;
@@ -67,7 +74,25 @@ VALUES
     ('image24', 'item08image24.jpg', 'item08'),
     ('image25', 'item09image25.jpg', 'item09'),
     ('image26', 'item09image26.jpg', 'item09'),
-    ('image27', 'item09image27.jpg', 'item09');
+    ('image27', 'item09image27.jpg', 'item09'),
+    ('image28', 'item10image28.jpg', 'item10'),
+    ('image29', 'item10image29.jpg', 'item10'),
+    ('image30', 'item10image30.jpg', 'item10'),
+    ('image31', 'item11image31.jpg', 'item11'),
+    ('image32', 'item11image32.jpg', 'item11'),
+    ('image33', 'item11image33.jpg', 'item11'),
+    ('image34', 'item12image34.png', 'item12'),
+    ('image35', 'item12image35.jpeg', 'item12'),
+    ('image36', 'item12image36.png', 'item12'),
+    ('image37', 'item13image37.jpeg', 'item13'),
+    ('image38', 'item13image38.jpeg', 'item13'),
+    ('image39', 'item13image39.jpeg', 'item13'),
+    ('image40', 'item14image40.jpeg', 'item14'),
+    ('image41', 'item14image41.jpeg', 'item14'),
+    ('image42', 'item14image42.jpeg', 'item14'),
+    ('image43', 'item15image43.jpeg', 'item15'),
+    ('image44', 'item15image44.jpeg', 'item15'),
+    ('image45', 'item15image45.jpeg', 'item15');
 
 
 SELECT * FROM color;
@@ -86,7 +111,13 @@ VALUES
     ('item03', 'yellow'), ('item02', 'yellow'), ('item01', 'yellow'), ('item06', 'red'), ('item05', 'red'),
     ('item07', 'red'), ('item07', 'blue'), ('item07', 'yellow'),
     ('item08', 'red'), ('item08', 'blue'), ('item08', 'yellow'),
-    ('item09', 'red'), ('item09', 'blue'), ('item09', 'yellow');
+    ('item09', 'red'), ('item09', 'blue'), ('item09', 'yellow'),
+    ('item10', 'red'), ('item10', 'blue'), ('item10', 'yellow'),
+    ('item11', 'red'), ('item11', 'blue'), ('item11', 'yellow'),
+    ('item12', 'red'), ('item12', 'blue'), ('item12', 'yellow'),
+    ('item13', 'red'), ('item13', 'blue'), ('item13', 'yellow'),
+    ('item14', 'red'), ('item14', 'blue'), ('item14', 'yellow'),
+    ('item15', 'red'), ('item15', 'blue'), ('item15', 'yellow');
 
 
 -- name: admin, password: admin
