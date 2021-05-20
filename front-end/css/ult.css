@@ -69,24 +69,16 @@ img {
 button {
   border: none;
   outline: none;
-  border-radius: 8px;
-  transition: 0.2s all ease-out;
-}
-button:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-}
-
-button:active {
-  transform: scale(1);
 }
 
 .primary-cta--base,
 .primary-cta--small,
 .primary-cta--medium {
+  border-radius: 8px;
   background-color: var(--primary-base);
   color: var(--white-base);
   font-weight: bold;
+  transition: 0.2s all ease-out;
 }
 .primary-cta--base {
   padding: 20px 2rem;
@@ -101,3 +93,15 @@ button:active {
   font-size: var(--font-small);
 }
 
+.primary-cta--base:hover,
+.primary-cta--medium:hover,
+.primary-cta--small:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.primary-cta--base:active,
+.primary-cta--medium:active,
+.primary-cta--small:active {
+  transform: scale(1);
+}

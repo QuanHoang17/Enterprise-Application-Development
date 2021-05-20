@@ -6,43 +6,240 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">  
+    <link rel="shortcut icon" href="./assets/gaming-icon.jpeg" type="image/x-icon">  
     <title>Home | GeaRMIT</title>
+    
+    <link rel="stylesheet" href="./css/ult.css">
+   
+    <link rel="stylesheet" href="./components/Header/header.css">
+    <link rel="stylesheet" href="./components/Index/Cover/cover.css">
+    <link rel="stylesheet" href="./components/Index/BestSellers/best-sellers.css">
+    <link rel="stylesheet" href="./components/Index/BestSellers/owl.carousel.min.css">
+    <link rel="stylesheet" href="./components/Index/BestSellers/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./components/Index/BestSellers/owl.theme.green.min.css">
+    <link rel="stylesheet" href="./components/Index/NewProducts/new-products.css">
+
+    <link rel="stylesheet" href="./components/Index/Categories/categories.css">
 </head>
 
 <body>
-    <div id="index-header"></div>
+    <div id="index-header">
+        <div class="header-top-container">
+            <!-- Start of header top -->
+            <div class="header-top">
+                <div class="left-header-top">
+                    <a href="#">+84 123 456 789</a>
+                    <a href="mailto:info@geaRMIT.com">info@geaRMIT.com</a>
+                </div>
+                <a href="./index.html" id="site-logo"><img src="./assets/gaming-icon.jpeg" alt="GeaRMIT logo"></a>
+                <div class="icon">
+                    <a href="" class="user-icon"><i class="far fa-user"></i></a>
+                    <a href="" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+            <!-- End of header top -->
+        </div>
+        
+        
+        <!-- Start of header mid -->
+        <div class="header-mid">
+        
+            <!-- Dropdown menu -->
+            <div class="dropdown">
+                <button class="drop-button">Category <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Mouse">Mouse</a>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Headsets">Headsets</a>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Mouse%20Pads">Mouse Pads</a>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Keyboard">Keyboard</a>
+                    <a target="_blank" href="../front-end/pages/category.html?&category=Microphones">Microphones</a>
 
-    <div id="main-cover"></div>
-    <div id="best-sellers"></div>
-    <div id="new-products"></div>
-    <div id="categories"></div>
+                </div>
+            </div>
+        
+            <!-- Search bar -->
+            <div class="search-bar">
+                <input type="text" name="search" id="index-search-bar" placeholder="Search Products, Category..." /><i
+                    class="fas fa-search"></i>
+            </div>
+        
+            <!-- Contact us -->
+            <a target="_blank" href="../front-end/pages/contact.html" class="contact-us">Contact Us</a>
+        </div>
+    </div>
+
+    <div id="main-cover">
+        <div class="main-content">
+    <h1>Satisfy your desire for gaming gears</h1>
+    <button class="primary-cta--base">Shop now!</button>
+</div>
+    </div>
+    <div id="best-sellers">
+        <div class="best-seller-container">
+            <h2 class="section-title">Best-sellers in May</h2>
+            <div class="best-seller-product-list owl-carousel owl-theme">
+                <div class="best-seller-product-card item">
+                    <span class="discount">-69%</span>
+                    <img src="http://news.gearvn.com/wp-content/uploads/2019/06/razer-deathadder-essential-gaming-mouse-usp02-mobile.jpg"
+                        alt="" id="best-seller-product-image">
+                    <p class="product-title">Razer Deathadder Essential</p>
+                    <p class="product-description">The Razer DeathAdder Essential retains the classic ergonomic form...</p>
+                    <div class="small-container">
+                        <div class="smaller-container">
+                            <p class="product-price">169.96 USD</p>
+                            <p class="product-old-price">296 USD</p>
+                        </div>
+                        <button class="">Add to cart</button>
+                    </div>
+                </div>
+                <div class="best-seller-product-card item">
+                    <span class="discount">-69%</span>
+                    <img src="../front-end/assets/prototypes/kb2.JPG" alt="" id="best-seller-product-image">
+                    <p class="product-title">Keychron K2 Wireless Mechanical Keyboard</p>
+                    <p class="product-description">Keychron K2 is a 75% layout tactile wireless mechanical keyboard with all
+                        necessary key...</p>
+                    <div class="small-container">
+                        <div class="smaller-container">
+                            <p class="product-price">79.96 USD</p>
+                            <p class="product-old-price">96 USD</p>
+                        </div>
+                        <button class="">Add to cart</button>
+                    </div>
+                </div>
+                <div class="best-seller-product-card item">
+                    <span class="discount">-69%</span>
+                    <img src="https://anphat.com.vn/media/product/27290_logitech_g502_hero__1_.jpeg" alt=""
+                        id="best-seller-product-image">
+                    <p class="product-title">Logitech G502 HERO</p>
+                    <p class="product-description">G502 HERO High Performance Gaming Mouse</p>
+                    <div class="small-container">
+                        <div class="smaller-container">
+                            <p class="product-price">49.99 USD</p>
+                            <p class="product-old-price">76 USD</p>
+                        </div>
+                        <button class="">Add to cart</button>
+                    </div>
+                </div>
+                <div class="best-seller-product-card item">
+                    <span class="discount">-69%</span>
+                    <img src="../front-end/assets/prototypes/kb1.JPG" alt="" id="best-seller-product-image">
+                    <p class="product-title">My keyboard</p>
+                    <p class="product-description">Ahihi =))</p>
+                    <div class="small-container">
+                        <div class="smaller-container">
+                            <p class="product-price">69.96 USD</p>
+                            <p class="product-old-price">96 USD</p>
+                        </div>
+                        <button class="">Add to cart</button>
+                    </div>
+                </div>
+        
+            </div>
+        
+        </div>
+    </div>
+    <div id="new-products">
+        <div class="new-products-container">
+            <h2 class="section-title dark">New Products</h2>
+            <div class="new-product-section">
+
+                <!-- This is fall back items when server items can't be reached and fetched -->
+                <div class="new-product-card">
+                    <h1>Logitech G915</h1>
+                    <button class="primary-cta--medium">View Detail</button>
+                </div>
+                <div class="new-product-card">
+                    <h1>Razer Mamba Elite</h1>
+                    <button class="primary-cta--medium">View Detail</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="categories">
+        <div class="category-container">
+        
+            <div class="browse-category">
+                <h2 class="section-title">Categories</h2>
+                <ul>
+                    <li class="category-item selected">Headsets</li>
+                    <li class="category-item">Keyboard</li>
+                    <li class="category-item">Mouse</li>
+                    <li class="category-item">Mouse Pads</li>
+                    <li class="category-item">Microphones</li>
+                </ul>
+                <a id="browse-category-cta" target="_blank" href="../front-end/pages/category.html" rel="noopener noreferrer"><button>Browse
+                        more</button></a>
+        
+            </div>
+        
+        
+            <div class="product-detail">
+        
+                <div class="product-detail-background"></div>
+        
+                <!-- Burger button -->
+                <div id="nav-icon3">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+        
+                <div class="product-detail-content">
+        
+                    <!-- 1: Headphones -->
+                    <div class="product-detail-list section">
+        
+                        <!-- Card 1 -->
+                        <div class="product-detail-card">
+                            <img src="https://images.unsplash.com/photo-1496957961599-e35b69ef5d7c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGhlYWRwaG9uZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+                                alt="">
+                            <div class="product-info">
+                                <h5>Product title</h5>
+                                <p>Space for a small product description</p>
+                                <div class="product-grid">
+                                    <span>Category</span>
+                                    <span id="product-info-category">Headsets</span>
+                                    <span>Status</span>
+                                    <span id="product-info-status">Available</span>
+                                    <span>Color</span>
+                                    <span id="product-info-color">Black, Red, Blue</span>
+                                </div>
+                            </div>
+                            <div class="price-and-shipping">
+                                <h1>69.99 USD</h1>
+                                <p>99.69 USD</p>
+                                <p>Free Shipping</p>
+                                <button>Add to Cart</button>
+                                <button><i class="fas fa-info-circle"></i>
+                                    More detail</button>
+                            </div>
+                        </div>
+        
+        
+                        
+        
+                    </div>
+        
+                </div>
+        
+            </div>
+        </div>
+    </div>
 
     <div id="index-footer"></div>
 
     <!-- Scroll to top button -->
     <a id="btnScrollTop"></a>
 
-    <hr />
-    <div class="test-links" style="margin:100px; display: flex; flex-direction: column; margin: 100px;">
-        <h1>For testing only</h1>
-        <a href="../front-end/pages/category.html"" target="_blank" rel="noopener noreferrer">category</a>
-        <a href="../front-end/pages/login.html"" target="_blank" rel="noopener noreferrer">login</a>
-        <a href="../front-end/pages/product-description.html"" target="_blank" rel="noopener noreferrer">product-description</a>
-        <a href="../front-end/pages/register.html"" target="_blank" rel="noopener noreferrer">register</a>
-        <a href="../front-end/pages/contact.html"" target="_blank" rel="noopener noreferrer">Contact</a>
-        <a href="../front-end/pages/admin.html" target="_blank" rel="noopener noreferrer">Admin</a>
-    </div>
-
-    <img src="https://theme.hstatic.net/1000026716/1000440777/14/20150827110756-dathongbao.png" alt="" width="20%">
-
+    
     <script src="./js/main.js"></script>
     
     <script src="./js/jquery-3.6.0.min.js"></script>
-    <script src="./js/index.js"></script>
-    <script type="text/javascript" src="./components/Index/BestSellers/slick.min.js"></script>
-    <script type="text/javascript" src="./components/Index/BestSellers/owl.carousel.min.js"></script>
-
+    
+    <script  src="./components/Index/BestSellers/slick.min.js"></script>
+    <script  src="./components/Index/BestSellers/owl.carousel.min.js"></script>
+<script src="./js/index.js"></script>
 
   
 

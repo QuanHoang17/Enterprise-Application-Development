@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeaRMIT</title>
+    <link rel="shortcut icon" href="../assets/gaming-icon.jpeg" type="image/x-icon">
 
     <!-- CSS files for JQuery -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -13,11 +14,52 @@
     <!-- Project CSS files -->
     <link rel="stylesheet" href="../css/ult.css">
     <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../components/Header/header.css">
     <link rel="stylesheet" href="../css/category.css">
 </head>
 <body>
     <!-- This is header -->
-    <div id="header"></div>
+    <div id="header">
+        <div class="header-top-container">
+            <!-- Start of header top -->
+            <div class="header-top">
+                <div class="left-header-top">
+                    <a href="#">+84 123 456 789</a>
+                    <a href="mailto:info@geaRMIT.com">info@geaRMIT.com</a>
+                </div>
+                <a href="../index.html" id="site-logo"><img src="../assets/gaming-icon.jpeg" alt="GeaRMIT logo"></a>
+                <div class="icon">
+                    <a href="" class="user-icon"><i class="far fa-user"></i></a>
+                    <a href="" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+            <!-- End of header top -->
+        </div>
+        
+        
+        <!-- Start of header mid -->
+        <div class="header-mid">
+        
+            <!-- Dropdown menu -->
+            <div class="dropdown">
+                <button class="drop-button">Category <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </div>
+        
+            <!-- Search bar -->
+            <div class="search-bar">
+                <input type="text" name="search" id="index-search-bar" placeholder="Search Products, Category..." /><i
+                    class="fas fa-search"></i>
+            </div>
+        
+            <!-- Contact us -->
+            <a href="#" class="contact-us">Contact Us</a>
+        </div>
+    </div>
 
     <!-- End of header -->
 
@@ -40,8 +82,8 @@
                     <h2>Brand</h2>
 
                     <!-- Brand options -->
-                    <div class="brand-choice-container">
-                        <div class="choice first-op brand-choice">
+                    <div class="brand-choice-container" id="brand-choice-container">
+                        <!-- <div class="choice first-op brand-choice">
                             <i class="fas fa-check-circle asus-icon"></i>
                             <label for="" class="asus-label">Asus Gaming</label>
                         </div>
@@ -54,9 +96,9 @@
                         <div class="choice third-op brand-choice">
                             <i class="fas fa-check-circle logitech-icon"></i>
                             <label for="" class="logitec-label">Logitech</label>
-                        </div>
+                        </div> -->
                         
-                        <div class="choice fourth-op brand-choice">
+                        <div class="choice op brand-choice brand-active" data-brand="all">
                             <i class="fas fa-check-circle all-icon"></i>
                             <label for="" class="all-label">All</label>
                         </div>
@@ -68,27 +110,32 @@
                     <h2>Price range</h2>
 
                     <!-- Options -->
-                    <div class="options">
-                        <div class="choice first-op price-choice">
+                    <!-- <div class="options">
+                        <div class="choice first-op price-choice" data-price-min="none" data-price-max="100">
                             <i class="fas fa-check-circle"></i>
                             <label for="" class="first-op-label">Less than 100 USD</label>
                         </div>
                     
-                        <div class="choice second-op price-choice">
+                        <div class="choice second-op price-choice" data-price-min="100" data-price-max="200">
                             <i class="fas fa-check-circle"></i>
                             <label for="" class="second-op-label">100 - 200 USD</label>
                         </div>
                     
-                        <div class="choice third-op price-choice">
+                        <div class="choice third-op price-choice" data-price-min="200" data-price-max="none">
                             <i class="fas fa-check-circle"></i>
                             <label for="" class="second-op-label">More than 200 USD</label>
                         </div>
                     
-                        <div class="choice fourth-op price-choice">
+                        <div class="choice fourth-op price-choice" data-price-min="none" data-price-max="none">
                             <i class="fas fa-check-circle"></i>
                             <label for="" class="fourth-op-label">All</label>
                         </div>
-                    </div>
+
+                        <div class="choice fourth-op price-choice" data-price-min="none" data-price-max="none">
+                            <i class="fas fa-check-circle"></i>
+                            <label for="" class="fourth-op-label">Custom</label>
+                        </div>
+                    </div> -->
 
                     <!-- Slider using JQuery-->
                     <!-- <label for="amount">Price range:</label>
@@ -99,28 +146,28 @@
                     <div class="input-container">
                         <div class="min">
                             <p>Min</p>
-                            <input type="number" placeholder="0" class="min-value">
+                            <input type="number" placeholder="0" class="min-value" id="min-price">
                         </div>
 
                         <div class="max">
                             <p>Max</p>
-                            <input type="number" placeholder="100" class="max-value">
+                            <input type="number" placeholder="100" class="max-value" id="max-price">
                         </div>
                     </div>
 
-                    <div class="button-container">
-                        <button class="primary-cta--medium">Apply custom range</button>
+                    <!-- <div class="button-container">
+                        <button class="primary-cta--medium" id="custom-range-button">Apply custom range</button>
                         <p>Reset</p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Type -->
-                <div class="type">
-                    <h2>Type</h2>
+                <div class="color">
+                    <h2>Color</h2>
 
                     <!-- Type options -->
-                    <div class="type-choice-container">
-                        <div class="choice type-choice">
+                    <div class="color-choice-container" id="color-choice-container">
+                        <!-- <div class="choice color-choice">
                             <i class="fas fa-check-circle"></i>
                             <label for="">Bluetooth</label>
                         </div>
@@ -128,22 +175,22 @@
                         <div class="choice type-choice second-choice">
                             <i class="fas fa-check-circle"></i>
                             <label for="">Wired</label>
-                        </div>
+                        </div> -->
                     
-                        <div class="choice type-choice">
+                        <div class="choice color-choice color-active" data-color="all">
                             <i class="fas fa-check-circle"></i>
                             <label for="">All</label>
                         </div>
                     </div>
                 </div>
 
-                <button class="primary-cta--medium apply-button">Apply Filters</button>
+                <button class="primary-cta--medium apply-button" id="apply-filter-button">Apply Filters</button>
             </div>
 
             <!-- This is right -->
             <div class="right">
                 <div class="result-text-container">
-                    <p>Results filtered found: <span class="quantity">10</span> items</p>
+                    <p>Results filtered found: <span class="quantity" id="product-quantity">10</span> items</p>
 
                     <div class="sort-container">
                         <!-- For the dropdown -->
@@ -158,27 +205,24 @@
                             </div>
                             
                             <div class="dropdown-content">
-                                <p class="sort-value">Name a - z</p>
-                                <p class="sort-value">Price ascending</p>
-                                <p class="sort-value">Price descending</p>
-                                <p class="sort-value">Size?</p>
+                                <p class="sort-value" data-sort-field="name" data-sort-direction="ascending">Name a - z</p>
+                                <p class="sort-value" data-sort-field="name" data-sort-direction="descending">Name z - a</p>
+                                <p class="sort-value" data-sort-field="price" data-sort-direction="ascending">Price ascending</p>
+                                <p class="sort-value" data-sort-field="price" data-sort-direction="descending">Price descending</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Products grid -->
-                <div class="grid-container">
+                <div class="grid-container" id="grid-container">
 
                     <!-- Container for one row -->
-                    <div class="row-container">
+                    <!-- <div class="row-container" id="row-container"> -->
 
                         <!-- Container for single product -->
-                        <div class="product-container">
+                        <!-- <div class="product-container">
                             <div class="content-container">
-                                <div class="discount-noti">
-                                    <p>- <span>36</span> %</p>
-                                </div>
                                 <div class="img-container">
                                     <img src="../assets/bmw_m4.jpg" alt="product image">
                                 </div>
@@ -189,15 +233,14 @@
                                 <div class="bottom-container">
                                     <div class="price-container">
                                         <p class="price">36.99 USD</p>
-                                        <p class="was">48.56</p>
                                     </div>
-                                    <button class="primary-cta--small">View detail</button>
+                                    <a href="contact.html"><button class="primary-cta--small">View detail</button></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Container for single product -->
-                        <div class="product-container">
+                        <!-- <div class="product-container">
                             <div class="content-container">
                                 <div class="discount-noti">
                                     <p>- <span>36</span> %</p>
@@ -217,10 +260,10 @@
                                     <button class="primary-cta--small">View detail</button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Container for single product -->
-                        <div class="product-container">
+                        <!-- <div class="product-container">
                             <div class="content-container">
                                 <div class="discount-noti">
                                     <p>- <span>36</span> %</p>
@@ -240,157 +283,9 @@
                                     <button class="primary-cta--small">View detail</button>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                    </div>
-
-                    <!-- Container for one row -->
-                    <div class="row-container">
-                    
-                        <!-- Container for single product -->
-                        <div class="product-container">
-                            <div class="content-container">
-                                <div class="discount-noti">
-                                    <p>- <span>36</span> %</p>
-                                </div>
-                                <div class="img-container">
-                                    <img src="../assets/bmw_m4.jpg" alt="product image">
-                                </div>
-                    
-                                <p class="title">Product tittle</p>
-                                <p class="description">Product description</p>
-                    
-                                <div class="bottom-container">
-                                    <div class="price-container">
-                                        <p class="price">36.99 USD</p>
-                                        <p class="was">48.56</p>
-                                    </div>
-                                    <button class="primary-cta--small">View detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <!-- Container for single product -->
-                        <div class="product-container">
-                            <div class="content-container">
-                                <div class="discount-noti">
-                                    <p>- <span>36</span> %</p>
-                                </div>
-                                <div class="img-container">
-                                    <img src="../assets/bmw_m4.jpg" alt="product image">
-                                </div>
-                    
-                                <p class="title">Product tittle</p>
-                                <p class="description">Product description</p>
-                    
-                                <div class="bottom-container">
-                                    <div class="price-container">
-                                        <p class="price">36.99 USD</p>
-                                        <p class="was">48.56</p>
-                                    </div>
-                                    <button class="primary-cta--small">View detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <!-- Container for single product -->
-                        <div class="product-container">
-                            <div class="content-container">
-                                <div class="discount-noti">
-                                    <p>- <span>36</span> %</p>
-                                </div>
-                                <div class="img-container">
-                                    <img src="../assets/bmw_m4.jpg" alt="product image">
-                                </div>
-                    
-                                <p class="title">Product tittle</p>
-                                <p class="description">Product description</p>
-                    
-                                <div class="bottom-container">
-                                    <div class="price-container">
-                                        <p class="price">36.99 USD</p>
-                                        <p class="was">48.56</p>
-                                    </div>
-                                    <button class="primary-cta--small">View detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                    </div>
-
-                    <!-- Container for one row -->
-                    <div class="row-container">
-                    
-                        <!-- Container for single product -->
-                        <div class="product-container">
-                            <div class="content-container">
-                                <div class="discount-noti">
-                                    <p>- <span>36</span> %</p>
-                                </div>
-                                <div class="img-container">
-                                    <img src="../assets/bmw_m4.jpg" alt="product image">
-                                </div>
-                    
-                                <p class="title">Product tittle</p>
-                                <p class="description">Product description</p>
-                    
-                                <div class="bottom-container">
-                                    <div class="price-container">
-                                        <p class="price">36.99 USD</p>
-                                        <p class="was">48.56</p>
-                                    </div>
-                                    <button class="primary-cta--small">View detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <!-- Container for single product -->
-                        <div class="product-container">
-                            <div class="content-container">
-                                <div class="discount-noti">
-                                    <p>- <span>36</span> %</p>
-                                </div>
-                                <div class="img-container">
-                                    <img src="../assets/bmw_m4.jpg" alt="product image">
-                                </div>
-                    
-                                <p class="title">Product tittle</p>
-                                <p class="description">Product description</p>
-                    
-                                <div class="bottom-container">
-                                    <div class="price-container">
-                                        <p class="price">36.99 USD</p>
-                                        <p class="was">48.56</p>
-                                    </div>
-                                    <button class="primary-cta--small">View detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <!-- Container for single product -->
-                        <div class="product-container">
-                            <div class="content-container">
-                                <div class="discount-noti">
-                                    <p>- <span>36</span> %</p>
-                                </div>
-                                <div class="img-container">
-                                    <img src="../assets/bmw_m4.jpg" alt="product image">
-                                </div>
-                    
-                                <p class="title">Product tittle</p>
-                                <p class="description">Product description</p>
-                    
-                                <div class="bottom-container">
-                                    <div class="price-container">
-                                        <p class="price">36.99 USD</p>
-                                        <p class="was">48.56</p>
-                                    </div>
-                                    <button class="primary-cta--small">View detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
