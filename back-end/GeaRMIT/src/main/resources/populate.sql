@@ -7,6 +7,7 @@ VALUES
        ('brand03','Logitech')
 ;
 
+
 SELECT * from category;
 DELETE from category;
 INSERT INTO category
@@ -31,7 +32,10 @@ VALUES
        ('item04','Craft is a wireless keyboard with a premium typing experience and a versatile input dial that adapts to what you’re making', '2021-05-20', 'LOGITECH CRAFT', 210, 20, 'brand03', 'category02'),
        ('item05','MX ERGO is crafted for the shape of your hand and built for fast and precise tracking.', '2021-05-20', 'VIGOR GK60', 420, 50, 'brand01', 'category02'),
        ('item06','Gaming Keyboard with Razer™ Analog Optical Switches', '2021-05-20', 'Razer Huntsman V2 Analog', 450, 10, 'brand03', 'category02'),
-       ('item99','This is an item for Mirranda Kerr', '2021-05-20', 'Mirranda Kerr', 450, 10, 'brand03', 'category02');
+       ('item07', 'The Logitech G Pro X wired gaming headset has a sturdy, comfortable design', '2021-05-06', 'Logitech G Pro X Gaming Headset', 130, 20, 'brand03', 'category03'),
+       ('item08', 'The Razer Nari Essential is a budget-friendly wireless gaming headset with a powerful audio performance.', '2021-05-06', 'Razer Nari Essential', 100, 20, 'brand02', 'category03'),
+       ('item09', 'The wired Razer Blackshark V2 gaming headset offers excellent audio quality and a light, comfortable fit.', '2021-05-06', 'Razer Blackshark V2', 100, 20, 'brand02', 'category03');
+
 
 SELECT * from image;
 DELETE from image;
@@ -54,7 +58,16 @@ VALUES
     ('image15', 'item05image15.png', 'item05'),
     ('image16', 'item06image16.jpg', 'item06'),
     ('image17', 'item06image17.jpg', 'item06'),
-    ('image18', 'item06image18.jpg', 'item06');
+    ('image18', 'item06image18.jpg', 'item06'),
+    ('image19', 'item07image19.jpg', 'item07'),
+    ('image20', 'item07image20.jpg', 'item07'),
+    ('image21', 'item07image21.jpg', 'item07'),
+    ('image22', 'item08image22.jpg', 'item08'),
+    ('image23', 'item08image23.jpg', 'item08'),
+    ('image24', 'item08image24.jpg', 'item08'),
+    ('image25', 'item09image25.jpg', 'item09'),
+    ('image26', 'item09image26.jpg', 'item09'),
+    ('image27', 'item09image27.jpg', 'item09');
 
 
 SELECT * FROM color;
@@ -63,13 +76,18 @@ INSERT INTO color
 VALUES
     ('red'),('blue'), ('yellow');
 
+
 SELECT * FROM product_color;
 DELETE FROM product_color;
 INSERT INTO product_color
 VALUES
     ('item01', 'red'), ('item02', 'red'),  ('item03', 'red'), ('item04', 'blue'), ('item05', 'yellow'),
     ('item06', 'blue'), ('item01', 'blue'), ('item02', 'blue'), ('item03', 'blue'), ('item04', 'yellow'),
-    ('item03', 'yellow'), ('item02', 'yellow'), ('item01', 'yellow'), ('item06', 'red'), ('item05', 'red');
+    ('item03', 'yellow'), ('item02', 'yellow'), ('item01', 'yellow'), ('item06', 'red'), ('item05', 'red'),
+    ('item07', 'red'), ('item07', 'blue'), ('item07', 'yellow'),
+    ('item08', 'red'), ('item08', 'blue'), ('item08', 'yellow'),
+    ('item09', 'red'), ('item09', 'blue'), ('item09', 'yellow');
+
 
 -- name: admin, password: admin
 SELECT * FROM customer;
