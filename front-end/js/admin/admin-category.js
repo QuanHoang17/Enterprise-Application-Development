@@ -6,7 +6,7 @@
     .then(response => response.json())
     .then(data => {
         dataFetched = data;
-    
+        document.querySelector('#category-stats').innerText = 'Total: '+ data.length;
         data.forEach(({id, name}) => {
         let categoryRow = document.querySelector('#category-row').cloneNode();
         
@@ -23,6 +23,54 @@
     })
 
     });
+
+// ---------------------- Search Item on the Main Dashboard -----------------------------//
+
+const mainSearchBar = document.querySelector(".searchbar-container #category-search-bar");
+
+mainSearchBar.addEventListener('keyup', ({key}) =>{
+    if (key ==='Enter'){
+        
+        let itemSearch = mainSearchBar.value;
+    
+        let categoryRowList = document.querySelectorAll("#category-row");
+        
+       
+        
+        //Reset the table
+        if (!itemSearch){
+            for (let i = 0; i < categoryRowList.length; i++){
+                 if (categoryRowList[i].children[0].innerText !== '01'){
+                    categoryRowList[i].style.display = 'table-row';
+                 }
+                
+            }
+          
+        }
+         let searchResult = dataFetched.find(({id, name}) => ((id === itemSearch.toLowerCase()) || (name.toLowerCase() === itemSearch.toLowerCase())));
+         
+        if (searchResult){
+            console.log(2);
+            // document.querySelector("#product-table").appendChild(productRow);
+            for (let i = 0; i < categoryRowList.length; i++){
+                console.log(categoryRowList[i].children[0].innerText);
+                if ((categoryRowList[i].children[0].innerText !== searchResult.id) &&  (categoryRowList[i].children[1].innerText !== searchResult.name)){
+                   categoryRowList[i].style.display = 'none';
+                }
+            }
+        }else{
+            alert("No category found")
+        }
+        
+    }
+})
+
+
+
+
+
+
+
 
 
 
@@ -103,33 +151,7 @@
         deleteCategoryModal.style.display = "none";
     }
     let itemToDelete;
-//     document.querySelector(".body-delete-category #search-bar").addEventListener("keyup", ({key}) => {
-//             if (key ==='Enter'){
-//     //      let itemSearch = document.querySelector(".body-delete-category #search-bar").value;
-    
-//     // if (!itemSearch){
-//     //     alert("Please Enter a Category Id !!!!!!!!!");
-//     // }
 
-
-//     // itemToDelete = dataFetched.find(data => data.id === itemSearch);
-    
-//     // if (itemToDelete){
-        
-//     //     document.querySelector(".body-delete-category p").innerHTML=`
-        
-//     //       Result Found: <a href="">${itemToDelete.name} - ${itemToDelete.id}</a>
-        
-//     //     `
-//     // }else{
-//     //     document.querySelector(".body-delete-category p").innerHTML=`
-        
-//     //        Result Found: No result Found!!!
-        
-//     //     `
-//     // }
-//    }
-//     })
 
     const validateSearchInput = () => {
         let itemSearch = document.querySelector(".body-delete-category #search-bar").value;

@@ -26,6 +26,49 @@ fetch(imgUrl)
 });
 
 
+// ---------------------- Search Item on the Main Dashboard -----------------------------//
+
+const mainSearchBar = document.querySelector(".searchbar-container #img-search-bar");
+
+mainSearchBar.addEventListener('keyup', ({key}) =>{
+    if (key ==='Enter'){
+        
+        let itemSearch = mainSearchBar.value;
+    
+        let imgRowList = document.querySelectorAll("#img-row");
+        
+       
+        
+        //Reset the table
+        if (!itemSearch){
+            for (let i = 0; i < imgRowList.length; i++){
+                 if (imgRowList[i].children[0].innerText !== '01'){
+                    imgRowList[i].style.display = 'table-row';
+                 }
+                
+            }
+          
+        }
+         let searchResult = dataFetched.find(({id, name}) => ((id === itemSearch.toLowerCase()) || (name.toLowerCase() === itemSearch.toLowerCase())));
+         
+        if (searchResult){
+            console.log(2);
+            // document.querySelector("#product-table").appendChild(productRow);
+            for (let i = 0; i < imgRowList.length; i++){
+                console.log(imgRowList[i].children[0].innerText);
+                if ((imgRowList[i].children[0].innerText !== searchResult.id) &&  (imgRowList[i].children[1].innerText !== searchResult.name)){
+                   imgRowList[i].style.display = 'none';
+                }
+            }
+        }else{
+            alert("No file found")
+        }
+        
+    }
+})
+
+
+
 
 
 
@@ -50,4 +93,8 @@ fetch(imgUrl)
     addImageSpan.onclick = function() {
         addImageModal.style.display = "none";
     }
+
+    
+
+
 })()

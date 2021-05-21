@@ -33,6 +33,53 @@ fetch(customerUrl)
 
 })
 
+// ---------------------- Search Item on the Main Dashboard -----------------------------//
+
+const mainSearchBar = document.querySelector(".searchbar-container #customer-search-bar");
+
+mainSearchBar.addEventListener('keyup', ({key}) =>{
+    if (key ==='Enter'){
+        
+        let itemSearch = mainSearchBar.value;
+    
+        let customerRowList = document.querySelectorAll("#customer-row");
+        
+       
+        
+        //Reset the table
+        if (!itemSearch){
+            for (let i = 0; i < customerRowList.length; i++){
+                 if (customerRowList[i].children[0].innerText !== '1'){
+                    customerRowList[i].style.display = 'table-row';
+                 }
+                
+            }
+          
+        }
+         let searchResult = dataFetched.find(({id, name}) => ((id === itemSearch.toLowerCase()) || (name.toLowerCase() === itemSearch.toLowerCase())));
+         
+        if (searchResult){
+            
+            // document.querySelector("#product-table").appendChild(productRow);
+            for (let i = 0; i < customerRowList.length; i++){
+               
+                if ((customerRowList[i].children[0].innerText !== searchResult.id) &&  (customerRowList[i].children[1].innerText !== searchResult.name)){
+                   customerRowList[i].style.display = 'none';
+                }
+            }
+        }else{
+            alert("No customer found")
+        }
+        
+    }
+})
+
+
+
+
+
+
+
 
 
 

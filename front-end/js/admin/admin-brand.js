@@ -7,6 +7,38 @@
     var addExitBtn = document.querySelector(".brand-add-exit");
     var addBtn = document.querySelector(".brand-add-button");
 
+
+    fetch('http://localhost:8080/api/brand', {
+        method: 'GET'
+    })
+        .then(response => response.json())
+        .then(brandList => {
+            dataFetched = brandList;
+
+            brandList.forEach(({id, name}) => {
+                let brandRow = document.querySelector('#brand-row').cloneNode();
+                
+                brandRow.style.display= 'table-row';
+                brandRow.innerHTML=`
+                    <td>${id}</td>
+                    <td>${name}</td> 
+                `
+
+
+
+                document.querySelector(".brand-table").appendChild(brandRow);
+        
+    })
+            
+        })
+
+
+
+
+
+
+
+
 // Function to display add brand modal
 addTrigger.addEventListener("click", (e) => {
     addModalContainer.style.cssText = "display: block";
@@ -34,6 +66,60 @@ addBtn.addEventListener("click", (e) => {
         })
 })
 
+
+// ---------------------- Search Item on the Main Dashboard -----------------------------//
+
+const mainSearchBar = document.querySelector(".searchbar-container #brand-search-bar");
+
+mainSearchBar.addEventListener('keyup', ({key}) =>{
+    if (key ==='Enter'){
+    
+        let itemSearch = mainSearchBar.value;
+    
+        let brandRowList = document.querySelectorAll("#brand-row");
+        
+        
+        //Reset the table
+        if (!itemSearch){
+            for (let i = 0; i < brandRowList.length; i++){
+                 if (brandRowList[i].children[0].innerText !== 'Place holder for id'){
+                    brandRowList[i].style.display = 'table-row';
+                 }
+                
+            }
+          
+        }
+         let searchResult = dataFetched.find(({id, name}) => ((id === itemSearch.toLowerCase()) || (name.toLowerCase() === itemSearch.toLowerCase())));
+         
+        if (searchResult){
+            
+            // document.querySelector("#product-table").appendChild(productRow);
+            for (let i = 0; i < brandRowList.length; i++){
+                
+                if ((brandRowList[i].innerText !== searchResult.id) &&  (brandRowList[i].children[1].innerText !== searchResult.name)){
+                   brandRowList[i].style.display = 'none';
+                }
+            }
+        }else{
+            alert("No brand found")
+        }
+        
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Button to exit the modal
 addExitBtn.addEventListener("click", (e) => {
     addModalContainer.style.cssText = "display: none";
@@ -50,29 +136,6 @@ addExitBtn.addEventListener("click", (e) => {
     
 // }
 // window.onload = loadData();
-fetch('http://localhost:8080/api/brand', {
-        method: 'GET'
-    })
-        .then(response => response.json())
-        .then(brandList => {
-            dataFetched = brandList;
-
-            // Clear table first
-            if (document.querySelector('.brand-data')) {
-                document.querySelectorAll('.brand-data').forEach(element => element.remove());
-            }
-
-            // Then show data so that data won't be repeated
-            brandList.forEach(brand => {
-                document.querySelector('.brand-table').innerHTML +=
-                    `
-                    <tr>
-                        <td class="brand-data">${brand.id}</td>
-                        <td class="brand-data">${brand.name}</td>
-                    </tr>
-                `;
-            });
-        })
 
 // Function to reload table
 function updateTable() { 
