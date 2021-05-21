@@ -1,4 +1,37 @@
 (()=>{
+    let dataFetched = [];
+const imgUrl = 'http://localhost:8080/api/image/info';
+fetch(imgUrl)
+.then(response => response.json())
+.then(data => {
+    dataFetched = data;
+   
+    data.forEach(({id, name}) => {
+    let imgRow = document.querySelector('#img-row').cloneNode();
+    
+    imgRow.style.display= 'table-row';
+    imgRow.innerHTML=`
+        <td>${id}</td>
+        <td>
+        <a target="_blank" href="http://localhost:8080/api/image/${name}">${name}</a>
+        </td> 
+    `
+
+
+
+    document.querySelector("#img-table").appendChild(imgRow);
+    
+})
+
+});
+
+
+
+
+
+
+
+
     //Get the ADD IMAGE Modal
     var addImageModal = document.getElementById("addImage");
 

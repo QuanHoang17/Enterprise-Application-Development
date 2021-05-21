@@ -118,7 +118,7 @@
                     <h2>Product List</h2>
 
                     <div class="searchbar-container">
-                        <input type="text" placeholder="Search for a product...">
+                        <input id="product-search-bar" type="text" placeholder="Search for a product...">
                         <i class="fas fa-search"></i>
                     </div>
                 </div>
@@ -189,28 +189,19 @@
                     </div>
                 </div>
 
-                <table>
+                <table id='category-table'>
                     <tr class="table-header">
                         <th class="padding-right">Category Id</th>
                         <th class="padding-right">Category Name</th>
-                        <th>Description</th>
+                       
                     </tr>
-                    <tr>
+
+                    <!-- Fall Back Template When Server Cannot Be Reached -->
+                    <tr id ='category-row' style='display: none'>
                         <td>01</td>
                         <td>Mouse</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, necessitatibus, ab
-                            ducimus, voluptatibus sunt enim reprehenderit mollitia quos nam sed sit suscipit minus nulla
-                            harum nostrum eius deserunt reiciendis alias!</td>
                     </tr>
-                    <tr>
-                        <td>02</td>
-                        <td>Mouse</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, necessitatibus, ab
-                            ducimus, voluptatibus sunt
-                            enim reprehenderit mollitia quos nam sed sit suscipit minus nulla harum nostrum eius
-                            deserunt reiciendis alias!
-                        </td>
-                    </tr>
+                    
                 </table>
             </section>
             <!-- END OF SECTION 3: CATEGORIES -->
@@ -231,35 +222,25 @@
                 <div class="functions-container">
                     <div class="function">
                         <button class="primary-cta--small show-modal" id="addImageBtn">Add</button>
-                        <button class="primary-cta--small show-modal">Delete</button>
+                        
                     </div>
-                    <div class="statistics">
-                        <p>Total gallery: 100</p>
-                        <p>Active users: 90</p>
-                    </div>
+                    
                 </div>
 
-                <table>
-                    <tr class="table-header">
+                <table id ='img-table'>
+                    <tr class="table-header" >
                         <th class="padding-right">Image Id</th>
                         <th>Image Url</th>
                     </tr>
-                    <tr>
+
+                    
+                    <tr id ='img-row' style='display: none'>
                         <td>01</td>
                         <td>
-                            <div class="url-container">
-                                https://images.unsplash.com/photo-1619958405137-8dc6281021bb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
-                            </div>
+                            Image Url
                         </td>
                     </tr>
-                    <tr>
-                        <td>02</td>
-                        <td>
-                            <div class="url-container">
-                                https://images.unsplash.com/photo-1619958405137-8dc6281021bb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80
-                            </div>
-                        </td>
-                    </tr>
+                    
                 </table>
             </section>
             <!-- END OF SECTION 4: GALLERY -->
@@ -450,11 +431,11 @@
                     <table>
                         <tr>    
                             <th>Category Name*:</th>
-                            <th>Category Description*:</th>
+                           
                         </tr>
                         <tr>
                             <td><input type="text" placeholder="Nguyen Van A" id="add-category-name" required onkeypress="return /[a-zA-Z\s]/i.test(event.key)" ></td>
-                            <td><textarea type="text" placeholder="Something..." id="add-category-description" required></textarea></td>
+                           
                         </tr>
                     </table>
                     <button type="submit" class="primary-cta--medium" id="add-category-button">Add Category</button>
@@ -475,10 +456,11 @@
 
                 <form class="body-delete-category">
                     <input type="text" id="search-bar" placeholder="Search category Product ID to delete" required>
-                    <p>Product Found: <a href="">Mouse - Category Id 01</a></p>
+                    <p>Category Found: </p>
 
-                    <button type="submit" class="primary-cta--medium" id="delete-category-button">Delete This Category</button>
+                    
                 </form>
+                <button type="submit" class="primary-cta--medium" id="delete-category-button">Delete This Category</button>
             </div>
         </div>
 
