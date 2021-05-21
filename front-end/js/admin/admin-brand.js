@@ -1,6 +1,7 @@
 
 //Use Immediate Invoke Function To Avoid Naming Space Conflict.
 (() => {
+    let dataFetched = [];
     var addModalContainer = document.querySelector(".brand-add-modal-container");
     var addTrigger = document.querySelector(".brand-add-modal-trigger");
     var addExitBtn = document.querySelector(".brand-add-exit");
@@ -13,6 +14,7 @@ addTrigger.addEventListener("click", (e) => {
 
 // Button to add a new brand
 addBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     let brandName = document.querySelector(".brand-add-modal-input").value;
     let brand = {
         'name': brandName
@@ -44,13 +46,16 @@ addExitBtn.addEventListener("click", (e) => {
 
 
 // Function to load the data and show on front end
-function loadData(){
-    fetch('http://localhost:8080/api/brand', {
+// function loadData(){
+    
+// }
+// window.onload = loadData();
+fetch('http://localhost:8080/api/brand', {
         method: 'GET'
     })
         .then(response => response.json())
         .then(brandList => {
-            console.log(brandList);
+            dataFetched = brandList;
 
             // Clear table first
             if (document.querySelector('.brand-data')) {
@@ -68,8 +73,6 @@ function loadData(){
                 `;
             });
         })
-}
-window.onload = loadData();
 
 // Function to reload table
 function updateTable() { 
@@ -105,6 +108,34 @@ deleteExitBtn.addEventListener("click", (e) => {
 deleteBtn.addEventListener("click", (e) => {
     let brandId = document.querySelector(".brand-delete-modal-input").value;
     
-    alert(brandId);
+    if (!brandId){
+        alert("Please enter a brand id to delete");
+    }
+
+    let itemToDelete = dataFetched.find(data => data.id === brandId);
+
+    if (itemToDelete){
+        fetch("http://localhost:8080/api/brand/id/" + itemToDelete.id, {
+            method: 'DELETE',
+        })
+        .then(response => response.json())
+        .then(({status}) => {
+            console.log(status);
+
+            if (status === "success"){
+                alert("Successfully deleted the brand");
+                document.querySelector(".brand-delete-modal-input").reset();
+        
+            }else{
+                alert(`
+        
+           Failed To Delete! Please try again.
+        
+        `)
+            }
+        })
+    }else{
+         alert("Can't delete brand that is not available");
+    }
 })
 })()

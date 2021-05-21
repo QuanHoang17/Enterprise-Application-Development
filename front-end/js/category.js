@@ -12,6 +12,7 @@ var filter = {
 }
 
 // Based html element
+const categoryIndicator = document.querySelector(".bread-crumb .last");
 var minPrice = document.querySelector("#min-price");
 var maxPrice = document.querySelector("#max-price");
 var filterButton = document.querySelector("#apply-filter-button");
@@ -19,6 +20,8 @@ var productQuantity = document.querySelector("#product-quantity");
 var brandChoiceList = [];
 var colorChoiceList = [];
 
+// update category breadcrumb based on the category page.
+categoryIndicator.innerText = categoryName;
 function renderProductList() {
     let gridContainer = document.querySelector("#grid-container");
     gridContainer.innerHTML = "";

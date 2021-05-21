@@ -7,7 +7,7 @@ fetch(productUrl)
 .then(response => response.json())
 .then(data => {
     dataFetched = data;
-    data.forEach(({id, name, quantity, issueDate, brandName,categoryName}) => {
+    data.forEach(({id, name, quantity, issueDate, brandName,categoryName, imageName: [image1, image2, image3]}) => {
     let productRow = document.querySelector('#product-row').cloneNode();
     
     productRow.style.display= 'table-row';
@@ -18,9 +18,9 @@ fetch(productUrl)
         <td>${new Date(issueDate).toLocaleDateString()}</td>
 
         <td>
-            <div><a href="">Image 1 <i class="fas fa-external-link-alt"></i></a></div>
-            <div><a href="">Image 2 <i class="fas fa-external-link-alt"></i></a></div>
-            <div><a href="">Image 3 <i class="fas fa-external-link-alt"></i></a></div>
+            <div><a target="_blank" href="http://localhost:8080/api/image/${image1}">${image1}<i class="fas fa-external-link-alt"></i></a></div>
+            <div><a target="_blank" href="http://localhost:8080/api/image/${image2}">${image2}<i class="fas fa-external-link-alt"></i></a></div>
+            <div><a target="_blank" href="http://localhost:8080/api/image/${image3}">${image3}<i class="fas fa-external-link-alt"></i></a></div>
         </td>
         <td><div><a href="">${brandName}<i class="fas fa-external-link-alt"></i></a></div>
         </td>
@@ -38,18 +38,42 @@ fetch(productUrl)
 
 // ---------------------- Search Item on the Main Dashboard -----------------------------//
 
-const mainSearchBar = document.querySelector(".right .searchbar-container input");
+const mainSearchBar = document.querySelector(".searchbar-container #product-search-bar");
 
 mainSearchBar.addEventListener('keyup', ({key}) =>{
     if (key ==='Enter'){
-        let itemSearch = document.querySelector(".product-delete-modal-input").value;
+        console.log(1);
+        let itemSearch = mainSearchBar.value;
     
+        let productRowList = document.querySelectorAll("#product-row");
+        
+       
+        
+        //Reset the table
         if (!itemSearch){
-            alert("Please Enter a Product Id !!!!!!!!!");
+            for (let i = 0; i < productRowList.length; i++){
+                 if (productRowList[i].children[0].innerText !== '02'){
+                    productRowList[i].style.display = 'table-row';
+                 }
+                
+            }
+          
         }
-
-        //TODO: search product by id or by name
-        // searchResult = dataFetched.find(data => data.id === itemSearch.toUpperCase() );
+         let searchResult = dataFetched.find(({id, name}) => ((id === itemSearch.toLowerCase()) || (name.toLowerCase() === itemSearch.toLowerCase())));
+         
+        if (searchResult){
+            console.log(2);
+            // document.querySelector("#product-table").appendChild(productRow);
+            for (let i = 0; i < productRowList.length; i++){
+                console.log(productRowList[i].children[0].innerText);
+                if ((productRowList[i].children[0].innerText !== searchResult.id) &&  (productRowList[i].children[1].innerText !== searchResult.name)){
+                   productRowList[i].style.display = 'none';
+                }
+            }
+        }else{
+            alert("No product found")
+        }
+        
     }
 })
 
@@ -135,7 +159,7 @@ deleteBtn.addEventListener("click", (e) => {
             }
         })
     }else{
-         alert("Please Enter a Product Id !!!!!!!!!");
+         alert("Can't delete product that is not available!");
     }
    
     
@@ -222,7 +246,7 @@ const sendDataToServer = async (data) => {
     response.json().then(({status}) => 
         {if (status !== 'failed'){
            alert("Successfully Added Item");
-           document.querySelector("") 
+           
            document.querySelector(".product-form").reset();
         }else {
             alert("Sorry!!!! Failed To Add");
