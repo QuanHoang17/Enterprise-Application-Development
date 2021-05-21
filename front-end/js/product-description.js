@@ -7,6 +7,7 @@ var productCategory = document.querySelector(".product-category");
 var productStatus = document.querySelector(".product-status");
 var productPrice = document.querySelector(".product-price");
 var productDescription = document.querySelector(".description");
+var turnBack = document.querySelector(".turn-back");
 var imgList = [];
 var colorList = [];
 
@@ -27,6 +28,7 @@ fetch(`http://localhost:8080/api/product/name/${itemName}`)
         productDescription.innerHTML = product[0].description;
         imgList = product[0].imageName;
         colorList = product[0].color;
+        turnBack.setAttribute("href", `./category.html?&category=${product[0].categoryName}`);
 
 
 
