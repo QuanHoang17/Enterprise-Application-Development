@@ -30,8 +30,13 @@ searchBar.addEventListener('keyup', ({key}) =>{
        
 
         if (searchResult){
-         
-          window.location.replace("./product-description.html?&name="+ searchResult.name);
+            let currentURL = window.location.pathname;
+            let urlPath = currentURL.split("/");
+            if (urlPath[urlPath.length - 2] === "pages") {
+                window.location.replace("./product-description.html?&name="+ searchResult.name);
+            } else {
+                window.location.replace("./pages/product-description.html?&name="+ searchResult.name);
+            }
         }
     }
 });
