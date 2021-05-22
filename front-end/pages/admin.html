@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | GeaRMIT</title>
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/ult.css">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+    <section class="flex">
+        <!-- This is the left nav -->
+        <div class="left">
+            <a href="../index.html">
+                <div class="home">
+                    <i class="far fa-arrow-alt-circle-left"></i>
+                    Home
+                </div>
+            </a>
+
+            <div class="avatar-container">
+                <img src="../assets/gaming-icon.jpeg" alt="user avatar">
+                <p class="name">Miranda Kerr</p>
+            </div>
+
+            <div class="choice-container">
+                <ul>
+                    <li class="choice active-nav">
+                        <i class="fas fa-users"></i>
+                        <span>Customer</span>
+                    </li>
+
+                    <li class="choice">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Products</span>
+                    </li>
+
+                    <li class="choice">
+                        <i class="fas fa-tag"></i>
+                        <span>Categories</span>
+                    </li>
+
+                    <li class="choice">
+                        <i class="fas fa-image"></i>
+                        <span>Gallery</span>
+                    </li>
+
+                    <li class="choice">
+                        <i class="fas fa-fire-alt"></i>
+                        <span>Brands</span>
+                    </li>
+                </ul>
+            </div>
+
+            <button id="log-out-button">Log out</button>
+        </div>
+        <!-- End of left nav -->
+
+        <!-- This is the right sections -->
+        <div class="right">
+
+            <!-- START OF SECTION 1: CUSTOMER -->
+            <section class="main-content" id="active-section">
+                <div class="top-container flex">
+                    <h2>Customer List</h2>
+
+                    <div class="searchbar-container">
+                        <input type="text" id="customer-search-bar" placeholder="Search a customer...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <div class="functions-container">
+                    <div class="function">
+                        <button class="primary-cta--small customer-delete-modal-trigger">Delete</button>
+                    </div>
+                    <div class="statistics">
+                        <p  id='customer-stats'>Total users: 0</p>
+                        <p  id='active-customer-stats'>Active users: 0</p>
+                    </div>
+
+                </div>
+
+                <table id="customer-table">
+                    <tr class="table-header">
+                        <th class="first-column">User Id</th>
+                        <th class="second-column">Email</th>
+                        <th class="third-column">Username</th>
+                        <th class="fourth-column">Phone number</th>
+                        <th class="fifth-column">Is Activated?</th>
+                    </tr>
+
+                    <!-- This is for template reference only -->
+                    <!-- Actual data fetched from admin-customer.js -->
+                    <tr id='customer-row' style='display: none'>
+                        <td>1</td>
+                        <td>user@gmail.com</td>
+                        <td>userNumber1</td>
+                        <td>113</td>
+                        <td>Hell yeah</td>
+                    </tr>
+                    
+
+                </table>
+            </section>
+            <!-- END OF SECTION 1: CUSTOMER -->
+
+
+
+            <!-- START OF SECTION 2: PRODUCTS -->
+            <section class="main-content">
+                <div class="top-container flex">
+                    <h2>Product List</h2>
+
+                    <div class="searchbar-container">
+                        <input id="product-search-bar" type="text" placeholder="Search for a product...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <div class="functions-container">
+                    <div class="function">
+                        <button class="primary-cta--small product-add-modal-trigger">Add</button>
+                        <button class="primary-cta--small product-delete-modal-trigger">Delete</button>
+                    </div>
+                    <div class="statistics">
+                        <p id="product-stats">Total products: 0</p>
+                        
+                    </div>
+                </div>
+
+                <table id=product-table>
+                    <tr class="table-header">
+                        <th class="padding-right">Product Id</th>
+                        <th class="padding-right">Product Name</th>
+                        <th class="padding-right">Quantity</th>
+                        <th class="padding-right">Issue Date</th>
+                        <th class="padding-right">Images</th>
+                        <th class="padding-right">Brand</th>
+                        <th>Category</th>
+                    </tr>
+
+                    <!-- This is for template reference only -->
+                    <tr id='product-row' style='display: none'>
+                    <td>02</td>
+                    <td>Logitech Mouse</td>
+                    <td>12</td>
+                    <td>12/12/2021</td>
+                    <td>
+                        <div><a href="">Image 1 <i class="fas fa-external-link-alt"></i></a></div>
+                        <div><a href="">Image 2 <i class="fas fa-external-link-alt"></i></a></div>
+                        <div><a href="">Image 3 <i class="fas fa-external-link-alt"></i></a></div>
+                    </td>
+                    <td>Razor</td>
+                    <td>
+                        <div><a href="">Mouse <i class="fas fa-external-link-alt"></i></a></div>
+                    </td>
+                    </tr>
+                    
+                </table>
+            </section>
+            <!-- END OF SECTION 2: PRODUCTS -->
+
+
+
+            <!-- START OF SECTION 3: CATEGORIES -->
+            <section class="main-content">
+                <div class="top-container flex">
+                    <h2>Category</h2>
+
+                    <div class="searchbar-container">
+                        <input type="text" id="category-search-bar" placeholder="Search a category...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <div class="functions-container">
+                    <div class="function">
+                        <button class="primary-cta--small show-modal" id="addBtn">Add</button>
+                        <button class="primary-cta--small show-modal" id="deleteBtn">Delete</button>
+                    </div>
+                    <div class="statistics">
+                        <p id="category-stats">Total categories: 5</p>
+                    </div>
+                </div>
+
+                <table id='category-table'>
+                    <tr class="table-header">
+                        <th class="padding-right">Category Id</th>
+                        <th class="padding-right">Category Name</th>
+                       
+                    </tr>
+
+                    <!-- Fall Back Template When Server Cannot Be Reached -->
+                    <tr id ='category-row' style='display: none'>
+                        <td>01</td>
+                        <td>Mouse</td>
+                    </tr>
+                    
+                </table>
+            </section>
+            <!-- END OF SECTION 3: CATEGORIES -->
+
+
+
+            <!-- START OF SECTION 4: GALLERY -->
+            <section class="main-content">
+                <div class="top-container flex">
+                    <h2>Gallery</h2>
+
+                    <div class="searchbar-container">
+                        <input type="text" id='img-search-bar' placeholder="Search gallery...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <div class="functions-container">
+                    <div class="function">
+                        <button class="primary-cta--small show-modal" id="addImageBtn">Add</button>
+                        
+                    </div>
+                    
+                </div>
+
+                <table id ='img-table'>
+                    <tr class="table-header" >
+                        <th class="padding-right">Image Id</th>
+                        <th>Image Url</th>
+                    </tr>
+
+                    
+                    <tr id ='img-row' style='display: none'>
+                        <td>01</td>
+                        <td>
+                            Image Url
+                        </td>
+                    </tr>
+                    
+                </table>
+            </section>
+            <!-- END OF SECTION 4: GALLERY -->
+
+
+
+            <!-- START OF SECTION 5: BRAND -->
+            <section class="main-content">
+                <div class="top-container flex">
+                    <h2>Brand</h2>  
+            
+                    <div class="searchbar-container">
+                        <input type="text" id="brand-search-bar" placeholder="Search a brand...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            
+                <div class="functions-container">
+                    <div class="function">
+                        <button class="primary-cta--small brand-add-modal-trigger">Add</button>
+                        <button class="primary-cta--small brand-delete-modal-trigger">Delete</button>
+                    </div>
+                    <div class="statistics">
+                        <p>Total brand: <span>5</span></p>
+                    </div>
+                </div>
+            
+                <table class="brand-table">
+                    <tr class="table-header">
+                        <th class="padding-right">Brand Id</th>
+                        <th class="padding-right">Brand Name</th>
+                    </tr>
+                    <tr id='brand-row' style='display: none'>
+                        <td class="brand-data">Place holder for id</td>
+                        <td class="brand-data">Placeholder for name</td>
+                    </tr>
+                </table>
+            </section>
+            <!-- START OF SECTION 5: BRAND -->
+        </div>
+        <!-- End of right -->
+
+        <!-- Start of modal -->
+
+        <!-- START OF CUSTOMER DELETE MODAL -->
+        <div class="customer-delete-modal-container">
+            <div class="modal-content-container">
+                <div class="customer-delete-exit"><i class="fas fa-times"></i></div>
+                <p class="top">Delete customer</p>
+                <div class="searchbar-container">
+                    <input type="text" placeholder="Search customer name to delete" class="customer-delete-modal-input">
+                    <i class="fas fa-search customer-delete-modal-search"></i>
+                </div>
+                <div class="customer-result result-container">
+                    <p>Customer found: </p>
+                </div>
+                <div class="button-container">
+                    <button class="primary-cta--medium customer-delete-button">Delete this customer</button>
+                </div>
+            </div>
+        </div>
+        <!-- END OF CUSTOMER DELETE MODAL -->
+
+
+
+        <!-- START OF PRODUCT DELETE MODAL -->
+        <div class="product-delete-modal-container">
+            <div class="delete-modal-content-container">
+                <div class="exit product-delete-exit"><i class="fas fa-times"></i></div>
+                <p class="top">Delete product</p>
+                <div class="searchbar-container">
+                    <input type="text" placeholder="Search product id to delete" class="product-delete-modal-input">
+                    <i class="fas fa-search product-delete-modal-search"></i>
+                </div>
+                <div class="product-result result-container">
+                    <p>Product found: <a href=""></a></p>
+        
+                </div>
+                <div class="button-container">
+                    <button class="primary-cta--medium product-delete-button">Delete this product</button>
+                </div>
+            </div>
+        </div>
+        <!-- END OF PRODUCT ADD MODAL -->
+
+
+
+        <!-- START OF PRODUCT ADD MODAL -->
+        <div class="product-add-modal-container">
+            <div class="add-modal-content-container">
+                <div class="exit product-add-exit"><i class="fas fa-times"></i></div>
+                <p class="top">Add product</p>
+                <form class="product-form">
+                <div class="fields-container flex">
+                    <div class="first-column">
+                        <div class="single-field">
+                            <p>Product Name*</p>
+                            <input type="text" placeholder="Some sort of product" class="product-name" required>
+                        </div>
+                        <div class="single-field">
+                            <p>Product Quantity*</p>
+                            <input type="number" placeholder="10" class="product-quantity" required>
+                        </div>
+                        <div class="single-field">
+                            <p>List color available*</p>
+                            <input type="text" placeholder="Red, Blue, Orange..." class="product-color" required>
+                        </div>
+                    </div>
+                    <div class="second-column">
+                        <div class="single-field">
+                            <p>Issue Date:</p>
+                            <input type="date" placeholder="Red, Blue, Orange..." class="product-date" required>
+                        </div>
+                        <div class="single-field">
+                            <p>Price*</p>
+                            <input type="text" placeholder="In USD" class="product-price" required>
+                        </div>
+                        <div class="single-field">
+                            <p>BrandId*</p>
+                            <input type="text" placeholder="brand01" class="product-brand" required>
+                        </div>
+                    </div>
+                    <div class="third-column">
+                        <div class="single-field">
+                            <p>CategoryId*</p>
+                            <input type="text" placeholder="category01" class="product-category" required>
+                        </div>
+                        <div class="single-field" style="margin-bottom: 16px;">
+                            <p>Description*</p>
+                            <!-- <input type="text" placeholder="Something" class="product-message" required> -->
+                            <textarea class="product-message" cols="" rows="10"></textarea>
+                        </div>
+                        <div class="button-container">
+                            <button class="primary-cta--medium product-add-button">Add product</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+                
+            </div>
+        </div>
+        <!-- END OF PRODUCT ADD MODAL -->
+
+
+
+        <!-- START OF BRAND ADD MODAL -->
+        <div class="brand-add-modal-container">
+            <div class="modal-content-container">
+                <div class="exit brand-add-exit"><i class="fas fa-times"></i></div>
+                <p class="top">Add a brand</p>
+                <div class="searchbar-container">
+                    <input type="text" placeholder="Enter brand name" class="brand-add-modal-input">
+                </div>
+                <div class="button-container">
+                    <button class="primary-cta--medium brand-add-button">Add this brand</button>
+                </div>
+            </div>
+        </div>
+        <!-- END OF BRAND ADD MODAL -->
+
+
+
+        <!-- START OF BRAND DELETE MODAL -->
+        <div class="brand-delete-modal-container">
+            <div class="modal-content-container">
+                <div class="exit brand-delete-exit"><i class="fas fa-times"></i></div>
+                <p class="top">Delete a brand</p>
+                <div class="searchbar-container">
+                    <input type="text" placeholder="Enter brand id" class="brand-delete-modal-input">
+                </div>
+                <div class="button-container">
+                    <button class="primary-cta--medium brand-delete-button">Delete this brand</button>
+                </div>
+            </div>
+        </div>
+        <!-- END OF BRAND DELETE MODAL -->
+        <!-- End of modal -->
+
+        <!-- ADD CATEGORY MODAL -->
+        <div id="add-category-modal" class="add-modal">
+                
+            <div class="add-category-modal-content">
+                <div class="add-category-modal-header">
+                    <span class="add-category-close">&times;</span>
+                    <h2>Add Category</h2>
+                </div>
+                <form class="add-category-modal-body">
+                    <table>
+                        <tr>    
+                            <th>Category Name*:</th>
+                           
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="Nguyen Van A" id="add-category-name" required onkeypress="return /[a-zA-Z\s]/i.test(event.key)" ></td>
+                           
+                        </tr>
+                    </table>
+                    <button type="submit" class="primary-cta--medium" id="add-category-button">Add Category</button>
+                </form>
+            </div>
+        </div>
+
+
+
+        <!-- DELETE CATEGORY MODAL -->
+        <div id="modal-delete-category" class="deleteModal">
+
+            <div class="content-delete-category">
+                <div class="header-delete-category">
+                    <span class="close-delete-category-modal">&times;</span>
+                    <h2>Delete Category</h2>
+                </div>
+
+                <form class="body-delete-category">
+                    <input type="text" id="search-bar" placeholder="Search category Product ID to delete" required>
+                    <p>Category Found: </p>
+
+                    
+                </form>
+                <button type="submit" class="primary-cta--medium" id="delete-category-button">Delete This Category</button>
+            </div>
+        </div>
+
+
+
+        <!-- ADD IMAGE MODAL in Gallery -->
+        <div id="addImage" class="add-image-modal">
+
+            <div class="add-image-modal-content">
+                <div class="add-image-modal-header">
+                    <span class="add-image-close">&times;</span>
+                    <h2>Add Image</h2>
+                </div>
+
+                <form class="add-image-modal-body">
+                    <label for="image-name"><b>Image Name*:</b></label>
+                    <input type="text" placeholder="Logi Something" id="image-name" required onkeypress="return /[a-zA-Z\s]/i.test(event.key)"  required>
+                
+                    <label for="upload-file"><b>Upload File*:</b></label>
+                    <input type="file" placeholder="Select From Machine...."id="upload-file" required>
+                
+                    <label for="product-id"><b>Product ID*:</b></label>
+                    <input type="text" placeholder="item01" id="product-id" required>
+
+                    
+                </form>
+                <button type="submit" class="primary-cta--medium" id="add-image-button">Add Image</button>
+            </div>
+        </div>
+
+
+
+</div>
+
+
+
+
+    </section>
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    
+    <script src="../js/admin/admin-customer.js"></script>
+    <script src="../js/admin/admin-product.js"></script>
+    <script src="../js/admin/admin-brand.js"></script>
+    <script src="../js/admin/admin-category.js"></script>
+    <script src="../js/admin/admin-gallery.js"></script>
+
+    <script src="../js/admin/admin.js"></script>
+    
+</body>
+
+</html>
