@@ -1,0 +1,146 @@
+.Footer {
+    position: relative;
+    width: 100%;
+    /* margin: 14px 0px; */
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    padding: 64px 72px;
+    background-color: #FFFAFF;  
+    
+}
+
+.Footer .column h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.Footer .column a {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.Footer .column p {
+    display: block;
+    font-size: 12.8px;
+    padding-top: 160px;
+}
+
+
+
+/* Ipad Pro screen  */
+@media screen and (min-width: 801px) and (max-width: 1440px) {
+    .Footer {
+        padding: 64px 72px;
+    }
+    
+    .Footer .column h4 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+
+    .Footer .column a {
+        font-size: 16px;
+    }
+    
+    .Footer .column p {
+        font-size: 12.8px;
+        padding-top: 160px;
+    }
+
+}
+
+/* Ipad screen */
+@media screen and (min-width: 641px) and (max-width: 800px){
+    .Footer {
+        padding: 64px 72px;
+    }
+    
+    .Footer .column h4 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+
+    .Footer .column a {
+        font-size: 15px;
+    }
+    
+    .Footer .column p {
+        font-size: 11.8px;
+        padding-top: 160px;
+    }
+
+}
+
+/* Small Tablet screen */
+@media screen and (min-width: 471px) and (max-width: 640px){
+    .Footer {
+        padding: 44px 32px;
+    }
+    
+    .Footer .column h4 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+    
+    .Footer .column a {
+        font-size: 13px;
+    }
+    
+    .Footer .column p {
+        font-size: 10px;
+        padding-top: 160px;
+    }
+    
+}
+
+
+/* Iphone X screen */
+@media screen and (min-width: 376px) and (max-width: 470px){
+    .Footer {
+        padding: 44px 20px;
+    }
+    
+    .Footer .column h4 {
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+
+    .Footer .column a {
+        font-size: 12px;
+    }
+    
+    .Footer .column p {
+        font-size: 10px;
+        padding-top: 160px;
+    }
+    
+}
+
+/* Iphone 6/7/8 screen */
+@media screen and (max-width: 375px){
+    .Footer {
+        padding: 44px 16px;
+    }
+
+    .Footer .column h4 {
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+
+    .Footer .column a {
+        font-size: 8px;
+    }
+    
+    .Footer .column p {
+        font-size: 6px;
+        padding-top: 130px;
+    }
+}
