@@ -1,10 +1,11 @@
 window.onload = () => {
-    let userName = window.sessionStorage.getItem("name");
-    let userPrivilage = window.sessionStorage.getItem("privilage");
+    let userName = window.localStorage.getItem("name");
+    let userPrivilage = window.localStorage.getItem("privilage");
     if (userName != null && userPrivilage == "admin") {
         window.location.replace("admin.html");
     } else if (userName != null && userPrivilage == "user") {
-        window.location.replace("../index.html");
+        window.localStorage.removeItem("name");
+        window.localStorage.removeItem("privilage")
     }
 };
 
@@ -123,8 +124,8 @@ loginBtn.addEventListener("click", async () => {
         } else if (loginRes.message == "email") {
             displayLoginStatus(errorLogin, "- Account not activated. Please verify email");
         } else if (loginRes.message == "success") {
-            window.sessionStorage.setItem("privilage", loginRes.privilege);
-            window.sessionStorage.setItem("name", loginRes.name);
+            window.localStorage.setItem("privilage", loginRes.privilege);
+            window.localStorage.setItem("name", loginRes.name);
             if (loginRes.privilege == "admin") {
                 window.location.replace("admin.html");
             } else {

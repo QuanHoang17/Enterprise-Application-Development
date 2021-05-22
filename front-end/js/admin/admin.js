@@ -1,16 +1,16 @@
-// window.onload = () => {
-//     if (window.sessionStorage.getItem("privilage") != "admin") {
-//         window.location.replace("login.html");
-//     }
-// };
+window.onload = () => {
+    if (window.localStorage.getItem("privilage") != "admin") {
+        window.location.replace("login.html");
+    }
+};
 
-// var logOutButton = document.querySelector("#log-out-button");
+var logOutButton = document.querySelector("#log-out-button");
 
-// logOutButton.addEventListener("click", () => {
-//     window.sessionStorage.removeItem("privilage");
-//     window.sessionStorage.removeItem("name");
-//     window.location.replace("../index.html");
-// });
+logOutButton.addEventListener("click", () => {
+    window.localStorage.removeItem("privilage");
+    window.localStorage.removeItem("name");
+    window.location.replace("../index.html");
+});
 
 $(function() {
     $('ul li').click(function() {
