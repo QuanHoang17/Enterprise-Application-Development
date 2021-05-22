@@ -67,16 +67,17 @@
 
     <div class="Content">
         <div class="contactForm">
-            <label for="name"><b>Your Name*:</b></label>
-            <input type="text" placeholder="Nguyen Van A" class="name" required>
-        
-            <label for="email"><b>Your Email*:</b></label>
-            <input type="text" placeholder="abc@gmail.com" class="email" required>
-        
-            <label for="message"><b>Your Message*:</b></label>
-            <textarea type="text" placeholder="Something..." class="message" required></textarea>
-            <button type="submit" class="sendMessage">Send Message!</button>
-        
+            <form>
+                <label for="name"><b>Your Name*:</b></label>
+                <input id="name" type="text" placeholder="Nguyen Van A" class="name" required>
+                
+                <label for="email"><b>Your Email*:</b></label>
+                <input id='email' type="email" placeholder="abc@gmail.com" class="email" required>
+                
+                <label for="message"><b>Your Message*:</b></label>
+                <textarea id="message" placeholder="Something..." class="message" required></textarea>
+                <button type="submit" class="sendMessage">Send Message!</button>
+            </form>
         </div>
     </div>
 
@@ -112,7 +113,7 @@
         </div>
     
     </div>
-
+    <script src="../js/contact.js"></script>
     <script src="../js/main.js"></script>
     
 </body>

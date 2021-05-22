@@ -217,6 +217,13 @@ createBtn.addEventListener("click", async () => {
     // Register user when everything is validated
     if (allValidated) {
         let redirectSecond = 5;
+
+        // Button styling indicating processing.
+        createBtn.innerText = "Processing...";
+        createBtn.style.opacity = '0.5';
+        
+           
+
         let registerRes = await registerUsers(userName.value, email.value, phone.value, password.value);
         if (registerRes == 404) {
             displayRegisterStatus(registerStatus, "- Cannot connect to server");
@@ -229,8 +236,8 @@ createBtn.addEventListener("click", async () => {
             }
             if (registerRes.status == "success") {
                 displayRegisterStatus(registerStatus, `Account successfully created! Visit your email to verify account!Redirect to login page in ${redirectSecond} seconds`);
-                // registerStatus.classList.add("display");
-                // registerStatus.innerHTML = `<p>Account successfully created! Redirect to login page in ${redirectSecond} seconds</p>`;
+                
+
                 userName.value = "";
                 email.value = "";
                 phone.value = "";
@@ -246,5 +253,8 @@ createBtn.addEventListener("click", async () => {
             }
         }
     }
+    //Reset Button styling after processing.
+    createBtn.innerText = "Send Message!";
+    createBtn.style.opacity = '1';
     createBtn.disabled = false;
 })
