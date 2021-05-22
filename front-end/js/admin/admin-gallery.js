@@ -98,3 +98,48 @@ mainSearchBar.addEventListener('keyup', ({key}) =>{
 
 
 })()
+
+// ---------------------- Add Image to Database -----------------------------//
+
+var addImageBtn = document.querySelector("#add-image-button");
+
+addImageBtn.addEventListener("click", async () => {
+    let formData = new FormData();
+
+    // Input field
+    let imageName = document.querySelector("#image-name");
+    let imageFile = document.querySelector("#upload-file");
+    let productID = document.querySelector("#product-id");
+
+    let productInfo = {
+        "name": imageName.value,
+        "productID": productID.value
+    };
+
+    formData.append("file", imageFile.files[0]);
+    formData.append("info", new Blob([JSON.stringify(productInfo)], {type:"application/json"}));
+
+    let response = await fetch("http://localhost:8080/api/image", {
+        method: 'POST',
+        body: formData
+    });
+    let resData = await response.json();
+    let alertMessage = "";
+    if (resData["file"] == "existed") {
+        alertMessage = alertMessage.concat("- File name already exist\n");
+    }
+
+    if (resData["fileType"] == "invalid_type") {
+        alertMessage = alertMessage.concat("- Incorrect File Type. The file must be an image\n");
+    }
+
+    if (resData["product"] == "not_found") {
+        alertMessage = alertMessage.concat("- Product ID don't exist\n");
+    }
+
+    if (resData["status"] == "success") {
+        alertMessage = alertMessage.concat("Image successfully added\n");
+    }
+
+    alert(alertMessage);
+});
