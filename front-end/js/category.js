@@ -182,7 +182,7 @@ function sortProduct(option, direction) {
         });
     } else if (option === "price" && direction === "ascending") {
         productArray.sort((a, b) => a.price - b.price);
-    } else if (option === "price" && direction === "ascending") {
+    } else if (option === "price" && direction === "descending") {
         productArray.sort((a, b) => b.price - a.price);
     }
 }

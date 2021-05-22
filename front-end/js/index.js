@@ -75,8 +75,8 @@ const createProductCardElement = (name, description, price, category, available,
                                 <p>99.69 USD</p>
                                 <p>Free Shipping</p>
                                 <button>Add to Cart</button>
-                                <button><i class="fas fa-info-circle"></i>
-                                    More detail</button>
+                                <a href='./pages/product-description.html?&name=${name}'><button><i class="fas fa-info-circle"></i>
+                                    More detail</button></a>
                             </div>
   
   
