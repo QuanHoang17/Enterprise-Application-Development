@@ -212,7 +212,7 @@ $(function() {
             $(currentSection).stop().fadeIn(200, 'linear').siblings().stop().hide();
             displayProductByCategory(categoryName);
 
-            document.querySelector('#browse-category-cta').setAttribute('href', `../front-end/pages/category.html?&category=${categoryName}`);
+            document.querySelector('#browse-category-cta').setAttribute('href', `./pages/category.html?&category=${categoryName}`);
             
         })
     })
