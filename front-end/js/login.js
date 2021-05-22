@@ -110,6 +110,11 @@ loginBtn.addEventListener("click", async () => {
     }
 
     if (allValidated) {
+
+        // Button styling indicating processing.
+        loginBtn.innerText = "Processing...";
+        loginBtn.style.opacity = '0.5';
+
         let loginRes = await validateLogin(name.value, password.value);
         if (loginRes.message == "password") {
             displayLoginStatus(errorLogin, "- Incorrect password");
@@ -129,5 +134,8 @@ loginBtn.addEventListener("click", async () => {
             displayLoginStatus(errorLogin, "- Cannot connect to server");
         }
     }
+    //Reset Button styling after processing.
+    loginBtn.innerText = "Log In!";
+    loginBtn.style.opacity = '1';
     loginBtn.disabled = false;
 })
