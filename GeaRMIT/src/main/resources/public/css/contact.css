@@ -1,0 +1,319 @@
+body {
+    overflow-x: hidden;
+}
+
+.Header {
+    text-align: center;
+    padding: 14px 16px;
+    background-color: burlywood;
+}
+
+.Hero {
+    margin-bottom: 80px;
+    background: linear-gradient(0deg, rgba(90, 0, 1, 0.5), rgba(90, 0, 1, 0.5)), url("../assets/image_for_contact.jpg");
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 50%;
+    display: grid;
+    place-items: center;
+}
+
+.Hero .tell-us-anything {
+    font-size: var(--heading);
+    color: var(--white-base);
+}
+
+.Content {
+    margin-left: 391px;
+    margin-right:390px;
+    padding: 8px 0px;
+}
+
+input {
+    width: 100%;
+    padding: 19px 32.5px;
+    display: inline-block;
+    border: 1px solid #D1D1D1;
+    border-radius: 8px;
+    background: #f1f1f1;
+    margin-bottom: 2rem;
+}
+
+textarea {
+    width: 100%;
+    padding: 19px 32.5px;
+    display: inline-block;
+    border: 1px solid #D1D1D1;
+    border-radius: 8px;
+    background: #f1f1f1;
+    margin-bottom: 2rem;
+}
+
+input:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.message {
+    width: 100%;
+    padding: 0px 19px;
+    padding-top: 32.5px;
+    padding-bottom: 296px;
+    display: inline-block;
+    border: 1px solid #D1D1D1;
+    border-radius: 8px;
+    background: #f1f1f1;
+}
+
+.message:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+label{
+    font-size: var(--font-300);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.message {
+    margin-bottom: 56px;
+}
+
+.sendMessage {
+    width: 100%;
+    /* padding: 8px 0px; */
+    font-size: var(--font-300);
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    background-color: #C80808;
+    color: white;
+    padding: 20px 32px;
+    margin: 8px 0;
+    margin-bottom: 79px;
+    border: none;
+    cursor: pointer;
+    width: 272px;
+    height: 78px;
+    opacity: 0.9;
+  }
+
+.sendMessage:hover {
+    opacity:1;
+}
+
+
+/* Laptop screen */
+@media screen and (min-width: 1051px) and (min-width: 1440px) {
+    .Content {
+        margin-left: 331px;
+        margin-right: 330px;
+    }
+    .Hero {
+        margin-bottom: 80px;
+        /* background: linear-gradient(0deg, rgba(90, 0, 1, 0.5), rgba(90, 0, 1, 0.5)), url(image_for_contact.jpg); */
+        background: linear-gradient(0deg, rgba(90, 0, 1, 0.5), rgba(90, 0, 1, 0.5)), url("../assets/image_for_contact.jpg");
+        height: 50vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 100% 50%;
+        display: grid;
+        place-items: center;
+    }
+    
+    .Hero .tell-us-anything {
+        font-size: var(--heading);
+        color: var(--white-base);
+    }
+}
+
+/* Ipad Pro screen  */
+@media screen and (min-width: 769px) and (max-width: 1050px) {
+    .Content {
+        margin-left: 192.896px;
+        margin-right: 192.896px;
+    }
+
+    .contactForm label {
+        font-size: var(--font-300)
+    }
+
+    .sendMessage {
+        width: 100%;
+        font-size: var(--font-300);
+    }
+
+    .Hero {
+        margin-bottom: 80px;
+        background: linear-gradient(0deg, rgba(90, 0, 1, 0.5), rgba(90, 0, 1, 0.5)), url(image_for_contact.jpg);
+        height: 40vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 100% 50%;
+        display: grid;
+        place-items: center;
+    }
+    
+    .Hero .tell-us-anything {
+        font-size: var(--heading);
+        color: var(--white-base);
+    }
+
+}
+
+/* Ipad screen */
+@media screen and (min-width: 641px) and (max-width: 768px){
+    .Content {
+        margin-left: 134.672px;
+        margin-right: 134.672px;
+    }
+
+    .contactForm label {
+        font-size: var(--font-300)
+    }
+
+    .sendMessage {
+        width: 100%;
+        padding: 18px 20px;
+        font-size: var(--font-200);
+    }
+
+    .Hero {
+        margin-bottom: 80px;
+        background: linear-gradient(0deg, rgba(90, 0, 1, 0.5), rgba(90, 0, 1, 0.5)), url(image_for_contact.jpg);
+        height: 35vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 100% 50%;
+        display: grid;
+        place-items: center;
+    }
+    
+    .Hero .tell-us-anything {
+        font-size: var(--font-500);
+        color: var(--white-base);
+    }
+
+}
+
+/* Small Tablet screen */
+@media screen and (min-width: 415px) and (max-width: 640px){
+    .Content {
+        margin-left: 102.71px;
+        margin-right: 102.71px;
+    }
+
+    .contactForm label {
+        font-size: 16px
+    }
+
+    .sendMessage {
+        width: 100%;
+        padding: 18px 30px;
+        font-size: 16px;
+    }
+
+    ::placeholder {
+        font-size: 12px;
+    }
+
+    .Hero {
+        margin-bottom: 80px;
+        background: linear-gradient(0deg, rgba(90, 0, 1, 0.5), rgba(90, 0, 1, 0.5)), url(image_for_contact.jpg);
+        height: 30vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 100% 50%;
+        display: grid;
+        place-items: center;
+    }
+    
+    .Hero .tell-us-anything {
+        font-size: var(--font-500);
+        color: var(--white-base);
+    }
+}
+
+/* Iphone X screen */
+@media screen and (min-width: 376px) and (max-width: 414px){
+    .Content {
+        margin-left: 90.331px;
+        margin-right: 90.331px;
+    }
+
+    .contactForm label {
+        font-size: 14px;
+    }
+
+    .sendMessage {
+        width: 100%;
+        padding: 18px 8px;
+        font-size: 16px;
+    }
+
+    ::placeholder {
+        font-size: 12px;
+    }
+
+    .Hero {
+        margin-bottom: 80px;
+        background: linear-gradient(0deg, rgba(90, 0, 1, 0.5), rgba(90, 0, 1, 0.5)), url(image_for_contact.jpg);
+        height: 30vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 100% 50%;
+        display: grid;
+        place-items: center;
+    }
+    
+    .Hero .tell-us-anything {
+        font-size: var(--font-400);
+        color: var(--white-base);
+    }
+}
+
+/* Iphone 6/7/8 screen */
+@media screen and (max-width: 375px){
+    .Content {
+        margin-left: 59.9375px;
+        margin-right: 59.9375px;
+    }
+
+    .contactForm label {
+        font-size: 14px;
+    }
+
+    .sendMessage {
+        width: 100%;
+        padding: 18px 6px;
+        font-size: 16px;
+    }
+
+    ::placeholder {
+        font-size: 12px;
+    }
+
+    .Hero {
+        margin-bottom: 80px;
+        background: linear-gradient(0deg, rgba(90, 0, 1, 0.5), rgba(90, 0, 1, 0.5)), url(image_for_contact.jpg);
+        height: 25vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 100% 50%;
+        display: grid;
+        place-items: center;
+    }
+    
+    .Hero .tell-us-anything {
+        font-size: var(--font-400);
+        color: var(--white-base);
+    }
+}
+
+
+
+
+

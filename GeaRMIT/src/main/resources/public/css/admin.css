@@ -1,0 +1,1699 @@
+/* ---------------------------------- Global -------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.left {
+  /* width: 10%; */
+  width: auto;
+  height: 100vh;
+  background-color: #fffaff;
+}
+
+.right {
+  width: 90%;
+}
+
+/* ------------------------------------ Left -------------------------------- */
+.left .home {
+  width: 100%;
+  color: white;
+  margin: 0 auto;
+  background-color: #f87060;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.left .avatar-container {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.left .avatar-container img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.left .avatar-container .name {
+  margin-top: 15px;
+  font-size: var(--font-base);
+  font-weight: bold;
+  color: #c80808;
+}
+
+.left .choice-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.left .choice-container span {
+  font-size: var(--font-small);
+  /* font-size: 0.5em; */
+  font-weight: bold;
+  margin-right: 20px;
+  color: #22181c;
+}
+
+.left .choice-container i {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.left .choice {
+  display: flex;
+  padding: 16px 0;
+  cursor: pointer;
+  border-left: 4px solid transparent;
+}
+
+.left .active-nav {
+  background-color: rgba(248, 112, 96, 0.1);
+  border-left: 4px solid #f87060;
+  color: #f24e3c;
+}
+
+.left .active-nav span {
+  color: #f24e3c;
+}
+
+.left .choice:hover {
+  background-color: rgba(248, 112, 96, 0.1);
+  border-left: 4px solid #f87060;
+}
+
+.left #log-out-button {
+  width: 100%;
+  text-align: center;
+  padding: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 50px;
+  border-radius: 0;
+  color: white;
+  background-color: #aa9f9f;
+  overflow: hidden;
+}
+.left #log-out-button:hover {
+  background-color: var(--primary-light);
+}
+
+/* ------------------------------------ Right -------------------------------- */
+.right .main-content {
+  display: none;
+  max-width: 90%;
+  max-height: 90vh;
+  margin: 10px auto;
+  padding: 40px;
+  background-color: #fffaff;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+.right .main-content h2 {
+  font-size: clamp(var(--font-400), 5vw, var(--heading));
+  font-weight: bold;
+  color: #5a0001;
+}
+
+.right .top-container {
+  align-items: center;
+}
+
+.right .searchbar-container {
+  margin-left: auto;
+  justify-self: flex-end;
+}
+
+.right .searchbar-container i {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  right: 40px;
+}
+
+.right .searchbar-container input {
+  width: 30vw;
+  padding: 10px 0;
+  text-indent: 20px;
+  border-radius: 20px;
+}
+
+.right .searchbar-container input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px palevioletred;
+  transition: 200ms all ease-in-out;
+}
+
+.right .functions-container {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.right .functions-container * {
+  margin-top: 10px;
+}
+
+.right .functions-container button {
+  margin-right: 10px;
+}
+
+/* Table section */
+
+.right table {
+  width: 100%;
+  /* height: 100px; */
+  margin-top: 40px;
+  border-collapse: collapse;
+}
+
+.right tr th {
+  font-size: var(--font-200);
+  font-weight: bold;
+  color: #22181c;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+table td {
+  padding-top: 15px;
+  font-size: var(--font-base);
+  color: black;
+  min-width: 100px;
+}
+
+td:nth-child(1) {
+  font-size: var(--font-base);
+  font-weight: bold;
+  color: black;
+}
+
+th:nth-child(2) {
+  word-wrap: break-word;
+}
+
+.table-header {
+  border-bottom: 1px solid rgba(34, 24, 28, 0.2);
+}
+
+#active-section {
+  display: block;
+}
+
+/* ------------------------------------------ For modal box ------------------------------------- */
+
+/* Start of CUSTOMER - DELETE - MODAL */
+.customer-delete-modal-container {
+  /* Hide at default */
+  display: none;
+
+  /* Styling */
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 50px 320px;
+  background-color: var(--black-80);
+
+  /* Positioning */
+  position: absolute;
+  z-index: 2;
+}
+
+.customer-delete-modal-container .modal-content-container {
+  /* border: 3px solid red; */
+  border-radius: 8px;
+  background-color: var(--white-base);
+  min-height: 70vh;
+  width: 60%;
+}
+
+.customer-delete-modal-container .modal-content-container .top {
+  font-size: var(--font-500);
+  font-weight: bold;
+  color: var(--black-80);
+  padding-top: 80px;
+  margin-left: 40px;
+}
+
+.customer-delete-modal-container
+  .modal-content-container
+  .customer-delete-exit {
+  float: right;
+  color: black;
+  margin-top: 28px;
+  margin-right: 28px;
+  cursor: pointer;
+}
+
+/* For the search bar */
+.customer-delete-modal-container .modal-content-container .searchbar-container {
+  text-align: center;
+  margin-top: 66px;
+}
+
+.customer-delete-modal-container
+  .modal-content-container
+  .searchbar-container
+  i {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  right: 30px;
+}
+
+.customer-delete-modal-container
+  .modal-content-container
+  .searchbar-container
+  input {
+  width: 500px;
+  padding: 10px 0;
+  text-indent: 20px;
+  border-radius: 20px;
+}
+
+.customer-delete-modal-container
+  .modal-content-container
+  .searchbar-container
+  input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px red;
+  transition: 200ms all ease-in-out;
+}
+
+.customer-delete-modal-container .modal-content-container .result-container {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.customer-delete-modal-container
+  .modal-content-container
+  .result-container
+  a:hover {
+  text-decoration: underline;
+}
+
+.customer-delete-modal-container .modal-content-container .button-container {
+  text-align: center;
+  margin-top: 24px;
+}
+/* End of CUSTOMER - DELETE - MODAL */
+
+/* Start of PRODUCT - DELETE - MODAL */
+.product-delete-modal-container {
+  /* Hide at default */
+  display: none;
+
+  /* Styling */
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 50px 250px;
+  background-color: var(--black-80);
+
+  /* Positioning */
+  position: absolute;
+  z-index: 2;
+}
+
+.product-delete-modal-container .delete-modal-content-container,
+.product-add-modal-container .add-modal-content-container {
+  /* border: 3px solid red; */
+  border-radius: 8px;
+  background-color: var(--white-base);
+  min-height: 70vh;
+  width: 70%;
+}
+
+.product-delete-modal-container .delete-modal-content-container .top {
+  font-size: var(--font-500);
+  font-weight: bold;
+  color: var(--black-80);
+  padding-top: 80px;
+  margin-left: 40px;
+}
+
+.product-delete-modal-container .delete-modal-content-container .exit,
+.product-add-modal-container .add-modal-content-container .exit {
+  float: right;
+  color: black;
+  margin-top: 28px;
+  margin-right: 28px;
+  cursor: pointer;
+}
+
+/* For the search bar */
+.product-delete-modal-container
+  .delete-modal-content-container
+  .searchbar-container {
+  text-align: center;
+  margin-top: 66px;
+}
+
+.product-delete-modal-container
+  .delete-modal-content-container
+  .searchbar-container
+  i {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  right: 30px;
+}
+
+.product-delete-modal-container
+  .delete-modal-content-container
+  .searchbar-container
+  input {
+  width: 500px;
+  padding: 10px 0;
+  text-indent: 20px;
+  border-radius: 20px;
+}
+
+.product-delete-modal-container
+  .delete-modal-content-container
+  .searchbar-container
+  input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px red;
+  transition: 200ms all ease-in-out;
+}
+
+.product-delete-modal-container
+  .delete-modal-content-container
+  .result-container {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.product-delete-modal-container
+  .delete-modal-content-container
+  .result-container
+  a:hover {
+  text-decoration: underline;
+}
+
+.product-delete-modal-container
+  .delete-modal-content-container
+  .button-container {
+  text-align: center;
+  margin-top: 24px;
+}
+/* End of PRODUCT - DELETE - MODAL */
+
+/* Start of PRODUCT - ADD - MODAL */
+.product-add-modal-container {
+  /* Hide at default */
+  display: none;
+
+  /* Styling */
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 50px 275px 0 275px;
+  background-color: var(--black-80);
+
+  /* Positioning */
+  position: absolute;
+  z-index: 2;
+}
+
+.product-add-modal-container .add-modal-content-container .top {
+  font-size: var(--font-500);
+  font-weight: bold;
+  color: var(--black-80);
+  padding-top: 62px;
+  margin-left: 35px;
+  margin-bottom: 35px;
+}
+
+.product-add-modal-container .add-modal-content-container .fields-container {
+  justify-content: space-between;
+  margin: 0 35px;
+  flex-wrap: wrap;
+}
+
+.product-add-modal-container
+  .add-modal-content-container
+  .fields-container
+  > div {
+  width: 30%;
+  min-height: 30vw;
+}
+
+.product-add-modal-container
+  .add-modal-content-container
+  .fields-container
+  .single-field {
+  margin-bottom: 32px;
+}
+
+.product-add-modal-container
+  .add-modal-content-container
+  .fields-container
+  .single-field
+  > p {
+  font-size: var(--font-200);
+  font-weight: bold;
+  color: var(--black-base);
+  margin-bottom: 8px;
+}
+
+.product-add-modal-container
+  .add-modal-content-container
+  .fields-container
+  .single-field
+  > input {
+  text-indent: 16px;
+  padding: 19px 0;
+  border-radius: 8px;
+  border: 2px solid #d1d1d1;
+  width: 100%;
+}
+
+.product-add-modal-container textarea {
+  border-radius: 8px;
+  border: 2px solid #d1d1d1;
+  width: 100%;
+}
+
+.product-add-modal-container
+  .add-modal-content-container
+  .single-field
+  .product-message {
+  height: 290px;
+  word-wrap: break-word;
+}
+
+.product-add-modal-container
+  .add-modal-content-container
+  .fields-container
+  .button-container {
+  margin-bottom: 23px;
+  display: block;
+  float: right;
+}
+/* End of PRODUCT - ADD - MODAL */
+
+/* Start of BRAND - ADD - MODAL */
+.brand-add-modal-container {
+  /* Hide at default */
+  display: none;
+
+  /* Styling */
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 50px 320px;
+  background-color: var(--black-80);
+
+  /* Positioning */
+  position: absolute;
+  z-index: 2;
+}
+
+.brand-add-modal-container .modal-content-container {
+  /* border: 3px solid red; */
+  border-radius: 8px;
+  background-color: var(--white-base);
+  min-height: 70vh;
+  width: 60%;
+}
+
+.brand-add-modal-container .modal-content-container .top {
+  font-size: var(--font-500);
+  font-weight: bold;
+  color: var(--black-80);
+  padding-top: 80px;
+  margin-left: 40px;
+}
+
+.brand-add-modal-container .modal-content-container .brand-add-exit {
+  float: right;
+  color: black;
+  margin-top: 28px;
+  margin-right: 28px;
+  cursor: pointer;
+}
+
+/* For the search bar */
+.brand-add-modal-container .modal-content-container .searchbar-container {
+  text-align: center;
+  margin-top: 66px;
+}
+
+.brand-add-modal-container .modal-content-container .searchbar-container i {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  right: 30px;
+}
+
+.brand-add-modal-container .modal-content-container .searchbar-container input {
+  width: 500px;
+  padding: 10px 0;
+  text-indent: 20px;
+  border-radius: 20px;
+}
+
+.brand-add-modal-container
+  .modal-content-container
+  .searchbar-container
+  input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px red;
+  transition: 200ms all ease-in-out;
+}
+
+.brand-add-modal-container .modal-content-container .result-container {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.brand-add-modal-container .modal-content-container .result-container a:hover {
+  text-decoration: underline;
+}
+
+.brand-add-modal-container .modal-content-container .button-container {
+  text-align: center;
+  margin-top: 24px;
+}
+/* End of BRAND - ADD - MODAL */
+
+/* Start of BRAND - DELETE - MODAL */
+.brand-delete-modal-container {
+  /* Hide at default */
+  display: none;
+
+  /* Styling */
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 50px 320px;
+  background-color: var(--black-80);
+
+  /* Positioning */
+  position: absolute;
+  z-index: 2;
+}
+
+.brand-delete-modal-container .modal-content-container {
+  /* border: 3px solid red; */
+  border-radius: 8px;
+  background-color: var(--white-base);
+  min-height: 70vh;
+  width: 60%;
+}
+
+.brand-delete-modal-container .modal-content-container .top {
+  font-size: var(--font-500);
+  font-weight: bold;
+  color: var(--black-80);
+  padding-top: 80px;
+  margin-left: 40px;
+}
+
+.brand-delete-modal-container .modal-content-container .exit {
+  float: right;
+  color: black;
+  margin-top: 28px;
+  margin-right: 28px;
+  cursor: pointer;
+}
+
+/* For the search bar */
+.brand-delete-modal-container .modal-content-container .searchbar-container {
+  text-align: center;
+  margin-top: 66px;
+}
+
+.brand-delete-modal-container .modal-content-container .searchbar-container i {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  right: 30px;
+}
+
+.brand-delete-modal-container
+  .modal-content-container
+  .searchbar-container
+  input {
+  width: 500px;
+  padding: 10px 0;
+  text-indent: 20px;
+  border-radius: 20px;
+}
+
+.brand-delete-modal-container
+  .modal-content-container
+  .searchbar-container
+  input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px red;
+  transition: 200ms all ease-in-out;
+}
+
+.brand-delete-modal-container .modal-content-container .result-container {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.brand-delete-modal-container
+  .modal-content-container
+  .result-container
+  a:hover {
+  text-decoration: underline;
+}
+
+.brand-delete-modal-container .modal-content-container .button-container {
+  text-align: center;
+  margin-top: 24px;
+}
+/* End of BRAND - DELETE - MODAL */
+
+/* ADD CATEGORY MODAL */
+/* The Modal (background) */
+.add-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(34, 24, 28, 0.8);
+  place-items: center;
+}
+
+.add-category-modal-content {
+  position: relative;
+  border-radius: 8px;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 1000px;
+  height: 700px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.add-category-modal-header {
+  margin-top: 64px;
+  margin-left: 40px;
+  margin-bottom: 40px;
+}
+
+.add-category-modal-body {
+  padding: 8px 0px;
+}
+
+.add-category-modal-header h2 {
+  font-size: var(--font-500);
+  color: var(--black-base);
+}
+
+.add-category-modal-body table {
+  table-layout: auto;
+  width: 100%;
+  margin-left: 40px;
+}
+
+.add-category-modal-body th {
+  font-size: var(--font-200);
+  padding-bottom: 8px;
+  text-align: left;
+  color: var(--black-base);
+}
+
+.add-category-modal-body input {
+  width: 250px;
+  height: 57px;
+  padding: 19px 12.5px 19px 16.41px;
+  display: inline-block;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  background: #f1f1f1;
+  margin-bottom: 2rem;
+}
+
+.add-category-modal-body input:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.add-category-modal-body textarea {
+  width: 403px;
+  height: 181px;
+  padding: 19px 12.5px 19px 16.41px;
+  display: inline-block;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  background: #f1f1f1;
+  margin-bottom: 2rem;
+}
+
+.add-category-modal-body textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.add-category-modal-body td {
+  vertical-align: top;
+  text-align: left;
+  color: var(--black-base);
+}
+
+#add-category-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+#add-category-button:hover {
+  opacity: 1;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: -10;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: -10;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.add-category-close {
+  position: absolute;
+  color: #000000;
+  width: 12.01px;
+  height: 12px;
+  font-size: 28px;
+  font-weight: bold;
+  top: 7.99px;
+  left: 960px;
+}
+
+.add-category-close:hover,
+.add-category-close:focus {
+  color: #ddd;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Ipad Pro screen  */
+@media screen and (max-width: 985px) {
+  .add-category-close {
+    left: 960px;
+  }
+
+  /* label {
+      font-size: var(--font-base);
+  } */
+}
+
+/* Ipad screen */
+@media screen and (min-width: 921px) and (max-width: 984px) {
+  .add-category-modal-content {
+    width: 984px;
+  }
+
+  .add-category-close {
+    left: 910px;
+  }
+
+  /* label {
+      font-size: var(--font-base);
+  } */
+
+  #add-category-button {
+    margin-left: 692px;
+    margin-right: 44px;
+  }
+}
+
+/* Small Tablet screen */
+@media screen and (min-width: 880px) and (max-width: 920px) {
+  .add-category-modal-content {
+    width: 920px;
+  }
+
+  .add-category-close {
+    left: 860px;
+  }
+
+  /* label {
+      font-size: var(--font-base);
+  } */
+
+  #add-category-button {
+    margin-left: 675.4px;
+    margin-right: 44px;
+  }
+}
+
+/* Iphone X screen */
+@media screen and (min-width: 835px) and (max-width: 879px) {
+  .add-category-modal-content {
+    width: 879px;
+  }
+
+  .add-category-close {
+    left: 815px;
+  }
+
+  /* label {
+      font-size: var(--font-base);
+  } */
+
+  #add-category-button {
+    margin-left: 627.4px;
+    margin-right: 44px;
+  }
+}
+
+/* Iphone 6/7/8 screen */
+@media screen and (min-width: 794px) and (max-width: 834px) {
+  .add-category-modal-content {
+    width: 834px;
+  }
+
+  .add-category-close {
+    left: 765px;
+  }
+
+  /* label {
+      font-size: var(--font-base);
+  } */
+
+  #add-category-button {
+    margin-left: 610px;
+    margin-right: 44px;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 793px) {
+  .add-category-modal-content {
+    width: 793px;
+  }
+
+  .add-category-close {
+    left: 735px;
+  }
+
+  /* label {
+      font-size: var(--font-base);
+  } */
+
+  #add-category-button {
+    margin-left: 576px;
+    margin-right: 44px;
+  }
+}
+
+@media screen and (min-width: 709px) and (max-width: 749px) {
+  .add-category-modal-content {
+    width: 749px;
+  }
+
+  .add-category-close {
+    left: 705px;
+  }
+
+  .add-category-modal-body input {
+    width: 220px;
+  }
+
+  .add-category-modal-body textarea {
+    width: 393px;
+  }
+
+  #add-category-button {
+    margin-left: 536px;
+    margin-right: 44px;
+  }
+}
+
+@media screen and (min-width: 660px) and (max-width: 708px) {
+  .add-category-modal-content {
+    width: 708px;
+  }
+
+  .add-category-close {
+    left: 685px;
+  }
+
+  .add-category-modal-body input {
+    width: 190px;
+  }
+
+  .add-category-modal-body textarea {
+    width: 363px;
+  }
+
+  #add-category-button {
+    margin-left: 496px;
+    margin-right: 44px;
+  }
+}
+
+@media screen and (min-width: 602px) and (max-width: 659px) {
+  .add-category-modal-content {
+    width: 659px;
+  }
+
+  .add-category-modal-body th {
+    font-size: var(--font-base);
+  }
+
+  .add-category-close {
+    left: 635px;
+  }
+
+  .add-category-modal-body input {
+    width: 150px;
+  }
+
+  .add-category-modal-body textarea {
+    width: 333px;
+  }
+  #add-category-button {
+    margin-left: 450px;
+    margin-right: 44px;
+  }
+}
+
+@media screen and (max-width: 601px) {
+  .add-category-modal-content {
+    width: 601px;
+  }
+
+  .add-category-close {
+    left: 560px;
+  }
+
+  .add-category-modal-body th {
+    font-size: var(--font-base);
+  }
+
+  .add-category-modal-body input {
+    width: 150px;
+  }
+
+  .add-category-modal-body textarea {
+    width: 250px;
+  }
+
+  #add-category-button {
+    margin-left: 380px;
+    margin-right: 44px;
+  }
+}
+
+/* DELETE CATEGORY MODAL */
+.deleteModal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(34, 24, 28, 0.8);
+  place-items: center;
+}
+
+/* Modal Content */
+.content-delete-category {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 900px;
+  height: 700px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.header-delete-category h2 {
+  font-size: var(--font-500);
+  color: var(--black-base);
+  margin-top: 80px;
+  margin-left: 40px;
+  margin-bottom: 56px;
+}
+
+#search-bar {
+  position: absolute;
+  left: 12.5rem;
+  height: 42px;
+  width: 500px;
+  padding: 10px 26px;
+  font-size: 12.8px;
+  border-radius: 110px;
+  border-style: none;
+  box-shadow: 1px 1px 8px 0.5px #ddd;
+}
+
+#search-bar:focus {
+  background: #fffaff;
+  outline: none;
+}
+
+.body-delete-category p {
+  position: absolute;
+  text-align: center;
+  width: 220px;
+  height: 19px;
+  font-size: 12.8px;
+  line-height: 19.2px;
+  left: 340px;
+  right: 340px;
+  top: 273px;
+}
+
+#delete-category-button {
+  position: absolute;
+  bottom: 20.125rem;
+  right: 20.125rem;
+}
+
+#delete-category-button:hover {
+  opacity: 1;
+}
+
+/* The Close Button */
+.close-delete-category-modal {
+  position: absolute;
+  color: #000000;
+  width: 12.01px;
+  height: 12px;
+  font-size: 28px;
+  font-weight: bold;
+  top: 17.99px;
+  right: 27.99;
+  left: 860px;
+}
+
+.close-delete-category-modal:hover,
+.close-delete-category-modal:focus {
+  color: #ddd;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 841px) and (max-width: 880px) {
+  .content-delete-category {
+    width: 872px;
+    height: 700px;
+  }
+
+  #search-bar {
+    right: 193.777px;
+    left: 193.777px;
+  }
+
+  .body-delete-category p {
+    right: 329.616px;
+    left: 329.616px;
+  }
+
+  #delete-category-button {
+    left: 322.204px;
+  }
+
+  .close-delete-category-modal {
+    left: 833px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 840px) {
+  .content-delete-category {
+    width: 838px;
+    height: 700px;
+  }
+
+  #search-bar {
+    right: 186.036px;
+    left: 186.036px;
+  }
+
+  .body-delete-category p {
+    left: 313.764px;
+  }
+
+  #delete-category-button {
+    left: 309.641px;
+  }
+
+  .close-delete-category-modal {
+    left: 796px;
+  }
+}
+
+@media screen and (min-width: 737px) and (max-width: 768px) {
+  .content-delete-category {
+    width: 760px;
+    height: 700px;
+  }
+
+  #search-bar {
+    right: 168.72px;
+    left: 168.72px;
+  }
+
+  .body-delete-category p {
+    left: 287.28px;
+    right: 287.28px;
+  }
+
+  #delete-category-button {
+    left: 283.776px;
+  }
+
+  .close-delete-category-modal {
+    left: 722px;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 736px) {
+  .content-delete-category {
+    width: 720px;
+    height: 700px;
+  }
+
+  #search-bar {
+    left: 140px;
+    width: 440px;
+  }
+
+  .body-delete-category p {
+    left: 270.28px;
+  }
+
+  #delete-category-button {
+    left: 260px;
+  }
+
+  .close-delete-category-modal {
+    left: 684px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-delete-category h2 {
+    font-size: var(--font-400);
+  }
+
+  .content-delete-category {
+    width: 590px;
+    height: 700px;
+  }
+
+  #search-bar {
+    left: 100px;
+    width: 400px;
+  }
+
+  .body-delete-category p {
+    left: 203.02px;
+  }
+
+  #delete-category-button {
+    left: 198.005px;
+  }
+
+  .close-delete-category-modal {
+    left: 555px;
+  }
+}
+
+/* ADD IMAGE GALLERY MODAL */
+.add-image-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(34, 24, 28, 0.8);
+  place-items: center;
+}
+
+/* Modal Content */
+.add-image-modal-content {
+  position: relative;
+  border-radius: 8px;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 1000px;
+  height: 700px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.add-image-modal-header {
+  margin-top: 64px;
+  margin-left: 40px;
+  margin-bottom: 32px;
+}
+
+.add-image-modal-header h2 {
+  font-size: var(--font-500);
+  color: var(--black-base);
+}
+
+.add-image-modal-body {
+  margin-left: 40px;
+  margin-right: 710px;
+}
+
+.add-image-modal-body label {
+  font-size: var(--font-200);
+  color: var(--black-base);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.add-image-modal-body input {
+  width: 250px;
+  height: 57px;
+  padding: 19px 12.5px 19px 16.41px;
+  display: inline-block;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  background: #f1f1f1;
+  margin-bottom: 2rem;
+}
+
+.add-image-modal-body input:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+#add-image-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+#add-image-button:hover {
+  opacity: 1;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: -10;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: -10;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.add-image-close {
+  position: absolute;
+  color: #000000;
+  width: 12.01px;
+  height: 12px;
+  font-size: 28px;
+  font-weight: bold;
+  top: 17.99px;
+  left: 960px;
+}
+
+.add-image-close:hover,
+.add-image-close:focus {
+  color: #ddd;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Ipad Pro screen  */
+@media screen and (max-width: 985px) {
+  .add-image-modal-body {
+    right: 681.6px;
+  }
+
+  .add-image-close {
+    left: 950px;
+  }
+
+  /* label {
+      font-size: var(--font-base);
+  } */
+
+  #add-image-button {
+    left: 744.4px;
+  }
+}
+
+/* Ipad screen */
+@media screen and (min-width: 921px) and (max-width: 984px) {
+  .add-image-modal-body {
+    right: 455.11px;
+  }
+
+  .add-image-modal-content {
+    width: 960px;
+  }
+
+  .add-image-close {
+    left: 910px;
+  }
+
+  /* label {
+      font-size: var(--font-base);
+  } */
+
+  #add-image-button {
+    left: 750px;
+  }
+}
+
+/* Small Tablet screen */
+@media screen and (min-width: 880px) and (max-width: 920px) {
+  .add-image-modal-body {
+    right: 455.11px;
+  }
+
+  .add-image-modal-content {
+    width: 880px;
+  }
+
+  .add-image-close {
+    left: 850px;
+  }
+
+  #add-image-button {
+    left: 665px;
+  }
+}
+
+/* Iphone X screen */
+@media screen and (min-width: 835px) and (max-width: 879px) {
+  .add-image-modal-body {
+    right: 455.11px;
+  }
+
+  .add-image-modal-content {
+    width: 875px;
+  }
+
+  .add-image-close {
+    left: 830px;
+  }
+
+  /* label {
+      font-size: var(--font-base);
+  } */
+
+  #add-image-button {
+    left: 635px;
+  }
+}
+
+/* Iphone 6/7/8 screen */
+@media screen and (min-width: 794px) and (max-width: 834px) {
+  .add-image-modal-body {
+    right: 455.11px;
+  }
+
+  .add-image-modal-content {
+    width: 790px;
+  }
+
+  .add-image-close {
+    left: 755px;
+  }
+
+  #add-image-button {
+    left: 566px;
+  }
+}
+
+@media screen and (min-width: 755px) and (max-width: 793px) {
+  .add-image-modal-body {
+    right: 455.11px;
+  }
+
+  .add-image-modal-content {
+    width: 785px;
+  }
+
+  .add-image-close {
+    left: 735px;
+  }
+
+  #add-image-button {
+    left: 605px;
+  }
+}
+
+@media screen and (min-width: 709px) and (max-width: 754px) {
+  .add-image-modal-body {
+    right: 425.11px;
+  }
+
+  .add-image-modal-content {
+    width: 740px;
+  }
+
+  .add-image-close {
+    left: 705px;
+  }
+
+  #add-image-button {
+    left: 555px;
+  }
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+/* ------------------------------------------ Responsive ------------------------------------- */
+@media only screen and (max-width: 1024px) {
+  .right .searchbar-container input {
+    width: 150px;
+  }
+  .right .searchbar-container input::placeholder {
+    font-size: 8px;
+  }
+  .right .searchbar-container i {
+    font-size: 10px;
+  }
+  .statistics p {
+    font-size: var(--font-small);
+  }
+  .right tr th {
+    font-size: var(--font-100);
+  }
+  .customer-delete-modal-container,
+  .product-add-modal-container,
+  .product-delete-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .product-add-modal-container,
+  .product-delete-modal-container,
+  .customer-delete-modal-container {
+    padding: 0;
+  }
+  .product-delete-modal-container .delete-modal-content-container,
+  .product-add-modal-container .add-modal-content-container,
+  .customer-delete-modal-container .modal-content-container {
+    margin: 3rem auto;
+  }
+  .product-add-modal-container .add-modal-content-container,
+  .customer-delete-modal-container .modal-content-container {
+    width: 80%;
+  }
+  .product-delete-modal-container
+    .delete-modal-content-container
+    .searchbar-container
+    input,
+  .customer-delete-modal-container
+    .modal-content-container
+    .searchbar-container
+    input {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .flex {
+    flex-direction: column;
+  }
+  .choice-container ul {
+    width: 60%;
+  }
+  .left .avatar-container {
+    margin: 1rem 0;
+  }
+  .left .avatar-container .name {
+    font-size: var(--font-400);
+  }
+  .left #log-out-button {
+    margin-top: 2rem;
+  }
+  .left {
+    height: 40%;
+    flex-grow: 1;
+  }
+  .right {
+    width: 100%;
+    height: 100%;
+  }
+  .product-add-modal-container
+    .add-modal-content-container
+    .fields-container
+    > div {
+    width: 100%;
+  }
+  .product-delete-modal-container .delete-modal-content-container .exit,
+  .product-add-modal-container .add-modal-content-container .exit {
+    font-size: 2rem;
+  }
+
+  .product-delete-modal-container
+    .delete-modal-content-container
+    .searchbar-container
+    input,
+  .customer-delete-modal-container
+    .modal-content-container
+    .searchbar-container
+    input {
+    width: 250px;
+  }
+  .product-delete-modal-container .delete-modal-content-container,
+  .product-add-modal-container .add-modal-content-container,
+  .customer-delete-modal-container .modal-content-container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .choice-container ul {
+    width: 100%;
+  }
+  .right .searchbar-container {
+    width: 100%;
+    position: relative;
+  }
+  .right .searchbar-container input {
+    width: 100%;
+    margin-top: 0.7rem;
+  }
+  .right .searchbar-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    display: inline-block;
+  }
+  .right table tbody {
+    display: flex;
+    gap: 1rem;
+  }
+  .right tr th {
+    font-size: var(--font-small);
+    padding: 0;
+  }
+  .table-header,
+  .right table tr {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  table td {
+    padding: 0;
+    width: 20ch;
+  }
+  .product-delete-modal-container .delete-modal-content-container .top,
+  .customer-delete-modal-container .modal-content-container .top {
+    font-size: var(--font-300);
+  }
+}

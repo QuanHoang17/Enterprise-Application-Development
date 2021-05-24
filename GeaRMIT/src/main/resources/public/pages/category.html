@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category | GeaRMIT</title>
+    <link rel="shortcut icon" href="../assets/gaming-icon.jpeg" type="image/x-icon">
+
+    <!-- CSS files for JQuery -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <!-- Project CSS files -->
+    <link rel="stylesheet" href="../css/ult.css">
+    <link rel="stylesheet" href="../css/all.min.css">
+   
+    <link rel="stylesheet" href="../css/category.css">
+</head>
+<body>
+    <!-- This is header -->
+    <div id="header">
+        <div class="header-top-container">
+            <!-- Start of header top -->
+            <div class="header-top">
+                <div class="left-header-top">
+                    <a href="#">+84 123 456 789</a>
+                    <a href="mailto:info@geaRMIT.com">info@geaRMIT.com</a>
+                </div>
+                <a href="../index.html" id="site-logo"><img src="../assets/gaming-icon.jpeg" alt="GeaRMIT logo"></a>
+                <div class="icon">
+                    <a target="_blank" href="./login.html" class="user-icon"><i class="far fa-user"></i></a>
+                    <a href="" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+            <!-- End of header top -->
+        </div>
+    
+    
+        <!-- Start of header mid -->
+        <div class="header-mid">
+    
+            <!-- Dropdown menu -->
+            <div class="dropdown">
+                <button class="drop-button">Category <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a target="_blank" href="./category.html?&category=Mouse">Mouse</a>
+                    <a target="_blank" href="./category.html?&category=Headsets">Headsets</a>
+                    <a target="_blank" href="./category.html?&category=Mouse%20Pads">Mouse Pads</a>
+                    <a target="_blank" href="./category.html?&category=Keyboard">Keyboard</a>
+                    <a target="_blank" href="./category.html?&category=Microphones">Microphones</a>
+    
+                </div>
+            </div>
+    
+            <!-- Search bar -->
+            <div class="search-bar">
+                <input type="text" name="search" id="index-search-bar" placeholder="Search a product name..." /><i
+                    class="fas fa-search"></i>
+            </div>
+    
+            <!-- Contact us -->
+            <a target="_blank" href="./contact.html" class="contact-us">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- End of header -->
+
+    <!-- This is section -->
+    <section>
+        <div class="container">
+            <!-- This is left -->
+            <div class="left">
+                <!-- Bread crumb -->
+                <div class="bread-crumb">
+                    <p class="first">Homepage</p>
+                    <span>></span>
+                    <p class="middle">Category</p>
+                    <span>></span>
+                    <p class="last">Mouse</p>
+                </div>
+
+                <!-- Brand -->
+                <div class="brand">
+                    <h2>Brand</h2>
+
+                    <!-- Brand options -->
+                    <div class="brand-choice-container" id="brand-choice-container">
+                        <div class="choice op brand-choice brand-active" data-brand="all">
+                            <i class="fas fa-check-circle all-icon"></i>
+                            <label class="all-label">All</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price range -->
+                <div class="price-range">
+                    <h2>Price range</h2>
+
+                    <!-- Slider using JQuery-->
+                    <div id="slider-range"></div>
+
+                    <!-- Range input -->
+                    <div class="input-container">
+                        <div class="min">
+                            <p>Min</p>
+                            <input type="number" placeholder="0" class="min-value" id="min-price">
+                        </div>
+
+                        <div class="max">
+                            <p>Max</p>
+                            <input type="number" placeholder="100" class="max-value" id="max-price">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Type -->
+                <div class="color">
+                    <h2>Color</h2>
+
+                    <!-- Type options -->
+                    <div class="color-choice-container" id="color-choice-container">
+                        <div class="choice color-choice color-active" data-color="all">
+                            <i class="fas fa-check-circle"></i>
+                            <label for="">All</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="primary-cta--medium apply-button" id="apply-filter-button">Apply Filters</button>
+            </div>
+
+            <!-- This is right -->
+            <div class="right">
+                <div class="result-text-container">
+                    <p>Results filtered found: <span class="quantity" id="product-quantity">0</span> items</p>
+
+                    <div class="sort-container">
+                        <!-- For the dropdown -->
+                        <div class="dropdown">
+                            <div class="text-container flex">
+                                <p class="sort-by">Sort by</p>
+                                <span>|</span>
+                                <div class="dropdown-trigger flex">
+                                    <p class="sort-field">Name a - z</p> 
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="dropdown-content">
+                                <p class="sort-value" data-sort-field="name" data-sort-direction="ascending">Name a - z</p>
+                                <p class="sort-value" data-sort-field="name" data-sort-direction="descending">Name z - a</p>
+                                <p class="sort-value" data-sort-field="price" data-sort-direction="ascending">Price ascending</p>
+                                <p class="sort-value" data-sort-field="price" data-sort-direction="descending">Price descending</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products grid -->
+                <div class="grid-container" id="grid-container">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of section -->
+
+    <!-- This is footer -->
+    <div id="index-footer">
+        <div class="footer-container">
+            <div class="Footer">
+    
+                <div class="column">
+                    <h4>Connections</h4>
+                    <a href="">Facebook</a>
+                    <a href="">Twitter</a>
+                    <a href="">Instagram</a>
+                    <a href="">Youtube</a>
+                    <a href="">Linkedln</a>
+                </div>
+                <div class="column">
+                    <h4>Menu</h4>
+                    <a target="_blank" href="./category.html?&category=Mouse">Mouse</a>
+                    <a target="_blank" href="./category.html?&category=Headsets">Headsets</a>
+                    <a target="_blank" href="./category.html?&category=Mouse%20Pads">Mouse Pads</a>
+                    <a target="_blank" href="./category.html?&category=Keyboard">Keyboard</a>
+                    <a target="_blank" href="./category.html?&category=Microphones">Microphones</a>
+                </div>
+    
+                <div class="map">
+                    <iframe class="embedded-map"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15680.254977096798!2d106.6930756!3d10.729567!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfae94aca5709003f!2sRMIT%20University%20Vietnam%2C%20Saigon%20South%20campus!5e0!3m2!1sen!2s!4v1619965996182!5m2!1sen!2s"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+    
+            </div>
+            <p id="copyright">Copyright © 2021 GeaRMIT.com</p>
+        </div>
+    
+    </div>
+
+    <!-- End of footer -->
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../js/category.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
