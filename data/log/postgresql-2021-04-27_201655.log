@@ -1,9 +1,0 @@
-2021-04-27 20:16:55.522 +07 [16988] LOG:  starting PostgreSQL 13.2, compiled by Visual C++ build 1914, 64-bit
-2021-04-27 20:16:55.526 +07 [16988] LOG:  listening on IPv6 address "::", port 5432
-2021-04-27 20:16:55.530 +07 [16988] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-2021-04-27 20:16:55.587 +07 [18192] LOG:  database system was shut down at 2021-04-27 20:16:48 +07
-2021-04-27 20:16:55.617 +07 [16988] LOG:  database system is ready to accept connections
-2021-04-27 21:06:24.846 +07 [8388] FATAL:  password authentication failed for user "postgres"
-2021-04-27 21:06:24.846 +07 [8388] DETAIL:  Connection matched pg_hba.conf line 88: "host    all             all             ::1/128                 scram-sha-256"
-2021-04-27 23:25:12.223 +07 [10940] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
-	
