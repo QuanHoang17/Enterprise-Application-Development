@@ -55,13 +55,13 @@ Make sure you are connected to the Internet to use the mail server for account c
   - Before exiting the page, make sure to logout or the admin username will be saved to the browser
 
 <a name="problems"></a>
-## Common problems
+## Acknowledged problems
 - Dependency problem: In Intellij in Maven tab, click "Download Sources" -> Click "Reload All Maven Projects"
-- Mail Server problem: 
+- Mail Server problems: 
   - Some network block connection to gmail smpt server (Ex: RMIT University network) so connect to a differenct network.
   - If the problem persist: disable firewall and anti virus software.
   - If the problem continue to persist: Comment out line 87 in "CustomerServiceI.java" in "src/main/java/com/group5/gearmit/service".
-- AWS database connection problem:
+- AWS database connection problems:
   - Some network block connection to AWS (Ex: RMIT University network) so connect to a different network.
   - If the problem persist, switch back to localhost and contact the group via email.
 
