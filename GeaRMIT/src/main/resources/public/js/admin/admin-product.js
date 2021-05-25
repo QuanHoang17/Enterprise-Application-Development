@@ -214,14 +214,12 @@ addBtn.addEventListener("click", (e) => {
     let formData = {
         "name": productName,
         "issueDate" : date,
-        "price": price,
-        "quantity": productQuantity,
+        "price": parseInt(price),
+        "quantity": parseInt(productQuantity),
         "brandId": brandId,
-        "category": categoryId,
+        "categoryId": categoryId,
         "description": description,
-        "color": [colorList]
-
-
+        "color": colorList.split(", ")
     };
 
     console.log(formData);
@@ -242,7 +240,6 @@ const sendDataToServer = async (data) => {
         body: JSON.stringify(data)
     }
         );
-
     response.json().then(({status}) => 
         {if (status !== 'failed'){
            alert("Successfully Added Item");
