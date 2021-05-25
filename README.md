@@ -32,6 +32,15 @@ Before building the project, make sure you have JDK 16 SE installed to run the p
 
 Make sure you are connected to the Internet to use the mail server for account confirmation.
 
+**Quick run:**
+Make sure you have Apache Maven 3.8 installed to quickly build and run the project
+1. Navigate to the <code>GeaRMIT</code> project folder
+2. Open the folder in Terminal/Command line. Make sure the currently opened folder contains the <code>pom.xml</code> file
+3. Type in the following command for Maven to build the project automatically: <code>mvn spring-boot:run</code>
+4. Go to <code>localhost:8080</code> on your web browser
+5. Pay
+
+
 **To use localhost database:**
   + Create a local postgres database name "gearmit" with the user name "postgres" and password "root" on port 5432
   + Create a schema in "gearmit" name "public"
