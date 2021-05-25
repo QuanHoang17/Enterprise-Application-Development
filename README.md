@@ -38,7 +38,7 @@ Make sure you have Apache Maven 3.8 installed to quickly build and run the proje
 2. Open the folder in Terminal/Command line. Make sure the currently opened folder contains the <code>pom.xml</code> file
 3. Type in the following command for Maven to build the project automatically: <code>mvn spring-boot:run</code>
 4. Go to <code>localhost:8080</code> on your web browser
-5. Pay
+5. Give us full HD
 
 
 **To use localhost database:**
