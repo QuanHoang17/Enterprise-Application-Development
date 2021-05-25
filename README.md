@@ -13,6 +13,7 @@
   + Comment out line 5 - 7 (Below comment "#Localhost")
   + Uncomment line 10 - 12 (Below comment "#AWS")
   + To switch back to localhost from AWS, do the opposite
+- Open the folder GeaRMIT with Intellij
 - Run "create.sql" to drop all table and create table for the schema of database
 - Run "populate.sql" to drop all records and add default data to the table of the database
 - Run "GeaRmitApplication.java" in "src/main/java/com/group5/gearmit/" with Intellij to run the project
