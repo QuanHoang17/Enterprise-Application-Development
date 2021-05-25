@@ -6,8 +6,8 @@
 - Make sure the project sdk is Java 16 and language level is 16 or SDK default
 - Make sure you are connected to the Internet to use the mail server
 - To use localhost database:
-  + Create a local postgres database name "geaRMIT" with the user name "postgres" and password "root"
-  + Create a schema in "geaRMIT" name "public"
+  + Create a local postgres database name "gearmit" with the user name "postgres" and password "root"
+  + Create a schema in "gearmit" name "public"
 - To use AWS database:
   + Open application.properties file in "src/main/resources/"
   + Comment out line 5 - 7 (Below comment "#Localhost")
