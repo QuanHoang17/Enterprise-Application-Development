@@ -55,7 +55,7 @@ async function validateLogin(userName, password) {
     };
     let res;
     try {
-        res = await fetch("http://localhost:8080/api/login", {
+        res = await fetch(`${window.location.origin}/api/login`, {
             method: 'POST',
             headers: {
             'Accept': 'application/json',

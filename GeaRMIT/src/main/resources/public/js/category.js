@@ -56,7 +56,7 @@ function renderProductList() {
             productContainer.innerHTML +=
                 `<div class="content-container">
                     <div class="img-container">
-                        <img src="http://localhost:8080/api/image/${product["imageName"][0]}" alt="product image">
+                        <img src="${window.location.origin}/api/image/${product["imageName"][0]}" alt="product image">
                     </div>
                     
                     <p class="title">${product.name}</p>
@@ -188,7 +188,7 @@ function sortProduct(option, direction) {
 }
 
 // Request product
-fetch(`http://localhost:8080/api/product/category_name/${categoryName}`)
+fetch(`${window.location.origin}/api/product/category_name/${categoryName}`)
     .then(data => data.json())
     .then(json => {
         // Display product, create brand array, color array and product array

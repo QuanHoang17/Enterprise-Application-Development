@@ -17,7 +17,7 @@ var colorList = [];
 const itemName = new URLSearchParams(window.location.search).get('name');
 console.log(itemName);
 
-fetch(`http://localhost:8080/api/product/name/${itemName}`)
+fetch(`${window.location.origin}/api/product/name/${itemName}`)
     .then(response => response.json())
     .then(product => {
         console.log(product);
@@ -59,13 +59,13 @@ fetch(`http://localhost:8080/api/product/name/${itemName}`)
 
         // Controller for images
         // Change image for main pic and first small pic
-        mainPic.src = `http://localhost:8080/api/image/${imgList[0]}`;
+        mainPic.src = `${window.location.origin}/api/image/${imgList[0]}`;
 
         document.querySelector(".small-pics").innerHTML +=
         `
         <div class="small-pic-container">
             <div class="img-container">
-                <img src="http://localhost:8080/api/image/${imgList[0]}" alt="" class="small-pic img-active">
+                <img src="${window.location.origin}/api/image/${imgList[0]}" alt="" class="small-pic img-active">
             </div>
         </div>
         `;
@@ -76,7 +76,7 @@ fetch(`http://localhost:8080/api/product/name/${itemName}`)
             `
             <div class="small-pic-container">
                 <div class="img-container">
-                    <img src="http://localhost:8080/api/image/${imgList[i]}" alt="" class="small-pic">
+                    <img src="${window.location.origin}/api/image/${imgList[i]}" alt="" class="small-pic">
                 </div>
             </div>
             `;

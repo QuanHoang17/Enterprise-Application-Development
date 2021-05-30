@@ -2,7 +2,7 @@
     
 // ------------------------------- Fetch Data into Table -------------------------------//
 let dataFetched = [];
-const productUrl = 'http://localhost:8080/api/product';
+const productUrl = `${window.location.origin}/api/product`;
 fetch(productUrl)
 .then(response => response.json())
 .then(data => {
@@ -18,9 +18,9 @@ fetch(productUrl)
         <td>${new Date(issueDate).toLocaleDateString()}</td>
 
         <td>
-            <div><a target="_blank" href="http://localhost:8080/api/image/${image1}">${image1}<i class="fas fa-external-link-alt"></i></a></div>
-            <div><a target="_blank" href="http://localhost:8080/api/image/${image2}">${image2}<i class="fas fa-external-link-alt"></i></a></div>
-            <div><a target="_blank" href="http://localhost:8080/api/image/${image3}">${image3}<i class="fas fa-external-link-alt"></i></a></div>
+            <div><a target="_blank" href="${window.location.origin}/api/image/${image1}">${image1}<i class="fas fa-external-link-alt"></i></a></div>
+            <div><a target="_blank" href="${window.location.origin}/api/image/${image2}">${image2}<i class="fas fa-external-link-alt"></i></a></div>
+            <div><a target="_blank" href="${window.location.origin}/api/image/${image3}">${image3}<i class="fas fa-external-link-alt"></i></a></div>
         </td>
         <td><div><a href="">${brandName}<i class="fas fa-external-link-alt"></i></a></div>
         </td>
@@ -137,7 +137,7 @@ modalSearchBtn.addEventListener("keyup", ({key}) => {
 deleteBtn.addEventListener("click", (e) => {
     
     if (itemToDelete){
-        fetch("http://localhost:8080/api/product/id/" + itemToDelete.id, {
+        fetch(`${window.location.origin}/api/product/id/` + itemToDelete.id, {
             method: 'DELETE',
         })
         .then(response => response.json())

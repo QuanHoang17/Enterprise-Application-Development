@@ -1,6 +1,6 @@
 (()=>{
     let dataFetched = [];
-const imgUrl = 'http://localhost:8080/api/image/info';
+const imgUrl = `${window.location.origin}/api/image/info`;
 fetch(imgUrl)
 .then(response => response.json())
 .then(data => {
@@ -13,7 +13,7 @@ fetch(imgUrl)
     imgRow.innerHTML=`
         <td>${id}</td>
         <td>
-        <a target="_blank" href="http://localhost:8080/api/image/${name}">${name}</a>
+        <a target="_blank" href="${window.location.origin}/api/image/${name}">${name}</a>
         </td> 
     `
 
@@ -119,7 +119,7 @@ addImageBtn.addEventListener("click", async () => {
     formData.append("file", imageFile.files[0]);
     formData.append("info", new Blob([JSON.stringify(productInfo)], {type:"application/json"}));
 
-    let response = await fetch("http://localhost:8080/api/image", {
+    let response = await fetch(`${window.location.origin}/api/image`, {
         method: 'POST',
         body: formData
     });

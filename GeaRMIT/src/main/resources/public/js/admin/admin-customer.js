@@ -1,7 +1,7 @@
 (() =>{
     // ------------------------------- Fetch Data into Table -------------------------------//
 let dataFetched = [];
-const customerUrl = 'http://localhost:8080/api/customer';
+const customerUrl = `${window.location.origin}/api/customer`;
 fetch(customerUrl)
 .then(response => response.json())
 .then(data => {
@@ -100,7 +100,7 @@ deleteTrigger.addEventListener("click", (e) => {
 
 deleteBtn.addEventListener("click", (e) => {
      if (customerToDelete){
-        fetch("http://localhost:8080/api/customer/" + customerToDelete.name, {
+        fetch(`${window.location.origin}/api/customer/` + customerToDelete.name, {
             method: 'DELETE',
         })
         .then(response => response.json())

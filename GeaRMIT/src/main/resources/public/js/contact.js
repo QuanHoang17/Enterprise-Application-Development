@@ -9,7 +9,7 @@
         console.log(JSON.stringify(userMess));
         let res;
         try {
-            res = await fetch("http://localhost:8080/api/message", {
+            res = await fetch(`${window.location.origin}/api/message`, {
                 method: 'POST',
                 headers: {
                 'Accept': 'application/json',

@@ -1,7 +1,7 @@
 (()=>{
     // ------------------------------- Fetch Data into Table -------------------------------//
     let dataFetched = [];
-    const categoryUrl = 'http://localhost:8080/api/category';
+    const categoryUrl = `${window.location.origin}/api/category`;
     fetch(categoryUrl)
     .then(response => response.json())
     .then(data => {
@@ -214,7 +214,7 @@ mainSearchBar.addEventListener('keyup', ({key}) =>{
         e.preventDefault();
 
         if (itemToDelete){
-        fetch("http://localhost:8080/api/category/id/" + itemToDelete.id, {
+        fetch(`${window.location.origin}/api/category/id/` + itemToDelete.id, {
             method: 'DELETE',
         })
         .then(response => response.json())

@@ -8,7 +8,7 @@
     var addBtn = document.querySelector(".brand-add-button");
 
 
-    fetch('http://localhost:8080/api/brand', {
+    fetch(`${window.location.origin}/api/brand`, {
         method: 'GET'
     })
         .then(response => response.json())
@@ -52,7 +52,7 @@ addBtn.addEventListener("click", (e) => {
         'name': brandName
     }
     
-    fetch(`http://localhost:8080/api/brand`, {
+    fetch(`${window.location.origin}/api/brand`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -178,7 +178,7 @@ deleteBtn.addEventListener("click", (e) => {
     let itemToDelete = dataFetched.find(data => data.id === brandId);
 
     if (itemToDelete){
-        fetch("http://localhost:8080/api/brand/id/" + itemToDelete.id, {
+        fetch(`${window.location.origin}/api/brand/id/` + itemToDelete.id, {
             method: 'DELETE',
         })
         .then(response => response.json())

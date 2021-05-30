@@ -1,5 +1,5 @@
 (() => {
-    const productUrl = 'http://localhost:8080/api/product';
+    const productUrl = `${window.location.origin}/api/product`;
     let productFetched = [];
     const fetchProductsFromDatabase = async () => {
         const response = await fetch(productUrl);

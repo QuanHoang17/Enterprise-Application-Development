@@ -1,5 +1,5 @@
 /*------------- FETCH DATA INTO CATEGORY SECTIONS --------------*/
-const productUrl = 'http://localhost:8080/api/product';
+const productUrl = `${window.location.origin}/api/product`;
 let productFetched = [];
 const fetchProductsFromDatabase = async () => {
     const response = await fetch(productUrl);
@@ -15,7 +15,7 @@ const fetchProductsFromDatabase = async () => {
 const displayProductByCategory = (categoryToFilter) => {
     let cardList = productFetched.filter(({ categoryName }) => categoryName === categoryToFilter).map(({ name, quantity, categoryName, price, description, imageName, color }) => {
         let available = 'Outstock';
-        let imgSrc = 'http://localhost:8080/api/image/' + imageName[0];
+        let imgSrc = `${window.location.origin}/api/image/` + imageName[0];
         quantity > 0 ? available = 'Available' : available = 'Outstock';
 
         return createProductCardElement(name, description, price.toString(), categoryName, available, color.join(', '), imgSrc);
@@ -87,7 +87,7 @@ const NUMBER_OF_ITEMS = 4;
 const buildCard = (name, description, price, imageName) => {
     let card = `<div class="best-seller-product-card item">
             <span class="discount">-30%</span>
-            <img src="http://localhost:8080/api/image/${imageName[0]}"
+            <img src="${window.location.origin}/api/image/${imageName[0]}"
                 alt="" class="best-seller-product-image">
             <p class="product-title">${name}</p>
             <p class="product-description">${description}</p>
