@@ -1,9 +1,14 @@
 package com.group5.gearmit.service;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -13,6 +18,15 @@ import java.util.List;
 
 @Service
 public class FileServiceI implements FileService {
+
+    private final AmazonS3 amazonS3;
+
+    private final String BUCKET_NAME = "elasticbeanstalk-ap-southeast-1-622563662550";
+
+    @Autowired
+    public FileServiceI(AmazonS3 amazonS3) {
+        this.amazonS3 = amazonS3;
+    }
 
     private String getFileExtension(MultipartFile file) {
         return file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);
@@ -46,18 +60,28 @@ public class FileServiceI implements FileService {
     public String storeFile(MultipartFile file, String savedName) {
         String fileName = "";
         try {
-            Path imagePath = Paths.get("./images");
-            if (!Files.exists(imagePath)) {
-                Files.createDirectories(imagePath);
-            }
             String fileExtension = getFileExtension(file);
             fileName = savedName + "." + fileExtension;
-            imagePath = Paths.get("./images/" + fileName);
-            Files.copy(file.getInputStream(), imagePath, StandardCopyOption.REPLACE_EXISTING);
+            if (amazonS3.doesBucketExistV2(BUCKET_NAME)) {
+                ObjectMetadata objectMetadata = new ObjectMetadata();
+                objectMetadata.setContentType(file.getContentType());
+                objectMetadata.setContentLength(file.getSize());
+                amazonS3.putObject(BUCKET_NAME, "images/" + fileName, file.getInputStream(), objectMetadata);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return fileName;
+    }
+
+    @Override
+    public InputStream downloadFileByName(String name) {
+        S3ObjectInputStream finalObject = null;
+        if (amazonS3.doesBucketExistV2(BUCKET_NAME)) {
+            S3Object s3Object = amazonS3.getObject(BUCKET_NAME, "images/" + name);
+            finalObject = s3Object.getObjectContent();
+        }
+        return finalObject;
     }
 
     @Override

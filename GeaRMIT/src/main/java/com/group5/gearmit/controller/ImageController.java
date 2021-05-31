@@ -4,14 +4,10 @@ import com.group5.gearmit.dto.ImageDTO;
 import com.group5.gearmit.service.FileService;
 import com.group5.gearmit.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +17,9 @@ public class ImageController {
 
     @Autowired
     private ImageService imageService;
+
+    @Autowired
+    private FileService fileService;
 
     //    consumes = {MediaType.MULTIPART_FORM_DATA_VALUE, MediaType.APPLICATION_JSON_VALUE}
     @PostMapping(value = "/api/image")
@@ -35,15 +34,7 @@ public class ImageController {
     }
 
     @GetMapping(value = "/api/image/{filename}", produces = "image/*")
-    public FileSystemResource getImage(@PathVariable("filename") String filename) {
-        FileSystemResource fileSystemResource = null;
-        try {
-            Path imagePath = Paths.get("./images");
-            Files.createDirectories(imagePath);
-            fileSystemResource = new FileSystemResource("images/".concat(filename));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return fileSystemResource;
+    public InputStreamResource getImage(@PathVariable("filename") String filename) {
+        return new InputStreamResource(fileService.downloadFileByName(filename));
     }
 }

@@ -9,6 +9,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -69,7 +71,8 @@ public class AuthenticationServiceI implements AuthenticationService {
         tokenDAO.save(token);
 
         // Create email content
-        String confirmationUrl = "http://localhost:8080/api/regitrationConfirmed/" + tokenGenerated;
+        String confirmationUrl = "";
+        confirmationUrl = "http://gearmit-env.eba-mrcbnsqb.ap-southeast-1.elasticbeanstalk.com/api/regitrationConfirmed/" + tokenGenerated;
         String recipientAddress = user.getEmail();
         String subject = "Email Registration Confirmation";
         String senderAddress = "no-reply@geaRMIT.com";
