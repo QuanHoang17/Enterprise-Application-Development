@@ -1,6 +1,6 @@
 # GeaRMIT <img src="https://img.shields.io/badge/version-1.0-blue" />  <img src="https://img.shields.io/github/contributors/QuanHoang17/Enterprise-Application-Development" /> <img src="https://img.shields.io/badge/awesomeness-overloaded!-orange" /> 
 
-Website link: [Gearmit-env.eba-mrcbnsqb.ap-southeast-1.elasticbeanstalk.com]
+Website link: [Gearmit-env.eba-mrcbnsqb.ap-southeast-1.elasticbeanstalk.com](Gearmit-env.eba-mrcbnsqb.ap-southeast-1.elasticbeanstalk.com)
 
 ## Table of Contents
 * [Project Description](#description)
