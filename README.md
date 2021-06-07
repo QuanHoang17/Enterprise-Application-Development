@@ -1,6 +1,6 @@
 # GeaRMIT <img src="https://img.shields.io/badge/version-1.0-blue" />  <img src="https://img.shields.io/github/contributors/QuanHoang17/Enterprise-Application-Development" /> <img src="https://img.shields.io/badge/awesomeness-overloaded!-orange" /> 
 
-Website link: [Gearmit-env.eba-mrcbnsqb.ap-southeast-1.elasticbeanstalk.com](http://gearmit-env.eba-mrcbnsqb.ap-southeast-1.elasticbeanstalk.com/)
+**Website link:** [Gearmit-env.eba-mrcbnsqb.ap-southeast-1.elasticbeanstalk.com](http://gearmit-env.eba-mrcbnsqb.ap-southeast-1.elasticbeanstalk.com/)
 
 ## Table of Contents
 * [Project Description](#description)
@@ -99,7 +99,7 @@ Make sure you have Apache Maven 3.8 installed to quickly build and run the proje
 
 <a name="contributors"></a>
 ## Contributors
-- [Quan](https://github.com/QuanHoang17)
+- [Quan](https://github.com/minhquan1701)
 - [Long](https://github.com/dtnLong)
 - [Duy](https://github.com/DuyLe2000)
 - [Hoang](https://github.com/hoangdesu)
